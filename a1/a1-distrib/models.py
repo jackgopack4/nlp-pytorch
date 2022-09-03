@@ -2,6 +2,8 @@
 
 from sentiment_data import *
 from utils import *
+import string
+import numpy as np
 
 from collections import Counter
 
@@ -23,7 +25,8 @@ class FeatureExtractor(object):
         structure you prefer, since this does not interact with the framework code.
         """
         raise Exception("Don't call me, call my subclasses")
-
+    def build_vocab(self, examples: List[SentimentExample]):
+        raise Exception("Don't call me, call my subclasses")
 
 class UnigramFeatureExtractor(FeatureExtractor):
     """
@@ -31,7 +34,50 @@ class UnigramFeatureExtractor(FeatureExtractor):
     and any additional preprocessing you want to do.
     """
     def __init__(self, indexer: Indexer):
-        raise Exception("Must be implemented")
+        # stopwords downloaded from nltk corpus site
+        self.stopwords = np.loadtxt('data/stopwords',dtype='str')
+        #self.stopwords = [ 'stop', 'the', 'to', 'and', 'a', 'in', 'it', 'is', 'I', 'that', 'had', 'on', 'for', 'were', 'was', 'an','of','this','or']
+        # vocabulary is an Indexer? 
+        self.indexer = indexer
+        self.vocab = Beam(1000)
+        #raise Exception("Must be implemented")
+
+    def extract_features(self, sentence: List[str], add_to_indexer: bool = False) -> Counter:
+        
+        return 
+    
+    def get_indexer(self) -> Indexer:
+        return self.indexer
+
+    def get_vocab(self) -> Beam:
+        return self.vocab
+
+    def build_vocab(self, examples: List[SentimentExample]):
+        # reference: https://www.codespeedy.com/detect-if-a-string-contains-special-characters-or-not-in-python/#:~:text=%20string.punctuation%20to%20detect%20if%20a%20string%20contains,in%20x%29%3A%20print%20%28%22invalid%22%29%20else%3A%20print%28%22valid%22%29%20Output%3A%20valid
+        invalidcharacters = set(string.punctuation)
+        invalidcharacters.add(string.digits)
+        vocabCounter = Counter()
+        i:int = 0
+        for e in examples:
+            #print(e.words)
+            for w in e.words:
+                #worig = w
+                #w = w.lower()
+                if any(char in invalidcharacters for char in w):
+                    e.words.remove(w)
+            e.words = [x.lower() for x in e.words]
+            e.words = [word for word in e.words if word not in self.stopwords]
+        print(self.stopwords)
+        for e in examples:
+            #print(e.words)
+            vocabCounter.update(e.words)
+        #vocabCounter.update(examples[i].words)
+        for key, value in vocabCounter.items():
+            self.vocab.add(key,value)
+        print(self.vocab)
+        print(self.vocab.size)
+
+
 
 
 class BigramFeatureExtractor(FeatureExtractor):
@@ -76,8 +122,8 @@ class PerceptronClassifier(SentimentClassifier):
     superclass. Hint: you'll probably need this class to wrap both the weight vector and featurizer -- feel free to
     modify the constructor to pass these in.
     """
-    def __init__(self):
-        raise Exception("Must be implemented")
+    #def __init__(self):
+        #raise Exception("Must be implemented")
 
 
 class LogisticRegressionClassifier(SentimentClassifier):
@@ -97,7 +143,9 @@ def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureE
     :param feat_extractor: feature extractor to use
     :return: trained PerceptronClassifier model
     """
-    raise Exception("Must be implemented")
+    feat_extractor.build_vocab(train_exs)
+    return PerceptronClassifier
+    #raise Exception("Must be implemented")
 
 
 def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor: FeatureExtractor) -> LogisticRegressionClassifier:
