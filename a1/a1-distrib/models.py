@@ -4,6 +4,9 @@ from sentiment_data import *
 from utils import *
 import string
 import numpy as np
+import nltk
+from nltk.corpus import stopwords
+from nltk.util import bigrams
 
 from collections import Counter
 
@@ -11,6 +14,13 @@ class FeatureExtractor(object):
     """
     Feature extraction base type. Takes a sentence and returns an indexed list of features.
     """
+    def __init__(self,indexer: Indexer):
+        nltk.download('stopwords')
+        # stopwords downloaded from nltk corpus site
+        self.stopwords = set(stopwords.words('english'))
+        self.indexer = indexer
+        self.vocab = Beam(1000)
+    
     def get_indexer(self):
         raise Exception("Don't call me, call my subclasses")
 
@@ -32,16 +42,15 @@ class UnigramFeatureExtractor(FeatureExtractor):
     """
     Extracts unigram bag-of-words features from a sentence. It's up to you to decide how you want to handle counts
     and any additional preprocessing you want to do.
-    """
+    """"""
     def __init__(self, indexer: Indexer):
+        nltk.download('stopwords')
         # stopwords downloaded from nltk corpus site
-        self.stopwords = np.loadtxt('data/stopwords',dtype='str')
-        #self.stopwords = [ 'stop', 'the', 'to', 'and', 'a', 'in', 'it', 'is', 'I', 'that', 'had', 'on', 'for', 'were', 'was', 'an','of','this','or']
-        # vocabulary is an Indexer? 
+        self.stopwords = set(stopwords.words('english'))
         self.indexer = indexer
         self.vocab = Beam(1000)
         #raise Exception("Must be implemented")
-
+    """
     def extract_features(self, sentence: List[str], add_to_indexer: bool = False) -> Counter:
         
         return 
@@ -67,15 +76,14 @@ class UnigramFeatureExtractor(FeatureExtractor):
                     e.words.remove(w)
             e.words = [x.lower() for x in e.words]
             e.words = [word for word in e.words if word not in self.stopwords]
-        print(self.stopwords)
         for e in examples:
             #print(e.words)
             vocabCounter.update(e.words)
         #vocabCounter.update(examples[i].words)
         for key, value in vocabCounter.items():
             self.vocab.add(key,value)
-        print(self.vocab)
-        print(self.vocab.size)
+        #print(self.vocab)
+        #print(self.vocab.size)
 
 
 
@@ -84,8 +92,24 @@ class BigramFeatureExtractor(FeatureExtractor):
     """
     Bigram feature extractor analogous to the unigram one.
     """
-    def __init__(self, indexer: Indexer):
-        raise Exception("Must be implemented")
+    def build_vocab(self, examples: List[SentimentExample]):
+        invalidcharacters = set(string.punctuation)
+        invalidcharacters.add(string.digits)
+        vocabCounter = Counter()
+        i:int = 0
+        for e in examples:
+            for w in e.words:
+                if any(char in invalidcharacters for char in w):
+                    e.words.remove(w)
+            e.words = [x.lower() for x in e.words]
+            e.words = [word for word in e.words if word not in self.stopwords]
+        for e in examples:
+            vocabCounter.update(bigrams(e.words))
+        for key, value in vocabCounter.items():
+            self.vocab.add(key,value)
+        #print(self.vocab)
+    #def __init__(self, indexer: Indexer):
+    #    raise Exception("Must be implemented")
 
 
 class BetterFeatureExtractor(FeatureExtractor):
