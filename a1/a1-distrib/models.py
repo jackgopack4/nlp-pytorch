@@ -1,5 +1,6 @@
 # models.py
 
+from xmlrpc.client import Boolean
 from sentiment_data import *
 from utils import *
 import string
@@ -7,6 +8,7 @@ import numpy as np
 import nltk
 from nltk.corpus import stopwords
 from nltk.util import bigrams
+import random
 
 from collections import Counter
 
@@ -19,9 +21,31 @@ class FeatureExtractor(object):
         # stopwords downloaded from nltk corpus site
         self.stopwords = set(stopwords.words('english'))
         self.indexer = indexer
-        self.vocab = Beam(1000)
+        self.vocab = Counter()
+        self.invalidcharacters = set(string.punctuation)
+        self.invalidcharacters.update(set(string.digits))
+        self.invalidcharacters.add('\'')
+        self.invalidcharacters.add('\'')
+        self.invalidcharacters.add('\'')
+        self.invalidcharacters.add('-')
+        self.invalidcharacters.add(',')
+        random.seed(69,420)
+        # want to have featurizer as Beam?
     
     def get_indexer(self):
+        return self.indexer
+        #raise Exception("Don't call me, call my subclasses")
+    
+    def get_vocab(self) -> Counter:
+        return self.vocab
+
+    def is_unigram(self) -> Boolean:
+        raise Exception("Don't call me, call my subclasses")
+
+    def is_bigram(self) -> Boolean:
+        raise Exception("Don't call me, call my subclasses")
+
+    def is_bettergram(self) -> Boolean:
         raise Exception("Don't call me, call my subclasses")
 
     def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
@@ -35,6 +59,7 @@ class FeatureExtractor(object):
         structure you prefer, since this does not interact with the framework code.
         """
         raise Exception("Don't call me, call my subclasses")
+    
     def build_vocab(self, examples: List[SentimentExample]):
         raise Exception("Don't call me, call my subclasses")
 
@@ -51,39 +76,57 @@ class UnigramFeatureExtractor(FeatureExtractor):
         self.vocab = Beam(1000)
         #raise Exception("Must be implemented")
     """
-    def extract_features(self, sentence: List[str], add_to_indexer: bool = False) -> Counter:
-        
-        return 
-    
-    def get_indexer(self) -> Indexer:
-        return self.indexer
+    def is_unigram(self) -> Boolean:
+        return True
 
-    def get_vocab(self) -> Beam:
-        return self.vocab
+    def is_bigram(self) -> Boolean:
+        return False
+
+    def is_bettergram(self) -> Boolean:
+        return False
+    
+    def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
+        sentencelower = [x.lower() for x in sentence]
+        feats = Counter()
+        for w in sentencelower:
+            if w in self.vocab.keys():
+                feats.update([w])
+            else:
+                if add_to_indexer:
+                    # check if it has invalid characters. if not, add to vocab
+                    if not (any(char in self.invalidcharacters for char in w)):
+                        feats.update([w])
+                        self.vocab.update([w])
+
+        return feats
 
     def build_vocab(self, examples: List[SentimentExample]):
         # reference: https://www.codespeedy.com/detect-if-a-string-contains-special-characters-or-not-in-python/#:~:text=%20string.punctuation%20to%20detect%20if%20a%20string%20contains,in%20x%29%3A%20print%20%28%22invalid%22%29%20else%3A%20print%28%22valid%22%29%20Output%3A%20valid
-        invalidcharacters = set(string.punctuation)
-        invalidcharacters.add(string.digits)
         vocabCounter = Counter()
         i:int = 0
         for e in examples:
+            e.words = [x.lower() for x in e.words]
+            e.words = [word for word in e.words if word not in self.stopwords]
             #print(e.words)
             for w in e.words:
                 #worig = w
                 #w = w.lower()
-                if any(char in invalidcharacters for char in w):
-                    e.words.remove(w)
-            e.words = [x.lower() for x in e.words]
-            e.words = [word for word in e.words if word not in self.stopwords]
-        for e in examples:
-            #print(e.words)
+                for char in self.invalidcharacters:
+                    if char in w:
+                        e.words.remove(w)
+                        break
+                #if any(char in self.invalidcharacters for char in w):
+                #    e.words.remove(w)
             vocabCounter.update(e.words)
         #vocabCounter.update(examples[i].words)
-        for key, value in vocabCounter.items():
-            self.vocab.add(key,value)
+        self.vocab = vocabCounter
+        #for key, value in vocabCounter.items():
+        #    self.vocab.add(key,value)
         #print(self.vocab)
-        #print(self.vocab.size)
+        #print("vocab size: %d"%len(self.vocab.items()))
+        for f in self.vocab.most_common(15000):
+            self.indexer.add_and_get_index(f[0])
+        #print(self.indexer)
 
 
 
@@ -92,30 +135,65 @@ class BigramFeatureExtractor(FeatureExtractor):
     """
     Bigram feature extractor analogous to the unigram one.
     """
+    def is_unigram(self) -> Boolean:
+        return False
+
+    def is_bigram(self) -> Boolean:
+        return True
+
+    def is_bettergram(self) -> Boolean:
+        return False
+
     def build_vocab(self, examples: List[SentimentExample]):
-        invalidcharacters = set(string.punctuation)
-        invalidcharacters.add(string.digits)
         vocabCounter = Counter()
         i:int = 0
         for e in examples:
             for w in e.words:
-                if any(char in invalidcharacters for char in w):
+                if any(char in self.invalidcharacters for char in w):
                     e.words.remove(w)
             e.words = [x.lower() for x in e.words]
             e.words = [word for word in e.words if word not in self.stopwords]
         for e in examples:
             vocabCounter.update(bigrams(e.words))
-        for key, value in vocabCounter.items():
-            self.vocab.add(key,value)
+        self.vocab = vocabCounter
+        #for key, value in vocabCounter.items():
+        #    self.vocab.add(key,value)
         #print(self.vocab)
+        #print("vocab size: %d"%len(self.vocab.items()))
+        for f in self.vocab.most_common(52000):
+            self.indexer.add_and_get_index(f[0])
+        #print(self.indexer)
     #def __init__(self, indexer: Indexer):
     #    raise Exception("Must be implemented")
 
+    def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
+        sentencelower = [x.lower() for x in sentence]
+        feats = Counter()
+        for b in bigrams(sentencelower):
+            if b in self.vocab.keys():
+                feats.update([b])
+            else:
+                if add_to_indexer:
+                    # check if it has invalid characters. if not, add to vocab
+                    if (not any(char in self.invalidcharacters for char in b[0]) and
+                        not any(char in self.invalidcharacters for char in b[1])):
+                        feats.update([b])
+                        self.vocab.update([b])
+        return feats
 
 class BetterFeatureExtractor(FeatureExtractor):
     """
     Better feature extractor...try whatever you can think of!
     """
+    def is_unigram(self) -> Boolean:
+        return False
+
+    def is_bigram(self) -> Boolean:
+        return False
+
+    def is_bettergram(self) -> Boolean:
+        return True
+
     def __init__(self, indexer: Indexer):
         raise Exception("Must be implemented")
 
@@ -146,9 +224,30 @@ class PerceptronClassifier(SentimentClassifier):
     superclass. Hint: you'll probably need this class to wrap both the weight vector and featurizer -- feel free to
     modify the constructor to pass these in.
     """
-    #def __init__(self):
+    def __init__(self,featureExtractor:FeatureExtractor,weights,train_exs:List[SentimentExample]):
         #raise Exception("Must be implemented")
+        self.a:int = 1
+        weights = np.zeros(52000)
+        self.weights = weights
+        self.featureExtractor = featureExtractor
+        self.featureExtractor.build_vocab(train_exs)
 
+    def predict(self, sentence: List[str]) -> int:
+        # extract features
+        feats:Counter = self.featureExtractor.extract_features(sentence)
+        # get indices of those features
+        index:Indexer = self.featureExtractor.get_indexer()
+        weightsum:float = 0.0
+        # add up weights from weight vector
+        for f in feats.items():
+            if index.contains(f[0]):
+                i = index.add_and_get_index(f[0],False)
+                weightsum += self.weights[i]*f[1]
+        # return prediction (if >0, predict positive, else negative)
+        if weightsum>0:
+            return 1
+        else:
+            return 0
 
 class LogisticRegressionClassifier(SentimentClassifier):
     """
@@ -167,8 +266,52 @@ def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureE
     :param feat_extractor: feature extractor to use
     :return: trained PerceptronClassifier model
     """
-    feat_extractor.build_vocab(train_exs)
-    return PerceptronClassifier
+    weights = np.zeros(52000)
+    classifier = PerceptronClassifier(feat_extractor,weights,train_exs)
+    trainset_length = len(train_exs)
+    amount_incorrect = trainset_length
+    index = feat_extractor.get_indexer()
+    if(feat_extractor.is_unigram()):
+        lr:float = .25
+        target = 4
+    elif(feat_extractor.is_bigram()):
+        lr:float = 0.75
+        target = 38
+    else:
+        lr:float = 1
+        target = 0
+
+    epochs:int = 30
+    counter:int = 0
+    while(amount_incorrect>target):
+        if(50==counter):
+            lr /= 2
+        if 100==counter:
+            lr /= 2
+        if 200==counter:
+            lr /= 2
+        amount_incorrect = trainset_length
+        random.shuffle(train_exs)
+        for ex in train_exs:
+            label = ex.label
+            if label != classifier.predict(ex.words):
+                feats = feat_extractor.extract_features(ex.words)
+                feat_items = list(feats.items())
+                feat_keys = list(feats.keys())
+                for f in feat_items:
+                    if(index.contains(f[0])):
+                        j = index.add_and_get_index(f[0],False)
+                        #if(f[1]>2):
+                        #    print("there are %d occurrences of %s"%(f[1],f[0]))
+                        if(ex.label == 1):
+                            classifier.weights[j]+=lr*f[1]
+                        else:
+                            classifier.weights[j]-=lr*f[1]
+            else:
+                amount_incorrect-=1 
+        counter+=1
+    print("trainer ran for %d epochs"%counter)
+    return classifier
     #raise Exception("Must be implemented")
 
 

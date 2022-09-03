@@ -14,3 +14,8 @@
 0	... a sour little movie at its core ; an exploration of the emptiness that underlay the relentless gaiety of the 1920 's ... The film 's ending has a `` What was it all for ? ''
 0	The modern-day royals have nothing on these guys when it comes to scandals .
 0	It 's only in fairy tales that princesses that are married for political reason live happily ever after .
+1   good movie
+0   bad movie
+1   I love this
+0   I hate this
+1   Only the greatest thing ever since sliced bread
