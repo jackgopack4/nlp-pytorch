@@ -100,7 +100,7 @@ class UnigramFeatureExtractor(FeatureExtractor):
 
         return feats
 
-    def build_vocab(self, examples: List[SentimentExample]):
+    def build_vocab(self, examples: List[SentimentExample],size:int):
         # reference: https://www.codespeedy.com/detect-if-a-string-contains-special-characters-or-not-in-python/#:~:text=%20string.punctuation%20to%20detect%20if%20a%20string%20contains,in%20x%29%3A%20print%20%28%22invalid%22%29%20else%3A%20print%28%22valid%22%29%20Output%3A%20valid
         vocabCounter = Counter()
         i:int = 0
@@ -124,7 +124,7 @@ class UnigramFeatureExtractor(FeatureExtractor):
         #    self.vocab.add(key,value)
         #print(self.vocab)
         #print("vocab size: %d"%len(self.vocab.items()))
-        for f in self.vocab.most_common(15000):
+        for f in self.vocab.most_common(size):
             self.indexer.add_and_get_index(f[0])
         #print(self.indexer)
 
@@ -144,7 +144,7 @@ class BigramFeatureExtractor(FeatureExtractor):
     def is_bettergram(self) -> Boolean:
         return False
 
-    def build_vocab(self, examples: List[SentimentExample]):
+    def build_vocab(self, examples: List[SentimentExample],size:int):
         vocabCounter = Counter()
         i:int = 0
         for e in examples:
@@ -152,15 +152,17 @@ class BigramFeatureExtractor(FeatureExtractor):
                 if any(char in self.invalidcharacters for char in w):
                     e.words.remove(w)
             e.words = [x.lower() for x in e.words]
-            e.words = [word for word in e.words if word not in self.stopwords]
+            #e.words = [word for word in e.words if word not in self.stopwords]
         for e in examples:
-            vocabCounter.update(bigrams(e.words))
+            bgrm = list(bigrams(e.words))
+            bgrm = [bg for bg in bgrm if not (bg[0] in self.stopwords and bg[1] in self.stopwords)]
+            vocabCounter.update(bgrm)
         self.vocab = vocabCounter
         #for key, value in vocabCounter.items():
         #    self.vocab.add(key,value)
         #print(self.vocab)
         #print("vocab size: %d"%len(self.vocab.items()))
-        for f in self.vocab.most_common(52000):
+        for f in self.vocab.most_common(size):
             self.indexer.add_and_get_index(f[0])
         #print(self.indexer)
     #def __init__(self, indexer: Indexer):
@@ -224,13 +226,15 @@ class PerceptronClassifier(SentimentClassifier):
     superclass. Hint: you'll probably need this class to wrap both the weight vector and featurizer -- feel free to
     modify the constructor to pass these in.
     """
-    def __init__(self,featureExtractor:FeatureExtractor,weights,train_exs:List[SentimentExample]):
+    def __init__(self,featureExtractor:FeatureExtractor,weights,train_exs:List[SentimentExample],size:int):
         #raise Exception("Must be implemented")
         self.a:int = 1
-        weights = np.zeros(52000)
+        self.size=size
+        weights = np.zeros(self.size)
         self.weights = weights
         self.featureExtractor = featureExtractor
-        self.featureExtractor.build_vocab(train_exs)
+
+        self.featureExtractor.build_vocab(train_exs,self.size)
 
     def predict(self, sentence: List[str]) -> int:
         # extract features
@@ -255,8 +259,49 @@ class LogisticRegressionClassifier(SentimentClassifier):
     superclass. Hint: you'll probably need this class to wrap both the weight vector and featurizer -- feel free to
     modify the constructor to pass these in.
     """
-    def __init__(self):
-        raise Exception("Must be implemented")
+    def predict(self, sentence: List[str]) -> int:
+        feats:Counter = self.featureExtractor.extract_features(sentence)
+        index:Indexer = self.featureExtractor.get_indexer()
+        weightsum:float = 0.0
+        for f in feats.items():
+            if index.contains(f[0]):
+                i = index.index_of(f[0])
+                weightsum += self.weights[i]*f[1]
+        sig = self.sigmoid(weightsum)
+        if sig > 0.5:
+            return 1
+        else:
+            return 0
+
+    # adapted from https://medium.com/analytics-vidhya/logistic-regression-algorithm-from-scratch-with-python-447b17c7502
+    def sigmoid(self,z):
+        h = 1 / (1 + np.exp(-z))
+        return h
+    
+    def loss(self,sentence: List[str]) -> float:
+        feats:Counter = self.featureExtractor.extract_features(sentence)
+        index:Indexer = self.featureExtractor.get_indexer()
+        weightsum:float = 0.0
+        for f in feats.items():
+            if index.contains(f[0]):
+                i = index.index_of(f[0])
+                weightsum += self.weights[i]*f[1]
+        sig = self.sigmoid(weightsum)
+        return sig
+    def gradient(self,theta,X,y):
+        m = X.shape[0]
+        temp = self.sigmoid(np.dot(X,theta)) - y
+        grad = np.dot(temp.T,X).T / m
+        return grad
+    
+    def __init__(self,featureExtractor:FeatureExtractor,weights,train_exs:List[SentimentExample],size:int):
+        self.size = size
+        #weights = np.zeros(size)
+        self.weights = weights
+        self.featureExtractor = featureExtractor
+        self.featureExtractor.build_vocab(train_exs,size)
+        m = len(train_exs)
+        
 
 
 def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureExtractor) -> PerceptronClassifier:
@@ -266,8 +311,15 @@ def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureE
     :param feat_extractor: feature extractor to use
     :return: trained PerceptronClassifier model
     """
-    weights = np.zeros(52000)
-    classifier = PerceptronClassifier(feat_extractor,weights,train_exs)
+    size:int
+    if(feat_extractor.is_unigram()):
+        size = 15000
+    elif(feat_extractor.is_bigram()):
+        size = 52000
+    else:
+        size = 5000
+    weights = np.zeros(size)
+    classifier = PerceptronClassifier(feat_extractor,weights,train_exs,size)
     trainset_length = len(train_exs)
     amount_incorrect = trainset_length
     index = feat_extractor.get_indexer()
@@ -322,7 +374,84 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     :param feat_extractor: feature extractor to use
     :return: trained LogisticRegressionClassifier model
     """
-    raise Exception("Must be implemented")
+    if feat_extractor.is_unigram():
+        epochs = 150
+        alpha = 100
+        size = 13528
+        target = 100
+    elif feat_extractor.is_bigram():
+        epochs = 200
+        size = 61983
+        alpha:float = 100
+        target = 20
+    else:
+        size = 13000
+    weights = np.random.uniform(-0.01,0.01,size) # initialize to random values between -0.01 and 0.01
+    print(weights)
+    classifier = LogisticRegressionClassifier(feat_extractor,weights,train_exs,size)
+    index = feat_extractor.get_indexer()
+    m = len(train_exs)
+    print("training set length: ",m)
+    print("vocab size: ", len(feat_extractor.get_vocab()))
+    weightchange = np.zeros(size)
+    weightdelta = 0.0
+    amount_incorrect = m
+    i=0
+    while(amount_incorrect>target):
+        amount_incorrect=m        
+        print("epoch: ",i)
+        if feat_extractor.is_unigram():
+            if i % 40 == 0 and i != 0:
+                alpha /= 1.25
+                print("learning rate ",alpha)
+        elif feat_extractor.is_bigram():
+            if i % 35 == 0 and i != 0:
+                alpha /= 1.5
+                print("learning rate ", alpha)
+                print("weights: ",classifier.weights)
+        prevweightchange = weightchange
+        prevweightdelta = weightdelta
+        weightchange = np.zeros(size)
+        #random.shuffle(train_exs)
+        for ex in train_exs:
+            label = ex.label
+            weightsum:float = 0.0
+            feats = feat_extractor.extract_features(ex.words)
+            feat_items = list(feats.items())
+            feat_keys = list(feats.keys())
+            feat_values = list(feats.values())
+            for f in feat_items:
+                if index.contains(f[0]):
+                    j = index.index_of(f[0])
+                    jweight = classifier.weights[j]
+                    feat_frequency = f[1]
+                    weightsum += jweight*feat_frequency
+            sig = classifier.sigmoid(weightsum)
+            if(sig>0.5 and label == 1) or (sig<=0.5 and label == 0):
+                amount_incorrect-=1
+            #sig = classifier.loss(ex.words)
+            temp = sig-label
+            feat_len = len(feat_items)
+            for f in feat_items:
+                if(index.contains(f[0])):
+                    j = index.index_of(f[0])
+                    tempupdate = temp*f[1]
+                    if(j == 61982):
+                        print("weight delta before update: ",weightchange[j])
+                        print("classifier weight: ",classifier.weights[j])
+                        print("amount to add to weightchange: ",-alpha*(1/m)*tempupdate)
+                    weightchange[j]-=alpha*(1/m)*tempupdate
+        #weightchange = weightchange
+        weightdelta = np.linalg.norm(weightchange-prevweightchange)
+        print("weightdelta ", weightdelta)
+        print("change from last time ",weightdelta-prevweightdelta)
+        #print(weightchange)
+        classifier.weights+=weightchange
+        print("amount incorrect: ",amount_incorrect)
+        i+=1
+    return classifier
+
+    #raise Exception("Must be implemented")
 
 
 def train_model(args, train_exs: List[SentimentExample], dev_exs: List[SentimentExample]) -> SentimentClassifier:
