@@ -30,7 +30,7 @@ class FeatureExtractor(object):
         self.invalidcharacters.add('\'')
         self.invalidcharacters.add('-')
         self.invalidcharacters.add(',')
-        random.seed(69,420)
+        random.seed(69)
         np.random.seed(69420)
         # want to have featurizer as Beam?
     
@@ -130,9 +130,6 @@ class UnigramFeatureExtractor(FeatureExtractor):
         for f in self.vocab.most_common(size):
             self.indexer.add_and_get_index(f[0])
         #print(self.indexer)
-
-
-
 
 class BigramFeatureExtractor(FeatureExtractor):
     """
@@ -425,10 +422,13 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     :param feat_extractor: feature extractor to use
     :return: trained LogisticRegressionClassifier model
     """
+
+    random.seed(0)
+    np.random.seed(0)
     if feat_extractor.is_unigram():
-        epochs = 75
-        alpha:float = 30
-        size = 13500
+        epochs = 39
+        alpha:float = 50
+        size = 13528
         target = 95
     elif feat_extractor.is_bigram():
         epochs = 90
@@ -444,7 +444,7 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     #print(weights)
     classifier = LogisticRegressionClassifier(feat_extractor,weights,train_exs,size)
     index = feat_extractor.get_indexer()
-    m = len(train_exs)
+    m:float = len(train_exs)
     #print("training set length: ",m)
     #print("vocab size: ", len(feat_extractor.get_vocab()))
     weightchange = np.zeros(size)
@@ -453,6 +453,7 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     i=0
     random.shuffle(train_exs)
     while(i<epochs):
+        #random.shuffle(train_exs)
         amount_incorrect=m        
         if feat_extractor.is_unigram():
             if i % 450 == 0 and i != 0:
@@ -501,13 +502,14 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
                     weightchange[j]-=alpha*(1/m)*tempupdate
         #weightchange = weightchange
         weightdelta = np.linalg.norm(weightchange-prevweightchange)
-        
-        #print("epoch: ",i)
-        #print("weightdelta ", weightdelta)
-        #print("change from last time ",weightdelta-prevweightdelta)
-        #print(weightchange)
+        """
+        print("epoch: ",i)
+        print("weightdelta ", weightdelta)
+        print("change from last time ",weightdelta-prevweightdelta)
+        print(weightchange)
+        print("amount incorrect: ",amount_incorrect)
+        """
         classifier.weights+=weightchange
-        #print("amount incorrect: ",amount_incorrect)
         i+=1
     return classifier
 
