@@ -8,6 +8,7 @@ import numpy as np
 import nltk
 from nltk.corpus import stopwords
 from nltk.util import bigrams
+from nltk.util import ngrams
 import random
 
 from collections import Counter
@@ -87,6 +88,7 @@ class UnigramFeatureExtractor(FeatureExtractor):
     
     def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
         sentencelower = [x.lower() for x in sentence]
+        sentencelower = [ word for word in sentencelower if word not in self.stopwords]
         feats = Counter()
         for w in sentencelower:
             if w in self.vocab.keys():
@@ -152,10 +154,10 @@ class BigramFeatureExtractor(FeatureExtractor):
                 if any(char in self.invalidcharacters for char in w):
                     e.words.remove(w)
             e.words = [x.lower() for x in e.words]
-            #e.words = [word for word in e.words if word not in self.stopwords]
+            e.words = [word for word in e.words if word not in self.stopwords]
         for e in examples:
             bgrm = list(bigrams(e.words))
-            bgrm = [bg for bg in bgrm if not (bg[0] in self.stopwords and bg[1] in self.stopwords)]
+            #bgrm = [bg for bg in bgrm if not (bg[0] in self.stopwords or bg[1] in self.stopwords)]
             vocabCounter.update(bgrm)
         self.vocab = vocabCounter
         #for key, value in vocabCounter.items():
@@ -169,7 +171,11 @@ class BigramFeatureExtractor(FeatureExtractor):
     #    raise Exception("Must be implemented")
 
     def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
+        for w in sentence:
+                if any(char in self.invalidcharacters for char in w):
+                    sentence.remove(w)
         sentencelower = [x.lower() for x in sentence]
+        sentencelower = [word for word in sentencelower if word not in self.stopwords]
         feats = Counter()
         for b in bigrams(sentencelower):
             if b in self.vocab.keys():
@@ -186,6 +192,7 @@ class BigramFeatureExtractor(FeatureExtractor):
 class BetterFeatureExtractor(FeatureExtractor):
     """
     Better feature extractor...try whatever you can think of!
+    Trying 3-grams first.
     """
     def is_unigram(self) -> Boolean:
         return False
@@ -196,8 +203,47 @@ class BetterFeatureExtractor(FeatureExtractor):
     def is_bettergram(self) -> Boolean:
         return True
 
-    def __init__(self, indexer: Indexer):
-        raise Exception("Must be implemented")
+    def build_vocab(self, examples: List[SentimentExample],size:int):
+        vocabCounter = Counter()
+        i:int = 0
+        for e in examples:
+            for w in e.words:
+                if any(char in self.invalidcharacters for char in w):
+                    e.words.remove(w)
+            e.words = [x.lower() for x in e.words]
+            e.words = [word for word in e.words if word not in self.stopwords]
+        for e in examples:
+            ngrm = list(ngrams(e.words,3))
+            #ngrm = [ng for ng in ngrm if not (ng[0] in self.stopwords or ng[1] in self.stopwords or ng[2] in self.stopwords)]
+            vocabCounter.update(ngrm)
+        self.vocab = vocabCounter
+        #for key, value in vocabCounter.items():
+        #    self.vocab.add(key,value)
+        #print(self.vocab)
+        #print("vocab size: %d"%len(self.vocab.items()))
+        for f in self.vocab.most_common(size):
+            self.indexer.add_and_get_index(f[0])
+        #print(self.indexer)
+    def extract_features(self, sentence: List[str], add_to_indexer: bool=False) -> Counter:
+        for w in sentence:
+                if any(char in self.invalidcharacters for char in w):
+                    sentence.remove(w)
+        sentencelower = [x.lower() for x in sentence]
+        sentencelower = [word for word in sentencelower if word not in self.stopwords]
+        feats = Counter()
+        for n in ngrams(sentencelower,3):
+            if n in self.vocab.keys():
+                feats.update([n])
+            else:
+                if add_to_indexer:
+                    # check if it has invalid characters. if not, add to vocab
+                    if (not any(char in self.invalidcharacters for char in n[0]) and
+                        not any(char in self.invalidcharacters for char in n[1]) and
+                        not any(char in self.invalidcharacters for char in n[2])):
+                        feats.update([n])
+                        self.vocab.update([n])
+        return feats
+
 
 
 class SentimentClassifier(object):
@@ -288,11 +334,6 @@ class LogisticRegressionClassifier(SentimentClassifier):
                 weightsum += self.weights[i]*f[1]
         sig = self.sigmoid(weightsum)
         return sig
-    def gradient(self,theta,X,y):
-        m = X.shape[0]
-        temp = self.sigmoid(np.dot(X,theta)) - y
-        grad = np.dot(temp.T,X).T / m
-        return grad
     
     def __init__(self,featureExtractor:FeatureExtractor,weights,train_exs:List[SentimentExample],size:int):
         self.size = size
@@ -378,14 +419,17 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
         epochs = 150
         alpha = 100
         size = 13528
-        target = 100
+        target = 95
     elif feat_extractor.is_bigram():
         epochs = 200
-        size = 61983
-        alpha:float = 100
-        target = 20
+        size = 51863
+        alpha:float = 10
+        target = 100
     else:
-        size = 13000
+        epochs = 500
+        size = 87996
+        alpha:float = 5
+        target = 150
     weights = np.random.uniform(-0.01,0.01,size) # initialize to random values between -0.01 and 0.01
     print(weights)
     classifier = LogisticRegressionClassifier(feat_extractor,weights,train_exs,size)
@@ -401,13 +445,18 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
         amount_incorrect=m        
         print("epoch: ",i)
         if feat_extractor.is_unigram():
-            if i % 40 == 0 and i != 0:
+            if i % 80 == 0 and i != 0:
                 alpha /= 1.25
                 print("learning rate ",alpha)
         elif feat_extractor.is_bigram():
-            if i % 35 == 0 and i != 0:
+            if i % 100 == 0 and i != 0:
                 alpha /= 1.5
                 print("learning rate ", alpha)
+                print("weights: ",classifier.weights)
+        else:
+            if i % 20 == 0 and i != 0:
+                alpha /= 2
+                print("learning rate: ",alpha)
                 print("weights: ",classifier.weights)
         prevweightchange = weightchange
         prevweightdelta = weightdelta
