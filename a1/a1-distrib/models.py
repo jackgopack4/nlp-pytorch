@@ -31,6 +31,7 @@ class FeatureExtractor(object):
         self.invalidcharacters.add('-')
         self.invalidcharacters.add(',')
         random.seed(69,420)
+        np.random.seed(69420)
         # want to have featurizer as Beam?
     
     def get_indexer(self):
@@ -203,8 +204,15 @@ class BetterFeatureExtractor(FeatureExtractor):
     def is_bettergram(self) -> Boolean:
         return True
 
+    def __init__(self, indexer:Indexer):
+        super().__init__(indexer)
+        self.unigramclass = UnigramFeatureExtractor(indexer)
+
     def build_vocab(self, examples: List[SentimentExample],size:int):
+        self.unigramclass.build_vocab(examples,size)
+        self.unigram_vocab = self.unigramclass.get_vocab()
         vocabCounter = Counter()
+        vocabCounter.update(self.unigram_vocab)
         i:int = 0
         for e in examples:
             for w in e.words:
@@ -242,6 +250,8 @@ class BetterFeatureExtractor(FeatureExtractor):
                         not any(char in self.invalidcharacters for char in n[2])):
                         feats.update([n])
                         self.vocab.update([n])
+        unigramfeats = self.unigramclass.extract_features(sentencelower,add_to_indexer)
+        feats.update(unigramfeats)
         return feats
 
 
@@ -403,7 +413,7 @@ def train_perceptron(train_exs: List[SentimentExample], feat_extractor: FeatureE
             else:
                 amount_incorrect-=1 
         counter+=1
-    print("trainer ran for %d epochs"%counter)
+    #print("trainer ran for %d epochs"%counter)
     return classifier
     #raise Exception("Must be implemented")
 
@@ -416,52 +426,51 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     :return: trained LogisticRegressionClassifier model
     """
     if feat_extractor.is_unigram():
-        epochs = 150
-        alpha = 100
-        size = 13528
+        epochs = 75
+        alpha:float = 30
+        size = 13500
         target = 95
     elif feat_extractor.is_bigram():
-        epochs = 200
+        epochs = 90
         size = 51863
-        alpha:float = 10
+        alpha:float = 2
         target = 100
     else:
-        epochs = 500
-        size = 87996
-        alpha:float = 5
-        target = 150
+        epochs = 100
+        size = 62434
+        alpha:float = 50
+        target = 1
     weights = np.random.uniform(-0.01,0.01,size) # initialize to random values between -0.01 and 0.01
-    print(weights)
+    #print(weights)
     classifier = LogisticRegressionClassifier(feat_extractor,weights,train_exs,size)
     index = feat_extractor.get_indexer()
     m = len(train_exs)
-    print("training set length: ",m)
-    print("vocab size: ", len(feat_extractor.get_vocab()))
+    #print("training set length: ",m)
+    #print("vocab size: ", len(feat_extractor.get_vocab()))
     weightchange = np.zeros(size)
     weightdelta = 0.0
     amount_incorrect = m
     i=0
-    while(amount_incorrect>target):
+    random.shuffle(train_exs)
+    while(i<epochs):
         amount_incorrect=m        
-        print("epoch: ",i)
         if feat_extractor.is_unigram():
+            if i % 450 == 0 and i != 0:
+                alpha /= 1.5
+                #print("learning rate ",alpha)
+        elif feat_extractor.is_bigram():
             if i % 80 == 0 and i != 0:
                 alpha /= 1.25
-                print("learning rate ",alpha)
-        elif feat_extractor.is_bigram():
-            if i % 100 == 0 and i != 0:
-                alpha /= 1.5
-                print("learning rate ", alpha)
-                print("weights: ",classifier.weights)
+                #print("learning rate ", alpha)
+                #print("weights: ",classifier.weights)
         else:
-            if i % 20 == 0 and i != 0:
-                alpha /= 2
-                print("learning rate: ",alpha)
-                print("weights: ",classifier.weights)
+            if i % 80== 0 and i != 0:
+                alpha /= 1.25
+                #print("learning rate: ",alpha)
+                #print("weights: ",classifier.weights)
         prevweightchange = weightchange
         prevweightdelta = weightdelta
         weightchange = np.zeros(size)
-        #random.shuffle(train_exs)
         for ex in train_exs:
             label = ex.label
             weightsum:float = 0.0
@@ -485,18 +494,20 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
                 if(index.contains(f[0])):
                     j = index.index_of(f[0])
                     tempupdate = temp*f[1]
-                    if(j == 61982):
-                        print("weight delta before update: ",weightchange[j])
-                        print("classifier weight: ",classifier.weights[j])
-                        print("amount to add to weightchange: ",-alpha*(1/m)*tempupdate)
+                    #if(j == 61982):
+                        #print("weight delta before update: ",weightchange[j])
+                        #print("classifier weight: ",classifier.weights[j])
+                        #print("amount to add to weightchange: ",-alpha*(1/m)*tempupdate)
                     weightchange[j]-=alpha*(1/m)*tempupdate
         #weightchange = weightchange
         weightdelta = np.linalg.norm(weightchange-prevweightchange)
-        print("weightdelta ", weightdelta)
-        print("change from last time ",weightdelta-prevweightdelta)
+        
+        #print("epoch: ",i)
+        #print("weightdelta ", weightdelta)
+        #print("change from last time ",weightdelta-prevweightdelta)
         #print(weightchange)
         classifier.weights+=weightchange
-        print("amount incorrect: ",amount_incorrect)
+        #print("amount incorrect: ",amount_incorrect)
         i+=1
     return classifier
 
