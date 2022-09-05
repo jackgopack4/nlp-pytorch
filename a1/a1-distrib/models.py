@@ -426,8 +426,8 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
     random.seed(0)
     np.random.seed(0)
     if feat_extractor.is_unigram():
-        epochs = 39
-        alpha:float = 50
+        epochs = 75
+        alpha:float = 40
         size = 13528
         target = 95
     elif feat_extractor.is_bigram():
@@ -456,8 +456,8 @@ def train_logistic_regression(train_exs: List[SentimentExample], feat_extractor:
         #random.shuffle(train_exs)
         amount_incorrect=m        
         if feat_extractor.is_unigram():
-            if i % 450 == 0 and i != 0:
-                alpha /= 1.5
+            if i % 30 == 0 and i != 0:
+                alpha /= 2
                 #print("learning rate ",alpha)
         elif feat_extractor.is_bigram():
             if i % 80 == 0 and i != 0:
