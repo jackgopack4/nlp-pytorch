@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Dynamic Python: File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Attach",
+            "type": "python",
+            "request": "attach",
+            "console": "integratedTerminal",
+            "connect": {
+              "host": "127.0.0.1",
+              "port": 5678
+            }
+        }
+    ]
+}

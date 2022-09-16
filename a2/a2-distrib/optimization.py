@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 ### 
 # IMPLEMENT ME! REPLACE WITH YOUR ANSWER TO PART 1B
-OPTIMAL_STEP_SIZE = 1.0
+OPTIMAL_STEP_SIZE = 0.105 # Any value between 0.103216 and 0.108981 will result in 10 epochs
 ###
 
 def _parse_args():
@@ -23,6 +23,10 @@ def _parse_args():
     args = parser.parse_args()
     return args
 
+def point_distance(p1,p2):
+    # calculates distance between two points
+    # take in two numpy arrays
+    return np.sqrt(np.square(p1[0]-p2[0])+np.square(p1[1]-p2[1]))
 
 def quadratic(x1, x2):
     """
@@ -41,7 +45,10 @@ def quadratic_grad(x1, x2):
     :param x2: second coordinate
     :return: a two-dimensional numpy array containing the gradient
     """
-    raise Exception("Implement me!")
+    g1 = 2*(x1-1)
+    g2 = 16*(x2-1)
+    return np.array([g1,g2])
+    #raise Exception("Implement me!")
 
 
 def sgd_test_quadratic(args):
@@ -60,13 +67,16 @@ def sgd_test_quadratic(args):
             raise Exception("Gradient must be a two-dimensional array (vector containing [df/dx1, df/dx2])")
         next_point = curr_point - args.lr * grad
         points_history.append(curr_point)
-        print("Point after epoch %i: %s" % (iter, repr(next_point)))
+        difference = point_distance(np.array([1,1]),next_point)
+        print("Point after epoch %i: %s, distance: %f" % (iter+1, repr(next_point),difference))
+        #if(difference<0.1):
+        #    break
         curr_point = next_point
     points_history.append(curr_point)
     cp = plt.contourf(X, Y, Z)
     plt.colorbar(cp)
     plt.plot([p[0] for p in points_history], [p[1] for p in points_history], color='k', linestyle='-', linewidth=1, marker=".")
-    plt.title('SGD on quadratic')
+    plt.title('SGD on quadratic for lr %f'%args.lr)
     plt.xlabel('x')
     plt.ylabel('y')
     plt.show()
