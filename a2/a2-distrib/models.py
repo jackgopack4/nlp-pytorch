@@ -108,7 +108,7 @@ class NeuralSentimentClassifier(SentimentClassifier, nn.Module):
         #print(ex_words)
         with torch.no_grad():
             x = self.form_input(ex_words)
-            log_probs = self.forward(x)
+            log_probs = self(x)
         #print(log_probs)
         prediction = torch.argmin(log_probs)
         #print("prediction: %f"%prediction)
@@ -213,7 +213,7 @@ def train_deep_averaging_network(args, train_exs: List[SentimentExample], dev_ex
             y_onehot.scatter_(0, y, 1.0)
             #print(x)
             #print(y)
-            log_probs = DAN.forward(x)
+            log_probs = DAN(x)
             DAN.zero_grad()
             #print(log_probs)
             #print(y_onehot)
@@ -229,15 +229,15 @@ def train_deep_averaging_network(args, train_exs: List[SentimentExample], dev_ex
             y = holdout_labels[idx].long()
             y_onehot = torch.zeros(num_classes,dtype=torch.long)
             y_onehot.scatter_(0,y,1.0)
-            log_probs = DAN.forward(x)
+            log_probs = DAN(x)
             loss = loss_func(log_probs,y_onehot)
             holdout_loss += loss.item()*x.size(0)
         scheduler.step(holdout_loss/holdout_examples)
         curr_lr = optimizer.param_groups[0]['lr']
-        print(f'Epoch {epoch}\t \
-            Training Loss: {train_loss/train_examples}\t \
-            Validation Loss: {holdout_loss/holdout_examples}\t \
-            LR:{curr_lr}')
+        #print(f'Epoch {epoch}\t \
+        #    Training Loss: {train_loss/train_examples}\t \
+        #    Validation Loss: {holdout_loss/holdout_examples}\t \
+        #    LR:{curr_lr}')
         #print("train loss for epoch %i: %f"%(epoch,train_loss))
     return DAN
 
