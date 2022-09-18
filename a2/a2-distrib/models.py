@@ -67,12 +67,13 @@ class NeuralSentimentClassifier(SentimentClassifier, nn.Module):
         super(NeuralSentimentClassifier, self).__init__()
         self.V = nn.Linear(inp, hid)
         # self.g = nn.Tanh()
+        self.dd = nn.Dropout(p=0.1)
         self.g = nn.ReLU()
         self.W = nn.Linear(hid, out)
         self.log_softmax = nn.LogSoftmax(dim=0) # if we use CrossEntropy loss don't need, only with NLL
         # Initialize weights according to a formula due to Xavier Glorot.
-        nn.init.xavier_uniform_(self.V.weight) # look up ways to initialize
-        nn.init.xavier_uniform_(self.W.weight)
+        nn.init.kaiming_uniform_(self.V.weight) # look up ways to initialize
+        nn.init.kaiming_uniform_(self.W.weight)
         # Initialize with zeros instead
         # nn.init.zeros_(self.V.weight)
         # nn.init.zeros_(self.W.weight)    
@@ -90,7 +91,7 @@ class NeuralSentimentClassifier(SentimentClassifier, nn.Module):
         :return: an [out]-sized tensor of log probabilities. (In general your network can be set up to return either log
         probabilities or a tuple of (loss, log probability) if you want to pass in y to this function as well
         """
-        return self.log_softmax(self.W(self.g(self.V(x))))
+        return self.log_softmax(self.W(self.g(self.dd(self.V(x)))))
     # def predict() from SentimentClassifier
         # get sentence embedding for ex_words (1)
         # return torch.argmax of the forward function return
@@ -102,10 +103,15 @@ class NeuralSentimentClassifier(SentimentClassifier, nn.Module):
         :param ex_words: words to predict on
         :return: 0 or 1 with the label
         """
+        device = torch.device("mps")
         self.eval()
-        x = self.form_input(ex_words)
-        log_probs = self.forward(x)
-        prediction = torch.argmax(log_probs)
+        #print(ex_words)
+        with torch.no_grad():
+            x = self.form_input(ex_words)
+            log_probs = self.forward(x)
+        #print(log_probs)
+        prediction = torch.argmin(log_probs)
+        #print("prediction: %f"%prediction)
         return prediction
 
     # consider forming the inputs here, instead of in train function
@@ -143,52 +149,96 @@ def train_deep_averaging_network(args, train_exs: List[SentimentExample], dev_ex
     # nn.NLLLoss()
     # nn.CrossEntropy() includes softmax, otherwise put LogSoftmax() in forward function
     # formatting data - pre-prepare indices in the word embeddings word_indexer
+    
+    device = torch.device("mps")
     feat_vec_size = word_embeddings.get_embedding_length()
-    embedding_size = 10
+    #embedding_size = args.hidden_size
+    embedding_size = 100
     num_examples = len(train_exs)
+    train_examples = int(np.floor(num_examples*0.90))
+    #print(train_examples)
+    holdout_examples = num_examples-train_examples
     num_classes = 2
-    embed_dataset = torch.zeros([num_examples,feat_vec_size],dtype=torch.float)
-    #print(embed_dataset)
-    embed_labels = torch.zeros([num_examples],dtype=torch.float)
+    #print([train_examples,feat_vec_size])
+    train_dataset = torch.zeros([train_examples,feat_vec_size],dtype=torch.float)
+    #print(train_dataset)
+    holdout_dataset = torch.zeros([holdout_examples,feat_vec_size],dtype=torch.float)
+    train_labels = torch.zeros([train_examples],dtype=torch.float)
+    holdout_labels = torch.zeros([holdout_examples],dtype=torch.float)
     i=0
-    for e in train_exs:
-        l = len(e.words)
+    j=0
+    ex_indices = [i for i in range(0,num_examples)]
+    random.shuffle(ex_indices)
+    for idx in ex_indices:
+        l = len(train_exs[idx].words)
         temp = [0] * feat_vec_size
-        for w in e.words:
+        for w in train_exs[idx].words:
             embeddings = word_embeddings.get_embedding(w)
-            #print(embeddings)
-            #print('embedding length %d'%(len(embeddings)))
-            temp += embeddings
+            temp+= embeddings
         temp = [i/l for i in temp]
-        embed_dataset[i] = torch.tensor(temp,dtype=torch.float)
-        embed_labels[i] = e.label
+        if i<train_examples:
+            train_dataset[i] = torch.tensor(temp,dtype=torch.float)
+            train_labels[i] = train_exs[idx].label
+        else:
+            holdout_dataset[j] = torch.tensor(temp,dtype=torch.float)
+            holdout_labels[j] = train_exs[idx].label
+            j+=1
         i+=1
-    #print(embed_dataset)
-    #print(embed_labels)
-    num_epochs = 10
+    
+    #print(train_dataset)
+    #print(train_labels)
+    # num_epochs on commandline
+    num_epochs = 100
+    #num_epochs = args.num_epochs
     DAN = NeuralSentimentClassifier(feat_vec_size,embedding_size,num_classes,word_embeddings)
-    initial_learning_rate = 0.1
+    
+    #initial_learning_rate = args.lr 
+    initial_learning_rate = 0.0001
     optimizer = optim.Adam(DAN.parameters(), lr = initial_learning_rate)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 10,factor=0.5)
+    loss_func = nn.NLLLoss()
     for epoch in range(0,num_epochs):
-        ex_indices = [i for i in range(0,num_examples)]
-        random.shuffle(ex_indices)
-        total_loss = 0.0
-        for idx in ex_indices:
-            x = embed_dataset[idx]
-            y = embed_labels[idx].long()
+        train_indices = [i for i in range(0,train_examples)]
+        random.shuffle(train_indices)
+        train_loss = 0.0
+        holdout_loss = 0.0
+        DAN.train()
+        for idx in train_indices:
+            x = train_dataset[idx]
+            y = train_labels[idx].long()
             y_onehot = torch.zeros(num_classes,dtype=torch.long)
             # scatter will write the value of 1 into the position of y_onehot given by y
-            y_onehot.scatter_(0, torch.from_numpy(np.asarray(y,dtype=np.int64)), 1)
+            #print(y)
+            #print(y_onehot)
+            y_onehot.scatter_(0, y, 1.0)
             #print(x)
             #print(y)
+            log_probs = DAN.forward(x)
             DAN.zero_grad()
-            log_probs = DAN.forward(x).float()
             #print(log_probs)
-            loss = nn.NLLLoss()
-            output = loss(log_probs,y_onehot)
-            total_loss += output
-            output.backward()
+            #print(y_onehot)
+            loss = loss_func(log_probs,y_onehot)
+            optimizer.zero_grad()
+            loss.backward()
             optimizer.step()
+            train_loss += loss.item()*x.size(0)
+        holdout_indices = [i for i in range(0,holdout_examples)]
+        DAN.eval()
+        for idx in holdout_indices:
+            x = holdout_dataset[idx]
+            y = holdout_labels[idx].long()
+            y_onehot = torch.zeros(num_classes,dtype=torch.long)
+            y_onehot.scatter_(0,y,1.0)
+            log_probs = DAN.forward(x)
+            loss = loss_func(log_probs,y_onehot)
+            holdout_loss += loss.item()*x.size(0)
+        scheduler.step(holdout_loss/holdout_examples)
+        curr_lr = optimizer.param_groups[0]['lr']
+        print(f'Epoch {epoch}\t \
+            Training Loss: {train_loss/train_examples}\t \
+            Validation Loss: {holdout_loss/holdout_examples}\t \
+            LR:{curr_lr}')
+        #print("train loss for epoch %i: %f"%(epoch,train_loss))
     return DAN
 
     # LATER ON/OPTIMIZATION - do any padding or truncation need for my implementation
