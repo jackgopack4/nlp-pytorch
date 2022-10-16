@@ -79,12 +79,14 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         self.layers = 1
         self.rnn = nn.LSTM(self.input_size, self.hidden_size, num_layers=self.layers, dropout=dropout)
         self.init_weight()
-        self.classifier = nn.Linear(hidden_size, 2)
+        self.linear = nn.Linear(hidden_size, 2)
         self.debug = False
+        self.dd = nn.Dropout(p=0.2)
+        self.sm = nn.Softmax(dim=1)
     
     def form_input(self,phrase) -> torch.Tensor:
         charlist = list(phrase)
-        chartensor = torch.zeros(20,dtype=torch.float)
+        chartensor = torch.zeros(20,dtype=torch.long)
         i:int = 0
         for c in charlist:
             chartensor[i]=self.vocab_index.index_of(c)
@@ -97,16 +99,19 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         x = self.form_input(input)
         #print(x.size())
         #print(input)
-        output, (hn,cn) = self.rnn(x)
+        probs = self.forward(x)
         #print(output)
-        prediction = torch.argmin(output)
+        #print(h[:,-1])
+        #probs = self.sm(self.linear(self.dd(h[:,-1])))
+        prediction = torch.argmax(probs)
+        print(prediction)
         return prediction
 
     def init_weight(self):
         nn.init.xavier_uniform_(self.rnn.weight_hh_l0)
         nn.init.xavier_uniform_(self.rnn.weight_ih_l0)
-        #nn.init.xavier_uniform_(self.rnn.bias_hh_l0)
-        #nn.init.xavier_uniform_(self.rnn.bias_ih_l0)
+        nn.init.uniform_(self.rnn.bias_hh_l0)
+        nn.init.uniform_(self.rnn.bias_ih_l0)
 
     def forward(self, input):
         #print(input)
@@ -118,8 +123,8 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         #print(embedded_input.size())
         # Note: the hidden state and cell state are 1x1xdim tensor: num layers * num directions x batch_size x dimensionality
         # So we need to unsqueeze to add these 1-dims.
-        init_state = (torch.zeros(self.layers, embedded_input.size(1), self.hidden_size).requires_grad_(),
-                      torch.zeros(self.layers, embedded_input.size(1), self.hidden_size).requires_grad_())
+        init_state = (torch.zeros(self.layers, embedded_input.size(1), self.hidden_size).requires_grad_().detach(),
+                      torch.zeros(self.layers, embedded_input.size(1), self.hidden_size).requires_grad_().detach())
         #init_state = (torch.from_numpy(np.zeros(self.hidden_size)).unsqueeze(0).unsqueeze(1).float(),
         #              torch.from_numpy(np.zeros(self.hidden_size)).unsqueeze(0).unsqueeze(1).float())
         #print(input)
@@ -127,11 +132,13 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         #print(init_state[1].size())
         #print(embedded_input.size())
         #print(init_state.size())
-        output, (hidden_state, cell_state) = self.rnn(embedded_input, init_state)
+        o,(h,c) = self.rnn(embedded_input, init_state)
+        probs = self.sm(self.linear(self.dd(h[:,-1])))
+        return probs
         # Note: hidden_state is a 1x1xdim tensor: num layers * num directions x batch_size x dimensionality
-        ret = self.classifier(output[:, -1, :])
+        #ret = self.classifier(output[:, -1, :])
         #print(ret)
-        return ret
+        #return ret
 
 
 def train_frequency_based_classifier(cons_exs, vowel_exs):
@@ -154,12 +161,12 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
     :param vocab_index: an Indexer of the character vocabulary (27 characters)
     :return: an RNNClassifier instance trained on the given data
     """
-    rnn_module = RNNClassifier(dict_size=27, input_size=20, hidden_size=2, dropout=0.,vocab_index=vocab_index)
-    initial_learning_rate = 0.1
+    rnn_module = RNNClassifier(dict_size=27, input_size=20, hidden_size=50, dropout=0.0,vocab_index=vocab_index)
+    initial_learning_rate = 0.0001
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 10,factor=0.5)
     loss_func = nn.CrossEntropyLoss()
-    num_epochs = 50
+    num_epochs = 100
     train_dataset = ConsonantDataset(train_cons_exs,train_vowel_exs,vocab_index)
     test_dataset = ConsonantDataset(dev_cons_exs,dev_vowel_exs,vocab_index)
     train_dataloader = torch.utils.data.DataLoader(train_dataset, shuffle=True)
@@ -171,25 +178,30 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
         rnn_module.debug = True
         for x,y in train_dataloader:
             #if(rnn_module.debug):
-            #    print(x.size())
-            #    print(y.size())
-            log_probs = rnn_module(x)
-            loss = loss_func(log_probs, y)
+            #print(x.size())
+            #print(y.size())
+            probs = rnn_module(x)
+            #print(h)
+            #print(y)
+            loss = loss_func(probs, y)
             rnn_module.zero_grad()
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             train_loss+= loss.item()*x.size(0)
         rnn_module.eval()
-        for x,y in test_dataloader:
-            log_probs = rnn_module(x)
-            loss = loss_func(log_probs,y)
+        """for x,y in test_dataloader:
+            probs = rnn_module(x)
+            loss = loss_func(probs,y)
             test_loss+=loss.item()*x.size(0)
-        scheduler.step(test_loss/len(test_dataloader.dataset))
+        #print(test_loss/len(test_dataloader.dataset))
+        """
+        scheduler.step(train_loss/len(train_dataloader.dataset))
         curr_lr = optimizer.param_groups[0]['lr']
+        
+        #Validation Loss: {test_loss/len(test_dataloader.dataset)}\t \
         print(f'Epoch {epoch}\t \
             Training Loss: {train_loss/len(train_dataloader.dataset)}\t \
-            Validation Loss: {test_loss/len(test_dataloader.dataset)}\t \
             LR:{curr_lr}')
     return rnn_module
 
