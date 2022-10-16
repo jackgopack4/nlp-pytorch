@@ -82,7 +82,8 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         self.linear = nn.Linear(hidden_size, 2)
         self.debug = False
         self.dd = nn.Dropout(p=0.2)
-        self.sm = nn.Softmax(dim=1)
+        self.sm = nn.LogSoftmax(dim=1)
+        self.relu = nn.ReLU()
     
     def form_input(self,phrase) -> torch.Tensor:
         charlist = list(phrase)
@@ -104,18 +105,19 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         #print(h[:,-1])
         #probs = self.sm(self.linear(self.dd(h[:,-1])))
         prediction = torch.argmax(probs)
-        print(prediction)
+        #print(prediction)
         return prediction
 
     def init_weight(self):
         nn.init.xavier_uniform_(self.rnn.weight_hh_l0)
         nn.init.xavier_uniform_(self.rnn.weight_ih_l0)
-        nn.init.uniform_(self.rnn.bias_hh_l0)
-        nn.init.uniform_(self.rnn.bias_ih_l0)
+        #nn.init.xavier_uniform_(self.rnn.bias_hh_l0)
+        #nn.init.xavier_uniform_(self.rnn.bias_ih_l0)
 
     def forward(self, input):
         #print(input)
         embedded_input = self.word_embedding(input)
+        #print(embedded_input)
         #if(self.debug):
         #    print(embedded_input.size())
         # RNN expects a batch
@@ -133,7 +135,12 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         #print(embedded_input.size())
         #print(init_state.size())
         o,(h,c) = self.rnn(embedded_input, init_state)
-        probs = self.sm(self.linear(self.dd(h[:,-1])))
+        #print(o.size())
+        #probs = self.linear(self.relu(o))
+        #print(h.size())
+        #print(h[:,-1].size())
+        probs = self.linear(self.relu(h[:,-1]))
+        #print(probs)
         return probs
         # Note: hidden_state is a 1x1xdim tensor: num layers * num directions x batch_size x dimensionality
         #ret = self.classifier(output[:, -1, :])
@@ -161,11 +168,11 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
     :param vocab_index: an Indexer of the character vocabulary (27 characters)
     :return: an RNNClassifier instance trained on the given data
     """
-    rnn_module = RNNClassifier(dict_size=27, input_size=20, hidden_size=50, dropout=0.0,vocab_index=vocab_index)
+    rnn_module = RNNClassifier(dict_size=27, input_size=2, hidden_size=50, dropout=0.0,vocab_index=vocab_index)
     initial_learning_rate = 0.0001
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 10,factor=0.5)
-    loss_func = nn.CrossEntropyLoss()
+    loss_func = nn.NLLLoss()
     num_epochs = 100
     train_dataset = ConsonantDataset(train_cons_exs,train_vowel_exs,vocab_index)
     test_dataset = ConsonantDataset(dev_cons_exs,dev_vowel_exs,vocab_index)
@@ -183,7 +190,10 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
             probs = rnn_module(x)
             #print(h)
             #print(y)
-            loss = loss_func(probs, y)
+            loss_prob = rnn_module.sm(probs).squeeze(0)
+            print(loss_prob)
+            print(y)
+            loss = loss_func(loss_prob, y.long().squeeze(0))
             rnn_module.zero_grad()
             optimizer.zero_grad()
             loss.backward()
