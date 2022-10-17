@@ -187,16 +187,11 @@ class LanguageDataset(torch.utils.data.Dataset):
         self.text = []
         self.labels = []
         self.input_length = len(text)
-        self.chunks = math.ceil(self.input_length / self.chunk_size)
-        for i in range(0,self.chunks):
+        #self.chunks = math.ceil(self.input_length / self.chunk_size)
+        for i in range(0,self.input_length-self.chunk_size-1):
             temp = ""
-            itmp = i*self.chunk_size
-            if((itmp+5)>self.input_length): #last chunk
-                temp = text[itmp:self.input_length]
-                lentemp = len(temp)
-                for j in range(0,(self.chunk_size-lentemp)):
-                    temp+=" "
-            else:
+            itmp = i
+            if((itmp+self.chunk_size)<self.input_length): #last chunk
                 temp=text[itmp:itmp+self.chunk_size]
             y = self.form_label(self.form_input(temp))
             xtmp = " "+temp[1:self.chunk_size]
@@ -320,23 +315,25 @@ class RNNLanguageModel(LanguageModel,nn.Module):
 
     def get_next_char_log_probs(self, context):
         self.eval()
-        #x = self.form_input(context)
-        ld = LanguageDataset(context, self.chunk_size,self.vocab_index,self.dict_size)
+        x = self.form_input(context)
+        #ld = LanguageDataset(context, self.chunk_size,self.vocab_index,self.dict_size)
         sum_logprobs = 0.0
-        for x,y in ld:
-            sum_logprobs = self.forward(x.unsqueeze(0))[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
-        return sum_logprobs
+        return self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
 
     def get_log_prob_sequence(self, next_chars, context):
+        print("evaluating "+next_chars+" for context "+context)
         self.eval()
         tmp_in = context
         sum_logprobs = 0.0
         for nc in next_chars:
+            #print(tmp_in)
             x = self.form_input(tmp_in)
+            #print(x)
             y_chk = self.vocab_index.index_of(nc)
             outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
             sum_logprobs+=outs[y_chk]
             tmp_in = tmp_in[1:self.chunk_size]+nc
+            #print(tmp_in)
         return sum_logprobs
 
 
@@ -351,12 +348,12 @@ def train_lm(args, train_text, dev_text, vocab_index):
     """
     chunk_size = 5
     dict_size = 27
-    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=20,hidden_size=60,num_layers=1,dropout=0.,vocab_index=vocab_index)
+    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=15,hidden_size=40,num_layers=2,dropout=0.1,vocab_index=vocab_index)
     initial_learning_rate = 0.05
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 20,factor=0.5)
     loss_func = nn.CrossEntropyLoss()
-    num_epochs = 500
+    num_epochs = 3
     train_dataset = LanguageDataset(train_text,chunk_size=chunk_size,indexer=vocab_index,dict_size = dict_size)
     test_dataset = LanguageDataset(dev_text,chunk_size=chunk_size,indexer=vocab_index, dict_size = dict_size)
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=100, shuffle=True)
