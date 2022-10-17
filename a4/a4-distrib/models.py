@@ -7,6 +7,7 @@ import torch.nn as nn
 from torch import optim
 import random
 import math
+import scipy
 
 #####################
 # MODELS FOR PART 1 #
@@ -179,9 +180,10 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
 # MODELS FOR PART 2 #
 #####################
 class LanguageDataset(torch.utils.data.Dataset):
-    def __init__(self,text, chunk_size,indexer):
+    def __init__(self,text, chunk_size,indexer,dict_size):
         self.indexer = indexer
         self.chunk_size = chunk_size
+        self.dict_size = dict_size
         self.text = []
         self.labels = []
         self.input_length = len(text)
@@ -196,8 +198,8 @@ class LanguageDataset(torch.utils.data.Dataset):
                     temp+=" "
             else:
                 temp=text[itmp:itmp+self.chunk_size]
-            y = self.form_input(temp)
-            xtmp = " "+y[1:self.chunk_size]
+            y = self.form_label(self.form_input(temp))
+            xtmp = " "+temp[1:self.chunk_size]
             x = self.form_input(xtmp)
             self.text.append(x)
             self.labels.append(y)
@@ -216,6 +218,15 @@ class LanguageDataset(torch.utils.data.Dataset):
             chartensor[i]=self.indexer.index_of(c)
             i+=1
         return chartensor
+    
+    def form_label(self,input) -> torch.Tensor:
+        dimension = len(input)
+        temp = torch.zeros([dimension,self.dict_size])
+        for i in range(0,dimension):
+            for j in range(0,self.dict_size):
+                if (input[i] == j):
+                    temp[i,j] = 1.0
+        return temp
 
 class LanguageModel(object):
 
@@ -309,9 +320,12 @@ class RNNLanguageModel(LanguageModel,nn.Module):
 
     def get_next_char_log_probs(self, context):
         self.eval()
-        x = self.form_input(context)
-        outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0)
-        return outs
+        #x = self.form_input(context)
+        ld = LanguageDataset(context, self.chunk_size,self.vocab_index,self.dict_size)
+        sum_logprobs = 0.0
+        for x,y in ld:
+            sum_logprobs = self.forward(x.unsqueeze(0))[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
+        return sum_logprobs
 
     def get_log_prob_sequence(self, next_chars, context):
         self.eval()
@@ -320,7 +334,7 @@ class RNNLanguageModel(LanguageModel,nn.Module):
         for nc in next_chars:
             x = self.form_input(tmp_in)
             y_chk = self.vocab_index.index_of(nc)
-            outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0)
+            outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
             sum_logprobs+=outs[y_chk]
             tmp_in = tmp_in[1:self.chunk_size]+nc
         return sum_logprobs
@@ -335,4 +349,36 @@ def train_lm(args, train_text, dev_text, vocab_index):
     :param vocab_index: an Indexer of the character vocabulary (27 characters)
     :return: an RNNLanguageModel instance trained on the given data
     """
-    raise Exception("Implement me")
+    chunk_size = 5
+    dict_size = 27
+    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=20,hidden_size=60,num_layers=1,dropout=0.,vocab_index=vocab_index)
+    initial_learning_rate = 0.01
+    optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 20,factor=0.5)
+    loss_func = nn.CrossEntropyLoss()
+    num_epochs = 1
+    train_dataset = LanguageDataset(train_text,chunk_size=chunk_size,indexer=vocab_index,dict_size = dict_size)
+    test_dataset = LanguageDataset(dev_text,chunk_size=chunk_size,indexer=vocab_index, dict_size = dict_size)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, shuffle=True)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=True)
+    for epoch in range(num_epochs):
+        train_loss = 0.0
+        test_loss = 0.0
+        rnn_module.train()
+        for x,y in train_dataloader:
+            optimizer.zero_grad()
+            logits = rnn_module(x)
+            loss = 0.0
+            for i in range(0,chunk_size):
+                loss+=loss_func(logits,y[:,i,:].long())
+            loss.backward()
+            optimizer.step()
+            train_loss+= loss.item()*x.size(0)
+        rnn_module.eval()
+        scheduler.step(train_loss)
+        curr_lr = optimizer.param_groups[0]['lr']
+        print(f'Epoch {epoch}\t \
+            Training loss: {train_loss}\t \
+            LR: {curr_lr}')
+    rnn_module.eval()
+    return rnn_module
