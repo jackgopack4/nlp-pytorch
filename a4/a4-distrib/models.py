@@ -82,10 +82,6 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         self.rnn = nn.LSTM(self.input_size, self.hidden_size, num_layers=num_layers, dropout=dropout,batch_first=True)
         self.init_weight()
         self.linear = nn.Linear(hidden_size, classify_size)
-        self.dd = nn.Dropout(p=0.1)
-        self.sm = nn.LogSoftmax(dim=0)
-        self.relu = nn.ReLU()
-        self.sigmoid = nn.Sigmoid()
     
     def form_input(self,phrase) -> torch.Tensor:
         charlist = list(phrase)
@@ -97,7 +93,6 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         return chartensor.unsqueeze(0)
 
     def predict(self, input):
-        self.debug = True
         self.eval()
         x = self.form_input(input)
         loss_prob = self.forward(x).squeeze(0).log_softmax(dim=0)
@@ -262,14 +257,74 @@ class UniformLanguageModel(LanguageModel):
 
 
 class RNNLanguageModel(LanguageModel,nn.Module):
-    def __init__(self):
-        raise Exception("Implement me")
+    def __init__(self, dict_size, classify_size, chunk_size,input_size, hidden_size, num_layers, dropout, vocab_index,rnn_type='lstm'):
+        super(RNNLanguageModel, self).__init__()
+        torch.manual_seed(69)
+        random.seed(69)
+        self.classify_size = classify_size
+        self.dict_size = dict_size
+        self.chunk_size = chunk_size
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+        self.dropout = dropout
+        self.vocab_index = vocab_index
+        self.word_embedding = nn.Embedding(self.dict_size, self.input_size)
+        self.rnn = nn.LSTM(self.input_size, self.hidden_size,num_layers=self.num_layers, dropout=self.dropout, batch_first = True)
+        self.init_weight()
+        self.linear = nn.Linear(hidden_size,classify_size)
+
+    def form_input(self,phrase) -> torch.Tensor:
+        # get the last chunk size characters to predict output. If too short,
+        # append spaces to the front. If too long, truncate
+        charlist = list(phrase)
+        tmp = ""
+        len_charlist = len(charlist)
+        if(len_charlist<self.chunk_size):
+            for i in range(0,self.chunk_size-len_charlist):
+                charlist.insert(0,' ')
+        else:
+            charlist = charlist[len_charlist-self.chunk_size:len_charlist]
+        chartensor = torch.zeros(self.chunk_size,dtype=torch.long)
+        i:int = 0
+        for c in charlist:
+            chartensor[i]=self.vocab_index.index_of(c)
+            i+=1
+        return chartensor.unsqueeze(0)
+
+    def init_weight(self):
+        nn.init.xavier_uniform_(self.rnn.weight_hh_l0)
+        nn.init.xavier_uniform_(self.rnn.weight_ih_l0)
+        nn.init.uniform_(self.rnn.bias_hh_l0)
+        nn.init.uniform_(self.rnn.bias_ih_l0)
+    
+    def forward(self,input):
+        # adapted from https://www.deeplearningwizard.com/deep_learning/practical_pytorch/pytorch_lstm_neuralnetwork/#step-3-create-model-class
+        h0 = torch.zeros(self.num_layers, input.size(0), self.hidden_size).requires_grad_()
+        c0 = torch.zeros(self.num_layers, input.size(0), self.hidden_size).requires_grad_()
+        embedded_input = self.word_embedding(input)
+        o,(h,c) = self.rnn(embedded_input,(h0.detach(),c0.detach()))
+        lin = self.linear(o)
+        return lin
 
     def get_next_char_log_probs(self, context):
-        raise Exception("Implement me")
+        self.eval()
+        x = self.form_input(context)
+        outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0)
+        return outs
 
     def get_log_prob_sequence(self, next_chars, context):
-        raise Exception("Implement me")
+        self.eval()
+        tmp_in = context
+        sum_logprobs = 0.0
+        for nc in next_chars:
+            x = self.form_input(tmp_in)
+            y_chk = self.vocab_index.index_of(nc)
+            outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0)
+            sum_logprobs+=outs[y_chk]
+            tmp_in = tmp_in[1:self.chunk_size]+nc
+        return sum_logprobs
+
 
 
 def train_lm(args, train_text, dev_text, vocab_index):
