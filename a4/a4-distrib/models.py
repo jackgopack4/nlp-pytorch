@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 from torch import optim
 import random
+import math
 
 #####################
 # MODELS FOR PART 1 #
@@ -25,9 +26,6 @@ class ConsonantDataset(torch.utils.data.Dataset):
             y = torch.tensor([1],dtype=torch.float)
             self.text.append(x)
             self.labels.append(y)
-        #templist = list(zip(self.text,self.labels))
-        #random.shuffle(templist)
-        #self.text, self.labels = zip ( * templist)
 
     def __len__(self):
         return len(self.text)
@@ -104,8 +102,6 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         x = self.form_input(input)
         loss_prob = self.forward(x).squeeze(0).log_softmax(dim=0)
         prediction = torch.argmax(loss_prob)
-        #print(prediction)
-        #print(f'input: {input} log prob: {loss_prob},\t prediction: {prediction}')
         return prediction
 
     def init_weight(self):
@@ -121,10 +117,6 @@ class RNNClassifier(ConsonantVowelClassifier, nn.Module):
         embedded_input = self.word_embedding(input)
         o,(h,c) = self.rnn(embedded_input,(h0.detach(),c0.detach()))
         lin = self.linear(o[:,-1,:])
-        #print(lin)
-        #probs = self.sm(lin)
-        #print(probs)
-        #print(probs.size())
         return lin
 
 
@@ -165,10 +157,8 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
         test_loss = 0.0
         rnn_module.train()
         for x,y in train_dataloader:
-            #rnn_module.zero_grad()
             optimizer.zero_grad()
             loss_prob = rnn_module(x)
-            #print(loss_prob.size())
             loss = loss_func(loss_prob, y.squeeze(1).long())
             loss.backward()
             optimizer.step()
@@ -193,7 +183,44 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
 #####################
 # MODELS FOR PART 2 #
 #####################
+class LanguageDataset(torch.utils.data.Dataset):
+    def __init__(self,text, chunk_size,indexer):
+        self.indexer = indexer
+        self.chunk_size = chunk_size
+        self.text = []
+        self.labels = []
+        self.input_length = len(text)
+        self.chunks = math.ceil(self.input_length / self.chunk_size)
+        for i in range(0,self.chunks):
+            temp = ""
+            itmp = i*self.chunk_size
+            if((itmp+5)>self.input_length): #last chunk
+                temp = text[itmp:self.input_length]
+                lentemp = len(temp)
+                for j in range(0,(self.chunk_size-lentemp)):
+                    temp+=" "
+            else:
+                temp=text[itmp:itmp+self.chunk_size]
+            y = self.form_input(temp)
+            xtmp = " "+y[1:self.chunk_size]
+            x = self.form_input(xtmp)
+            self.text.append(x)
+            self.labels.append(y)
 
+    def __len__(self):
+        return len(self.text)
+
+    def __getitem__(self,idx):
+        return self.text[idx], self.labels[idx]
+
+    def form_input(self,phrase) -> torch.Tensor:
+        charlist = list(phrase)
+        chartensor = torch.zeros(self.chunk_size,dtype=torch.long)
+        i:int = 0
+        for c in charlist:
+            chartensor[i]=self.indexer.index_of(c)
+            i+=1
+        return chartensor
 
 class LanguageModel(object):
 
@@ -224,13 +251,17 @@ class UniformLanguageModel(LanguageModel):
         self.voc_size = voc_size
 
     def get_next_char_log_probs(self, context):
-        return np.ones([self.voc_size]) * np.log(1.0/self.voc_size)
+        tmp = np.ones([self.voc_size]) * np.log(1.0/self.voc_size)
+        print(tmp)
+        return tmp
 
     def get_log_prob_sequence(self, next_chars, context):
-        return np.log(1.0/self.voc_size) * len(next_chars)
+        tmp = np.log(1.0/self.voc_size) * len(next_chars)
+        print(tmp)
+        return tmp
 
 
-class RNNLanguageModel(LanguageModel):
+class RNNLanguageModel(LanguageModel,nn.Module):
     def __init__(self):
         raise Exception("Implement me")
 
