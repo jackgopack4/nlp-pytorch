@@ -352,15 +352,15 @@ def train_lm(args, train_text, dev_text, vocab_index):
     chunk_size = 5
     dict_size = 27
     rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=20,hidden_size=60,num_layers=1,dropout=0.,vocab_index=vocab_index)
-    initial_learning_rate = 0.01
+    initial_learning_rate = 0.05
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 20,factor=0.5)
     loss_func = nn.CrossEntropyLoss()
-    num_epochs = 1
+    num_epochs = 500
     train_dataset = LanguageDataset(train_text,chunk_size=chunk_size,indexer=vocab_index,dict_size = dict_size)
     test_dataset = LanguageDataset(dev_text,chunk_size=chunk_size,indexer=vocab_index, dict_size = dict_size)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, shuffle=True)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=100, shuffle=True)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=10, shuffle=True)
     for epoch in range(num_epochs):
         train_loss = 0.0
         test_loss = 0.0
@@ -375,10 +375,17 @@ def train_lm(args, train_text, dev_text, vocab_index):
             optimizer.step()
             train_loss+= loss.item()*x.size(0)
         rnn_module.eval()
-        scheduler.step(train_loss)
+        for x,y in test_dataloader:
+            logits = rnn_module(x)
+            loss = 0.0
+            for i in range(0,chunk_size):
+                loss+=loss_func(logits,y[:,i,:].long())
+            test_loss+= loss.item()*x.size(0)
+        scheduler.step(test_loss)
         curr_lr = optimizer.param_groups[0]['lr']
         print(f'Epoch {epoch}\t \
             Training loss: {train_loss}\t \
+            Validation loss: {test_loss}\t \
             LR: {curr_lr}')
     rnn_module.eval()
     return rnn_module
