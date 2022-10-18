@@ -7,7 +7,7 @@ import torch.nn as nn
 from torch import optim
 import random
 import math
-import scipy
+import time
 
 #####################
 # MODELS FOR PART 1 #
@@ -188,13 +188,16 @@ class LanguageDataset(torch.utils.data.Dataset):
         self.labels = []
         self.input_length = len(text)
         #self.chunks = math.ceil(self.input_length / self.chunk_size)
-        for i in range(0,self.input_length-self.chunk_size-1):
+        for i in range(0,self.input_length-self.chunk_size-1,self.chunk_size):
             temp = ""
-            itmp = i
-            if((itmp+self.chunk_size)<self.input_length): #last chunk
-                temp=text[itmp:itmp+self.chunk_size]
+            if((i+self.chunk_size)<self.input_length): #not last chunk
+                temp=text[i:i+self.chunk_size]
+            else:
+                temp=text[i:self.input_length-1]
+                for j in range(len(temp),self.chunk_size):
+                    temp+=' '
             y = self.form_label(self.form_input(temp))
-            xtmp = " "+temp[1:self.chunk_size]
+            xtmp = " "+temp[0:self.chunk_size-1]
             x = self.form_input(xtmp)
             self.text.append(x)
             self.labels.append(y)
@@ -275,20 +278,34 @@ class RNNLanguageModel(LanguageModel,nn.Module):
         self.vocab_index = vocab_index
         self.word_embedding = nn.Embedding(self.dict_size, self.input_size)
         self.rnn = nn.LSTM(self.input_size, self.hidden_size,num_layers=self.num_layers, dropout=self.dropout, batch_first = True)
-        self.init_weight()
+        self.init_zeros()
         self.linear = nn.Linear(hidden_size,classify_size)
+        self.relu = nn.ReLU()
+        self.V = nn.Linear(self.hidden_size, 40)
+        self.dd = nn.Dropout(p=0.1)
+        self.g = nn.ReLU()
+        self.W = nn.Linear(40, self.classify_size)
+        self.log_softmax = nn.LogSoftmax(dim=0) # if we use CrossEntropy loss don't need, only with NLL
+        # Initialize weights according to a formula due to Xavier Glorot.
+        nn.init.kaiming_uniform_(self.V.weight) # look up ways to initialize
+        nn.init.kaiming_uniform_(self.W.weight)
 
-    def form_input(self,phrase) -> torch.Tensor:
+    def form_input(self,phrase,padding='front') -> torch.Tensor:
         # get the last chunk size characters to predict output. If too short,
         # append spaces to the front. If too long, truncate
         charlist = list(phrase)
         tmp = ""
         len_charlist = len(charlist)
+        index_to_insert = 0;
+        if(padding=='end'):
+            index_to_insert = -1
         if(len_charlist<self.chunk_size):
             for i in range(0,self.chunk_size-len_charlist):
-                charlist.insert(0,' ')
+                charlist.insert(index_to_insert,' ')
         else:
             charlist = charlist[len_charlist-self.chunk_size:len_charlist]
+        #print(phrase)
+        #print(charlist)
         chartensor = torch.zeros(self.chunk_size,dtype=torch.long)
         i:int = 0
         for c in charlist:
@@ -314,32 +331,29 @@ class RNNLanguageModel(LanguageModel,nn.Module):
         c0 = torch.zeros(self.num_layers, input.size(0), self.hidden_size).requires_grad_()
         embedded_input = self.word_embedding(input)
         o,(h,c) = self.rnn(embedded_input,(h0.detach(),c0.detach()))
-        lin = self.linear(o)
-        return lin
+        return self.linear(self.relu(o))
+        #return self.W(self.g(self.dd(self.V(o))))
 
     def get_next_char_log_probs(self, context):
         self.eval()
         self.init_zeros()
         x = self.form_input(context)
-        #ld = LanguageDataset(context, self.chunk_size,self.vocab_index,self.dict_size)
         log_probs=self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
         return log_probs
 
     def get_log_prob_sequence(self, next_chars, context):
-        #print("evaluating "+next_chars+" for context "+context)
         self.eval()
         self.init_zeros()
         tmp_in = context
         sum_logprobs = 0.0
         for nc in next_chars:
-            #print(tmp_in)
             x = self.form_input(tmp_in)
-            #print(x)
             y_chk = self.vocab_index.index_of(nc)
-            outs = self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
+            logit = self.forward(x)
+
+            outs = logit[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
             sum_logprobs+=outs[y_chk]
             tmp_in = tmp_in[1:self.chunk_size]+nc
-            #print(tmp_in)
         return sum_logprobs
 
 
@@ -351,43 +365,50 @@ def train_lm(args, train_text, dev_text, vocab_index):
     :param vocab_index: an Indexer of the character vocabulary (27 characters)
     :return: an RNNLanguageModel instance trained on the given data
     """
-    chunk_size = 5
+    start_time = time.time()
+    chunk_size = 25
     dict_size = 27
-    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=15,hidden_size=40,num_layers=2,dropout=0.1,vocab_index=vocab_index)
-    initial_learning_rate = 0.05
+    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=40,hidden_size=75,num_layers=2,dropout=0.05,vocab_index=vocab_index)
+    initial_learning_rate = 0.001
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 20,factor=0.5)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 10,factor=0.25)
     loss_func = nn.CrossEntropyLoss()
-    num_epochs = 3
+    num_epochs = 20
     train_dataset = LanguageDataset(train_text,chunk_size=chunk_size,indexer=vocab_index,dict_size = dict_size)
     test_dataset = LanguageDataset(dev_text,chunk_size=chunk_size,indexer=vocab_index, dict_size = dict_size)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=100, shuffle=True)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=10, shuffle=True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=20, num_workers=4, shuffle=True)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=5, shuffle=True)
     for epoch in range(num_epochs):
+        rnn_module.init_zeros()
         train_loss = 0.0
         test_loss = 0.0
         rnn_module.train()
-        for x,y in train_dataloader:
+        #if(epoch == 75):
+        #    optimizer.param_groups[0]['lr'] *= 0.5
+        for x,y in train_dataloader:        
+            rnn_module.zero_grad()
             optimizer.zero_grad()
             logits = rnn_module(x)
             loss = 0.0
             for i in range(0,chunk_size):
-                loss+=loss_func(logits,y[:,i,:].long())
+                loss+=loss_func(logits[:,i,:],torch.argmax(y[:,i,:],dim=1))
             loss.backward()
             optimizer.step()
             train_loss+= loss.item()*x.size(0)
+        #scheduler.step(train_loss)
         rnn_module.eval()
         for x,y in test_dataloader:
             logits = rnn_module(x)
             loss = 0.0
             for i in range(0,chunk_size):
-                loss+=loss_func(logits,y[:,i,:].long())
+                loss+=loss_func(logits[:,i,:],torch.argmax(y[:,i,:],dim=1))
             test_loss+= loss.item()*x.size(0)
         scheduler.step(test_loss)
         curr_lr = optimizer.param_groups[0]['lr']
-        print(f'Epoch {epoch}\t \
-            Training loss: {train_loss}\t \
-            Validation loss: {test_loss}\t \
-            LR: {curr_lr}')
+        #print(f'Epoch {epoch}\t \
+        #    Training loss: {train_loss}\t \
+        #    Validation loss: {test_loss}\t \
+        #    LR: {curr_lr}\t \
+        #    seconds: {round(time.time() - start_time)}')
     rnn_module.eval()
     return rnn_module
