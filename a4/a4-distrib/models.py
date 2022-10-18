@@ -253,12 +253,10 @@ class UniformLanguageModel(LanguageModel):
 
     def get_next_char_log_probs(self, context):
         tmp = np.ones([self.voc_size]) * np.log(1.0/self.voc_size)
-        print(tmp)
         return tmp
 
     def get_log_prob_sequence(self, next_chars, context):
         tmp = np.log(1.0/self.voc_size) * len(next_chars)
-        print(tmp)
         return tmp
 
 
@@ -304,6 +302,12 @@ class RNNLanguageModel(LanguageModel,nn.Module):
         nn.init.uniform_(self.rnn.bias_hh_l0)
         nn.init.uniform_(self.rnn.bias_ih_l0)
     
+    def init_zeros(self):
+        nn.init.zeros_(self.rnn.weight_hh_l0)
+        nn.init.zeros_(self.rnn.weight_ih_l0)
+        nn.init.zeros_(self.rnn.bias_hh_l0)
+        nn.init.zeros_(self.rnn.bias_ih_l0)
+    
     def forward(self,input):
         # adapted from https://www.deeplearningwizard.com/deep_learning/practical_pytorch/pytorch_lstm_neuralnetwork/#step-3-create-model-class
         h0 = torch.zeros(self.num_layers, input.size(0), self.hidden_size).requires_grad_()
@@ -315,14 +319,16 @@ class RNNLanguageModel(LanguageModel,nn.Module):
 
     def get_next_char_log_probs(self, context):
         self.eval()
+        self.init_zeros()
         x = self.form_input(context)
         #ld = LanguageDataset(context, self.chunk_size,self.vocab_index,self.dict_size)
-        sum_logprobs = 0.0
-        return self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
+        log_probs=self.forward(x)[:,-1,:].squeeze(0).log_softmax(dim=0).detach().numpy()
+        return log_probs
 
     def get_log_prob_sequence(self, next_chars, context):
-        print("evaluating "+next_chars+" for context "+context)
+        #print("evaluating "+next_chars+" for context "+context)
         self.eval()
+        self.init_zeros()
         tmp_in = context
         sum_logprobs = 0.0
         for nc in next_chars:
@@ -335,7 +341,6 @@ class RNNLanguageModel(LanguageModel,nn.Module):
             tmp_in = tmp_in[1:self.chunk_size]+nc
             #print(tmp_in)
         return sum_logprobs
-
 
 
 def train_lm(args, train_text, dev_text, vocab_index):
