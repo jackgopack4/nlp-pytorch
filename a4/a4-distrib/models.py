@@ -137,6 +137,7 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
     :param vocab_index: an Indexer of the character vocabulary (27 characters)
     :return: an RNNClassifier instance trained on the given data
     """
+    start_time = time.time()
     rnn_module = RNNClassifier(dict_size=27,classify_size=2, input_size=8, hidden_size=20,num_layers=1, dropout=0.0,vocab_index=vocab_index)
     initial_learning_rate = 0.05
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
@@ -169,10 +170,11 @@ def train_rnn_classifier(args, train_cons_exs, train_vowel_exs, dev_cons_exs, de
             test_loss+=loss.item()*x.size(0)
         #Validation Loss: {test_loss/len(test_dataloader.dataset)}\t \
         scheduler.step(test_loss)
-        #print(f'Epoch {epoch}\t \
-        #    Training Loss: {train_loss}\t \
-        #    Test Loss: {test_loss}\t \
-        #    LR:{curr_lr}')
+        print(f'Epoch {epoch}\t \
+            Training Loss: {train_loss}\t \
+            Test Loss: {test_loss}\t \
+            LR:{curr_lr}\t \
+            seconds: {round(time.time() - start_time)}')
     return rnn_module
 
 
@@ -323,11 +325,10 @@ class RNNLanguageModel(LanguageModel,nn.Module):
         return self.linear(o)
         #return self.W(self.g(self.dd(self.V(o))))
 
-    def get_next_char_log_probs(self, context,re_init_zeros=False,index=-1):
+    def get_next_char_log_probs(self, context,index=-1):
         self.eval()
         #print("get next char log probs called for input: \'"+context+"\'")
-        if(re_init_zeros):
-            self.init_zeros()
+        #self.init_zeros()
         x = self.x_tensor(context)
         if(index == -1):
             index = len(context)-1
@@ -370,20 +371,20 @@ def train_lm(args, train_text, dev_text, vocab_index):
     :return: an RNNLanguageModel instance trained on the given data
     """
     start_time = time.time()
-    chunk_size = 60
+    chunk_size = 30
     dict_size = 27
-    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=30,hidden_size=75,num_layers=1,dropout=0.,vocab_index=vocab_index)
+    rnn_module = RNNLanguageModel(dict_size=dict_size,classify_size=27,chunk_size=chunk_size,input_size=30,hidden_size=50,num_layers=1,dropout=0.0,vocab_index=vocab_index)
     initial_learning_rate = 0.0625
     optimizer = optim.SGD(rnn_module.parameters(), lr = initial_learning_rate)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 5,factor=0.16)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer,'min',patience = 5,factor=0.5)
     loss_func = nn.CrossEntropyLoss()
     num_epochs = 25
     train_dataset = LanguageDataset(train_text,chunk_size=chunk_size,indexer=vocab_index,dict_size = dict_size)
     test_dataset = LanguageDataset(dev_text,chunk_size=chunk_size,indexer=vocab_index, dict_size = dict_size)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=20, num_workers=4, shuffle=True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=25, num_workers=4, shuffle=True)
     test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=5, shuffle=True)
     for epoch in range(num_epochs):
-        rnn_module.init_zeros()
+        #rnn_module.init_zeros()
         train_loss = 0.0
         test_loss = 0.0
         rnn_module.train()
