@@ -62,10 +62,32 @@ class TransformerLayer(nn.Module):
         should both be of this length.
         """
         super().__init__()
-        raise Exception("Implement me")
+        self.d_model = d_model
+        self.d_internal = d_internal
+        self.query, self.key, self.value = nn.Linear(d_model, d_internal)
+        self.query_model, self.key_model, self.value_model = nn.Linear(d_internal, d_model)
+        self.softmax = nn.Softmax()
+        self.w1 = nn.Linear(d_model,d_internal)
+        self.w2 = nn.Linear(d_internal, d_model)
+        self.dd = nn.Dropout(0.1)
+        self.relu = nn.ReLU()
+
+    def attention(self,query,key,value):
+        attn = torch.matmul(query, key)
+        attn = attn / np.sqrt(self.d_internal)
+        res = self.softmax(attn)
+        return torch.matmul(res, value)
+
+    def FFNN(self, attention):
+        return attention + self.dd(self.w2(self.relu(self.w1(attention))))
 
     def forward(self, input_vecs):
-        raise Exception("Implement me")
+        query = self.query(input_vecs)
+        key = self.key(input_vecs)
+        value = self.value(input_vecs)
+
+        attention = self.attention(query, key, value)
+        res = self.FFNN(attention)
 
 
 # Implementation of positional encoding that you can use in your network
