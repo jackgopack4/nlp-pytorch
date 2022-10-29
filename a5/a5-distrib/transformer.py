@@ -39,7 +39,18 @@ class Transformer(nn.Module):
         :param num_layers: number of TransformerLayers to use; can be whatever you want
         """
         super().__init__()
-        raise Exception("Implement me")
+        self.d_model = d_model
+        # declare word embedding
+        self.embedding = nn.Embedding(vocab_size, d_model)
+        # declare positional encoding
+        self.positional_encoding = PositionalEncoding(d_model=d_model)
+        # dropout layer
+        self.dd = nn.Dropout(0.1)
+        #nn.ModuleList for layer stack for num_layers
+        self.layers = nn.ModuleList([TransformerLayer(d_model, d_internal) for i in range(num_layers)])
+        # normalization?        
+
+        #raise Exception("Implement me")
 
     def forward(self, indices):
         """
@@ -48,7 +59,21 @@ class Transformer(nn.Module):
         :return: A tuple of the softmax log probabilities (should be a 20x3 matrix) and a list of the attention
         maps you use in your layers (can be variable length, but each should be a 20x20 matrix)
         """
-        raise Exception("Implement me")
+        attn_maps_list = []
+        # embed indices
+        embedding = self.embedding(indices)
+        # run position encoding of embedding
+        positional = self.positional_encoding(embedding)
+        # dropout layer on positional encoding
+        logits = self.dropout(positional)
+        # for loop through layer stack
+        for layer in self.layers:
+            logits, attention = layer(logits)
+            attn_maps_list.append(attention)
+        # transformer layer
+        # add each attention map to attn_maps_list
+        # return output and attn_maps_list
+        return logits, attn_maps_list
 
 
 # Your implementation of the Transformer layer goes here. It should take vectors and return the same number of vectors
@@ -88,6 +113,7 @@ class TransformerLayer(nn.Module):
 
         attention = self.attention(query, key, value)
         res = self.FFNN(attention)
+        return res, attention
 
 
 # Implementation of positional encoding that you can use in your network
@@ -125,11 +151,11 @@ class PositionalEncoding(nn.Module):
 
 # This is a skeleton for train_classifier: you can implement this however you want
 def train_classifier(args, train, dev):
-    raise Exception("Not fully implemented yet")
+    #raise Exception("Not fully implemented yet")
 
     # The following code DOES NOT WORK but can be a starting point for your implementation
     # Some suggested snippets to use:
-    model = Transformer(...)
+    model = Transformer(vocab_size=50,num_positions=20,d_model = 50,d_internal = 10,num_classes = 3,num_layers = 1)
     model.zero_grad()
     model.train()
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
@@ -143,10 +169,12 @@ def train_classifier(args, train, dev):
         random.shuffle(ex_idxs)
         loss_fcn = nn.NLLLoss()
         for ex_idx in ex_idxs:
-            loss = loss_fcn(...) # TODO: Run forward and compute loss
-            # model.zero_grad()
-            # loss.backward()
-            # optimizer.step()
+            logits, attn = model(ex_idx.input_tensor)
+            outs = torch.nn.functional.logsoftmax(logits)
+            loss = loss_fcn(outs,ex_idx.output_tensor) # TODO: Run forward and compute loss
+            model.zero_grad()
+            loss.backward()
+            optimizer.step()
             loss_this_epoch += loss.item()
     model.eval()
     return model
