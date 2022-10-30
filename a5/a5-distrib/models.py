@@ -74,7 +74,7 @@ def train_seq2seq_model(model, train_dataset, val_dataset, args):
     trainer.train()
 
 
-def score_sequence(pred_to_first_eos, gold_labels) -> (int, int, int):
+def score_sequence(pred_to_first_eos, gold_labels,print_output=True) -> (int, int, int):
     """
     Evaluates the given sequence and returns the sufficient statistics for accuracy computation.
     DO NOT MODIFY THIS -- we are giving it to you here in models.py for convenience, but we will compute your accuracy
@@ -90,8 +90,9 @@ def score_sequence(pred_to_first_eos, gold_labels) -> (int, int, int):
     total_toks += len(gold_labels)
     if pred_to_first_eos == gold_labels:
         exact_match += 1
-    print("Pred: " + ' '.join(pred_to_first_eos))
-    print("Gold: " + ' '.join(gold_labels))
+    if(print_output):
+        print("Pred: " + ' '.join(pred_to_first_eos))
+        print("Gold: " + ' '.join(gold_labels))
     for j in range(0, len(gold_labels)):
         if j < len(pred_to_first_eos) and pred_to_first_eos[j] == gold_labels[j]:
             recall += 1
@@ -160,7 +161,30 @@ def decode_basic(model, indexer, exs, num_exs=-1):
 
 def decode_oracle(model, indexer, exs, num_exs):
     # Same as decode_basic but returns the oracle prediction
-    raise Exception("Implement me")
+    all_example_preds = []
+    num_exs_to_use = min(num_exs, len(exs)) if num_exs > 0 else len(exs)
+    for i in range(0, num_exs_to_use):
+        ex_length = sum(exs[i]['attention_mask'])
+        dev_input_tensor = torch.tensor([exs[i]['input_ids'][0:ex_length]], dtype=torch.long)
+        # You can increase this to run "real" beam search
+        beam_size = 10
+        # The generate method runs decoding with the specified set of
+        # hyperparameters and returns a list of possible sequences
+        output_ids = model.generate(dev_input_tensor, num_beams=beam_size, max_length=65, early_stopping=True, num_return_sequences=beam_size)
+        # [0] extracts the first candidate in the beam for the simple decoding method
+        gold_labels = [indexer.get_object(j) for j in exs[i]['labels'] if j >= 0]
+        best = 0
+        prev_score = 0.0
+        for i in range(0,beam_size):
+            one_best = pred_indices_to_prediction(output_ids.data[i][1:], indexer)
+            (top1_em, top1_rec, top1_tt) = score_sequence(one_best, gold_labels,print_output=False)
+            score = (top1_em+top1_rec)/2.0
+            if(score>prev_score):
+                prev_score = score
+                best = i
+        one_best = pred_indices_to_prediction(output_ids.data[best][1:],indexer)
+        all_example_preds.append(one_best)
+    return all_example_preds
 
 
 def decode_fancy(model, indexer, exs, num_exs):

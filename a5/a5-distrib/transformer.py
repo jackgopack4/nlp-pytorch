@@ -28,6 +28,7 @@ class LetterCountingExample(object):
 # Should contain your overall Transformer implementation. You will want to use Transformer layer to implement
 # a single layer of the Transformer; this Module will take the raw words as input and do all of the steps necessary
 # to return distributions over the labels (0, 1, or 2).
+# reference: https://github.com/jadore801120/attention-is-all-you-need-pytorch
 class Transformer(nn.Module):
     def __init__(self, vocab_size, num_positions, d_model, d_internal, num_classes, num_layers):
         """
