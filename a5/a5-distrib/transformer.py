@@ -163,13 +163,13 @@ def train_classifier(args, train, dev):
 
     # The following code DOES NOT WORK but can be a starting point for your implementation
     # Some suggested snippets to use:
-    model = Transformer(vocab_size=50,num_positions=20,d_model = 69,d_internal = 100,num_classes = 3,num_layers = 2)
+    model = Transformer(vocab_size=27,num_positions=20,d_model = 50,d_internal = 100,num_classes = 3,num_layers = 2)
     model.zero_grad()
     model.train()
-    optimizer = optim.Adam(model.parameters(), lr=1e-4)
+    optimizer = optim.Adam(model.parameters(), lr=1e-3)
     softmax = nn.LogSoftmax(dim=1)
     start_time = time.time()
-    num_epochs = 12
+    num_epochs = 15
     for t in range(0, num_epochs):
         loss_this_epoch = 0.0
         random.seed(t)
