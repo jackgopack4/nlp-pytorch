@@ -166,10 +166,10 @@ def train_classifier(args, train, dev):
     model = Transformer(vocab_size=27,num_positions=20,d_model = 50,d_internal = 100,num_classes = 3,num_layers = 2)
     model.zero_grad()
     model.train()
-    optimizer = optim.Adam(model.parameters(), lr=1e-3)
+    optimizer = optim.Adam(model.parameters(), lr=2.5e-4)
     softmax = nn.LogSoftmax(dim=1)
     start_time = time.time()
-    num_epochs = 15
+    num_epochs = 10
     for t in range(0, num_epochs):
         loss_this_epoch = 0.0
         random.seed(t)
