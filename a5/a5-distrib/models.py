@@ -1,6 +1,7 @@
 # models.py
 
 import argparse
+from nis import match
 import random
 import numpy as np
 from data import *
@@ -191,22 +192,33 @@ def decode_fancy(model, indexer, exs, num_exs):
     # Same as decode_basic but returns a reranked prediction.
     all_example_preds = []
     num_exs_to_use = min(num_exs, len(exs)) if num_exs > 0 else len(exs)
+    state_city_set = set(const_list)
+    state_city_set.update(city_list)
     for i in range(0, num_exs_to_use):
         ex_length = sum(exs[i]['attention_mask'])
         dev_input_tensor = torch.tensor([exs[i]['input_ids'][0:ex_length]], dtype=torch.long)
         # You can increase this to run "real" beam search
+        #print(dev_input_tensor)
         beam_size = 10
         # The generate method runs decoding with the specified set of
         # hyperparameters and returns a list of possible sequences
         output_ids = model.generate(dev_input_tensor, num_beams=beam_size, max_length=65, early_stopping=True, num_return_sequences=beam_size)
         # [0] extracts the first candidate in the beam for the simple decoding method
         #gold_labels = [indexer.get_object(j) for j in exs[i]['labels'] if j >= 0]
-        for i in range(0,beam_size):
-            current_ex = pred_indices_to_prediction(output_ids.data[i][1:], indexer)
-            
-            #(top1_em, top1_rec, top1_tt) = score_sequence(one_best, gold_labels,print_output=False)
-            # do some stuff to compare strings? idk...
-        one_best = pred_indices_to_prediction(output_ids.data[0][1:], indexer)
+        most_matching = 0
+        best_index = 0
+        for j in range(0,beam_size):
+            current_ex = pred_indices_to_prediction(output_ids.data[j][1:], indexer)
+            current_prompt = pred_indices_to_prediction(dev_input_tensor[0],indexer)
+            #print(pred_indices_to_prediction(dev_input_tensor[j],indexer))
+            #print(current_ex)
+            prompt_locations = state_city_set.intersection(current_prompt)
+            answer_locations = state_city_set.intersection(current_ex)
+            matching_locations = set(prompt_locations).intersection(answer_locations)
+            if(len(matching_locations)>most_matching):
+                most_matching = len(matching_locations)
+                best_index = j
+        one_best = pred_indices_to_prediction(output_ids.data[best_index][1:], indexer)
         all_example_preds.append(one_best)
     return all_example_preds
 
@@ -218,3 +230,8 @@ const_list = ['new', 'north', 'south', 'west', 'east', 'alabama', 'alaska', 'ari
     'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 'hampshire', 'jersey', 'mexico', 'york', 'carolina', 'dakota',
     'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'rhode', 'island', 'tennessee', 'texas', 'utah', 'vermont', 'virginia',
     'washington', 'virginia', 'wisconsin', 'wyoming']
+city_list = ['denver', 'rochester', 'austin', 'atlanta','sacramento','orleans',
+    'springfield','dallas','montgomery','salem','albany','dover','seattle','flint',
+    'scotts','valley','boston','kalamazoo','spokane','pittsburgh','boulder',
+    'portland','houston','francisco','san','des','moines','riverside',
+    'chicago','baton','rouge']

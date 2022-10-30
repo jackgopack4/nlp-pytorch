@@ -98,7 +98,7 @@ SOS_SYMBOL = "<SOS>"
 EOS_SYMBOL = "<EOS>"
 
 
-def load_datasets(train_path: str, dev_path: str, test_path: str, domain=None) -> (List[Tuple[str,str]], List[Tuple[str,str]], List[Tuple[str,str]]):
+def load_datasets(train_path: str, dev_path: str, test_path: str, domain=None) -> Tuple[List[Tuple[str,str]], List[Tuple[str,str]], List[Tuple[str,str]]]:
     """
     Reads the training, dev, and test data from the corresponding files.
     :param train_path:
