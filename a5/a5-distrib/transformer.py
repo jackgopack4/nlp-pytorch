@@ -65,7 +65,7 @@ class Transformer(nn.Module):
         # run position encoding of embedding
         positional = self.positional_encoding(embedding)
         # dropout layer on positional encoding
-        logits = self.dropout(positional)
+        logits = self.dd(positional)
         # for loop through layer stack
         for layer in self.layers:
             logits, attention = layer(logits)
@@ -89,22 +89,29 @@ class TransformerLayer(nn.Module):
         super().__init__()
         self.d_model = d_model
         self.d_internal = d_internal
-        self.query, self.key, self.value = nn.Linear(d_model, d_internal)
-        self.query_model, self.key_model, self.value_model = nn.Linear(d_internal, d_model)
-        self.softmax = nn.Softmax()
+        self.query = nn.Linear(d_model, d_internal)
+        self.key = nn.Linear(d_model, d_internal)
+        self.value = nn.Linear(d_model, d_internal)
+        self.attention_resize = nn.Linear(d_internal, d_model)
+        self.softmax = nn.Softmax(dim=0)
         self.w1 = nn.Linear(d_model,d_internal)
         self.w2 = nn.Linear(d_internal, d_model)
         self.dd = nn.Dropout(0.1)
         self.relu = nn.ReLU()
 
     def attention(self,query,key,value):
-        attn = torch.matmul(query, key)
+        attn = torch.matmul(query, key.T)
         attn = attn / np.sqrt(self.d_internal)
         res = self.softmax(attn)
         return torch.matmul(res, value)
 
     def FFNN(self, attention):
-        return attention + self.dd(self.w2(self.relu(self.w1(attention))))
+        residual = self.attention_resize(attention)
+        out = self.w1(residual)
+        out = self.relu(out)
+        out = self.w2(out)
+        out = self.dd(out)
+        return residual + out
 
     def forward(self, input_vecs):
         query = self.query(input_vecs)
@@ -155,12 +162,13 @@ def train_classifier(args, train, dev):
 
     # The following code DOES NOT WORK but can be a starting point for your implementation
     # Some suggested snippets to use:
-    model = Transformer(vocab_size=50,num_positions=20,d_model = 50,d_internal = 10,num_classes = 3,num_layers = 1)
+    model = Transformer(vocab_size=50,num_positions=20,d_model = 69,d_internal = 100,num_classes = 3,num_layers = 2)
     model.zero_grad()
     model.train()
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
-
-    num_epochs = 10
+    softmax = nn.LogSoftmax(dim=1)
+    start_time = time.time()
+    num_epochs = 12
     for t in range(0, num_epochs):
         loss_this_epoch = 0.0
         random.seed(t)
@@ -169,14 +177,21 @@ def train_classifier(args, train, dev):
         random.shuffle(ex_idxs)
         loss_fcn = nn.NLLLoss()
         for ex_idx in ex_idxs:
-            logits, attn = model(ex_idx.input_tensor)
-            outs = torch.nn.functional.logsoftmax(logits)
-            loss = loss_fcn(outs,ex_idx.output_tensor) # TODO: Run forward and compute loss
+            logits, attn = model(train[ex_idx].input_tensor)
+            #print(logits.size())
+            outs = softmax(logits)
+            loss = loss_fcn(outs,train[ex_idx].output_tensor) 
             model.zero_grad()
             loss.backward()
             optimizer.step()
             loss_this_epoch += loss.item()
+        print(f'Epoch {t}\t \
+                seconds: {round(time.time() - start_time)}\t \
+                Training loss: {loss_this_epoch}')    
+        """Validation loss: {test_loss}\t \
+            LR: {curr_lr}\t \ """
     model.eval()
+    
     return model
 
 
