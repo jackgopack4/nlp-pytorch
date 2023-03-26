@@ -1,0 +1,904 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    107 (21.7%)
+
+Example fails:
+C: Mark is older than Rebecca.
+Q: Who is older?
+A: Mark
+P: Rebecca
+
+
+----
+C: Noah is richer than Robert.
+Q: Who is richer?
+A: Noah
+P: Noah is richer than Robert
+
+
+----
+C: Elizabeth is richer than Megan.
+Q: Who is richer?
+A: Elizabeth
+P: Megan
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Robert is super hopeful about the project. Natalie is hopeful about the project.
+Q: Who is most hopeful about the project?
+A: Robert
+P: Natalie
+
+C: Natalie is hopeful about the project. Robert is super hopeful about the project.
+Q: Who is least hopeful about the project?
+A: Natalie
+P: Robert
+
+C: Robert is hopeful about the project. Natalie is a little hopeful about the project.
+Q: Who is most hopeful about the project?
+A: Robert
+P: Natalie
+
+
+----
+C: Jamie is optimistic about the project. James is quite optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Jamie
+P: James
+
+C: James is optimistic about the project. Jamie is a little optimistic about the project.
+Q: Who is most optimistic about the project?
+A: James
+P: Jamie
+
+C: Jamie is a little optimistic about the project. James is optimistic about the project.
+Q: Who is most optimistic about the project?
+A: James
+P: Jamie
+
+
+----
+C: Nicholas is open about the project. Nicole is very open about the project.
+Q: Who is least open about the project?
+A: Nicholas
+P: Nicole
+
+C: Nicole is open about the project. Nicholas is slightly open about the project.
+Q: Who is most open about the project?
+A: Nicole
+P: Nicholas
+
+C: Nicole is very open about the project. Nicholas is slightly open about the project.
+Q: Who is most open about the project?
+A: Nicole
+P: Nicholas
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    417 (83.4%)
+
+Example fails:
+C: There is a clock in the room. The clock is enormous and white.
+Q: What size is the clock?
+A: enormous
+P: enormous and white
+
+
+----
+C: There is a big red figure in the room.
+Q: What size is the figure?
+A: big
+P: big red
+
+C: There is a figure in the room. The figure is big and red.
+Q: What size is the figure?
+A: big
+P: big and red
+
+
+----
+C: There is a tiny red clock in the room.
+Q: What size is the clock?
+A: tiny
+P: red
+
+C: There is a clock in the room. The clock is tiny and red.
+Q: What size is the clock?
+A: tiny
+P: tiny and red
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    469 (93.8%)
+
+Example fails:
+C: Heather is a Pakistani administrator.
+Q: What is Heather's job?
+A: administrator
+P: Pakistani administrator
+
+
+----
+C: Amber is a Nigerian investor.
+Q: What is Amber's job?
+A: investor
+P: Nigerian investor
+
+
+----
+C: Tyler is a Brazilian intern.
+Q: What is Tyler's job?
+A: intern
+P: Brazilian intern
+
+C: Tyler is an intern. Tyler is Brazilian.
+Q: What is Tyler's job?
+A: intern
+P: Brazilian
+
+C: Tyler is Brazilian. Tyler is an intern.
+Q: What is Tyler's job?
+A: intern
+P: Brazilian
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    183 (36.6%)
+
+Example fails:
+C: Emily has a bull and a bike.
+Q: What vehicle does Emily have?
+A: bike
+P: bull
+
+C: Emily has a bike and a bull.
+Q: What vehicle does Emily have?
+A: bike
+P: bull
+
+
+----
+C: Jordan has a rabbit and a SUV.
+Q: What vehicle does Jordan have?
+A: SUV
+P: rabbit and a SUV
+
+
+----
+C: Anna has a bull and a car.
+Q: What vehicle does Anna have?
+A: car
+P: bull
+
+C: Anna has a car and a bull.
+Q: What vehicle does Anna have?
+A: car
+P: bull
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    115 (23.2%)
+
+Example fails:
+C: Maria bought a hamster. Brandon bought a minivan.
+Q: Who bought an animal?
+A: Maria
+P: Brandon
+
+
+----
+C: Nathan bought a firetruck. Samantha bought a rabbit.
+Q: Who bought a vehicle?
+A: Nathan
+P: Samantha
+
+
+----
+C: David bought a firetruck. Alexis bought a snake.
+Q: Who bought a vehicle?
+A: David
+P: Alexis
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    10 (2.2%)
+
+Example fails:
+C: Katherine is very religious. Andrea is very joyful.
+Q: Who is spiritual?
+A: Katherine
+P: Andrea
+
+
+----
+C: David is very religious. Hannah is very joyful.
+Q: Who is spiritual?
+A: David
+P: Hannah
+
+
+----
+C: Jose is very religious. Michelle is very joyful.
+Q: Who is spiritual?
+A: Jose
+P: Michelle
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    368 (74.2%)
+
+Example fails:
+C: Shannon is bigger than Mary.
+Q: Who is bigger?
+A: Shannon
+P: Mary
+
+C: Mary is smaller than Shannon.
+Q: Who is bigger?
+A: Shannon
+P: Mary
+
+
+----
+C: Austin is poorer than Brian.
+Q: Who is richer?
+A: Brian
+P: Austin
+
+
+----
+C: Kimberly is weaker than Christopher.
+Q: Who is weaker?
+A: Kimberly
+P: Christopher
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Jacob is more cautious than Ryan.
+Q: Who is less brave?
+A: Jacob
+P: Ryan
+
+C: Ryan is more brave than Jacob.
+Q: Who is less cautious?
+A: Ryan
+P: Jacob
+
+C: Jacob is less brave than Ryan.
+Q: Who is more cautious?
+A: Jacob
+P: Ryan
+
+
+----
+C: Heather is more negative than Jonathan.
+Q: Who is less positive?
+A: Heather
+P: Jonathan
+
+C: Jonathan is more positive than Heather.
+Q: Who is less negative?
+A: Jonathan
+P: Heather
+
+C: Heather is less positive than Jonathan.
+Q: Who is more negative?
+A: Heather
+P: Jonathan
+
+
+----
+C: Jeremy is more unhappy than Christopher.
+Q: Who is less unhappy?
+A: Christopher
+P: Jeremy is more unhappy than Christopher
+
+C: Jeremy is more unhappy than Christopher.
+Q: Who is more happy?
+A: Christopher
+P: Jeremy
+
+C: Jeremy is more unhappy than Christopher.
+Q: Who is less happy?
+A: Jeremy
+P: Jeremy is more unhappy than Christopher
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    109 (21.8%)
+
+Example fails:
+C: In 1999, another special, Doctor Who and the Curse of Fatal Death, was made for Comic Relief and later released on VHS. An affectionate parody of the television series, it was split into four segments, mimicking the traditional serial format, complete with cliffhangers, and running down the same corridor several times when being chased (the version released on video was split into only two episodes). In the story, the Doctor (Rowan Atkinson) encounters both the Master (Jonathan Pryce) and the Daleks. During the special the Doctor is forced to regenerate several times, with his subsequent incarnations played by, in order, Richard E. Grant, Jim Broadbent, Hugh Grant and Joanna Lumley. The script was written by Steven Moffat, later to be head writer and executive producer to the revived series.
+Q: How many segments did the special originally have?
+P: four
+
+C: In 1999, another special, Doctor Who and the Curse of Fatal Death, was made for Comic Relief and later released on VHS. An affectionate parody of the television series, it was split into four segments, mimicking the traditional serial format, complete with cliffhangers, and running down the same corridor several times when being chased (the version released on video was split into only two episodes). In the story, the Doctor (Rowan Atkinson) encounters both the Master (Jonathan Pryce) and the Daleks. During the special the Doctor is forced to regenerate several times, with his subsequent incarnations played by, in order, Richard E. Grant, Jim Broadbent, Hugh Grant and Joanna Lumley. The script was written by Steven Moffat, later to be head writer and executive producer to the revived series.
+Q: How mnay segments did the special originally have?
+P: serial format
+
+
+----
+C: In a purely capitalist mode of production (i.e. where professional and labor organizations cannot limit the number of workers) the workers wages will not be controlled by these organizations, or by the employer, but rather by the market. Wages work in the same way as prices for any other good. Thus, wages can be considered as a function of market price of skill. And therefore, inequality is driven by this price. Under the law of supply and demand, the price of skill is determined by a race between the demand for the skilled worker and the supply of the skilled worker. "On the other hand, markets can also concentrate wealth, pass environmental costs on to society, and abuse workers and consumers." "Markets, by themselves, even when they are stable, often lead to high levels of inequality, outcomes that are widely viewed as unfair." Employers who offer a below market wage will find that their business is chronically understaffed. Their competitors will take advantage of the situation by offering a higher wage the best of their labor. For a businessman who has the profit motive as the prime interest, it is a losing proposition to offer below or above market wages to workers.
+Q: Under what law is value of a worker determined?
+P: law of supply and demand
+
+C: In a purely capitalist mode of production (i.e. where professional and labor organizations cannot limit the number of workers) the workers wages will not be controlled by these organizations, or by the employer, but rather by the market. Wages work in the same way as prices for any other good. Thus, wages can be considered as a function of market price of skill. And therefore, inequality is driven by this price. Under the law of supply and demand, the price of skill is determined by a race between the demand for the skilled worker and the supply of the skilled worker. "On the other hand, markets can also concentrate wealth, pass environmental costs on to society, and abuse workers and consumers." "Markets, by themselves, even when they are stable, often lead to high levels of inequality, outcomes that are widely viewed as unfair." Employers who offer a below market wage will find that their business is chronically understaffed. Their competitors will take advantage of the situation by offering a higher wage the best of their labor. For a businessman who has the profit motive as the prime interest, it is a losing proposition to offer below or above market wages to workers.
+Q: Unde rwhat law is value of a worker determined?
+P: supply and demand
+
+
+----
+C: Luther's hymns inspired composers to write music. Johann Sebastian Bach included several verses as chorales in his cantatas and based chorale cantatas entirely on them, namely Christ lag in Todes Banden, BWV 4, as early as possibly 1707, in his second annual cycle (1724 to 1725) Ach Gott, vom Himmel sieh darein, BWV 2, Christ unser Herr zum Jordan kam, BWV 7, Nun komm, der Heiden Heiland, BWV 62, Gelobet seist du, Jesu Christ, BWV 91, and Aus tiefer Not schrei ich zu dir, BWV 38, later Ein feste Burg ist unser Gott, BWV 80, and in 1735 Wär Gott nicht mit uns diese Zeit, BWV 14.
+Q: What did Bach base entirely on Luther chorales?
+P: chorale cantatas
+
+C: Luther's hymns inspired composers to write music. Johann Sebastian Bach included several verses as chorales in his cantatas and based chorale cantatas entirely on them, namely Christ lag in Todes Banden, BWV 4, as early as possibly 1707, in his second annual cycle (1724 to 1725) Ach Gott, vom Himmel sieh darein, BWV 2, Christ unser Herr zum Jordan kam, BWV 7, Nun komm, der Heiden Heiland, BWV 62, Gelobet seist du, Jesu Christ, BWV 91, and Aus tiefer Not schrei ich zu dir, BWV 38, later Ein feste Burg ist unser Gott, BWV 80, and in 1735 Wär Gott nicht mit uns diese Zeit, BWV 14.
+Q: What idd Bach base entirely on Luther chorales?
+P: Christ lag in Todes Banden, BWV 4
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    52 (10.4%)
+
+Example fails:
+C: Firstly, certain costs are difficult to avoid and are shared by everyone, such as the costs of housing, pensions, education and health care. If the state does not provide these services, then for those on lower incomes, the costs must be borrowed and often those on lower incomes are those who are worse equipped to manage their finances. Secondly, aspirational consumption describes the process of middle income earners aspiring to achieve the standards of living enjoyed by their wealthier counterparts and one method of achieving this aspiration is by taking on debt. The result leads to even greater inequality and potential economic instability.
+Q: What are those with lower incomes often unable to manage?
+P: their finances
+
+C: Firstly, certain costs are difficult to avoid and are shared by everyone, such as the costs of housing, pensions, education and health care. If the state does not provide these services, then for those on lower incomes, the costs must be borrowed and often those on lower incomes are those who are worse equipped to manage their finances. Secondly, aspirational consumption describes the process of middle income earners aspiring to achieve the standards of living enjoyed by their wealthier counterparts and one method of achieving this aspiration is by taking on debt. The result leads to even greater inequality and potential economic instability.
+Q: What're those with lower incomes often unable to manage?
+P: those who are worse equipped to manage their finances
+
+
+----
+C: Most species are hermaphrodites—a single animal can produce both eggs and sperm, meaning it can fertilize its own egg, not needing a mate. Some are simultaneous hermaphrodites, which can produce both eggs and sperm at the same time. Others are sequential hermaphrodites, in which the eggs and sperm mature at different times. Fertilization is generally external, although platyctenids' eggs are fertilized inside their parents' bodies and kept there until they hatch. The young are generally planktonic and in most species look like miniature cydippids, gradually changing into their adult shapes as they grow. The exceptions are the beroids, whose young are miniature beroids with large mouths and no tentacles, and the platyctenids, whose young live as cydippid-like plankton until they reach near-adult size, but then sink to the bottom and rapidly metamorphose into the adult form. In at least some species, juveniles are capable of reproduction before reaching the adult size and shape. The combination of hermaphroditism and early reproduction enables small populations to grow at an explosive rate.
+Q: What is unique about  simultaneous hermaphrodites?
+P: can produce both eggs and sperm at the same time. Others are sequential hermaphrodites, in which the eggs and sperm mature at different times
+
+C: Most species are hermaphrodites—a single animal can produce both eggs and sperm, meaning it can fertilize its own egg, not needing a mate. Some are simultaneous hermaphrodites, which can produce both eggs and sperm at the same time. Others are sequential hermaphrodites, in which the eggs and sperm mature at different times. Fertilization is generally external, although platyctenids' eggs are fertilized inside their parents' bodies and kept there until they hatch. The young are generally planktonic and in most species look like miniature cydippids, gradually changing into their adult shapes as they grow. The exceptions are the beroids, whose young are miniature beroids with large mouths and no tentacles, and the platyctenids, whose young live as cydippid-like plankton until they reach near-adult size, but then sink to the bottom and rapidly metamorphose into the adult form. In at least some species, juveniles are capable of reproduction before reaching the adult size and shape. The combination of hermaphroditism and early reproduction enables small populations to grow at an explosive rate.
+Q: What's unique about  simultaneous hermaphrodites?
+P: can produce both eggs and sperm at the same time
+
+
+----
+C: When a person’s capabilities are lowered, they are in some way deprived of earning as much income as they would otherwise. An old, ill man cannot earn as much as a healthy young man; gender roles and customs may prevent a woman from receiving an education or working outside the home. There may be an epidemic that causes widespread panic, or there could be rampant violence in the area that prevents people from going to work for fear of their lives. As a result, income and economic inequality increases, and it becomes more difficult to reduce the gap without additional aid. To prevent such inequality, this approach believes it’s important to have political freedom, economic facilities, social opportunities, transparency guarantees, and protective security to ensure that people aren’t denied their functionings, capabilities, and agency and can thus work towards a better relevant income.
+Q: What can people work towards if they aren't denied their functionings, capabilities and agency?
+P: better relevant income
+
+C: When a person’s capabilities are lowered, they are in some way deprived of earning as much income as they would otherwise. An old, ill man cannot earn as much as a healthy young man; gender roles and customs may prevent a woman from receiving an education or working outside the home. There may be an epidemic that causes widespread panic, or there could be rampant violence in the area that prevents people from going to work for fear of their lives. As a result, income and economic inequality increases, and it becomes more difficult to reduce the gap without additional aid. To prevent such inequality, this approach believes it’s important to have political freedom, economic facilities, social opportunities, transparency guarantees, and protective security to ensure that people aren’t denied their functionings, capabilities, and agency and can thus work towards a better relevant income.
+Q: What can people work towards if they are not denied their functionings, capabilities and agency?
+P: a better relevant income
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    84 (16.8%)
+
+Example fails:
+C: TVOntario picked up the show in 1976 beginning with The Three Doctors and aired each series (several years late) through to series 24 in 1991. From 1979 to 1981, TVO airings were bookended by science-fiction writer Judith Merril who would introduce the episode and then, after the episode concluded, try to place it in an educational context in keeping with TVO's status as an educational channel. Its airing of The Talons of Weng-Chiang was cancelled as a result of accusations that the story was racist; the story was later broadcast in the 1990s on cable station YTV. CBC began showing the series again in 2005. The series moved to the Canadian cable channel Space in 2009.[citation needed]
+Q: What was the first Doctor Who show that TVOntario ran?
+P: Three Doctors
+
+C: During this period the university, like Shimer College and 10 others, adopted an early entrant program that allowed very young students to attend college; in addition, students enrolled at Shimer were enabled to transfer automatically to the University of Chicago after their second year, having taken comparable or identical examinations and courses. TVOntario picked up the show in 1976 beginning with The Three Doctors and aired each series (several years late) through to series 24 in 1991. From 1979 to 1981, TVO airings were bookended by science-fiction writer Judith Merril who would introduce the episode and then, after the episode concluded, try to place it in an educational context in keeping with TVO's status as an educational channel. Its airing of The Talons of Weng-Chiang was cancelled as a result of accusations that the story was racist; the story was later broadcast in the 1990s on cable station YTV. CBC began showing the series again in 2005. The series moved to the Canadian cable channel Space in 2009.[citation needed]
+Q: What was the first Doctor Who show that TVOntario ran?
+P: series 24
+
+
+----
+C: Not all cells in a multicellular plant contain chloroplasts. All green parts of a plant contain chloroplasts—the chloroplasts, or more specifically, the chlorophyll in them are what make the photosynthetic parts of a plant green. The plant cells which contain chloroplasts are usually parenchyma cells, though chloroplasts can also be found in collenchyma tissue. A plant cell which contains chloroplasts is known as a chlorenchyma cell. A typical chlorenchyma cell of a land plant contains about 10 to 100 chloroplasts.
+Q: What makes plants green?
+P: chloroplasts
+
+C: Not all cells in a multicellular plant contain chloroplasts. All green parts of a plant contain chloroplasts—the chloroplasts, or more specifically, the chlorophyll in them are what make the photosynthetic parts of a plant green. The plant cells which contain chloroplasts are usually parenchyma cells, though chloroplasts can also be found in collenchyma tissue. A plant cell which contains chloroplasts is known as a chlorenchyma cell. A typical chlorenchyma cell of a land plant contains about 10 to 100 chloroplasts.The press variably referred to it as a "peace ray" or death ray. 
+Q: What makes plants green?
+P: chlorophyll
+
+
+----
+C: After the Greeks, little happened with the study of prime numbers until the 17th century. In 1640 Pierre de Fermat stated (without proof) Fermat's little theorem (later proved by Leibniz and Euler). Fermat also conjectured that all numbers of the form 22n + 1 are prime (they are called Fermat numbers) and he verified this up to n = 4 (or 216 + 1). However, the very next Fermat number 232 + 1 is composite (one of its prime factors is 641), as Euler discovered later, and in fact no further Fermat numbers are known to be prime. The French monk Marin Mersenne looked at primes of the form 2p − 1, with p a prime. They are called Mersenne primes in his honor.
+Q: Of what form do Fermat numbers take?
+P: 22n + 1 are prime
+
+C: After the Greeks, little happened with the study of prime numbers until the 17th century. In 1640 Pierre de Fermat stated (without proof) Fermat's little theorem (later proved by Leibniz and Euler). Fermat also conjectured that all numbers of the form 22n + 1 are prime (they are called Fermat numbers) and he verified this up to n = 4 (or 216 + 1). However, the very next Fermat number 232 + 1 is composite (one of its prime factors is 641), as Euler discovered later, and in fact no further Fermat numbers are known to be prime. The French monk Marin Mersenne looked at primes of the form 2p − 1, with p a prime. They are called Mersenne primes in his honor.Heinrich Himmler wrote admiringly of his writings and sermons on the Jews in 1940. 
+Q: Of what form do Fermat numbers take?
+P: 22n + 1
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    41 (8.2%)
+
+Example fails:
+C: In 1542, Luther read a Latin translation of the Qur'an. He went on to produce several critical pamphlets on Islam, which he called "Mohammedanism" or "the Turk". Though Luther saw the Muslim faith as a tool of the devil, he was indifferent to its practice: "Let the Turk believe and live as he will, just as one lets the papacy and other false Christians live." He opposed banning the publication of the Qur'an, wanting it exposed to scrutiny.
+Q: What book did Luther read in 1542?
+P: the Qur'an
+
+C: In 1542, Jesus read a Latin translation of the Qur'an. He went on to produce several critical pamphlets on Islam, which he called "Mohammedanism" or "the Turk". Though Jesus saw the Muslim faith as a tool of the devil, he was indifferent to its practice: "Let the Turk believe and live as he will, just as one lets the papacy and other false Christians live." He opposed banning the publication of the Qur'an, wanting it exposed to scrutiny.
+Q: What book did Jesus read in 1542?
+P: Qur'an
+
+
+----
+C: Two days later, the FBI ordered the Alien Property Custodian to seize Tesla's belongings, even though Tesla was an American citizen. Tesla's entire estate from the Hotel New Yorker and other New York City hotels was transported to the Manhattan Storage and Warehouse Company under the Office of Alien Property (OAP) seal. John G. Trump, a professor at M.I.T. and a well-known electrical engineer serving as a technical aide to the National Defense Research Committee, was called in to analyze the Tesla items in OAP custody. After a three-day investigation, Trump's report concluded that there was nothing which would constitute a hazard in unfriendly hands, stating:
+Q: What happened to Tesla's belongings?
+P: the FBI ordered the Alien Property Custodian to seize Tesla's belongings, even though Tesla was an American citizen
+
+C: Two days later, the FBI ordered the Alien Property Custodian to seize Alexis's belongings, even though Alexis was an American citizen. Alexis's entire estate from the Hotel New Yorker and other New York City hotels was transported to the Manhattan Storage and Warehouse Company under the Office of Alien Property (OAP) seal. John G. Trump, a professor at M.I.T. and a well-known electrical engineer serving as a technical aide to the National Defense Research Committee, was called in to analyze the Alexis items in OAP custody. After a three-day investigation, Trump's report concluded that there was nothing which would constitute a hazard in unfriendly hands, stating:
+Q: What happened to Alexis's belongings?
+P: the FBI ordered the Alien Property Custodian to seize
+
+
+----
+C: The Apollo astronauts were chosen from the Project Mercury and Gemini veterans, plus from two later astronaut groups. All missions were commanded by Gemini or Mercury veterans. Crews on all development flights (except the Earth orbit CSM development flights) through the first two landings on Apollo 11 and Apollo 12, included at least two (sometimes three) Gemini veterans. Dr. Harrison Schmitt, a geologist, was the first NASA scientist astronaut to fly in space, and landed on the Moon on the last mission, Apollo 17. Schmitt participated in the lunar geology training of all of the Apollo landing crews.
+Q: From what project groups were the Apollo astronauts selected?
+P: Mercury and Gemini veterans
+
+C: The Apollo astronauts were chosen from the Project Mercury and Heather veterans, plus from two later astronaut groups. All missions were commanded by Heather or Mercury veterans. Crews on all development flights (except the Earth orbit CSM development flights) through the first two landings on Apollo 11 and Apollo 12, included at least two (sometimes three) Heather veterans. Dr. Harrison Schmitt, a geologist, was the first NASA scientist astronaut to fly in space, and landed on the Moon on the last mission, Apollo 17. Schmitt participated in the lunar geology training of all of the Apollo landing crews.
+Q: From what project groups were the Apollo astronauts selected?
+P: Project Mercury and Heather veterans
+
+C: The Apollo astronauts were chosen from the Project Mercury and Avery veterans, plus from two later astronaut groups. All missions were commanded by Avery or Mercury veterans. Crews on all development flights (except the Earth orbit CSM development flights) through the first two landings on Apollo 11 and Apollo 12, included at least two (sometimes three) Avery veterans. Dr. Harrison Schmitt, a geologist, was the first NASA scientist astronaut to fly in space, and landed on the Moon on the last mission, Apollo 17. Schmitt participated in the lunar geology training of all of the Apollo landing crews.
+Q: From what project groups were the Apollo astronauts selected?
+P: Project Mercury and Avery veterans
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    83 (16.6%)
+
+Example fails:
+C: Iqbal expressed fears that not only would secularism and secular nationalism weaken the spiritual foundations of Islam and Muslim society, but that India's Hindu-majority population would crowd out Muslim heritage, culture and political influence. In his travels to Egypt, Afghanistan, Palestine and Syria, he promoted ideas of greater Islamic political co-operation and unity, calling for the shedding of nationalist differences. Sir Muhammad Iqbal was elected president of the Muslim League in 1930 at its session in Allahabad as well as for the session in Lahore in 1932. In his Allahabad Address on 29 December 1930, Iqbal outlined a vision of an independent state for Muslim-majority provinces in northwestern India. This address later inspired the Pakistan movement.
+Q: What did Iqbal's Allahabad address inspire?
+P: Pakistan movement
+
+C: Iqbal expressed fears that not only would secularism and secular nationalism weaken the spiritual foundations of Islam and Muslim society, but that India's Hindu-majority population would crowd out Muslim heritage, culture and political influence. In his travels to Egypt, Afghanistan, Palestine and Syria, he promoted ideas of greater Islamic political co-operation and unity, calling for the shedding of nationalist differences. Sir Muhammad Iqbal was elected president of the Muslim League in 1930 at its session in Allahabad as well as for the session in Lahore in 1932. In his Allahabad Address on 29 December 1930, Iqbal outlined a vision of an independent state for Muslim-majority provinces in northwestern India. This address later inspired the Côte d'Ivoire movement.
+Q: What did Iqbal's Allahabad address inspire?
+P: C\xf4te d'Ivoire movement
+
+
+----
+C: In the spring of 1753, Paul Marin de la Malgue was given command of a 2,000-man force of Troupes de la Marine and Indians. His orders were to protect the King's land in the Ohio Valley from the British. Marin followed the route that Céloron had mapped out four years earlier, but where Céloron had limited the record of French claims to the burial of lead plates, Marin constructed and garrisoned forts. He first constructed Fort Presque Isle (near present-day Erie, Pennsylvania) on Lake Erie's south shore. He had a road built to the headwaters of LeBoeuf Creek. Marin constructed a second fort at Fort Le Boeuf (present-day Waterford, Pennsylvania), designed to guard the headwaters of LeBoeuf Creek. As he moved south, he drove off or captured British traders, alarming both the British and the Iroquois. Tanaghrisson, a chief of the Mingo, who were remnants of Iroquois and other tribes who had been driven west by colonial expansion. He intensely disliked the French (whom he accused of killing and eating his father). Traveling to Fort Le Boeuf, he threatened the French with military action, which Marin contemptuously dismissed.
+Q: Where was Marin's second fort constructed?
+P: Fort Le Boeuf (present-day Waterford, Pennsylvania
+
+C: In the spring of 1753, Paul Marin de la Malgue was given command of a 2,000-man force of Troupes de la Marine and Indians. His orders were to protect the King's land in the Ohio Valley from the British. Marin followed the route that Céloron had mapped out four years earlier, but where Céloron had limited the record of French claims to the burial of lead plates, Marin constructed and garrisoned forts. He first constructed Fort Presque Isle (near present-day Augusta-Richmond County, Pennsylvania) on Lake Augusta-Richmond County's south shore. He had a road built to the headwaters of LeBoeuf Creek. Marin constructed a second fort at Fort Le Boeuf (present-day Waterford, Pennsylvania), designed to guard the headwaters of LeBoeuf Creek. As he moved south, he drove off or captured British traders, alarming both the British and the Iroquois. Tanaghrisson, a chief of the Mingo, who were remnants of Iroquois and other tribes who had been driven west by colonial expansion. He intensely disliked the French (whom he accused of killing and eating his father). Traveling to Fort Le Boeuf, he threatened the French with military action, which Marin contemptuously dismissed.
+Q: Where was Marin's second fort constructed?
+P: Fort Le Boeuf
+
+C: In the spring of 1753, Paul Marin de la Malgue was given command of a 2,000-man force of Troupes de la Marine and Indians. His orders were to protect the King's land in the Ohio Valley from the British. Marin followed the route that Céloron had mapped out four years earlier, but where Céloron had limited the record of French claims to the burial of lead plates, Marin constructed and garrisoned forts. He first constructed Fort Presque Isle (near present-day Burien, Pennsylvania) on Lake Burien's south shore. He had a road built to the headwaters of LeBoeuf Creek. Marin constructed a second fort at Fort Le Boeuf (present-day Waterford, Pennsylvania), designed to guard the headwaters of LeBoeuf Creek. As he moved south, he drove off or captured British traders, alarming both the British and the Iroquois. Tanaghrisson, a chief of the Mingo, who were remnants of Iroquois and other tribes who had been driven west by colonial expansion. He intensely disliked the French (whom he accused of killing and eating his father). Traveling to Fort Le Boeuf, he threatened the French with military action, which Marin contemptuously dismissed.
+Q: Where was Marin's second fort constructed?
+P: Fort Le Boeuf
+
+
+----
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Kenya and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Kenya, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Kenya has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Kenya?
+P: Christian
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Bahamas and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Bahamas, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Bahamas has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Bahamas?
+P: Protestant
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Luxembourg and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Luxembourg, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Luxembourg has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Luxembourg?
+P: Protestant
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    0 (0.0%)
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    2 (0.4%)
+
+Example fails:
+C: Both Christian and Eric were interpreters, but there was a change in Christian, who is now a historian.
+Q: Who is a historian?
+A: Christian
+P: Eric
+
+
+----
+C: Both Christian and Brandon were actors, but there was a change in Christian, who is now an educator.
+Q: Who is an educator?
+A: Christian
+P: Brandon
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Nicole became a historian before Timothy did.
+Q: Who became a historian first?
+A: Nicole
+P: Nicole became a historian before Timothy
+
+C: Timothy became a historian after Nicole did.
+Q: Who became a historian last?
+A: Timothy
+P: Nicole
+
+
+----
+C: Nicholas became a actor before Noah did.
+Q: Who became a actor first?
+A: Nicholas
+P: Nicholas became a actor before Noah
+
+C: Noah became a actor after Nicholas did.
+Q: Who became a actor last?
+A: Noah
+P: Nicholas
+
+
+----
+C: Shannon became a nurse before Tiffany did.
+Q: Who became a nurse first?
+A: Shannon
+P: Tiffany
+
+C: Tiffany became a nurse after Shannon did.
+Q: Who became a nurse first?
+A: Shannon
+P: Tiffany became a nurse after Shannon
+
+C: Tiffany became a nurse after Shannon did.
+Q: Who became a nurse last?
+A: Tiffany
+P: Shannon
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    0 (0.0%)
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    2 (0.4%)
+
+Example fails:
+C: Alexis is an adviser. Mary is an advisor.
+Q: Who is an advisor?
+A: Mary
+P: Alexis
+
+C: Alexis is an adviser. Mary is an advisor.
+Q: Who is not an adviser?
+A: Mary
+P: Alexis
+
+
+----
+C: Christian is a historian. Megan is an investor.
+Q: Who is not an investor?
+A: Christian
+P: Christian is a historian. Megan
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Luke and Morgan are friends. He is an architect, and she is an artist.
+Q: Who is an artist?
+A: Morgan
+P: Luke
+
+C: Morgan and Luke are friends. He is an architect, and she is an artist.
+Q: Who is an architect?
+A: Luke
+P: Morgan
+
+C: Luke and Morgan are friends. She is an artist, and he is an architect.
+Q: Who is an artist?
+A: Morgan
+P: Luke
+
+
+----
+C: Jason and Destiny are friends. He is an economist, and she is an auditor.
+Q: Who is an auditor?
+A: Destiny
+P: Jason
+
+C: Destiny and Jason are friends. He is an economist, and she is an auditor.
+Q: Who is an economist?
+A: Jason
+P: Destiny
+
+C: Destiny and Jason are friends. He is an economist, and she is an auditor.
+Q: Who is an auditor?
+A: Destiny
+P: Jason
+
+
+----
+C: Aiden and Shannon are friends. He is an advisor, and she is an interpreter.
+Q: Who is an interpreter?
+A: Shannon
+P: Aiden
+
+C: Shannon and Aiden are friends. He is an advisor, and she is an interpreter.
+Q: Who is an advisor?
+A: Aiden
+P: Shannon
+
+C: Aiden and Shannon are friends. She is an interpreter, and he is an advisor.
+Q: Who is an advisor?
+A: Aiden
+P: Shannon
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    478 (95.6%)
+
+Example fails:
+C: Zachary and April are friends. Her mom is a photographer.
+Q: Whose mom is a photographer?
+A: April
+P: Zachary
+
+
+----
+C: Connor and Leah are friends. Her mom is an author.
+Q: Whose mom is an author?
+A: Leah
+P: Connor
+
+
+----
+C: Ashley and Julian are friends. His mom is a producer.
+Q: Whose mom is a producer?
+A: Julian
+P: Ashley
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    189 (39.8%)
+
+Example fails:
+C: Christian and Elizabeth are friends. The former is an escort.
+Q: Who is an escort?
+A: Christian
+P: Elizabeth
+
+C: Elizabeth and Christian are friends. The former is an editor and the latter is an escort.
+Q: Who is an escort?
+A: Christian
+P: Elizabeth
+
+
+----
+C: Madison and Aaron are friends. The latter is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Aaron
+P: Madison
+
+
+----
+C: Jordan and Robert are friends. The latter is an executive.
+Q: Who is an executive?
+A: Robert
+P: Jordan
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    490 (98.6%)
+
+Example fails:
+C: Kyle attacks Ashley.
+Q: Who attacks?
+A: Kyle
+P: Ashley
+
+C: Ashley is attacked by Kyle.
+Q: Who is attacked?
+A: Ashley
+P: Kyle
+
+
+----
+C: Charles likes Timothy.
+Q: Who likes?
+A: Charles
+P: Timothy
+
+C: Timothy is liked by Charles.
+Q: Who is liked?
+A: Timothy
+P: Charles
+
+
+----
+C: Andrew hates Dylan.
+Q: Who hates?
+A: Andrew
+P: Dylan
+
+C: Dylan is hated by Andrew.
+Q: Who is hated?
+A: Dylan
+P: Andrew
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Aaron notices Brian. Amber is noticed by Brian.
+Q: Who notices Amber?
+A: Brian
+P: Aaron
+
+C: Aaron notices Brian. Amber is noticed by Brian.
+Q: Who is noticed by Aaron?
+A: Brian
+P: Amber
+
+C: Brian is noticed by Aaron. Brian notices Amber.
+Q: Who is noticed by Brian?
+A: Amber
+P: Aaron
+
+
+----
+C: Joseph follows Danielle. Danielle follows Sara.
+Q: Who is followed by Danielle?
+A: Sara
+P: Joseph
+
+C: Danielle is followed by Joseph. Danielle follows Sara.
+Q: Who is followed by Danielle?
+A: Sara
+P: Joseph
+
+C: Danielle is followed by Joseph. Sara is followed by Danielle.
+Q: Who is followed by Danielle?
+A: Sara
+P: Joseph
+
+
+----
+C: Michelle understands Jeremy. Jeremy understands Jason.
+Q: Who is understood by Jeremy?
+A: Jason
+P: Michelle
+
+C: Michelle understands Jeremy. Jason is understood by Jeremy.
+Q: Who understands Jason?
+A: Jeremy
+P: Michelle
+
+C: Jeremy is understood by Michelle. Jeremy understands Jason.
+Q: Who is understood by Jeremy?
+A: Jason
+P: Michelle
+
+
+----
+
+
+

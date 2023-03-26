@@ -1,0 +1,1010 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    488 (98.8%)
+
+Example fails:
+C: Amy is smaller than Nicole.
+Q: Who is less small?
+A: Nicole
+P: Amy
+
+
+----
+C: Mark is slower than Shannon.
+Q: Who is less slow?
+A: Shannon
+P: Mark
+
+
+----
+C: Jordan is darker than Jonathan.
+Q: Who is less dark?
+A: Jonathan
+P: Jordan
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Taylor is particularly pessimistic about the project. Kevin is pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Kevin
+P: Taylor
+
+C: Kevin is pessimistic about the project. Taylor is particularly pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Kevin
+P: Taylor
+
+C: Taylor is pessimistic about the project. Kevin is mildly pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Kevin
+P: Taylor
+
+
+----
+C: Heather is super hopeful about the project. Sara is hopeful about the project.
+Q: Who is most hopeful about the project?
+A: Heather
+P: Sara
+
+C: Heather is super hopeful about the project. Sara is hopeful about the project.
+Q: Who is least hopeful about the project?
+A: Sara
+P: Heather
+
+C: Sara is hopeful about the project. Heather is super hopeful about the project.
+Q: Who is most hopeful about the project?
+A: Heather
+P: Sara
+
+
+----
+C: Stephanie is quite pessimistic about the project. Abigail is pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Abigail
+P: Stephanie
+
+C: Abigail is pessimistic about the project. Stephanie is quite pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Abigail
+P: Stephanie
+
+C: Stephanie is pessimistic about the project. Abigail is mildly pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Abigail
+P: Stephanie
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    493 (98.6%)
+
+Example fails:
+C: There is an enormous round box in the room.
+Q: What size is the box?
+A: enormous
+P: round
+
+C: There is a box in the room. The box is enormous and round.
+Q: What size is the box?
+A: enormous
+P: enormous and round
+
+C: There is a box in the room. The box is enormous and round.
+Q: What shape is the box?
+A: round
+P: enormous and round
+
+
+----
+C: There is an oval brown table in the room.
+Q: What shape is the table?
+A: oval
+P: oval brown
+
+C: There is a table in the room. The table is oval and brown.
+Q: What shape is the table?
+A: oval
+P: oval and brown
+
+
+----
+C: There is a square red sculpture in the room.
+Q: What shape is the sculpture?
+A: square
+P: square red
+
+C: There is a sculpture in the room. The sculpture is square and red.
+Q: What shape is the sculpture?
+A: square
+P: square and red
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    323 (64.6%)
+
+Example fails:
+C: Jeremy is a Russian interpreter.
+Q: What is Jeremy's job?
+A: interpreter
+P: Russian interpreter
+
+
+----
+C: Amber is a Bangladeshi adviser.
+Q: What is Amber's job?
+A: adviser
+P: Bangladeshi adviser
+
+
+----
+C: Laura is a Chinese accountant.
+Q: What is Laura's job?
+A: accountant
+P: Chinese accountant
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    471 (94.2%)
+
+Example fails:
+C: Jeremy has a dog and a train.
+Q: What vehicle does Jeremy have?
+A: train
+P: dog
+
+C: Jeremy has a train and a dog.
+Q: What vehicle does Jeremy have?
+A: train
+P: a train and a dog
+
+
+----
+C: Laura has a dog and a tractor.
+Q: What vehicle does Laura have?
+A: tractor
+P: a dog and a tractor
+
+
+----
+C: Danielle has a duck and a tractor.
+Q: What vehicle does Danielle have?
+A: tractor
+P: duck and a tractor
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    163 (32.9%)
+
+Example fails:
+C: Mary bought a motorcycle. Maria bought a lizard.
+Q: Who bought an animal?
+A: Maria
+P: Mary
+
+
+----
+C: Andrea bought a duck. Timothy bought a motorcycle.
+Q: Who bought an animal?
+A: Andrea
+P: Andrea bought a duck
+
+
+----
+C: Michelle bought a motorcycle. Christopher bought an iguana.
+Q: Who bought an animal?
+A: Christopher
+P: Michelle bought a motorcycle. Christopher
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    13 (2.9%)
+
+Example fails:
+C: Taylor is very vocal. Jose is very courageous.
+Q: Who is outspoken?
+A: Taylor
+P: Jose
+
+
+----
+C: Lisa is very happy. Jason is very grateful.
+Q: Who is joyful?
+A: Lisa
+P: Jason
+
+
+----
+C: Mark is very happy. Maria is very grateful.
+Q: Who is joyful?
+A: Mark
+P: Maria
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Lisa is warmer than Zachary.
+Q: Who is colder?
+A: Zachary
+P: Lisa
+
+C: Zachary is colder than Lisa.
+Q: Who is warmer?
+A: Lisa
+P: Zachary
+
+
+----
+C: Thomas is bigger than Rachel.
+Q: Who is smaller?
+A: Rachel
+P: Thomas
+
+C: Rachel is smaller than Thomas.
+Q: Who is bigger?
+A: Thomas
+P: Rachel
+
+
+----
+C: Stephanie is happier than Eric.
+Q: Who is sadder?
+A: Eric
+P: Stephanie
+
+C: Eric is sadder than Stephanie.
+Q: Who is happier?
+A: Stephanie
+P: Eric
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Jamie is more bad than Jeffrey.
+Q: Who is less bad?
+A: Jeffrey
+P: Jamie
+
+C: Jamie is more bad than Jeffrey.
+Q: Who is more good?
+A: Jeffrey
+P: Jamie
+
+C: Jeffrey is more good than Jamie.
+Q: Who is more bad?
+A: Jamie
+P: Jeffrey
+
+
+----
+C: Justin is more passive than Alyssa.
+Q: Who is less passive?
+A: Alyssa
+P: Justin
+
+C: Justin is more passive than Alyssa.
+Q: Who is more active?
+A: Alyssa
+P: Justin
+
+C: Alyssa is more active than Justin.
+Q: Who is more passive?
+A: Justin
+P: Alyssa
+
+
+----
+C: Mark is more positive than John.
+Q: Who is less positive?
+A: John
+P: Mark
+
+C: Mark is more positive than John.
+Q: Who is more negative?
+A: John
+P: Mark
+
+C: John is more negative than Mark.
+Q: Who is more positive?
+A: Mark
+P: John
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    124 (24.8%)
+
+Example fails:
+C: For the complexity classes defined in this way, it is desirable to prove that relaxing the requirements on (say) computation time indeed defines a bigger set of problems. In particular, although DTIME(n) is contained in DTIME(n2), it would be interesting to know if the inclusion is strict. For time and space requirements, the answer to such questions is given by the time and space hierarchy theorems respectively. They are called hierarchy theorems because they induce a proper hierarchy on the classes defined by constraining the respective resources. Thus there are pairs of complexity classes such that one is properly included in the other. Having deduced such proper set inclusions, we can proceed to make quantitative statements about how much more additional time or space is needed in order to increase the number of problems that can be solved.
+Q: What theorems are responsible for determining questions of time and space requirements?
+P: time and space hierarchy
+
+C: For the complexity classes defined in this way, it is desirable to prove that relaxing the requirements on (say) computation time indeed defines a bigger set of problems. In particular, although DTIME(n) is contained in DTIME(n2), it would be interesting to know if the inclusion is strict. For time and space requirements, the answer to such questions is given by the time and space hierarchy theorems respectively. They are called hierarchy theorems because they induce a proper hierarchy on the classes defined by constraining the respective resources. Thus there are pairs of complexity classes such that one is properly included in the other. Having deduced such proper set inclusions, we can proceed to make quantitative statements about how much more additional time or space is needed in order to increase the number of problems that can be solved.
+Q: What theorems are responsible for dteermining questions of time and space requirements?
+P: time and space hierarchy theorems respectively. They are called hierarchy theorems
+
+
+----
+C: Since the 1980s, Lutheran Church denominations have repudiated Martin Luther's statements against the Jews and have rejected the use of them to incite hatred against Lutherans. Strommen et al.'s 1970 survey of 4,745 North American Lutherans aged 15–65 found that, compared to the other minority groups under consideration, Lutherans were the least prejudiced toward Jews. Nevertheless, Professor Richard (Dick) Geary, former Professor of Modern History at the University of Nottingham, England, and the author of Hitler and Nazism (Routledge 1993), wrote in the journal History Today an article on who voted for the Nazis in elections held from 1928-1933, where he claimed that from his research he found that the Nazis gained disproportionately more votes from Protestant than Catholic areas of Germany.
+Q: What did a survey of North American Lutherans find that Lutherans felt about Jews compared to other minority groups?
+P: least prejudiced
+
+C: Since the 1980s, Lutheran Church denominations have repudiated Martin Luther's statements against the Jews and have rejected the use of them to incite hatred against Lutherans. Strommen et al.'s 1970 survey of 4,745 North American Lutherans aged 15–65 found that, compared to the other minority groups under consideration, Lutherans were the least prejudiced toward Jews. Nevertheless, Professor Richard (Dick) Geary, former Professor of Modern History at the University of Nottingham, England, and the author of Hitler and Nazism (Routledge 1993), wrote in the journal History Today an article on who voted for the Nazis in elections held from 1928-1933, where he claimed that from his research he found that the Nazis gained disproportionately more votes from Protestant than Catholic areas of Germany.
+Q: What did a survey of North American Lutherans find that Lutherans fel tabout Jews compared to other minority groups?
+P: least prejudiced toward Jews
+
+
+----
+C: In November 2006, the Victorian Legislative Council elections were held under a new multi-member proportional representation system. The State of Victoria was divided into eight electorates with each electorate represented by five representatives elected by Single Transferable Vote. The total number of upper house members was reduced from 44 to 40 and their term of office is now the same as the lower house members—four years. Elections for the Victorian Parliament are now fixed and occur in November every four years. Prior to the 2006 election, the Legislative Council consisted of 44 members elected to eight-year terms from 22 two-member electorates.
+Q: What kind of representational system does the Victorian Legislative Council have?
+P: multi-member proportional
+
+C: In November 2006, the Victorian Legislative Council elections were held under a new multi-member proportional representation system. The State of Victoria was divided into eight electorates with each electorate represented by five representatives elected by Single Transferable Vote. The total number of upper house members was reduced from 44 to 40 and their term of office is now the same as the lower house members—four years. Elections for the Victorian Parliament are now fixed and occur in November every four years. Prior to the 2006 election, the Legislative Council consisted of 44 members elected to eight-year terms from 22 two-member electorates.
+Q: What kind of representational system does the Victorian Legislative Councli have?
+P: multi-member proportional representation system
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    60 (12.0%)
+
+Example fails:
+C: Tesla was a good friend of Francis Marion Crawford, Robert Underwood Johnson, Stanford White, Fritz Lowenstein, George Scherff, and Kenneth Swezey. In middle age, Tesla became a close friend of Mark Twain; they spent a lot of time together in his lab and elsewhere. Twain notably described Tesla's induction motor invention as "the most valuable patent since the telephone." In the late 1920s, Tesla also befriended George Sylvester Viereck, a poet, writer, mystic, and later, a Nazi propagandist. Tesla occasionally attended dinner parties held by Viereck and his wife.
+Q: Where did Tesla and Twain hang out?
+P: dinner parties
+
+C: Tesla was a good friend of Francis Marion Crawford, Robert Underwood Johnson, Stanford White, Fritz Lowenstein, George Scherff, and Kenneth Swezey. In middle age, Tesla became a close friend of Mark Twain; they spent a lot of time together in his lab and elsewhere. Twain notably described Tesla's induction motor invention as "the most valuable patent since the telephone." In the late 1920s, Tesla also befriended George Sylvester Viereck, a poet, writer, mystic, and later, a Nazi propagandist. Tesla occasionally attended dinner parties held by Viereck and his wife.
+Q: Where'd Tesla and Twain hang out?
+P: in his lab and elsewhere
+
+
+----
+C: Almost all ctenophores are predators – there are no vegetarians and only one genus that is partly parasitic. If food is plentiful, they can eat 10 times their own weight per day. While Beroe preys mainly on other ctenophores, other surface-water species prey on zooplankton (planktonic animals) ranging in size from the microscopic, including mollusc and fish larvae, to small adult crustaceans such as copepods, amphipods, and even krill. Members of the genus Haeckelia prey on jellyfish and incorporate their prey's nematocysts (stinging cells) into their own tentacles instead of colloblasts. Ctenophores have been compared to spiders in their wide range of techniques from capturing prey – some hang motionless in the water using their tentacles as "webs", some are ambush predators like Salticid jumping spiders, and some dangle a sticky droplet at the end of a fine thread, as bolas spiders do. This variety explains the wide range of body forms in a phylum with rather few species. The two-tentacled "cydippid" Lampea feeds exclusively on salps, close relatives of sea-squirts that form large chain-like floating colonies, and juveniles of Lampea attach themselves like parasites to salps that are too large for them to swallow. Members of the cydippid genus Pleurobrachia and the lobate Bolinopsis often reach high population densities at the same place and time because they specialize in different types of prey: Pleurobrachia's long tentacles mainly capture relatively strong swimmers such as adult copepods, while Bolinopsis generally feeds on smaller, weaker swimmers such as rotifers and mollusc and crustacean larvae.
+Q: What happens to the jellyfish nematocysts when they are eaten by the haeckelia?
+P: stinging cells) into their own tentacles instead of colloblasts
+
+C: Almost all ctenophores are predators – there are no vegetarians and only one genus that is partly parasitic. If food is plentiful, they can eat 10 times their own weight per day. While Beroe preys mainly on other ctenophores, other surface-water species prey on zooplankton (planktonic animals) ranging in size from the microscopic, including mollusc and fish larvae, to small adult crustaceans such as copepods, amphipods, and even krill. Members of the genus Haeckelia prey on jellyfish and incorporate their prey's nematocysts (stinging cells) into their own tentacles instead of colloblasts. Ctenophores have been compared to spiders in their wide range of techniques from capturing prey – some hang motionless in the water using their tentacles as "webs", some are ambush predators like Salticid jumping spiders, and some dangle a sticky droplet at the end of a fine thread, as bolas spiders do. This variety explains the wide range of body forms in a phylum with rather few species. The two-tentacled "cydippid" Lampea feeds exclusively on salps, close relatives of sea-squirts that form large chain-like floating colonies, and juveniles of Lampea attach themselves like parasites to salps that are too large for them to swallow. Members of the cydippid genus Pleurobrachia and the lobate Bolinopsis often reach high population densities at the same place and time because they specialize in different types of prey: Pleurobrachia's long tentacles mainly capture relatively strong swimmers such as adult copepods, while Bolinopsis generally feeds on smaller, weaker swimmers such as rotifers and mollusc and crustacean larvae.
+Q: What happens to the jellyfish nematocysts when they're eaten by the haeckelia?
+P: stinging cells
+
+
+----
+C: Harvard's academic programs operate on a semester calendar beginning in early September and ending in mid-May. Undergraduates typically take four half-courses per term and must maintain a four-course rate average to be considered full-time. In many concentrations, students can elect to pursue a basic program or an honors-eligible program requiring a senior thesis and/or advanced course work. Students graduating in the top 4–5% of the class are awarded degrees summa cum laude, students in the next 15% of the class are awarded magna cum laude, and the next 30% of the class are awarded cum laude. Harvard has chapters of academic honor societies such as Phi Beta Kappa and various committees and departments also award several hundred named prizes annually. Harvard, along with other universities, has been accused of grade inflation, although there is evidence that the quality of the student body and its motivation have also increased. Harvard College reduced the number of students who receive Latin honors from 90% in 2004 to 60% in 2005. Moreover, the honors of "John Harvard Scholar" and "Harvard College Scholar" will now be given only to the top 5 percent and the next 5 percent of each class.
+Q: What is the duration of Harvard Academic year?
+P: early September and ending in mid-May
+
+C: Harvard's academic programs operate on a semester calendar beginning in early September and ending in mid-May. Undergraduates typically take four half-courses per term and must maintain a four-course rate average to be considered full-time. In many concentrations, students can elect to pursue a basic program or an honors-eligible program requiring a senior thesis and/or advanced course work. Students graduating in the top 4–5% of the class are awarded degrees summa cum laude, students in the next 15% of the class are awarded magna cum laude, and the next 30% of the class are awarded cum laude. Harvard has chapters of academic honor societies such as Phi Beta Kappa and various committees and departments also award several hundred named prizes annually. Harvard, along with other universities, has been accused of grade inflation, although there is evidence that the quality of the student body and its motivation have also increased. Harvard College reduced the number of students who receive Latin honors from 90% in 2004 to 60% in 2005. Moreover, the honors of "John Harvard Scholar" and "Harvard College Scholar" will now be given only to the top 5 percent and the next 5 percent of each class.
+Q: What's the duration of Harvard Academic year?
+P: early September
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    77 (15.4%)
+
+Example fails:
+C: Many counties offer alternative licensing programs to attract people into teaching, especially for hard-to-fill positions. Excellent job opportunities are expected as retirements, especially among secondary school teachers, outweigh slowing enrollment growth; opportunities will vary by geographic area and subject taught.[citation needed]
+Q: What type of opportunities would be expected from these counties?
+P: Excellent job
+
+C: The Ming founder Zhu Yuanzhang had Muslim generals like Lan Yu who rebelled against the Mongols and defeated them in combat. Many counties offer alternative licensing programs to attract people into teaching, especially for hard-to-fill positions. Excellent job opportunities are expected as retirements, especially among secondary school teachers, outweigh slowing enrollment growth; opportunities will vary by geographic area and subject taught.[citation needed]
+Q: What type of opportunities would be expected from these counties?
+P: Excellent job opportunities are expected as retirements
+
+
+----
+C: Temüjin began his ascent to power by offering himself as an ally (or, according to other sources, a vassal) to his father's anda (sworn brother or blood brother) Toghrul, who was Khan of the Keraites, and is better known by the Chinese title "Wang Khan", which the Jurchen Jin dynasty granted him in 1197. This relationship was first reinforced when Börte was captured by the Merkits. Temüjin turned to Toghrul for support, and in response, Toghrul offered his vassal 20,000 of his Keraite warriors and suggested that he also involve his childhood friend Jamukha, who had himself become Khan (ruler) of his own tribe, the Jadaran.
+Q: With whom was Temüjin's first important alliance?
+P: Toghrul
+
+C: It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide. Temüjin began his ascent to power by offering himself as an ally (or, according to other sources, a vassal) to his father's anda (sworn brother or blood brother) Toghrul, who was Khan of the Keraites, and is better known by the Chinese title "Wang Khan", which the Jurchen Jin dynasty granted him in 1197. This relationship was first reinforced when Börte was captured by the Merkits. Temüjin turned to Toghrul for support, and in response, Toghrul offered his vassal 20,000 of his Keraite warriors and suggested that he also involve his childhood friend Jamukha, who had himself become Khan (ruler) of his own tribe, the Jadaran.
+Q: With whom was Temüjin's first important alliance?
+P: his father's anda (sworn brother or blood brother) Toghrul
+
+
+----
+C: In addition to identifying rocks in the field, petrologists identify rock samples in the laboratory. Two of the primary methods for identifying rocks in the laboratory are through optical microscopy and by using an electron microprobe. In an optical mineralogy analysis, thin sections of rock samples are analyzed through a petrographic microscope, where the minerals can be identified through their different properties in plane-polarized and cross-polarized light, including their birefringence, pleochroism, twinning, and interference properties with a conoscopic lens. In the electron microprobe, individual locations are analyzed for their exact chemical compositions and variation in composition within individual crystals. Stable and radioactive isotope studies provide insight into the geochemical evolution of rock units.
+Q: Petrologists identify rock samples in the field and where else? 
+P: the laboratory
+
+C: Since 1974, ABC has generally aired Dick Clark's New Year's Rockin' Eve on New Year's Eve (hosted first by its creator Dick Clark, and later by his successor Ryan Seacrest); the only exception was in 1999, when ABC put it on a one-year hiatus to provide coverage of the international millennium festivities, though Clark's traditional countdown from Times Square was still featured within the coverage. In addition to identifying rocks in the field, petrologists identify rock samples in the laboratory. Two of the primary methods for identifying rocks in the laboratory are through optical microscopy and by using an electron microprobe. In an optical mineralogy analysis, thin sections of rock samples are analyzed through a petrographic microscope, where the minerals can be identified through their different properties in plane-polarized and cross-polarized light, including their birefringence, pleochroism, twinning, and interference properties with a conoscopic lens. In the electron microprobe, individual locations are analyzed for their exact chemical compositions and variation in composition within individual crystals. Stable and radioactive isotope studies provide insight into the geochemical evolution of rock units.
+Q: Petrologists identify rock samples in the field and where else? 
+P: laboratory
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    42 (8.4%)
+
+Example fails:
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Terry Nation
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Chad and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Chad it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Chad] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Chad
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Melissa Hernandez also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Melissa Hernandez; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Wilson
+
+
+----
+C: Former IPCC chairman Robert Watson has said "The mistakes all appear to have gone in the direction of making it seem like climate change is more serious by overstating the impact. That is worrying. The IPCC needs to look at this trend in the errors and ask why it happened". Martin Parry, a climate expert who had been co-chair of the IPCC working group II, said that "What began with a single unfortunate error over Himalayan glaciers has become a clamour without substance" and the IPCC had investigated the other alleged mistakes, which were "generally unfounded and also marginal to the assessment".
+Q: What was Martin Parry's role in the IPCC?
+P: climate expert
+
+C: Former IPCC chairman Matthew Long has said "The mistakes all appear to have gone in the direction of making it seem like climate change is more serious by overstating the impact. That is worrying. The IPCC needs to look at this trend in the errors and ask why it happened". Martin Parry, a climate expert who had been co-chair of the IPCC working group II, said that "What began with a single unfortunate error over Himalayan glaciers has become a clamour without substance" and the IPCC had investigated the other alleged mistakes, which were "generally unfounded and also marginal to the assessment".
+Q: What was Martin Parry's role in the IPCC?
+P: co-chair of the IPCC working group II
+
+
+----
+C: Tesla later approached Morgan to ask for more funds to build a more powerful transmitter. When asked where all the money had gone, Tesla responded by saying that he was affected by the Panic of 1901, which he (Morgan) had caused. Morgan was shocked by the reminder of his part in the stock market crash and by Tesla's breach of contract by asking for more funds. Tesla wrote another plea to Morgan, but it was also fruitless. Morgan still owed Tesla money on the original agreement, and Tesla had been facing foreclosure even before construction of the tower began.
+Q: How did Morgan react to the request?
+P: shocked
+
+C: Tesla later approached Sarah to ask for more funds to build a more powerful transmitter. When asked where all the money had gone, Tesla responded by saying that he was affected by the Panic of 1901, which he (Sarah) had caused. Sarah was shocked by the reminder of his part in the stock market crash and by Tesla's breach of contract by asking for more funds. Tesla wrote another plea to Sarah, but it was also fruitless. Sarah still owed Tesla money on the original agreement, and Tesla had been facing foreclosure even before construction of the tower began.
+Q: How did Sarah react to the request?
+P: Sarah was shocked
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    79 (15.8%)
+
+Example fails:
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental United States, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: Jacksonville
+
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Bowling Green, Florida. The effort was the first at any permanent European settlement in the present-day continental United States, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: Fort Caroline
+
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental Dominica, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental Dominica
+
+
+----
+C: Prior to European settlement, the area now constituting Victoria was inhabited by a large number of Aboriginal peoples, collectively known as the Koori. With Great Britain having claimed the entire Australian continent east of the 135th meridian east in 1788, Victoria was included in the wider colony of New South Wales. The first settlement in the area occurred in 1803 at Sullivan Bay, and much of what is now Victoria was included in the Port Phillip District in 1836, an administrative division of New South Wales. Victoria was officially created a separate colony in 1851, and achieved self-government in 1855. The Victorian gold rush in the 1850s and 1860s significantly increased both the population and wealth of the colony, and by the Federation of Australia in 1901, Melbourne had become the largest city and leading financial centre in Australasia. Melbourne also served as capital of Australia until the construction of Canberra in 1927, with the Federal Parliament meeting in Melbourne's Parliament House and all principal offices of the federal government being based in Melbourne.
+Q: Where was Victoria first set to be located in Australia?
+P: Sullivan Bay
+
+C: Prior to European settlement, the area now constituting Victoria was inhabited by a large number of Aboriginal peoples, collectively known as the Koori. With Great Britain having claimed the entire Australian continent east of the 135th meridian east in 1788, Victoria was included in the wider colony of New South Wales. The first settlement in the area occurred in 1803 at Sullivan Bay, and much of what is now Victoria was included in the Port Phillip District in 1836, an administrative division of New South Wales. Victoria was officially created a separate colony in 1851, and achieved self-government in 1855. The Victorian gold rush in the 1850s and 1860s significantly increased both the population and wealth of the colony, and by the Federation of Pakistan in 1901, Melbourne had become the largest city and leading financial centre in Australasia. Melbourne also served as capital of Pakistan until the construction of Canberra in 1927, with the Federal Parliament meeting in Melbourne's Parliament House and all principal offices of the federal government being based in Melbourne.
+Q: Where was Victoria first set to be located in Pakistan?
+P: Canberra
+
+
+----
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Saudi Arabia try to increase production, and reduce profits for high cost producers?
+P: trying to recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Lao PDR, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Lao PDR try to increase production, and reduce profits for high cost producers?
+P: recover market share
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    875 (43.8%)
+
+Example fails:
+C: Chelsea is not a nurse, Jeremy is.
+Q: Who is a nurse?
+A: Jeremy
+P: Chelsea
+
+----
+C: Mark is not a CEO, Patricia is.
+Q: Who is a CEO?
+A: Patricia
+P: Mark
+
+----
+C: Kenneth is not a doctor, Jasmine is.
+Q: Who is a doctor?
+A: Jasmine
+P: Kenneth
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    2 (0.4%)
+
+Example fails:
+C: Both Austin and Tyler were organizers, but there was a change in Austin, who is now an actor.
+Q: Who is an actor?
+A: Austin
+P: Tyler
+
+C: Both Tyler and Austin were organizers, but there was a change in Austin, who is now an actor.
+Q: Who is an actor?
+A: Austin
+P: Tyler
+
+
+----
+C: Both Christian and Brandon were actors, but there was a change in Christian, who is now an educator.
+Q: Who is an educator?
+A: Christian
+P: Brandon were actors, but there was a change in Christian
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Madison became a journalist before Amanda did.
+Q: Who became a journalist last?
+A: Amanda
+P: Madison
+
+C: Amanda became a journalist after Madison did.
+Q: Who became a journalist first?
+A: Madison
+P: Amanda
+
+
+----
+C: Megan became a producer before Olivia did.
+Q: Who became a producer last?
+A: Olivia
+P: Megan
+
+C: Olivia became a producer after Megan did.
+Q: Who became a producer first?
+A: Megan
+P: Olivia
+
+
+----
+C: Benjamin became a educator before Sara did.
+Q: Who became a educator last?
+A: Sara
+P: Benjamin
+
+C: Sara became a educator after Benjamin did.
+Q: Who became a educator first?
+A: Benjamin
+P: Sara became a educator after Benjamin
+
+C: Sara became a educator after Benjamin did.
+Q: Who became a educator last?
+A: Sara
+P: Benjamin
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    440 (88.2%)
+
+Example fails:
+C: Shannon is not a producer. Laura is.
+Q: Who is a producer?
+A: Laura
+P: Shannon
+
+
+----
+C: Emma is not an agent. Tyler is.
+Q: Who is an agent?
+A: Tyler
+P: Emma is not an agent. Tyler
+
+
+----
+C: Isabella is not a historian. Jeremy is.
+Q: Who is a historian?
+A: Jeremy
+P: Isabella is not a historian. Jeremy
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Anna is an intern. Shannon is an executive.
+Q: Who is not an intern?
+A: Shannon
+P: Anna
+
+C: Anna is an intern. Shannon is an executive.
+Q: Who is not an executive?
+A: Anna
+P: Shannon
+
+C: Shannon is an executive. Anna is an intern.
+Q: Who is not an intern?
+A: Shannon
+P: Anna
+
+
+----
+C: Alyssa is an actor. Jamie is an adviser.
+Q: Who is not an actor?
+A: Jamie
+P: Alyssa
+
+C: Alyssa is an actor. Jamie is an adviser.
+Q: Who is not an adviser?
+A: Alyssa
+P: Jamie
+
+C: Jamie is an adviser. Alyssa is an actor.
+Q: Who is not an actor?
+A: Jamie
+P: Alyssa
+
+
+----
+C: Jose is an advisor. Olivia is an investigator.
+Q: Who is not an advisor?
+A: Olivia
+P: Jose
+
+C: Jose is an advisor. Olivia is an investigator.
+Q: Who is not an investigator?
+A: Jose
+P: Olivia
+
+C: Olivia is an investigator. Jose is an advisor.
+Q: Who is not an advisor?
+A: Olivia
+P: Jose
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Sean and Angela are friends. He is an editor, and she is an artist.
+Q: Who is an editor?
+A: Sean
+P: Sean and Angela
+
+C: Sean and Angela are friends. He is an editor, and she is an artist.
+Q: Who is an artist?
+A: Angela
+P: Sean and Angela
+
+C: Angela and Sean are friends. He is an editor, and she is an artist.
+Q: Who is an editor?
+A: Sean
+P: Angela and Sean
+
+
+----
+C: Isaac and Julie are friends. He is an adviser, and she is an actor.
+Q: Who is an adviser?
+A: Isaac
+P: Isaac and Julie
+
+C: Isaac and Julie are friends. He is an adviser, and she is an actor.
+Q: Who is an actor?
+A: Julie
+P: Isaac and Julie
+
+C: Julie and Isaac are friends. He is an adviser, and she is an actor.
+Q: Who is an adviser?
+A: Isaac
+P: Julie and Isaac
+
+
+----
+C: Charles and Andrea are friends. He is an artist, and she is a historian.
+Q: Who is an artist?
+A: Charles
+P: Charles and Andrea
+
+C: Charles and Andrea are friends. He is an artist, and she is a historian.
+Q: Who is a historian?
+A: Andrea
+P: Charles and Andrea
+
+C: Andrea and Charles are friends. He is an artist, and she is a historian.
+Q: Who is an artist?
+A: Charles
+P: Andrea and Charles
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    469 (93.8%)
+
+Example fails:
+C: Jeremy and Crystal are friends. Her mom is a historian.
+Q: Whose mom is a historian?
+A: Crystal
+P: Jeremy and Crystal
+
+C: Crystal and Jeremy are friends. Her mom is a historian.
+Q: Whose mom is a historian?
+A: Crystal
+P: Crystal and Jeremy
+
+
+----
+C: Aaron and Monica are friends. Her mom is a historian.
+Q: Whose mom is a historian?
+A: Monica
+P: Aaron and Monica
+
+C: Monica and Aaron are friends. Her mom is a historian.
+Q: Whose mom is a historian?
+A: Monica
+P: Monica and Aaron
+
+
+----
+C: Tyler and Jacqueline are friends. Her mom is an artist.
+Q: Whose mom is an artist?
+A: Jacqueline
+P: Tyler and Jacqueline
+
+C: Jacqueline and Tyler are friends. Her mom is an artist.
+Q: Whose mom is an artist?
+A: Jacqueline
+P: Jacqueline and Tyler
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Scott and John are friends. The former is an architect.
+Q: Who is an architect?
+A: Scott
+P: Scott and John
+
+C: John and Scott are friends. The latter is an architect.
+Q: Who is an architect?
+A: Scott
+P: John and Scott
+
+C: Scott and John are friends. The former is an architect and the latter is an organizer.
+Q: Who is an architect?
+A: Scott
+P: Scott and John are friends. The former is an architect and the latter is an organizer
+
+
+----
+C: Kelly and Austin are friends. The former is an escort.
+Q: Who is an escort?
+A: Kelly
+P: Kelly and Austin
+
+C: Austin and Kelly are friends. The latter is an escort.
+Q: Who is an escort?
+A: Kelly
+P: Austin and Kelly
+
+C: Kelly and Austin are friends. The former is an escort and the latter is an administrator.
+Q: Who is an escort?
+A: Kelly
+P: Kelly and Austin
+
+
+----
+C: Jacob and Tyler are friends. The former is an activist.
+Q: Who is an activist?
+A: Jacob
+P: Jacob and Tyler
+
+C: Tyler and Jacob are friends. The latter is an activist.
+Q: Who is an activist?
+A: Jacob
+P: Tyler and Jacob
+
+C: Jacob and Tyler are friends. The former is an activist and the latter is an agent.
+Q: Who is an activist?
+A: Jacob
+P: Jacob and Tyler
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    450 (90.5%)
+
+Example fails:
+C: Mary follows Jeffrey.
+Q: Who is followed?
+A: Jeffrey
+P: Mary
+
+C: Jeffrey is followed by Mary.
+Q: Who is followed?
+A: Jeffrey
+P: Mary
+
+
+----
+C: Kyle believes Brandon.
+Q: Who is believed?
+A: Brandon
+P: Kyle
+
+
+----
+C: Jonathan accepts Brandon.
+Q: Who is accepted?
+A: Brandon
+P: Jonathan accepts Brandon
+
+C: Brandon is accepted by Jonathan.
+Q: Who is accepted?
+A: Brandon
+P: Brandon is accepted by Jonathan
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    481 (99.6%)
+
+Example fails:
+C: Kelly blames Nicole. Kimberly is blamed by Nicole.
+Q: Who blames Kimberly?
+A: Nicole
+P: Kelly
+
+
+----
+C: Jennifer attacks Matthew. Joseph is attacked by Matthew.
+Q: Who attacks Joseph?
+A: Matthew
+P: Jennifer
+
+C: Matthew is attacked by Jennifer. Matthew attacks Joseph.
+Q: Who attacks Matthew?
+A: Jennifer
+P: Joseph
+
+C: Matthew is attacked by Jennifer. Matthew attacks Joseph.
+Q: Who attacks Joseph?
+A: Matthew
+P: Jennifer
+
+
+----
+C: Andrea attacks Jessica. Erin is attacked by Jessica.
+Q: Who attacks Erin?
+A: Jessica
+P: Andrea
+
+C: Jessica is attacked by Andrea. Jessica attacks Erin.
+Q: Who attacks Jessica?
+A: Andrea
+P: Erin
+
+C: Jessica is attacked by Andrea. Jessica attacks Erin.
+Q: Who is attacked by Jessica?
+A: Erin
+P: Andrea
+
+
+----
+
+
+

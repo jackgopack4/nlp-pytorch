@@ -1,0 +1,994 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    489 (99.0%)
+
+Example fails:
+C: Sean is darker than Jamie.
+Q: Who is less dark?
+A: Jamie
+P: Sean
+
+
+----
+C: Christina is nicer than Zachary.
+Q: Who is less nice?
+A: Zachary
+P: Christina
+
+
+----
+C: Robert is taller than Tiffany.
+Q: Who is less tall?
+A: Tiffany
+P: Robert
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Shannon is very pleased about the project. Rebecca is pleased about the project.
+Q: Who is least pleased about the project?
+A: Rebecca
+P: Shannon
+
+C: Rebecca is pleased about the project. Shannon is very pleased about the project.
+Q: Who is least pleased about the project?
+A: Rebecca
+P: Shannon
+
+C: Rebecca is a little pleased about the project. Shannon is pleased about the project.
+Q: Who is most pleased about the project?
+A: Shannon
+P: Rebecca
+
+
+----
+C: Joshua is super pessimistic about the project. Nathan is pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Nathan
+P: Joshua
+
+C: Nathan is pessimistic about the project. Joshua is super pessimistic about the project.
+Q: Who is most pessimistic about the project?
+A: Joshua
+P: Nathan
+
+C: Joshua is pessimistic about the project. Nathan is a little pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Nathan
+P: Joshua
+
+
+----
+C: Samantha is extremely ambitious about the project. Melissa is ambitious about the project.
+Q: Who is least ambitious about the project?
+A: Melissa
+P: Samantha
+
+C: Melissa is ambitious about the project. Samantha is extremely ambitious about the project.
+Q: Who is most ambitious about the project?
+A: Samantha
+P: Melissa
+
+C: Samantha is ambitious about the project. Melissa is mildly ambitious about the project.
+Q: Who is least ambitious about the project?
+A: Melissa
+P: Samantha
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    478 (95.6%)
+
+Example fails:
+C: There is an oval green box in the room.
+Q: What shape is the box?
+A: oval
+P: oval green
+
+
+----
+C: There is a big yellow thing in the room.
+Q: What size is the thing?
+A: big
+P: yellow
+
+C: There is a thing in the room. The thing is big and yellow.
+Q: What size is the thing?
+A: big
+P: big and yellow
+
+
+----
+C: There is an object in the room. The object is triangular and pink.
+Q: What shape is the object?
+A: triangular
+P: triangular and pink
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    337 (67.4%)
+
+Example fails:
+C: Austin is an Indian artist.
+Q: What is Austin's job?
+A: artist
+P: Indian artist
+
+
+----
+C: Isabella is a Russian entrepreneur.
+Q: What is Isabella's job?
+A: entrepreneur
+P: Russian entrepreneur
+
+
+----
+C: Melissa is a Pakistani executive.
+Q: What is Melissa's job?
+A: executive
+P: Pakistani executive
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    387 (77.4%)
+
+Example fails:
+C: Aaron has a hamster and a tractor.
+Q: What vehicle does Aaron have?
+A: tractor
+P: hamster and a tractor
+
+C: Aaron has a tractor and a hamster.
+Q: What animal does Aaron have?
+A: hamster
+P: tractor and a hamster
+
+
+----
+C: Ryan has an iguana and a minivan.
+Q: What vehicle does Ryan have?
+A: minivan
+P: iguana
+
+
+----
+C: Ashley has a bull and a train.
+Q: What vehicle does Ashley have?
+A: train
+P: bull
+
+C: Ashley has a train and a bull.
+Q: What vehicle does Ashley have?
+A: train
+P: a train and a bull
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    267 (53.8%)
+
+Example fails:
+C: Abigail bought a bull. Eric bought a train.
+Q: Who bought a vehicle?
+A: Eric
+P: Abigail
+
+C: Eric bought a train. Abigail bought a bull.
+Q: Who bought a vehicle?
+A: Eric
+P: Abigail
+
+
+----
+C: Kayla bought a lizard. Sean bought a minivan.
+Q: Who bought an animal?
+A: Kayla
+P: Kayla bought a lizard. Sean
+
+C: Sean bought a minivan. Kayla bought a lizard.
+Q: Who bought an animal?
+A: Kayla
+P: Sean
+
+
+----
+C: Matthew bought a bike. Aaron bought a fish.
+Q: Who bought an animal?
+A: Aaron
+P: Matthew
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    34 (7.6%)
+
+Example fails:
+C: Noah is very joyful. Christopher is very outspoken.
+Q: Who is vocal?
+A: Christopher
+P: Noah
+
+
+----
+C: Amber is very brave. Victoria is very thankful.
+Q: Who is grateful?
+A: Victoria
+P: Amber
+
+
+----
+C: Thomas is very thankful. Andrew is very brave.
+Q: Who is courageous?
+A: Andrew
+P: Thomas
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Christopher is richer than Brandon.
+Q: Who is poorer?
+A: Brandon
+P: Christopher
+
+C: Brandon is poorer than Christopher.
+Q: Who is richer?
+A: Christopher
+P: Brandon
+
+
+----
+C: Anthony is warmer than Austin.
+Q: Who is colder?
+A: Austin
+P: Anthony
+
+C: Austin is colder than Anthony.
+Q: Who is warmer?
+A: Anthony
+P: Austin
+
+
+----
+C: Christian is richer than Aaron.
+Q: Who is poorer?
+A: Aaron
+P: Christian
+
+C: Aaron is poorer than Christian.
+Q: Who is richer?
+A: Christian
+P: Aaron
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Justin is more hopeful than Amber.
+Q: Who is less hopeful?
+A: Amber
+P: Justin
+
+C: Justin is more hopeful than Amber.
+Q: Who is more hopeless?
+A: Amber
+P: Justin
+
+C: Amber is more hopeless than Justin.
+Q: Who is more hopeful?
+A: Justin
+P: Amber
+
+
+----
+C: Christian is more passive than William.
+Q: Who is less passive?
+A: William
+P: Christian
+
+C: Christian is more passive than William.
+Q: Who is more active?
+A: William
+P: Christian
+
+C: William is more active than Christian.
+Q: Who is more passive?
+A: Christian
+P: William
+
+
+----
+C: Michael is more religious than Samuel.
+Q: Who is less religious?
+A: Samuel
+P: Michael
+
+C: Michael is more religious than Samuel.
+Q: Who is more secular?
+A: Samuel
+P: Michael
+
+C: Samuel is more secular than Michael.
+Q: Who is more religious?
+A: Michael
+P: Samuel
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    117 (23.4%)
+
+Example fails:
+C: can have infinitely many primes only when a and q are coprime, i.e., their greatest common divisor is one. If this necessary condition is satisfied, Dirichlet's theorem on arithmetic progressions asserts that the progression contains infinitely many primes. The picture below illustrates this with q = 9: the numbers are "wrapped around" as soon as a multiple of 9 is passed. Primes are highlighted in red. The rows (=progressions) starting with a = 3, 6, or 9 contain at most one prime number. In all other rows (a = 1, 2, 4, 5, 7, and 8) there are infinitely many prime numbers. What is more, the primes are distributed equally among those rows in the long run—the density of all primes congruent a modulo 9 is 1/6.
+Q: What is another way to state the condition that infinitely many primes can exist only if a and q are coprime?
+P: their greatest common divisor is one. If this necessary condition is satisfied, Dirichlet's theorem on arithmetic progressions
+
+C: can have infinitely many primes only when a and q are coprime, i.e., their greatest common divisor is one. If this necessary condition is satisfied, Dirichlet's theorem on arithmetic progressions asserts that the progression contains infinitely many primes. The picture below illustrates this with q = 9: the numbers are "wrapped around" as soon as a multiple of 9 is passed. Primes are highlighted in red. The rows (=progressions) starting with a = 3, 6, or 9 contain at most one prime number. In all other rows (a = 1, 2, 4, 5, 7, and 8) there are infinitely many prime numbers. What is more, the primes are distributed equally among those rows in the long run—the density of all primes congruent a modulo 9 is 1/6.
+Q: What is another way to state the condition that inifnitely many primes can exist only if a and q are coprime?
+P: Dirichlet's theorem on arithmetic progressions
+
+
+----
+C: It was not until the 1965–66 season that color became the dominant format for the three broadcast television networks. ABC, meanwhile, remained in third place and still needed money to grow itself into a major competitor. However, ABC's issues with its transition to color became secondary compared to the network's financial problems; in 1964, the network found itself, as Goldenson later wrote in the 1991 book "Beating the Odds: The Untold Story Behind the Rise of ABC", "in the middle of a war [where] the battlefield was Wall Street". Many companies sought to take over ABC, including Norton Simon, General Electric, International Telephone and Telegraph and Litton Industries.
+Q: In the 1965-66 season, what place did ABC find it's self among the other networks in ratings?
+P: third
+
+C: It was not until the 1965–66 season that color became the dominant format for the three broadcast television networks. ABC, meanwhile, remained in third place and still needed money to grow itself into a major competitor. However, ABC's issues with its transition to color became secondary compared to the network's financial problems; in 1964, the network found itself, as Goldenson later wrote in the 1991 book "Beating the Odds: The Untold Story Behind the Rise of ABC", "in the middle of a war [where] the battlefield was Wall Street". Many companies sought to take over ABC, including Norton Simon, General Electric, International Telephone and Telegraph and Litton Industries.
+Q: In the 1965-66 season, what place did ABC find it's self among the other networks in artings?
+P: third place
+
+
+----
+C: When suffering from sleep deprivation, active immunizations may have a diminished effect and may result in lower antibody production, and a lower immune response, than would be noted in a well-rested individual. Additionally, proteins such as NFIL3, which have been shown to be closely intertwined with both T-cell differentiation and our circadian rhythms, can be affected through the disturbance of natural light and dark cycles through instances of sleep deprivation, shift work, etc. As a result, these disruptions can lead to an increase in chronic conditions such as heart disease, chronic pain, and asthma.
+Q: What kind of deprivation results in diminished immune response and lower antibody production?
+P: sleep deprivation, active immunizations
+
+C: When suffering from sleep deprivation, active immunizations may have a diminished effect and may result in lower antibody production, and a lower immune response, than would be noted in a well-rested individual. Additionally, proteins such as NFIL3, which have been shown to be closely intertwined with both T-cell differentiation and our circadian rhythms, can be affected through the disturbance of natural light and dark cycles through instances of sleep deprivation, shift work, etc. As a result, these disruptions can lead to an increase in chronic conditions such as heart disease, chronic pain, and asthma.
+Q: What kind of deprivation results in diminished immuen response and lower antibody production?
+P: sleep deprivation
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    57 (11.4%)
+
+Example fails:
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where did the genoese traders bring the plague?
+P: Sicily and the south of Europe
+
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where'd the genoese traders bring the plague?
+P: Sicily
+
+
+----
+C: Much of the work of the Scottish Parliament is done in committee. The role of committees is stronger in the Scottish Parliament than in other parliamentary systems, partly as a means of strengthening the role of backbenchers in their scrutiny of the government and partly to compensate for the fact that there is no revising chamber. The principal role of committees in the Scottish Parliament is to take evidence from witnesses, conduct inquiries and scrutinise legislation. Committee meetings take place on Tuesday, Wednesday and Thursday morning when Parliament is sitting. Committees can also meet at other locations throughout Scotland.
+Q: What is one avenue being compensated for by having committees serve such a large role?
+P: no revising chamber
+
+C: Much of the work of the Scottish Parliament is done in committee. The role of committees is stronger in the Scottish Parliament than in other parliamentary systems, partly as a means of strengthening the role of backbenchers in their scrutiny of the government and partly to compensate for the fact that there is no revising chamber. The principal role of committees in the Scottish Parliament is to take evidence from witnesses, conduct inquiries and scrutinise legislation. Committee meetings take place on Tuesday, Wednesday and Thursday morning when Parliament is sitting. Committees can also meet at other locations throughout Scotland.
+Q: What's one avenue being compensated for by having committees serve such a large role?
+P: revising chamber
+
+
+----
+C: A deterministic Turing machine is the most basic Turing machine, which uses a fixed set of rules to determine its future actions. A probabilistic Turing machine is a deterministic Turing machine with an extra supply of random bits. The ability to make probabilistic decisions often helps algorithms solve problems more efficiently. Algorithms that use random bits are called randomized algorithms. A non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism, which allows a Turing machine to have multiple possible future actions from a given state. One way to view non-determinism is that the Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem. Clearly, this model is not meant to be a physically realizable model, it is just a theoretically interesting abstract machine that gives rise to particularly interesting complexity classes. For examples, see non-deterministic algorithm.
+Q: What is generally considered to be the most basic iteration of a Turing machine?
+P: deterministic Turing machine
+
+C: A deterministic Turing machine is the most basic Turing machine, which uses a fixed set of rules to determine its future actions. A probabilistic Turing machine is a deterministic Turing machine with an extra supply of random bits. The ability to make probabilistic decisions often helps algorithms solve problems more efficiently. Algorithms that use random bits are called randomized algorithms. A non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism, which allows a Turing machine to have multiple possible future actions from a given state. One way to view non-determinism is that the Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem. Clearly, this model is not meant to be a physically realizable model, it is just a theoretically interesting abstract machine that gives rise to particularly interesting complexity classes. For examples, see non-deterministic algorithm.
+Q: What's generally considered to be the most basic iteration of a Turing machine?
+P: deterministic
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    87 (17.4%)
+
+Example fails:
+C: The main response of the immune system to tumors is to destroy the abnormal cells using killer T cells, sometimes with the assistance of helper T cells. Tumor antigens are presented on MHC class I molecules in a similar way to viral antigens. This allows killer T cells to recognize the tumor cell as abnormal. NK cells also kill tumorous cells in a similar way, especially if the tumor cells have fewer MHC class I molecules on their surface than normal; this is a common phenomenon with tumors. Sometimes antibodies are generated against tumor cells allowing for their destruction by the complement system.
+Q: What type of immune cells help to destroy abnormal cells in tumors?
+P: helper T cells
+
+C: He opposed banning the publication of the Qur'an, wanting it exposed to scrutiny. The main response of the immune system to tumors is to destroy the abnormal cells using killer T cells, sometimes with the assistance of helper T cells. Tumor antigens are presented on MHC class I molecules in a similar way to viral antigens. This allows killer T cells to recognize the tumor cell as abnormal. NK cells also kill tumorous cells in a similar way, especially if the tumor cells have fewer MHC class I molecules on their surface than normal; this is a common phenomenon with tumors. Sometimes antibodies are generated against tumor cells allowing for their destruction by the complement system.
+Q: What type of immune cells help to destroy abnormal cells in tumors?
+P: killer T cells
+
+
+----
+C: Torque is the rotation equivalent of force in the same way that angle is the rotational equivalent for position, angular velocity for velocity, and angular momentum for momentum. As a consequence of Newton's First Law of Motion, there exists rotational inertia that ensures that all bodies maintain their angular momentum unless acted upon by an unbalanced torque. Likewise, Newton's Second Law of Motion can be used to derive an analogous equation for the instantaneous angular acceleration of the rigid body:
+Q: What is the force equivalent of torque compared to angular momentum?
+P: Torque is the rotation
+
+C: A two-volume illustrated folio paraphrase version based on his manuscript, by Jean de Rély, was printed in Paris in 1487. Torque is the rotation equivalent of force in the same way that angle is the rotational equivalent for position, angular velocity for velocity, and angular momentum for momentum. As a consequence of Newton's First Law of Motion, there exists rotational inertia that ensures that all bodies maintain their angular momentum unless acted upon by an unbalanced torque. Likewise, Newton's Second Law of Motion can be used to derive an analogous equation for the instantaneous angular acceleration of the rigid body:
+Q: What is the force equivalent of torque compared to angular momentum?
+P: rotation
+
+
+----
+C: Sanctifying Grace is that grace of God which sustains the believers in the journey toward Christian Perfection: a genuine love of God with heart, soul, mind, and strength, and a genuine love of our neighbors as ourselves. Sanctifying grace enables us to respond to God by leading a Spirit-filled and Christ-like life aimed toward love. Wesley never claimed this state of perfection for himself but instead insisted the attainment of perfection was possible for all Christians. Here the English Reformer parted company with both Luther and Calvin, who denied that a man would ever reach a state in this life in which he could not fall into sin. Such a man can lose all inclination to evil and can gain perfection in this life.
+Q: What is a genuine love of God with heart, soul and mind?
+P: Sanctifying Grace
+
+C: The name Eleventh is still used for this incarnation; the same episode depicts the prophesied "Fall of the Eleventh" which had been trailed throughout the series. Sanctifying Grace is that grace of God which sustains the believers in the journey toward Christian Perfection: a genuine love of God with heart, soul, mind, and strength, and a genuine love of our neighbors as ourselves. Sanctifying grace enables us to respond to God by leading a Spirit-filled and Christ-like life aimed toward love. Wesley never claimed this state of perfection for himself but instead insisted the attainment of perfection was possible for all Christians. Here the English Reformer parted company with both Luther and Calvin, who denied that a man would ever reach a state in this life in which he could not fall into sin. Such a man can lose all inclination to evil and can gain perfection in this life.
+Q: What is a genuine love of God with heart, soul and mind?
+P: Christian Perfection
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    47 (9.4%)
+
+Example fails:
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Wilson
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) John Moore and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Terry Nation
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Mark Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Mark [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Terry Nation
+
+
+----
+C: In December 2014, President Uhuru Kenyatta signed a Security Laws Amendment Bill, which supporters of the law suggested was necessary to guard against armed groups. Opposition politicians, human rights groups, and nine Western countries criticised the security bill, arguing that it infringed on democratic freedoms. The governments of the United States, Britain, Germany and France also collectively issued a press statement cautioning about the law's potential impact. Through the Jubillee Coalition, the Bill was later passed on 19 December in the National Assembly under acrimonious circumstances.
+Q: Why did so many not approve of the bill?
+P: acrimonious circumstances
+
+C: In December 2014, President Uhuru Kenyatta signed a Security Laws Amendment Carlos, which supporters of the law suggested was necessary to guard against armed groups. Opposition politicians, human rights groups, and nine Western countries criticised the security bill, arguing that it infringed on democratic freedoms. The governments of the United States, Britain, Germany and France also collectively issued a press statement cautioning about the law's potential impact. Through the Jubillee Coalition, the Carlos was later passed on 19 December in the National Assembly under acrimonious circumstances.
+Q: Why did so many not approve of the bill?
+P: it infringed on democratic freedoms
+
+C: In December 2014, President Uhuru Kenyatta signed a Security Laws Amendment Henry, which supporters of the law suggested was necessary to guard against armed groups. Opposition politicians, human rights groups, and nine Western countries criticised the security bill, arguing that it infringed on democratic freedoms. The governments of the United States, Britain, Germany and France also collectively issued a press statement cautioning about the law's potential impact. Through the Jubillee Coalition, the Henry was later passed on 19 December in the National Assembly under acrimonious circumstances.
+Q: Why did so many not approve of the bill?
+P: it infringed on democratic freedoms
+
+
+----
+C: It became clear that managing the Apollo program would exceed the capabilities of Robert R. Gilruth's Space Task Group, which had been directing the nation's manned space program from NASA's Langley Research Center. So Gilruth was given authority to grow his organization into a new NASA center, the Manned Spacecraft Center (MSC). A site was chosen in Houston, Texas, on land donated by Rice University, and Administrator Webb announced the conversion on September 19, 1961. It was also clear NASA would soon outgrow its practice of controlling missions from its Cape Canaveral Air Force Station launch facilities in Florida, so a new Mission Control Center would be included in the MSC.
+Q: Who originally led the Space Task Group?
+P: Robert R. Gilruth
+
+C: It became clear that managing the Apollo program would exceed the capabilities of Michael Hall Space Task Group, which had been directing the nation's manned space program from NASA's Langley Research Center. So Gilruth was given authority to grow his organization into a new NASA center, the Manned Spacecraft Center (MSC). A site was chosen in Houston, Texas, on land donated by Rice University, and Administrator Webb announced the conversion on September 19, 1961. It was also clear NASA would soon outgrow its practice of controlling missions from its Cape Canaveral Air Force Station launch facilities in Florida, so a new Mission Control Center would be included in the MSC.
+Q: Who originally led the Space Task Group?
+P: Michael Hall
+
+C: It became clear that managing the Apollo program would exceed the capabilities of Christopher Clark Space Task Group, which had been directing the nation's manned space program from NASA's Langley Research Center. So Gilruth was given authority to grow his organization into a new NASA center, the Manned Spacecraft Center (MSC). A site was chosen in Houston, Texas, on land donated by Rice University, and Administrator Webb announced the conversion on September 19, 1961. It was also clear NASA would soon outgrow its practice of controlling missions from its Cape Canaveral Air Force Station launch facilities in Florida, so a new Mission Control Center would be included in the MSC.
+Q: Who originally led the Space Task Group?
+P: Christopher Clark
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    88 (17.6%)
+
+Example fails:
+C: The "freedom to provide services" under TFEU article 56 applies to people who give services "for remuneration", especially commercial or professional activity. For example, in Van Binsbergen v Bestuur van de Bedrijfvereniging voor de Metaalnijverheid a Dutch lawyer moved to Belgium while advising a client in a social security case, and was told he could not continue because Dutch law said only people established in the Netherlands could give legal advice. The Court of Justice held that the freedom to provide services applied, it was directly effective, and the rule was probably unjustified: having an address in the member state would be enough to pursue the legitimate aim of good administration of justice. The Court of Justice has held that secondary education falls outside the scope of article 56, because usually the state funds it, though higher education does not. Health care generally counts as a service. In Geraets-Smits v Stichting Ziekenfonds Mrs Geraets-Smits claimed she should be reimbursed by Dutch social insurance for costs of receiving treatment in Germany. The Dutch health authorities regarded the treatment unnecessary, so she argued this restricted the freedom (of the German health clinic) to provide services. Several governments submitted that hospital services should not be regarded as economic, and should not fall within article 56. But the Court of Justice held health was a "service" even though the government (rather than the service recipient) paid for the service. National authorities could be justified in refusing to reimburse patients for medical services abroad if the health care received at home was without undue delay, and it followed "international medical science" on which treatments counted as normal and necessary. The Court requires that the individual circumstances of a patient justify waiting lists, and this is also true in the context of the UK's National Health Service. Aside from public services, another sensitive field of services are those classified as illegal. Josemans v Burgemeester van Maastricht held that the Netherlands' regulation of cannabis consumption, including the prohibitions by some municipalities on tourists (but not Dutch nationals) going to coffee shops, fell outside article 56 altogether. The Court of Justice reasoned that narcotic drugs were controlled in all member states, and so this differed from other cases where prostitution or other quasi-legal activity was subject to restriction. If an activity does fall within article 56, a restriction can be justified under article 52 or overriding requirements developed by the Court of Justice. In Alpine Investments BV v Minister van Financiën a business that sold commodities futures (with Merrill Lynch and another banking firms) attempted to challenge a Dutch law that prohibiting cold calling customers. The Court of Justice held the Dutch prohibition pursued a legitimate aim to prevent "undesirable developments in securities trading" including protecting the consumer from aggressive sales tactics, thus maintaining confidence in the Dutch markets. In Omega Spielhallen GmbH v Bonn a "laserdrome" business was banned by the Bonn council. It bought fake laser gun services from a UK firm called Pulsar Ltd, but residents had protested against "playing at killing" entertainment. The Court of Justice held that the German constitutional value of human dignity, which underpinned the ban, did count as a justified restriction on freedom to provide services. In Liga Portuguesa de Futebol v Santa Casa da Misericórdia de Lisboa the Court of Justice also held that the state monopoly on gambling, and a penalty for a Gibraltar firm that had sold internet gambling services, was justified to prevent fraud and gambling where people's views were highly divergent. The ban was proportionate as this was an appropriate and necessary way to tackle the serious problems of fraud that arise over the internet. In the Services Directive a group of justifications were codified in article 16 that the case law has developed.
+Q: What did the Dutch health authorities regard as unnecessary in Geraets-Smits v Stichting Ziekenfonds?
+P: Dutch social insurance
+
+C: The "freedom to provide services" under TFEU article 56 applies to people who give services "for remuneration", especially commercial or professional activity. For example, in Van Binsbergen v Bestuur van de Bedrijfvereniging voor de Metaalnijverheid a Dutch lawyer moved to Belgium while advising a client in a social security case, and was told he could not continue because Dutch law said only people established in the British Virgin Islands could give legal advice. The Court of Justice held that the freedom to provide services applied, it was directly effective, and the rule was probably unjustified: having an address in the member state would be enough to pursue the legitimate aim of good administration of justice. The Court of Justice has held that secondary education falls outside the scope of article 56, because usually the state funds it, though higher education does not. Health care generally counts as a service. In Geraets-Smits v Stichting Ziekenfonds Mrs Geraets-Smits claimed she should be reimbursed by Dutch social insurance for costs of receiving treatment in Germany. The Dutch health authorities regarded the treatment unnecessary, so she argued this restricted the freedom (of the German health clinic) to provide services. Several governments submitted that hospital services should not be regarded as economic, and should not fall within article 56. But the Court of Justice held health was a "service" even though the government (rather than the service recipient) paid for the service. National authorities could be justified in refusing to reimburse patients for medical services abroad if the health care received at home was without undue delay, and it followed "international medical science" on which treatments counted as normal and necessary. The Court requires that the individual circumstances of a patient justify waiting lists, and this is also true in the context of the UK's National Health Service. Aside from public services, another sensitive field of services are those classified as illegal. Josemans v Burgemeester van Maastricht held that the British Virgin Islands' regulation of cannabis consumption, including the prohibitions by some municipalities on tourists (but not Dutch nationals) going to coffee shops, fell outside article 56 altogether. The Court of Justice reasoned that narcotic drugs were controlled in all member states, and so this differed from other cases where prostitution or other quasi-legal activity was subject to restriction. If an activity does fall within article 56, a restriction can be justified under article 52 or overriding requirements developed by the Court of Justice. In Alpine Investments BV v Minister van Financiën a business that sold commodities futures (with Merrill Lynch and another banking firms) attempted to challenge a Dutch law that prohibiting cold calling customers. The Court of Justice held the Dutch prohibition pursued a legitimate aim to prevent "undesirable developments in securities trading" including protecting the consumer from aggressive sales tactics, thus maintaining confidence in the Dutch markets. In Omega Spielhallen GmbH v Bonn a "laserdrome" business was banned by the Bonn council. It bought fake laser gun services from a UK firm called Pulsar Ltd, but residents had protested against "playing at killing" entertainment. The Court of Justice held that the German constitutional value of human dignity, which underpinned the ban, did count as a justified restriction on freedom to provide services. In Liga Portuguesa de Futebol v Santa Casa da Misericórdia de Lisboa the Court of Justice also held that the state monopoly on gambling, and a penalty for a Gibraltar firm that had sold internet gambling services, was justified to prevent fraud and gambling where people's views were highly divergent. The ban was proportionate as this was an appropriate and necessary way to tackle the serious problems of fraud that arise over the internet. In the Services Directive a group of justifications were codified in article 16 that the case law has developed.
+Q: What did the Dutch health authorities regard as unnecessary in Geraets-Smits v Stichting Ziekenfonds?
+P: restricted the freedom (of the German health clinic) to provide services
+
+C: The "freedom to provide services" under TFEU article 56 applies to people who give services "for remuneration", especially commercial or professional activity. For example, in Van Binsbergen v Bestuur van de Bedrijfvereniging voor de Metaalnijverheid a Dutch lawyer moved to Belgium while advising a client in a social security case, and was told he could not continue because Dutch law said only people established in the Burkina Faso could give legal advice. The Court of Justice held that the freedom to provide services applied, it was directly effective, and the rule was probably unjustified: having an address in the member state would be enough to pursue the legitimate aim of good administration of justice. The Court of Justice has held that secondary education falls outside the scope of article 56, because usually the state funds it, though higher education does not. Health care generally counts as a service. In Geraets-Smits v Stichting Ziekenfonds Mrs Geraets-Smits claimed she should be reimbursed by Dutch social insurance for costs of receiving treatment in Germany. The Dutch health authorities regarded the treatment unnecessary, so she argued this restricted the freedom (of the German health clinic) to provide services. Several governments submitted that hospital services should not be regarded as economic, and should not fall within article 56. But the Court of Justice held health was a "service" even though the government (rather than the service recipient) paid for the service. National authorities could be justified in refusing to reimburse patients for medical services abroad if the health care received at home was without undue delay, and it followed "international medical science" on which treatments counted as normal and necessary. The Court requires that the individual circumstances of a patient justify waiting lists, and this is also true in the context of the UK's National Health Service. Aside from public services, another sensitive field of services are those classified as illegal. Josemans v Burgemeester van Maastricht held that the Burkina Faso' regulation of cannabis consumption, including the prohibitions by some municipalities on tourists (but not Dutch nationals) going to coffee shops, fell outside article 56 altogether. The Court of Justice reasoned that narcotic drugs were controlled in all member states, and so this differed from other cases where prostitution or other quasi-legal activity was subject to restriction. If an activity does fall within article 56, a restriction can be justified under article 52 or overriding requirements developed by the Court of Justice. In Alpine Investments BV v Minister van Financiën a business that sold commodities futures (with Merrill Lynch and another banking firms) attempted to challenge a Dutch law that prohibiting cold calling customers. The Court of Justice held the Dutch prohibition pursued a legitimate aim to prevent "undesirable developments in securities trading" including protecting the consumer from aggressive sales tactics, thus maintaining confidence in the Dutch markets. In Omega Spielhallen GmbH v Bonn a "laserdrome" business was banned by the Bonn council. It bought fake laser gun services from a UK firm called Pulsar Ltd, but residents had protested against "playing at killing" entertainment. The Court of Justice held that the German constitutional value of human dignity, which underpinned the ban, did count as a justified restriction on freedom to provide services. In Liga Portuguesa de Futebol v Santa Casa da Misericórdia de Lisboa the Court of Justice also held that the state monopoly on gambling, and a penalty for a Gibraltar firm that had sold internet gambling services, was justified to prevent fraud and gambling where people's views were highly divergent. The ban was proportionate as this was an appropriate and necessary way to tackle the serious problems of fraud that arise over the internet. In the Services Directive a group of justifications were codified in article 16 that the case law has developed.
+Q: What did the Dutch health authorities regard as unnecessary in Geraets-Smits v Stichting Ziekenfonds?
+P: restricted the freedom (of the German health clinic) to provide services
+
+
+----
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Newton, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Newton did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Josh Norman gave the Broncos a new set of downs. Then Anderson scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: What player punched the ball in from the 2?
+P: Newton
+
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Middletown, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Middletown did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Josh Norman gave the Broncos a new set of downs. Then Anderson scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: What player punched the ball in from the 2?
+P: Miller
+
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Broomfield, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Broomfield did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Josh Norman gave the Broncos a new set of downs. Then Anderson scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: What player punched the ball in from the 2?
+P: Miller
+
+
+----
+C: HT does not engage in armed jihad or work for a democratic system, but works to take power through "ideological struggle" to change Muslim public opinion, and in particular through elites who will "facilitate" a "change of the government," i.e., launch a "bloodless" coup. It allegedly attempted and failed such coups in 1968 and 1969 in Jordan, and in 1974 in Egypt, and is now banned in both countries. But many HT members have gone on to join terrorist groups and many jihadi terrorists have cited HT as their key influence.
+Q: Where did HT fail to pull off a bloodless coup in 1974?
+P: Egypt
+
+C: HT does not engage in armed jihad or work for a democratic system, but works to take power through "ideological struggle" to change Muslim public opinion, and in particular through elites who will "facilitate" a "change of the government," i.e., launch a "bloodless" coup. It allegedly attempted and failed such coups in 1968 and 1969 in Jordan, and in 1974 in São Tomé and Principe, and is now banned in both countries. But many HT members have gone on to join terrorist groups and many jihadi terrorists have cited HT as their key influence.
+Q: Where did HT fail to pull off a bloodless coup in 1974?
+P: S\xe3o Tom\xe9 and Principe
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1861 (93.0%)
+
+Example fails:
+C: Ian is not a secretary, Amanda is.
+Q: Who is a secretary?
+A: Amanda
+P: Ian is not a secretary, Amanda
+
+----
+C: Joshua is not a secretary, Jasmine is.
+Q: Who is a secretary?
+A: Jasmine
+P: Joshua
+
+----
+C: Edward is not a CEO, Madison is.
+Q: Who is a CEO?
+A: Madison
+P: Edward
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    478 (99.2%)
+
+Example fails:
+C: Both Emma and Daniel were administrators, but there was a change in Emma, who is now an advisor.
+Q: Who is an advisor?
+A: Emma
+P: Daniel
+
+
+----
+C: Both Jonathan and Dylan were journalists, but there was a change in Jonathan, who is now an organizer.
+Q: Who is an organizer?
+A: Jonathan
+P: Dylan
+
+
+----
+C: Both Mark and Andrew were architects, but there was a change in Mark, who is now a historian.
+Q: Who is a historian?
+A: Mark
+P: Andrew
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Alexander became a investigator before Samuel did.
+Q: Who became a investigator last?
+A: Samuel
+P: Alexander
+
+C: Samuel became a investigator after Alexander did.
+Q: Who became a investigator first?
+A: Alexander
+P: Samuel
+
+
+----
+C: Andrew became a escort before Victoria did.
+Q: Who became a escort last?
+A: Victoria
+P: Andrew
+
+C: Victoria became a escort after Andrew did.
+Q: Who became a escort last?
+A: Victoria
+P: Andrew
+
+
+----
+C: Andrea became a attorney before Christian did.
+Q: Who became a attorney last?
+A: Christian
+P: Andrea
+
+C: Christian became a attorney after Andrea did.
+Q: Who became a attorney first?
+A: Andrea
+P: Christian
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    497 (99.6%)
+
+Example fails:
+C: Olivia is not a journalist. Christopher is.
+Q: Who is a journalist?
+A: Christopher
+P: Olivia
+
+C: Christopher is a journalist. Olivia is not.
+Q: Who is not a journalist?
+A: Olivia
+P: Christopher
+
+
+----
+C: Samuel is not an actress. Danielle is.
+Q: Who is an actress?
+A: Danielle
+P: Samuel
+
+
+----
+C: Mary is not a nurse. Laura is.
+Q: Who is a nurse?
+A: Laura
+P: Mary
+
+C: Laura is a nurse. Mary is not.
+Q: Who is not a nurse?
+A: Mary
+P: Laura
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Austin is an editor. Christopher is an activist.
+Q: Who is not an editor?
+A: Christopher
+P: Austin
+
+C: Austin is an editor. Christopher is an activist.
+Q: Who is not an activist?
+A: Austin
+P: Christopher
+
+C: Christopher is an activist. Austin is an editor.
+Q: Who is not an editor?
+A: Christopher
+P: Austin
+
+
+----
+C: Benjamin is an engineer. Natalie is a journalist.
+Q: Who is not an engineer?
+A: Natalie
+P: Benjamin
+
+C: Natalie is a journalist. Benjamin is an engineer.
+Q: Who is not an engineer?
+A: Natalie
+P: Benjamin
+
+C: Natalie is a journalist. Benjamin is an engineer.
+Q: Who is not a journalist?
+A: Benjamin
+P: Natalie
+
+
+----
+C: Kelly is an assistant. Ryan is an engineer.
+Q: Who is not an assistant?
+A: Ryan
+P: Kelly
+
+C: Kelly is an assistant. Ryan is an engineer.
+Q: Who is not an engineer?
+A: Kelly
+P: Ryan
+
+C: Ryan is an engineer. Kelly is an assistant.
+Q: Who is not an assistant?
+A: Ryan
+P: Kelly
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Brandon and Victoria are friends. He is a photographer, and she is a historian.
+Q: Who is a historian?
+A: Victoria
+P: Brandon
+
+C: Victoria and Brandon are friends. He is a photographer, and she is a historian.
+Q: Who is a historian?
+A: Victoria
+P: Brandon
+
+C: Brandon and Victoria are friends. She is a historian, and he is a photographer.
+Q: Who is a historian?
+A: Victoria
+P: Brandon
+
+
+----
+C: Gregory and Anna are friends. He is an assistant, and she is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Anna
+P: Gregory
+
+C: Anna and Gregory are friends. He is an assistant, and she is an entrepreneur.
+Q: Who is an assistant?
+A: Gregory
+P: Anna and Gregory
+
+C: Anna and Gregory are friends. He is an assistant, and she is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Anna
+P: Gregory
+
+
+----
+C: Marcus and Hailey are friends. He is an engineer, and she is an escort.
+Q: Who is an escort?
+A: Hailey
+P: Marcus
+
+C: Hailey and Marcus are friends. He is an engineer, and she is an escort.
+Q: Who is an engineer?
+A: Marcus
+P: Hailey and Marcus
+
+C: Hailey and Marcus are friends. He is an engineer, and she is an escort.
+Q: Who is an escort?
+A: Hailey
+P: Marcus
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    312 (62.4%)
+
+Example fails:
+C: Christine and Mason are friends. His mom is a nurse.
+Q: Whose mom is a nurse?
+A: Mason
+P: Christine
+
+
+----
+C: Jonathan and Savannah are friends. Her mom is an activist.
+Q: Whose mom is an activist?
+A: Savannah
+P: Jonathan
+
+C: Savannah and Jonathan are friends. Her mom is an activist.
+Q: Whose mom is an activist?
+A: Savannah
+P: Jonathan
+
+
+----
+C: Adrian and Erin are friends. Her mom is an investor.
+Q: Whose mom is an investor?
+A: Erin
+P: Adrian
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    446 (93.9%)
+
+Example fails:
+C: Samuel and Maria are friends. The latter is a photographer.
+Q: Who is a photographer?
+A: Maria
+P: Samuel
+
+
+----
+C: Maria and Jamie are friends. The latter is an escort.
+Q: Who is an escort?
+A: Jamie
+P: Maria
+
+
+----
+C: Andrea and Ashley are friends. The latter is an agent.
+Q: Who is an agent?
+A: Ashley
+P: Andrea
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    401 (80.7%)
+
+Example fails:
+C: Jonathan trusts Patrick.
+Q: Who trusts?
+A: Jonathan
+P: Patrick
+
+
+----
+C: Matthew follows David.
+Q: Who is followed?
+A: David
+P: Matthew
+
+C: David is followed by Matthew.
+Q: Who is followed?
+A: David
+P: Matthew
+
+
+----
+C: Maria is believed by Anthony.
+Q: Who believes?
+A: Anthony
+P: Maria
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    481 (99.6%)
+
+Example fails:
+C: Robert notices Tyler. Tyler notices Taylor.
+Q: Who notices Taylor?
+A: Tyler
+P: Robert
+
+C: Robert notices Tyler. Taylor is noticed by Tyler.
+Q: Who notices Taylor?
+A: Tyler
+P: Robert
+
+C: Robert notices Tyler. Taylor is noticed by Tyler.
+Q: Who is noticed by Robert?
+A: Tyler
+P: Taylor
+
+
+----
+C: John understands Amanda. Erin is understood by Amanda.
+Q: Who understands Erin?
+A: Amanda
+P: John
+
+C: Amanda is understood by John. Amanda understands Erin.
+Q: Who is understood by Amanda?
+A: Erin
+P: John
+
+C: Amanda is understood by John. Erin is understood by Amanda.
+Q: Who is understood by Amanda?
+A: Erin
+P: John
+
+
+----
+C: Samantha attacks Dylan. Dylan attacks Tiffany.
+Q: Who attacks Tiffany?
+A: Dylan
+P: Samantha
+
+C: Samantha attacks Dylan. Tiffany is attacked by Dylan.
+Q: Who attacks Tiffany?
+A: Dylan
+P: Samantha
+
+C: Dylan is attacked by Samantha. Dylan attacks Tiffany.
+Q: Who attacks Tiffany?
+A: Dylan
+P: Samantha
+
+
+----
+
+
+

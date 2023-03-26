@@ -1,0 +1,15 @@
+Peer Assessment by jlp5729 - Analyzing and Mitigating Dataset Artifacts for the Stanford Question Answering Dataset
+
+Scope - Excellent 
+The project made great use of the tools provided, came up with a unique implementation of ideas presented in the papers, and made real progress in reproducing results from the "Inoculation by Fine-Tuning" paper. I appreciated that they included some solid observations about results. 
+
+Implementation - Good
+I appreciated their method of generating and inserting triggers into the dataset. I did not see major issues in any of the implementation. Only thing I would have liked to see more of is obstacles encountered; for me the implementation wasn't always straightforward and some of the challenges I met impacted the way I moved forward.
+
+Results / Analysis - Excellent
+I appreciated the use of visualization; additionally, there was a good mix of re-using viz from referenced papers and creating their own. I would have liked to see the example about "improve F1 score to about 74% by fine-tuning 87599 examples from SQuAD training set with 400 examples from the AddSent dataset" included in Table 2 along with SQuAD and the Augmented Adversarial Dataset, but that's a minor quibble. The other thing I would have liked to have been included is some more analysis or hypotheses about why performance was best at 400 adversarial examples, not just that it was best at that mark.
+
+Clarity / Writing - Excellent
+This could easily have been on the ACL website or another journal. I would have maybe liked to have seen a few more references, but overall excellent quality and I did not have any issues with the writing or comprehending their project/paper. 
+
+Overall excellent work. This is the level of quality I wish my own report/project had been.

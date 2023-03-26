@@ -1,0 +1,1029 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    454 (91.9%)
+
+Example fails:
+C: Austin is tougher than Samuel.
+Q: Who is less tough?
+A: Samuel
+P: Austin
+
+
+----
+C: Kelly is weaker than Ashley.
+Q: Who is less weak?
+A: Ashley
+P: Kelly
+
+
+----
+C: Benjamin is younger than Jamie.
+Q: Who is less young?
+A: Jamie
+P: Benjamin
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Dylan is extremely upbeat about the project. Elizabeth is upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Dylan
+P: Elizabeth
+
+C: Elizabeth is upbeat about the project. Dylan is extremely upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Dylan
+P: Elizabeth
+
+C: Dylan is upbeat about the project. Elizabeth is mildly upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Dylan
+P: Elizabeth
+
+
+----
+C: Sophia is incredibly passionate about the project. Christian is passionate about the project.
+Q: Who is least passionate about the project?
+A: Christian
+P: Sophia
+
+C: Christian is passionate about the project. Sophia is incredibly passionate about the project.
+Q: Who is least passionate about the project?
+A: Christian
+P: Sophia
+
+C: Christian is somewhat passionate about the project. Sophia is passionate about the project.
+Q: Who is least passionate about the project?
+A: Christian
+P: Sophia
+
+
+----
+C: Charles is super upbeat about the project. Jacob is upbeat about the project.
+Q: Who is least upbeat about the project?
+A: Jacob
+P: Charles
+
+C: Jacob is upbeat about the project. Charles is super upbeat about the project.
+Q: Who is least upbeat about the project?
+A: Jacob
+P: Charles
+
+C: Charles is upbeat about the project. Jacob is a little upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Charles
+P: Jacob
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    58 (11.6%)
+
+Example fails:
+C: There is a round black painting in the room.
+Q: What shape is the painting?
+A: round
+P: round black
+
+C: There is a painting in the room. The painting is round and black.
+Q: What shape is the painting?
+A: round
+P: round and black
+
+
+----
+C: There is a sculpture in the room. The sculpture is enormous and square.
+Q: What shape is the sculpture?
+A: square
+P: enormous and square
+
+
+----
+C: There is a square grey figure in the room.
+Q: What shape is the figure?
+A: square
+P: square grey
+
+C: There is a figure in the room. The figure is square and grey.
+Q: What shape is the figure?
+A: square
+P: square and grey
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    15 (3.0%)
+
+Example fails:
+C: David is an Indian intern.
+Q: What is David's job?
+A: intern
+P: Indian intern
+
+
+----
+C: Jacob is an Indian assistant.
+Q: What is Jacob's job?
+A: assistant
+P: Indian assistant
+
+
+----
+C: Robert is an American escort.
+Q: What is Robert's job?
+A: escort
+P: American escort
+
+C: Robert is American and an escort.
+Q: What is Robert's job?
+A: escort
+P: American and an escort
+
+C: Robert is an escort and American.
+Q: What is Robert's job?
+A: escort
+P: escort and American
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    88 (17.6%)
+
+Example fails:
+C: Rebecca has a rabbit and a car.
+Q: What vehicle does Rebecca have?
+A: car
+P: a rabbit and a car
+
+
+----
+C: Hannah has a firetruck and a lizard.
+Q: What vehicle does Hannah have?
+A: firetruck
+P: firetruck and a lizard
+
+
+----
+C: Samantha has a firetruck and a snake.
+Q: What vehicle does Samantha have?
+A: firetruck
+P: firetruck and a snake
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    380 (76.6%)
+
+Example fails:
+C: Natalie bought a duck. Jordan bought a truck.
+Q: Who bought an animal?
+A: Natalie
+P: Jordan
+
+C: Jordan bought a truck. Natalie bought a duck.
+Q: Who bought an animal?
+A: Natalie
+P: Jordan
+
+
+----
+C: Nicole bought an iguana. Melissa bought a car.
+Q: Who bought a vehicle?
+A: Melissa
+P: Nicole
+
+C: Melissa bought a car. Nicole bought an iguana.
+Q: Who bought an animal?
+A: Nicole
+P: Melissa
+
+
+----
+C: Sara bought a bull. Michael bought a firetruck.
+Q: Who bought a vehicle?
+A: Michael
+P: Sara
+
+C: Michael bought a firetruck. Sara bought a bull.
+Q: Who bought a vehicle?
+A: Michael
+P: Sara
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    27 (6.0%)
+
+Example fails:
+C: Kevin is very smart. Patrick is very modest.
+Q: Who is humble?
+A: Patrick
+P: Kevin
+
+
+----
+C: Andrew is very brave. Timothy is very modest.
+Q: Who is humble?
+A: Timothy
+P: Andrew
+
+
+----
+C: Mark is very joyful. Daniel is very frightened.
+Q: Who is scared?
+A: Daniel
+P: Mark
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Tyler is stronger than Ryan.
+Q: Who is weaker?
+A: Ryan
+P: Tyler
+
+C: Ryan is weaker than Tyler.
+Q: Who is stronger?
+A: Tyler
+P: Ryan
+
+
+----
+C: Isabella is stronger than Jacob.
+Q: Who is weaker?
+A: Jacob
+P: Isabella
+
+C: Jacob is weaker than Isabella.
+Q: Who is stronger?
+A: Isabella
+P: Jacob
+
+
+----
+C: Mary is older than Nicholas.
+Q: Who is younger?
+A: Nicholas
+P: Mary
+
+C: Nicholas is younger than Mary.
+Q: Who is older?
+A: Mary
+P: Nicholas
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Mark is more positive than John.
+Q: Who is less positive?
+A: John
+P: Mark
+
+C: Mark is more positive than John.
+Q: Who is more negative?
+A: John
+P: Mark
+
+C: John is more negative than Mark.
+Q: Who is more positive?
+A: Mark
+P: John
+
+
+----
+C: Victoria is more negative than Robert.
+Q: Who is less negative?
+A: Robert
+P: Victoria
+
+C: Victoria is more negative than Robert.
+Q: Who is more positive?
+A: Robert
+P: Victoria
+
+C: Robert is more positive than Victoria.
+Q: Who is more negative?
+A: Victoria
+P: Robert
+
+
+----
+C: Brandon is more progressive than Amy.
+Q: Who is less progressive?
+A: Amy
+P: Brandon
+
+C: Brandon is more progressive than Amy.
+Q: Who is more conservative?
+A: Amy
+P: Brandon
+
+C: Amy is more conservative than Brandon.
+Q: Who is more progressive?
+A: Brandon
+P: Amy
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    141 (28.2%)
+
+Example fails:
+C: The earliest known movie featuring some exterior scenes filmed in the city is On the Night of the Fire (1939), though by and large the action is studio-bound. Later came The Clouded Yellow (1951) and Payroll (1961), both of which feature more extensive scenes filmed in the city. The 1971 film Get Carter was shot on location in and around Newcastle and offers an opportunity to see what Newcastle looked like in the 1960s and early 1970s. The city was also backdrop to another gangster film, the 1988 film noir thriller Stormy Monday, directed by Mike Figgis and starring Tommy Lee Jones, Melanie Griffith, Sting and Sean Bean.
+Q: What famous musician starred in Stormy Monday?
+P: Sting
+
+C: The earliest known movie featuring some exterior scenes filmed in the city is On the Night of the Fire (1939), though by and large the action is studio-bound. Later came The Clouded Yellow (1951) and Payroll (1961), both of which feature more extensive scenes filmed in the city. The 1971 film Get Carter was shot on location in and around Newcastle and offers an opportunity to see what Newcastle looked like in the 1960s and early 1970s. The city was also backdrop to another gangster film, the 1988 film noir thriller Stormy Monday, directed by Mike Figgis and starring Tommy Lee Jones, Melanie Griffith, Sting and Sean Bean.
+Q: hWat famous musician starred in Stormy Monday?
+P: Sting and Sean Bean
+
+
+----
+C: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.
+Q: What can concentrated oxygen produce?
+P: rapid combustion
+
+C: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.
+Q: What can concentrated oyxgen produce?
+P: oxygen
+
+
+----
+C: However, this oft-quoted saying of Tetzel was by no means representative of contemporary Catholic teaching on indulgences, but rather a reflection of his capacity to exaggerate. Yet if Tetzel overstated the matter in regard to indulgences for the dead, his teaching on indulgences for the living was in line with Catholic dogma of the time.
+Q: Whose saying about freeing souls from purgatory was often quoted?
+P: Tetzel
+
+C: However, this oft-quoted saying of Tetzel was by no means representative of contemporary Catholic teaching on indulgences, but rather a reflection of his capacity to exaggerate. Yet if Tetzel overstated the matter in regard to indulgences for the dead, his teaching on indulgences for the living was in line with Catholic dogma of the time.
+Q: Whose saying about freeing souls frmo purgatory was often quoted?
+P: Catholic
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    76 (15.2%)
+
+Example fails:
+C: British settlers outnumbered the French 20 to 1 with a population of about 1.5 million ranged along the eastern coast of the continent, from Nova Scotia and Newfoundland in the north, to Georgia in the south. Many of the older colonies had land claims that extended arbitrarily far to the west, as the extent of the continent was unknown at the time their provincial charters were granted. While their population centers were along the coast, the settlements were growing into the interior. Nova Scotia, which had been captured from France in 1713, still had a significant French-speaking population. Britain also claimed Rupert's Land, where the Hudson's Bay Company traded for furs with local tribes.
+Q: Where did British settlers live?
+P: Nova Scotia and Newfoundland
+
+C: British settlers outnumbered the French 20 to 1 with a population of about 1.5 million ranged along the eastern coast of the continent, from Nova Scotia and Newfoundland in the north, to Georgia in the south. Many of the older colonies had land claims that extended arbitrarily far to the west, as the extent of the continent was unknown at the time their provincial charters were granted. While their population centers were along the coast, the settlements were growing into the interior. Nova Scotia, which had been captured from France in 1713, still had a significant French-speaking population. Britain also claimed Rupert's Land, where the Hudson's Bay Company traded for furs with local tribes.
+Q: Where'd British settlers live?
+P: the interior
+
+
+----
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where did the genoese traders bring the plague?
+P: Kaffa
+
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where'd the genoese traders bring the plague?
+P: the port city of Kaffa
+
+
+----
+C: A regulation of the Rhine was called for, with an upper canal near Diepoldsau and a lower canal at Fußach, in order to counteract the constant flooding and strong sedimentation in the western Rhine Delta. The Dornbirner Ach had to be diverted, too, and it now flows parallel to the canalized Rhine into the lake. Its water has a darker color than the Rhine; the latter's lighter suspended load comes from higher up the mountains. It is expected that the continuous input of sediment into the lake will silt up the lake. This has already happened to the former Lake Tuggenersee.
+Q: What is the lower canal regulation of the Rhine?
+P: an upper canal
+
+C: A regulation of the Rhine was called for, with an upper canal near Diepoldsau and a lower canal at Fußach, in order to counteract the constant flooding and strong sedimentation in the western Rhine Delta. The Dornbirner Ach had to be diverted, too, and it now flows parallel to the canalized Rhine into the lake. Its water has a darker color than the Rhine; the latter's lighter suspended load comes from higher up the mountains. It is expected that the continuous input of sediment into the lake will silt up the lake. This has already happened to the former Lake Tuggenersee.
+Q: What's the lower canal regulation of the Rhine?
+P: an upper canal near Diepoldsau and a lower canal at Fu\xdfach
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    130 (26.0%)
+
+Example fails:
+C: Formed in 1946, Sierra Sky Park Airport is a residential airport community born of a unique agreement in transportation law to allow personal aircraft and automobiles to share certain roads. Sierra Sky Park was the first aviation community to be built[citation needed] and there are now numerous such communities across the United States and around the world. Developer William Smilie created the nation's first planned aviation community. Still in operation today, the public use airport provides a unique neighborhood that spawned interest and similar communities nationwide.
+Q: Are there any other aviation communities such as Sierra Sky Park in the United States?
+P: numerous such communities across the United States and around the world
+
+C: In contrast, Osweiler threw for 1,967 yards, 10 touchdowns and six interceptions for a rating of 86.4. Formed in 1946, Sierra Sky Park Airport is a residential airport community born of a unique agreement in transportation law to allow personal aircraft and automobiles to share certain roads. Sierra Sky Park was the first aviation community to be built[citation needed] and there are now numerous such communities across the United States and around the world. Developer William Smilie created the nation's first planned aviation community. Still in operation today, the public use airport provides a unique neighborhood that spawned interest and similar communities nationwide.
+Q: Are there any other aviation communities such as Sierra Sky Park in the United States?
+P: there are now numerous such communities across the United States and around the world
+
+
+----
+C: In his extensively detailed report, Céloron wrote, "All I can say is that the Natives of these localities are very badly disposed towards the French, and are entirely devoted to the English. I don't know in what way they could be brought back." Even before his return to Montreal, reports on the situation in the Ohio Country were making their way to London and Paris, each side proposing that action be taken. William Shirley, the expansionist governor of the Province of Massachusetts Bay, was particularly forceful, stating that British colonists would not be safe as long as the French were present. Conflicts between the colonies, accomplished through raiding parties that included Indian allies, had taken place for decades, leading to a brisk trade in European colonial captives from either side.
+Q: How did Celeron feel about Native relations?
+P: very badly disposed towards the French, and are entirely devoted to the English
+
+C: They claim that European imperialism was influential, and Europeans rejected the notion that "imperialism" required formal, legal control by one government over another country. "In their view, historians have been mesmerized by formal empire and maps of the world with regions colored red. In his extensively detailed report, Céloron wrote, "All I can say is that the Natives of these localities are very badly disposed towards the French, and are entirely devoted to the English. I don't know in what way they could be brought back." Even before his return to Montreal, reports on the situation in the Ohio Country were making their way to London and Paris, each side proposing that action be taken. William Shirley, the expansionist governor of the Province of Massachusetts Bay, was particularly forceful, stating that British colonists would not be safe as long as the French were present. Conflicts between the colonies, accomplished through raiding parties that included Indian allies, had taken place for decades, leading to a brisk trade in European colonial captives from either side.
+Q: How did Celeron feel about Native relations?
+P: entirely devoted to the English
+
+
+----
+C: For the first time, the Super Bowl 50 Host Committee and the NFL have openly sought disabled veteran and lesbian, gay, bisexual and transgender-owned businesses in Business Connect, the Super Bowl program that provides local companies with contracting opportunities in and around the Super Bowl. The host committee has already raised over $40 million through sponsors including Apple, Google, Yahoo!, Intel, Gap, Chevron, and Dignity Health.
+Q: What clothing company was a Super Bowl sponsor?
+P: Intel
+
+C: For the first time, the Super Bowl 50 Host Committee and the NFL have openly sought disabled veteran and lesbian, gay, bisexual and transgender-owned businesses in Business Connect, the Super Bowl program that provides local companies with contracting opportunities in and around the Super Bowl. The host committee has already raised over $40 million through sponsors including Apple, Google, Yahoo!, Intel, Gap, Chevron, and Dignity Health.The city is a significant centre of research and development, BPO, ITO, as well as of the Polish media industry. 
+Q: What clothing company was a Super Bowl sponsor?
+P: Apple
+
+C: The city is a significant centre of research and development, BPO, ITO, as well as of the Polish media industry. For the first time, the Super Bowl 50 Host Committee and the NFL have openly sought disabled veteran and lesbian, gay, bisexual and transgender-owned businesses in Business Connect, the Super Bowl program that provides local companies with contracting opportunities in and around the Super Bowl. The host committee has already raised over $40 million through sponsors including Apple, Google, Yahoo!, Intel, Gap, Chevron, and Dignity Health.
+Q: What clothing company was a Super Bowl sponsor?
+P: Apple
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    65 (13.0%)
+
+Example fails:
+C: The Panthers seemed primed to score on their opening drive of the second half when Newton completed a 45-yard pass to Ted Ginn Jr. on the Denver 35-yard line on their second offensive play. But the Broncos defense halted the drive on the 26-yard line, and it ended with no points when Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to Emmanuel Sanders for gains of 25 and 22 yards, setting up McManus' 33-yard field goal that gave the Broncos a 16–7 lead. Carolina got off to another strong start after the kickoff, with Newton completing a 42-yard pass to Corey Brown. But once again they came up empty, this time as a result of a Newton pass that bounced off the hands of Ginn and was intercepted by safety T. J. Ward. Ward fumbled the ball during the return, but Trevathan recovered it to enable Denver to keep possession.
+Q: What kicker was successful on a 33-yard field goal?
+P: Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to Emmanuel Sanders
+
+C: The Panthers seemed primed to score on their opening drive of the second half when Newton completed a 45-yard pass to Ted Ginn Jr. on the Denver 35-yard line on their second offensive play. But the Broncos defense halted the drive on the 26-yard line, and it ended with no points when Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to Emmanuel Sanders for gains of 25 and 22 yards, setting up McManus' 33-yard field goal that gave the Broncos a 16–7 lead. Carolina got off to another strong start after the kickoff, with Newton completing a 42-yard pass to John Martin. But once again they came up empty, this time as a result of a Newton pass that bounced off the hands of Ginn and was intercepted by safety T. J. Ward. Ward fumbled the ball during the return, but Trevathan recovered it to enable Denver to keep possession.
+Q: What kicker was successful on a 33-yard field goal?
+P: McManus
+
+C: The Panthers seemed primed to score on their opening drive of the second half when Newton completed a 45-yard pass to Ted Ginn Jr. on the Denver 35-yard line on their second offensive play. But the Broncos defense halted the drive on the 26-yard line, and it ended with no points when Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to David Moore for gains of 25 and 22 yards, setting up McManus' 33-yard field goal that gave the Broncos a 16–7 lead. Carolina got off to another strong start after the kickoff, with Newton completing a 42-yard pass to Corey Brown. But once again they came up empty, this time as a result of a Newton pass that bounced off the hands of Ginn and was intercepted by safety T. J. Ward. Ward fumbled the ball during the return, but Trevathan recovered it to enable Denver to keep possession.
+Q: What kicker was successful on a 33-yard field goal?
+P: McManus
+
+
+----
+C: Throughout the 18th century, Enlightenment ideas of the power of reason and free will became widespread among Congregationalist ministers, putting those ministers and their congregations in tension with more traditionalist, Calvinist parties.:1–4 When the Hollis Professor of Divinity David Tappan died in 1803 and the president of Harvard Joseph Willard died a year later, in 1804, a struggle broke out over their replacements. Henry Ware was elected to the chair in 1805, and the liberal Samuel Webber was appointed to the presidency of Harvard two years later, which signaled the changing of the tide from the dominance of traditional ideas at Harvard to the dominance of liberal, Arminian ideas (defined by traditionalists as Unitarian ideas).:4–5:24
+Q: What liberal succeeded Joseph Willard as president?
+P: Hollis
+
+C: Throughout the 18th century, Enlightenment ideas of the power of reason and free will became widespread among Congregationalist ministers, putting those ministers and their congregations in tension with more traditionalist, Calvinist parties.:1–4 When the Hollis Professor of Divinity David Tappan died in 1803 and the president of Harvard Joseph Willard died a year later, in 1804, a struggle broke out over their replacements. Henry Ware was elected to the chair in 1805, and the liberal Daniel Edwards was appointed to the presidency of Harvard two years later, which signaled the changing of the tide from the dominance of traditional ideas at Harvard to the dominance of liberal, Arminian ideas (defined by traditionalists as Unitarian ideas).:4–5:24
+Q: What liberal succeeded Joseph Willard as president?
+P: Daniel Edwards
+
+C: Throughout the 18th century, Enlightenment ideas of the power of reason and free will became widespread among Congregationalist ministers, putting those ministers and their congregations in tension with more traditionalist, Calvinist parties.:1–4 When the Hollis Professor of Divinity David Tappan died in 1803 and the president of Harvard David Howard died a year later, in 1804, a struggle broke out over their replacements. Henry Ware was elected to the chair in 1805, and the liberal Samuel Webber was appointed to the presidency of Harvard two years later, which signaled the changing of the tide from the dominance of traditional ideas at Harvard to the dominance of liberal, Arminian ideas (defined by traditionalists as Unitarian ideas).:4–5:24
+Q: What liberal succeeded David Howard as president?
+P: Samuel Webber
+
+
+----
+C: In accordance with his father's wishes, Luther enrolled in law school at the same university that year but dropped out almost immediately, believing that law represented uncertainty. Luther sought assurances about life and was drawn to theology and philosophy, expressing particular interest in Aristotle, William of Ockham, and Gabriel Biel. He was deeply influenced by two tutors, Bartholomaeus Arnoldi von Usingen and Jodocus Trutfetter, who taught him to be suspicious of even the greatest thinkers and to test everything himself by experience. Philosophy proved to be unsatisfying, offering assurance about the use of reason but none about loving God, which to Luther was more important. Reason could not lead men to God, he felt, and he thereafter developed a love-hate relationship with Aristotle over the latter's emphasis on reason. For Luther, reason could be used to question men and institutions, but not God. Human beings could learn about God only through divine revelation, he believed, and Scripture therefore became increasingly important to him.
+Q: How did Luther's tutors advise him to test what he learned?
+P: by experience
+
+C: In accordance with his father's wishes, Juan enrolled in law school at the same university that year but dropped out almost immediately, believing that law represented uncertainty. Juan sought assurances about life and was drawn to theology and philosophy, expressing particular interest in Aristotle, William of Ockham, and Gabriel Biel. He was deeply influenced by two tutors, Bartholomaeus Arnoldi von Usingen and Jodocus Trutfetter, who taught him to be suspicious of even the greatest thinkers and to test everything himself by experience. Philosophy proved to be unsatisfying, offering assurance about the use of reason but none about loving God, which to Juan was more important. Reason could not lead men to God, he felt, and he thereafter developed a love-hate relationship with Aristotle over the latter's emphasis on reason. For Juan, reason could be used to question men and institutions, but not God. Human beings could learn about God only through divine revelation, he believed, and Scripture therefore became increasingly important to him.
+Q: How did Juan's tutors advise him to test what he learned?
+P: experience
+
+C: In accordance with his father's wishes, Luther enrolled in law school at the same university that year but dropped out almost immediately, believing that law represented uncertainty. Luther sought assurances about life and was drawn to theology and philosophy, expressing particular interest in Aristotle, Jayden of Ockham, and Gabriel Biel. He was deeply influenced by two tutors, Bartholomaeus Arnoldi von Usingen and Jodocus Trutfetter, who taught him to be suspicious of even the greatest thinkers and to test everything himself by experience. Philosophy proved to be unsatisfying, offering assurance about the use of reason but none about loving God, which to Luther was more important. Reason could not lead men to God, he felt, and he thereafter developed a love-hate relationship with Aristotle over the latter's emphasis on reason. For Luther, reason could be used to question men and institutions, but not God. Human beings could learn about God only through divine revelation, he believed, and Scripture therefore became increasingly important to him.
+Q: How did Luther's tutors advise him to test what he learned?
+P: experience
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    134 (26.8%)
+
+Example fails:
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental United States, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: Jacksonville
+
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Bowling Green, Florida. The effort was the first at any permanent European settlement in the present-day continental United States, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: St. Augustine
+
+C: In 1564 a group of Norman Huguenots under the leadership of Jean Ribault established the small colony of Fort Caroline on the banks of the St. Johns River in what is today Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental Papua New Guinea, but survived only a short time. A September 1565 French naval attack against the new Spanish colony at St. Augustine failed when its ships were hit by a hurricane on their way to the Spanish encampment at Fort Matanzas. Hundreds of French soldiers were stranded and surrendered to the numerically inferior Spanish forces led by Pedro Menendez. Menendez proceeded to massacre the defenseless Huguenots, after which he wiped out the Fort Caroline garrison.
+Q: There was a 16th century Huguenot settlement near what modern day Florida city?
+P: Jacksonville, Florida. The effort was the first at any permanent European settlement in the present-day continental Papua New Guinea
+
+
+----
+C: As the designated home team in the annual rotation between AFC and NFC teams, the Broncos elected to wear their road white jerseys with matching white pants. Elway stated, "We've had Super Bowl success in our white uniforms." The Broncos last wore matching white jerseys and pants in the Super Bowl in Super Bowl XXXIII, Elway's last game as Denver QB, when they defeated the Atlanta Falcons 34–19. In their only other Super Bowl win in Super Bowl XXXII, Denver wore blue jerseys, which was their primary color at the time. They also lost Super Bowl XXI when they wore white jerseys, but they are 0-4 in Super Bowls when wearing orange jerseys, losing in Super Bowl XII, XXII, XXIV, and XLVIII. The only other AFC champion team to have worn white as the designated home team in the Super Bowl was the Pittsburgh Steelers; they defeated the Seattle Seahawks 21–10 in Super Bowl XL 10 seasons prior. The Broncos' decision to wear white meant the Panthers would wear their standard home uniform: black jerseys with silver pants.
+Q: What color were the Bronco's uniforms in Super Bowl 50?
+P: orange
+
+C: As the designated home team in the annual rotation between AFC and NFC teams, the Broncos elected to wear their road white jerseys with matching white pants. Elway stated, "We've had Super Bowl success in our white uniforms." The Broncos last wore matching white jerseys and pants in the Super Bowl in Super Bowl XXXIII, Elway's last game as Denver QB, when they defeated the Port Orange Falcons 34–19. In their only other Super Bowl win in Super Bowl XXXII, Denver wore blue jerseys, which was their primary color at the time. They also lost Super Bowl XXI when they wore white jerseys, but they are 0-4 in Super Bowls when wearing orange jerseys, losing in Super Bowl XII, XXII, XXIV, and XLVIII. The only other AFC champion team to have worn white as the designated home team in the Super Bowl was the Pittsburgh Steelers; they defeated the Seattle Seahawks 21–10 in Super Bowl XL 10 seasons prior. The Broncos' decision to wear white meant the Panthers would wear their standard home uniform: black jerseys with silver pants.
+Q: What color were the Bronco's uniforms in Super Bowl 50?
+P: Orange
+
+
+----
+C: Stadtholder William III of Orange, who later became King of England, emerged as the strongest opponent of king Louis XIV after the French attacked the Dutch Republic in 1672. William formed the League of Augsburg as a coalition to oppose Louis and the French state. Consequently, many Huguenots considered the wealthy and Calvinist Dutch Republic, which led the opposition to Louis XIV, as the most attractive country for exile after the revocation of the Edict of Nantes. They also found many French-speaking Calvinist churches there.
+Q: Who was Louis XIV's main rival?
+P: William III of Orange
+
+C: Stadtholder William III of Lincoln Park, who later became King of England, emerged as the strongest opponent of king Louis XIV after the French attacked the Dutch Republic in 1672. William formed the League of Augsburg as a coalition to oppose Louis and the French state. Consequently, many Huguenots considered the wealthy and Calvinist Dutch Republic, which led the opposition to Louis XIV, as the most attractive country for exile after the revocation of the Edict of Nantes. They also found many French-speaking Calvinist churches there.
+Q: Who was Louis XIV's main rival?
+P: William III
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1889 (94.5%)
+
+Example fails:
+C: Erin is not a secretary, Robert is.
+Q: Who is a secretary?
+A: Robert
+P: Erin
+
+----
+C: Sarah is not a nurse, Gabriel is.
+Q: Who is a nurse?
+A: Gabriel
+P: Sarah
+
+----
+C: Erica is not a doctor, Dylan is.
+Q: Who is a doctor?
+A: Dylan
+P: Erica
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    8 (1.7%)
+
+Example fails:
+C: Both Joseph and Lisa were entrepreneurs, but there was a change in Lisa, who is now an educator.
+Q: Who is an educator?
+A: Lisa
+P: Joseph and Lisa
+
+
+----
+C: Both Christian and Patrick were entrepreneurs, but there was a change in Christian, who is now an editor.
+Q: Who is an editor?
+A: Christian
+P: entrepreneurs
+
+C: Both Patrick and Christian were entrepreneurs, but there was a change in Christian, who is now an editor.
+Q: Who is an editor?
+A: Christian
+P: entrepreneurs
+
+
+----
+C: Both Christian and Brandon were actors, but there was a change in Christian, who is now an educator.
+Q: Who is an educator?
+A: Christian
+P: actors
+
+C: Both Brandon and Christian were actors, but there was a change in Christian, who is now an educator.
+Q: Who is an educator?
+A: Christian
+P: Both Brandon and Christian were actors
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Natalie became a organizer before Sophia did.
+Q: Who became a organizer first?
+A: Natalie
+P: Sophia
+
+C: Sophia became a organizer after Natalie did.
+Q: Who became a organizer last?
+A: Sophia
+P: Natalie
+
+
+----
+C: Rebecca became a actress before Emily did.
+Q: Who became a actress first?
+A: Rebecca
+P: Emily
+
+C: Emily became a actress after Rebecca did.
+Q: Who became a actress last?
+A: Emily
+P: Rebecca
+
+
+----
+C: Ryan became a assistant before Lauren did.
+Q: Who became a assistant first?
+A: Ryan
+P: Lauren
+
+C: Lauren became a assistant after Ryan did.
+Q: Who became a assistant last?
+A: Lauren
+P: Ryan
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    489 (98.0%)
+
+Example fails:
+C: Nicholas is not an accountant. Samantha is.
+Q: Who is an accountant?
+A: Samantha
+P: Nicholas
+
+C: Samantha is an accountant. Nicholas is not.
+Q: Who is an accountant?
+A: Samantha
+P: Nicholas
+
+
+----
+C: Anna is not an economist. Anthony is.
+Q: Who is an economist?
+A: Anthony
+P: Anna
+
+
+----
+C: Nicholas is not an attorney. Eric is.
+Q: Who is an attorney?
+A: Eric
+P: Nicholas
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    461 (95.8%)
+
+Example fails:
+C: Benjamin is an engineer. Natalie is a journalist.
+Q: Who is not an engineer?
+A: Natalie
+P: Benjamin
+
+C: Natalie is a journalist. Benjamin is an engineer.
+Q: Who is not an engineer?
+A: Natalie
+P: Benjamin
+
+C: Natalie is a journalist. Benjamin is an engineer.
+Q: Who is a journalist?
+A: Natalie
+P: Benjamin
+
+
+----
+C: Matthew is an author. Eric is an attorney.
+Q: Who is not an attorney?
+A: Matthew
+P: Eric
+
+C: Eric is an attorney. Matthew is an author.
+Q: Who is not an attorney?
+A: Matthew
+P: Eric
+
+
+----
+C: Kelly is an entrepreneur. Sean is a photographer.
+Q: Who is not an entrepreneur?
+A: Sean
+P: Kelly
+
+C: Kelly is an entrepreneur. Sean is a photographer.
+Q: Who is a photographer?
+A: Sean
+P: Kelly
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: David and Maria are friends. He is a journalist, and she is an architect.
+Q: Who is a journalist?
+A: David
+P: David and Maria
+
+C: David and Maria are friends. He is a journalist, and she is an architect.
+Q: Who is an architect?
+A: Maria
+P: David and Maria
+
+C: Maria and David are friends. He is a journalist, and she is an architect.
+Q: Who is a journalist?
+A: David
+P: Maria and David
+
+
+----
+C: Gregory and Julia are friends. He is an artist, and she is an analyst.
+Q: Who is an artist?
+A: Gregory
+P: Gregory and Julia
+
+C: Gregory and Julia are friends. He is an artist, and she is an analyst.
+Q: Who is an analyst?
+A: Julia
+P: Gregory and Julia
+
+C: Julia and Gregory are friends. He is an artist, and she is an analyst.
+Q: Who is an artist?
+A: Gregory
+P: Julia and Gregory
+
+
+----
+C: Aaron and Samantha are friends. He is an accountant, and she is an auditor.
+Q: Who is an accountant?
+A: Aaron
+P: Aaron and Samantha
+
+C: Aaron and Samantha are friends. He is an accountant, and she is an auditor.
+Q: Who is an auditor?
+A: Samantha
+P: Aaron and Samantha
+
+C: Samantha and Aaron are friends. He is an accountant, and she is an auditor.
+Q: Who is an accountant?
+A: Aaron
+P: Samantha and Aaron
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    441 (88.2%)
+
+Example fails:
+C: Ian and Patricia are friends. Her mom is an advisor.
+Q: Whose mom is an advisor?
+A: Patricia
+P: Ian and Patricia
+
+
+----
+C: Logan and Caroline are friends. Her mom is an organizer.
+Q: Whose mom is an organizer?
+A: Caroline
+P: Logan and Caroline
+
+
+----
+C: Dylan and Sydney are friends. Her mom is an actor.
+Q: Whose mom is an actor?
+A: Sydney
+P: Dylan and Sydney
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Austin and Laura are friends. The former is an attorney.
+Q: Who is an attorney?
+A: Austin
+P: Austin and Laura
+
+C: Laura and Austin are friends. The latter is an attorney.
+Q: Who is an attorney?
+A: Austin
+P: Laura and Austin
+
+C: Austin and Laura are friends. The former is an attorney and the latter is an activist.
+Q: Who is an attorney?
+A: Austin
+P: Austin and Laura
+
+
+----
+C: Sarah and Lauren are friends. The former is a producer.
+Q: Who is a producer?
+A: Sarah
+P: Sarah and Lauren
+
+C: Lauren and Sarah are friends. The latter is a producer.
+Q: Who is a producer?
+A: Sarah
+P: Lauren and Sarah
+
+C: Sarah and Lauren are friends. The former is a producer and the latter is an administrator.
+Q: Who is a producer?
+A: Sarah
+P: Sarah and Lauren
+
+
+----
+C: Brian and Jonathan are friends. The former is an interpreter.
+Q: Who is an interpreter?
+A: Brian
+P: Brian and Jonathan
+
+C: Jonathan and Brian are friends. The latter is an interpreter.
+Q: Who is an interpreter?
+A: Brian
+P: Jonathan and Brian
+
+C: Brian and Jonathan are friends. The former is an interpreter and the latter is an attorney.
+Q: Who is an interpreter?
+A: Brian
+P: Brian and Jonathan
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    464 (93.4%)
+
+Example fails:
+C: Danielle attacks Christopher.
+Q: Who attacks?
+A: Danielle
+P: Danielle attacks Christopher
+
+C: Christopher is attacked by Danielle.
+Q: Who attacks?
+A: Danielle
+P: Christopher
+
+
+----
+C: Andrea is followed by Adam.
+Q: Who is followed?
+A: Andrea
+P: Andrea is followed by Adam
+
+
+----
+C: William loves John.
+Q: Who is loved?
+A: John
+P: William
+
+C: John is loved by William.
+Q: Who is loved?
+A: John
+P: William
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    482 (99.8%)
+
+Example fails:
+C: Timothy notices Melissa. Melissa notices Samantha.
+Q: Who notices Samantha?
+A: Melissa
+P: Timothy
+
+C: Timothy notices Melissa. Melissa notices Samantha.
+Q: Who is noticed by Melissa?
+A: Samantha
+P: Timothy
+
+C: Timothy notices Melissa. Samantha is noticed by Melissa.
+Q: Who notices Samantha?
+A: Melissa
+P: Timothy
+
+
+----
+C: Matthew attacks Erin. Erin attacks James.
+Q: Who attacks Erin?
+A: Matthew
+P: James
+
+C: Matthew attacks Erin. Erin attacks James.
+Q: Who is attacked by Matthew?
+A: Erin
+P: Erin. Erin attacks James
+
+C: Matthew attacks Erin. James is attacked by Erin.
+Q: Who attacks Erin?
+A: Matthew
+P: James
+
+
+----
+C: Jose hurts Lauren. Lauren hurts Abigail.
+Q: Who hurts Lauren?
+A: Jose
+P: Abigail
+
+C: Jose hurts Lauren. Abigail is hurt by Lauren.
+Q: Who hurts Lauren?
+A: Jose
+P: Abigail
+
+C: Jose hurts Lauren. Abigail is hurt by Lauren.
+Q: Who hurts Abigail?
+A: Lauren
+P: Jose
+
+
+----
+
+
+

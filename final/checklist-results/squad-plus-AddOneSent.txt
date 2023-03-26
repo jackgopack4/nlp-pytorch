@@ -1,0 +1,1016 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    494 (100.0%)
+
+Example fails:
+C: Ryan is smaller than Nicholas.
+Q: Who is less small?
+A: Nicholas
+P: Ryan
+
+
+----
+C: Eric is smarter than Stephanie.
+Q: Who is less smart?
+A: Stephanie
+P: Eric
+
+
+----
+C: Justin is wiser than Jose.
+Q: Who is less wise?
+A: Jose
+P: Justin
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    496 (99.8%)
+
+Example fails:
+C: Nathan is very optimistic about the project. Michael is optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Michael
+P: Nathan
+
+C: Michael is optimistic about the project. Nathan is very optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Michael
+P: Nathan
+
+C: Michael is mildly optimistic about the project. Nathan is optimistic about the project.
+Q: Who is most optimistic about the project?
+A: Nathan
+P: Michael
+
+
+----
+C: Timothy is incredibly passionate about the project. Justin is passionate about the project.
+Q: Who is least passionate about the project?
+A: Justin
+P: Timothy
+
+C: Justin is passionate about the project. Timothy is incredibly passionate about the project.
+Q: Who is most passionate about the project?
+A: Timothy
+P: Justin
+
+C: Justin is slightly passionate about the project. Timothy is passionate about the project.
+Q: Who is most passionate about the project?
+A: Timothy
+P: Justin
+
+
+----
+C: Melissa is quite bullish about the project. Christina is bullish about the project.
+Q: Who is least bullish about the project?
+A: Christina
+P: Melissa
+
+C: Christina is bullish about the project. Melissa is quite bullish about the project.
+Q: Who is least bullish about the project?
+A: Christina
+P: Melissa
+
+C: Christina is mildly bullish about the project. Melissa is bullish about the project.
+Q: Who is most bullish about the project?
+A: Melissa
+P: Christina
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    478 (95.6%)
+
+Example fails:
+C: There is a big brown figure in the room.
+Q: What size is the figure?
+A: big
+P: big brown
+
+C: There is a figure in the room. The figure is big and brown.
+Q: What size is the figure?
+A: big
+P: big and brown
+
+
+----
+C: There is an oval blue toy in the room.
+Q: What shape is the toy?
+A: oval
+P: oval blue
+
+C: There is a toy in the room. The toy is oval and blue.
+Q: What shape is the toy?
+A: oval
+P: oval and blue
+
+
+----
+C: There is a tiny oval box in the room.
+Q: What size is the box?
+A: tiny
+P: oval box
+
+C: There is a box in the room. The box is tiny and oval.
+Q: What size is the box?
+A: tiny
+P: tiny and oval
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    225 (45.0%)
+
+Example fails:
+C: Andrew is a Russian agent.
+Q: What is Andrew's job?
+A: agent
+P: Russian agent
+
+
+----
+C: Zachary is a Japanese intern.
+Q: What is Zachary's job?
+A: intern
+P: Japanese intern
+
+
+----
+C: Jennifer is a Japanese investor.
+Q: What is Jennifer's job?
+A: investor
+P: Japanese investor
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    409 (81.8%)
+
+Example fails:
+C: Christina has a snake and a firetruck.
+Q: What vehicle does Christina have?
+A: firetruck
+P: snake
+
+C: Christina has a firetruck and a snake.
+Q: What vehicle does Christina have?
+A: firetruck
+P: firetruck and a snake
+
+
+----
+C: Natalie has a hamster and a motorcycle.
+Q: What vehicle does Natalie have?
+A: motorcycle
+P: hamster and a motorcycle
+
+
+----
+C: Zachary has a guinea pig and a firetruck.
+Q: What vehicle does Zachary have?
+A: firetruck
+P: guinea pig and a firetruck
+
+C: Zachary has a firetruck and a guinea pig.
+Q: What vehicle does Zachary have?
+A: firetruck
+P: firetruck and a guinea pig
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    162 (32.7%)
+
+Example fails:
+C: Jonathan bought a truck. Justin bought an iguana.
+Q: Who bought an animal?
+A: Justin
+P: Jonathan
+
+
+----
+C: Scott bought a hamster. Sarah bought a motorcycle.
+Q: Who bought a vehicle?
+A: Sarah
+P: Scott
+
+C: Sarah bought a motorcycle. Scott bought a hamster.
+Q: Who bought a vehicle?
+A: Sarah
+P: Scott
+
+
+----
+C: Noah bought a duck. Mark bought a train.
+Q: Who bought a vehicle?
+A: Mark
+P: Noah
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    5 (1.1%)
+
+Example fails:
+C: Taylor is very vocal. Jose is very courageous.
+Q: Who is outspoken?
+A: Taylor
+P: Jose
+
+
+----
+C: Sophia is very vocal. Maria is very courageous.
+Q: Who is outspoken?
+A: Sophia
+P: Maria
+
+
+----
+C: Abigail is very happy. Andrew is very grateful.
+Q: Who is joyful?
+A: Abigail
+P: Andrew
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Megan is louder than Jordan.
+Q: Who is quieter?
+A: Jordan
+P: Megan
+
+C: Jordan is quieter than Megan.
+Q: Who is louder?
+A: Megan
+P: Jordan
+
+
+----
+C: Joshua is taller than Daniel.
+Q: Who is shorter?
+A: Daniel
+P: Joshua
+
+C: Daniel is shorter than Joshua.
+Q: Who is taller?
+A: Joshua
+P: Daniel
+
+
+----
+C: Thomas is bigger than Rachel.
+Q: Who is smaller?
+A: Rachel
+P: Thomas
+
+C: Rachel is smaller than Thomas.
+Q: Who is bigger?
+A: Thomas
+P: Rachel
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Patrick is more defensive than Austin.
+Q: Who is less defensive?
+A: Austin
+P: Patrick
+
+C: Patrick is more defensive than Austin.
+Q: Who is more offensive?
+A: Austin
+P: Patrick
+
+C: Austin is more offensive than Patrick.
+Q: Who is more defensive?
+A: Patrick
+P: Austin
+
+
+----
+C: Jacob is more powerless than Jose.
+Q: Who is less powerless?
+A: Jose
+P: Jacob
+
+C: Jacob is more powerless than Jose.
+Q: Who is more powerful?
+A: Jose
+P: Jacob
+
+C: Jose is more powerful than Jacob.
+Q: Who is more powerless?
+A: Jacob
+P: Jose
+
+
+----
+C: Nicole is more stupid than Sean.
+Q: Who is less stupid?
+A: Sean
+P: Nicole
+
+C: Nicole is more stupid than Sean.
+Q: Who is more smart?
+A: Sean
+P: Nicole
+
+C: Sean is more smart than Nicole.
+Q: Who is more stupid?
+A: Nicole
+P: Sean
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    108 (21.6%)
+
+Example fails:
+C: The university runs a number of academic institutions and programs apart from its undergraduate and postgraduate schools. It operates the University of Chicago Laboratory Schools (a private day school for K-12 students and day care), the Sonia Shankman Orthogenic School (a residential treatment program for those with behavioral and emotional problems), and four public charter schools on the South Side of Chicago administered by the university's Urban Education Institute. In addition, the Hyde Park Day School, a school for students with learning disabilities, maintains a location on the University of Chicago campus. Since 1983, the University of Chicago has maintained the University of Chicago School Mathematics Project, a mathematics program used in urban primary and secondary schools. The university runs a program called the Council on Advanced Studies in the Social Sciences and Humanities, which administers interdisciplinary workshops to provide a forum for graduate students, faculty, and visiting scholars to present scholarly work in progress. The university also operates the University of Chicago Press, the largest university press in the United States.
+Q: What does the Urban Education Institute help run?
+P: public charter schools
+
+C: The university runs a number of academic institutions and programs apart from its undergraduate and postgraduate schools. It operates the University of Chicago Laboratory Schools (a private day school for K-12 students and day care), the Sonia Shankman Orthogenic School (a residential treatment program for those with behavioral and emotional problems), and four public charter schools on the South Side of Chicago administered by the university's Urban Education Institute. In addition, the Hyde Park Day School, a school for students with learning disabilities, maintains a location on the University of Chicago campus. Since 1983, the University of Chicago has maintained the University of Chicago School Mathematics Project, a mathematics program used in urban primary and secondary schools. The university runs a program called the Council on Advanced Studies in the Social Sciences and Humanities, which administers interdisciplinary workshops to provide a forum for graduate students, faculty, and visiting scholars to present scholarly work in progress. The university also operates the University of Chicago Press, the largest university press in the United States.
+Q: What does the Urban Education Intsitute help run?
+P: the Council on Advanced Studies in the Social Sciences and Humanities
+
+
+----
+C: Former IPCC chairman Robert Watson has said "The mistakes all appear to have gone in the direction of making it seem like climate change is more serious by overstating the impact. That is worrying. The IPCC needs to look at this trend in the errors and ask why it happened". Martin Parry, a climate expert who had been co-chair of the IPCC working group II, said that "What began with a single unfortunate error over Himalayan glaciers has become a clamour without substance" and the IPCC had investigated the other alleged mistakes, which were "generally unfounded and also marginal to the assessment".
+Q: What was Martin Parry's role in the IPCC?
+P: climate expert who had been co-chair of the IPCC working group II
+
+C: Former IPCC chairman Robert Watson has said "The mistakes all appear to have gone in the direction of making it seem like climate change is more serious by overstating the impact. That is worrying. The IPCC needs to look at this trend in the errors and ask why it happened". Martin Parry, a climate expert who had been co-chair of the IPCC working group II, said that "What began with a single unfortunate error over Himalayan glaciers has become a clamour without substance" and the IPCC had investigated the other alleged mistakes, which were "generally unfounded and also marginal to the assessment".
+Q: What was Martin Parry's rloe in the IPCC?
+P: climate expert
+
+
+----
+C: In the north eastern part of Fresno, Woodward Park was founded by the late Ralph Woodward, a long-time Fresno resident. He bequeathed a major portion of his estate in 1968 to provide a regional park and bird sanctuary in Northeast Fresno. The park lies on the South bank of the San Joaquin River between Highway 41 and Friant Road. The initial 235 acres (0.95 km2), combined with additional acres acquired later by the City, brings the park to a sizable 300 acres (1.2 km2). Now packed with amenities, Woodward Park is the only Regional Park of its size in the Central Valley. The Southeast corner of the park harbors numerous bird species offering bird enthusiasts an excellent opportunity for viewing. The park has a multi-use amphitheatre that seats up to 2,500 people, authentic Japanese Garden, fenced dog park, two-mile (3 km) equestrian trail, exercise par course, three children's playgrounds, a lake, 3 small ponds, 7 picnic areas and five miles (8 km) of multipurpose trails that are part of the San Joaquin River Parkway's Lewis S. Eaton Trail. When complete, the Lewis S. Eaton trail system will cover 22 miles (35 km) between Highway 99 and Friant Dam. The park's numerous picnic tables make for a great picnic destination and a convenient escape from city life. The park's amphetheatre was renovated in 2010, and has hosted performances by acts such as Deftones, Tech N9ne, and Sevendust as well as numerous others. The park is open April through October, 6am to 10pm and November through March, 6am to 7pm. Woodward Park is home to the annual CIF(California Interscholastic Federation) State Championship cross country meet, which takes place in late November. It is also the home of the Woodward Shakespeare Festival which began performances in the park in 2005.
+Q: How many total acres is Woodward Park?
+P: 300
+
+C: In the north eastern part of Fresno, Woodward Park was founded by the late Ralph Woodward, a long-time Fresno resident. He bequeathed a major portion of his estate in 1968 to provide a regional park and bird sanctuary in Northeast Fresno. The park lies on the South bank of the San Joaquin River between Highway 41 and Friant Road. The initial 235 acres (0.95 km2), combined with additional acres acquired later by the City, brings the park to a sizable 300 acres (1.2 km2). Now packed with amenities, Woodward Park is the only Regional Park of its size in the Central Valley. The Southeast corner of the park harbors numerous bird species offering bird enthusiasts an excellent opportunity for viewing. The park has a multi-use amphitheatre that seats up to 2,500 people, authentic Japanese Garden, fenced dog park, two-mile (3 km) equestrian trail, exercise par course, three children's playgrounds, a lake, 3 small ponds, 7 picnic areas and five miles (8 km) of multipurpose trails that are part of the San Joaquin River Parkway's Lewis S. Eaton Trail. When complete, the Lewis S. Eaton trail system will cover 22 miles (35 km) between Highway 99 and Friant Dam. The park's numerous picnic tables make for a great picnic destination and a convenient escape from city life. The park's amphetheatre was renovated in 2010, and has hosted performances by acts such as Deftones, Tech N9ne, and Sevendust as well as numerous others. The park is open April through October, 6am to 10pm and November through March, 6am to 7pm. Woodward Park is home to the annual CIF(California Interscholastic Federation) State Championship cross country meet, which takes place in late November. It is also the home of the Woodward Shakespeare Festival which began performances in the park in 2005.
+Q: How many total acres is oWodward Park?
+P: 235
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    47 (9.4%)
+
+Example fails:
+C: Tea, coffee, sisal, pyrethrum, corn, and wheat are grown in the fertile highlands, one of the most successful agricultural production regions in Africa. Livestock predominates in the semi-arid savanna to the north and east. Coconuts, pineapples, cashew nuts, cotton, sugarcane, sisal, and corn are grown in the lower-lying areas. Unfortunately, the country has not attained the level of investment and efficiency in agriculture that can guarantee food security and coupled with resulting poverty (53% of the population lives below the poverty line), a significant portion of the population regularly starves and is heavily dependent on food aid. Poor roads, an inadequate railway network, under-used water transport and expensive air transport have isolated mostly arid and semi-arid areas and farmers in other regions often leave food to rot in the fields because they cannot access markets. This was last seen in August and September 2011 prompting the Kenyans for Kenya initiative by the Red Cross.
+Q: Where is the most successful agricultural prodcution regions?
+P: fertile highlands
+
+C: Tea, coffee, sisal, pyrethrum, corn, and wheat are grown in the fertile highlands, one of the most successful agricultural production regions in Africa. Livestock predominates in the semi-arid savanna to the north and east. Coconuts, pineapples, cashew nuts, cotton, sugarcane, sisal, and corn are grown in the lower-lying areas. Unfortunately, the country has not attained the level of investment and efficiency in agriculture that can guarantee food security and coupled with resulting poverty (53% of the population lives below the poverty line), a significant portion of the population regularly starves and is heavily dependent on food aid. Poor roads, an inadequate railway network, under-used water transport and expensive air transport have isolated mostly arid and semi-arid areas and farmers in other regions often leave food to rot in the fields because they cannot access markets. This was last seen in August and September 2011 prompting the Kenyans for Kenya initiative by the Red Cross.
+Q: Where's the most successful agricultural prodcution regions?
+P: the fertile highlands
+
+
+----
+C: Embedded in the thylakoid membranes are important protein complexes which carry out the light reactions of photosynthesis. Photosystem II and photosystem I contain light-harvesting complexes with chlorophyll and carotenoids that absorb light energy and use it to energize electrons. Molecules in the thylakoid membrane use the energized electrons to pump hydrogen ions into the thylakoid space, decreasing the pH and turning it acidic. ATP synthase is a large protein complex that harnesses the concentration gradient of the hydrogen ions in the thylakoid space to generate ATP energy as the hydrogen ions flow back out into the stroma—much like a dam turbine.
+Q: What is ATP synthase similar to?
+P: a dam turbine
+
+C: Embedded in the thylakoid membranes are important protein complexes which carry out the light reactions of photosynthesis. Photosystem II and photosystem I contain light-harvesting complexes with chlorophyll and carotenoids that absorb light energy and use it to energize electrons. Molecules in the thylakoid membrane use the energized electrons to pump hydrogen ions into the thylakoid space, decreasing the pH and turning it acidic. ATP synthase is a large protein complex that harnesses the concentration gradient of the hydrogen ions in the thylakoid space to generate ATP energy as the hydrogen ions flow back out into the stroma—much like a dam turbine.
+Q: What's ATP synthase similar to?
+P: dam turbine
+
+
+----
+C: Each sitting day, normally at 5 pm, MSPs decide on all the motions and amendments that have been moved that day. This "Decision Time" is heralded by the sounding of the division bell, which is heard throughout the Parliamentary campus and alerts MSPs who are not in the chamber to return and vote. At Decision Time, the Presiding Officer puts questions on the motions and amendments by reading out the name of the motion or amendment as well as the proposer and asking "Are we all agreed?", to which the chamber first votes orally. If there is audible dissent, the Presiding Officer announces "There will be a division" and members vote by means of electronic consoles on their desks. Each MSP has a unique access card with a microchip which, when inserted into the console, identifies them and allows them to vote. As a result, the outcome of each division is known in seconds.
+Q: How do members vote when there is a division?
+P: electronic consoles on their desks
+
+C: Each sitting day, normally at 5 pm, MSPs decide on all the motions and amendments that have been moved that day. This "Decision Time" is heralded by the sounding of the division bell, which is heard throughout the Parliamentary campus and alerts MSPs who are not in the chamber to return and vote. At Decision Time, the Presiding Officer puts questions on the motions and amendments by reading out the name of the motion or amendment as well as the proposer and asking "Are we all agreed?", to which the chamber first votes orally. If there is audible dissent, the Presiding Officer announces "There will be a division" and members vote by means of electronic consoles on their desks. Each MSP has a unique access card with a microchip which, when inserted into the console, identifies them and allows them to vote. As a result, the outcome of each division is known in seconds.
+Q: How do members vote when there's a division?
+P: by means of electronic consoles on their desks
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    82 (16.4%)
+
+Example fails:
+C: Luther's 1524 creedal hymn "Wir glauben all an einen Gott" ("We All Believe in One True God") is a three-stanza confession of faith prefiguring Luther's 1529 three-part explanation of the Apostles' Creed in the Small Catechism. Luther's hymn, adapted and expanded from an earlier German creedal hymn, gained widespread use in vernacular Lutheran liturgies as early as 1525. Sixteenth-century Lutheran hymnals also included "Wir glauben all" among the catechetical hymns, although 18th-century hymnals tended to label the hymn as Trinitarian rather than catechetical, and 20th-century Lutherans rarely use the hymn because of the perceived difficulty of its tune.
+Q: Where is the Apostles located?
+P: the Small Catechism
+
+C: I feel I have done no wrong. Luther's 1524 creedal hymn "Wir glauben all an einen Gott" ("We All Believe in One True God") is a three-stanza confession of faith prefiguring Luther's 1529 three-part explanation of the Apostles' Creed in the Small Catechism. Luther's hymn, adapted and expanded from an earlier German creedal hymn, gained widespread use in vernacular Lutheran liturgies as early as 1525. Sixteenth-century Lutheran hymnals also included "Wir glauben all" among the catechetical hymns, although 18th-century hymnals tended to label the hymn as Trinitarian rather than catechetical, and 20th-century Lutherans rarely use the hymn because of the perceived difficulty of its tune.
+Q: Where is the Apostles located?
+P: Small Catechism
+
+
+----
+C: The word pharmacy is derived from its root word pharma which was a term used since the 15th–17th centuries. However, the original Greek roots from pharmakos imply sorcery or even poison. In addition to pharma responsibilities, the pharma offered general medical advice and a range of services that are now performed solely by other specialist practitioners, such as surgery and midwifery. The pharma (as it was referred to) often operated through a retail shop which, in addition to ingredients for medicines, sold tobacco and patent medicines. Often the place that did this was called an apothecary and several languages have this as the dominant term, though their practices are more akin to a modern pharmacy, in English the term apothecary would today be seen as outdated or only approproriate if herbal remedies were on offer to a large extent. The pharmas also used many other herbs not listed. The Greek word Pharmakeia (Greek: φαρμακεία) derives from pharmakon (φάρμακον), meaning "drug", "medicine" (or "poison").[n 1]
+Q: What else was used by pharmas?
+P: herbs
+
+C: Upon arrival, Tesla realized that the company, then under construction, was not functional, so he worked as a draftsman in the Central Telegraph Office instead. The word pharmacy is derived from its root word pharma which was a term used since the 15th–17th centuries. However, the original Greek roots from pharmakos imply sorcery or even poison. In addition to pharma responsibilities, the pharma offered general medical advice and a range of services that are now performed solely by other specialist practitioners, such as surgery and midwifery. The pharma (as it was referred to) often operated through a retail shop which, in addition to ingredients for medicines, sold tobacco and patent medicines. Often the place that did this was called an apothecary and several languages have this as the dominant term, though their practices are more akin to a modern pharmacy, in English the term apothecary would today be seen as outdated or only approproriate if herbal remedies were on offer to a large extent. The pharmas also used many other herbs not listed. The Greek word Pharmakeia (Greek: φαρμακεία) derives from pharmakon (φάρμακον), meaning "drug", "medicine" (or "poison").[n 1]
+Q: What else was used by pharmas?
+P: herbs not listed
+
+
+----
+C: In this dioxygen, the two oxygen atoms are chemically bonded to each other. The bond can be variously described based on level of theory, but is reasonably and simply described as a covalent double bond that results from the filling of molecular orbitals formed from the atomic orbitals of the individual oxygen atoms, the filling of which results in a bond order of two. More specifically, the double bond is the result of sequential, low-to-high energy, or Aufbau, filling of orbitals, and the resulting cancellation of contributions from the 2s electrons, after sequential filling of the low σ and σ* orbitals; σ overlap of the two atomic 2p orbitals that lie along the O-O molecular axis and π overlap of two pairs of atomic 2p orbitals perpendicular to the O-O molecular axis, and then cancellation of contributions from the remaining two of the six 2p electrons after their partial filling of the lowest π and π* orbitals.
+Q: What is the bond order of dioxygen molecules?
+P: covalent double bond
+
+C: Then, communications problems frustrated the astronauts and forced a hold in the simulated countdown. In this dioxygen, the two oxygen atoms are chemically bonded to each other. The bond can be variously described based on level of theory, but is reasonably and simply described as a covalent double bond that results from the filling of molecular orbitals formed from the atomic orbitals of the individual oxygen atoms, the filling of which results in a bond order of two. More specifically, the double bond is the result of sequential, low-to-high energy, or Aufbau, filling of orbitals, and the resulting cancellation of contributions from the 2s electrons, after sequential filling of the low σ and σ* orbitals; σ overlap of the two atomic 2p orbitals that lie along the O-O molecular axis and π overlap of two pairs of atomic 2p orbitals perpendicular to the O-O molecular axis, and then cancellation of contributions from the remaining two of the six 2p electrons after their partial filling of the lowest π and π* orbitals.
+Q: What is the bond order of dioxygen molecules?
+P: two
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    41 (8.2%)
+
+Example fails:
+C: Not a maritime power, and not a nation-state, as it would eventually become, Germany’s participation in Western imperialism was negligible until the late 19th century. The participation of Austria was primarily as a result of Habsburg control of the First Empire, the Spanish throne, and other royal houses.[further explanation needed] After the defeat of Napoleon, who caused the dissolution of that Holy Roman Empire, Prussia and the German states continued to stand aloof from imperialism, preferring to manipulate the European system through the Concert of Europe. After Prussia unified the other states into the second German Empire after the Franco-German War, its long-time Chancellor, Otto von Bismarck (1862–90), long opposed colonial acquisitions, arguing that the burden of obtaining, maintaining, and defending such possessions would outweigh any potential benefits. He felt that colonies did not pay for themselves, that the German bureaucratic system would not work well in the tropics and the diplomatic disputes over colonies would distract Germany from its central interest, Europe itself.
+Q: Who caused the dissolution of the Holy Roman Empire?
+P: Napoleon
+
+C: Not a maritime power, and not a nation-state, as it would eventually become, Germany’s participation in Western imperialism was negligible until the late 19th century. The participation of Austria was primarily as a result of Habsburg control of the First Empire, the Spanish throne, and other royal houses.[further explanation needed] After the defeat of Mark, who caused the dissolution of that Holy Roman Empire, Prussia and the German states continued to stand aloof from imperialism, preferring to manipulate the European system through the Concert of Europe. After Prussia unified the other states into the second German Empire after the Franco-German War, its long-time Chancellor, Otto von Bismarck (1862–90), long opposed colonial acquisitions, arguing that the burden of obtaining, maintaining, and defending such possessions would outweigh any potential benefits. He felt that colonies did not pay for themselves, that the German bureaucratic system would not work well in the tropics and the diplomatic disputes over colonies would distract Germany from its central interest, Europe itself.
+Q: Who caused the dissolution of the Holy Roman Empire?
+P: defeat of Mark
+
+
+----
+C: Early in 1537, Johannes Agricola (1494–1566) – serving at the time as pastor in Luther's birthplace, Eisleben – preached a sermon in which he claimed that God's gospel, not God's moral law (the Ten Commandments), revealed God's wrath to Christians. Based on this sermon and others by Agricola, Luther suspected that Agricola was behind certain anonymous antinomian theses circulating in Wittenberg. These theses asserted that the law is no longer to be taught to Christians but belonged only to city hall. Luther responded to these theses with six series of theses against Agricola and the antinomians, four of which became the basis for disputations between 1538 and 1540. He also responded to these assertions in other writings, such as his 1539 open letter to C. Güttel Against the Antinomians, and his book On the Councils and the Church from the same year.
+Q: What book did Luther write in response to Agricola and the antinomians?
+P: book On the Councils and the Church
+
+C: Early in 1537, Johannes Agricola (1494–1566) – serving at the time as pastor in Jackson's birthplace, Eisleben – preached a sermon in which he claimed that God's gospel, not God's moral law (the Ten Commandments), revealed God's wrath to Christians. Based on this sermon and others by Agricola, Jackson suspected that Agricola was behind certain anonymous antinomian theses circulating in Wittenberg. These theses asserted that the law is no longer to be taught to Christians but belonged only to city hall. Jackson responded to these theses with six series of theses against Agricola and the antinomians, four of which became the basis for disputations between 1538 and 1540. He also responded to these assertions in other writings, such as his 1539 open letter to C. Güttel Against the Antinomians, and his book On the Councils and the Church from the same year.
+Q: What book did Jackson write in response to Agricola and the antinomians?
+P: On the Councils and the Church
+
+C: Early in 1537, Johannes Agricola (1494–1566) – serving at the time as pastor in Austin's birthplace, Eisleben – preached a sermon in which he claimed that God's gospel, not God's moral law (the Ten Commandments), revealed God's wrath to Christians. Based on this sermon and others by Agricola, Austin suspected that Agricola was behind certain anonymous antinomian theses circulating in Wittenberg. These theses asserted that the law is no longer to be taught to Christians but belonged only to city hall. Austin responded to these theses with six series of theses against Agricola and the antinomians, four of which became the basis for disputations between 1538 and 1540. He also responded to these assertions in other writings, such as his 1539 open letter to C. Güttel Against the Antinomians, and his book On the Councils and the Church from the same year.
+Q: What book did Austin write in response to Agricola and the antinomians?
+P: On the Councils and the Church
+
+
+----
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Sydney Newman
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Chad and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Chad it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Chad] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Chad
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Melissa Nguyen, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Wilson
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    70 (14.0%)
+
+Example fails:
+C: The University is organized into eleven separate academic units—ten faculties and the Radcliffe Institute for Advanced Study—with campuses throughout the Boston metropolitan area: its 209-acre (85 ha) main campus is centered on Harvard Yard in Cambridge, approximately 3 miles (5 km) northwest of Boston; the business school and athletics facilities, including Harvard Stadium, are located across the Charles River in the Allston neighborhood of Boston and the medical, dental, and public health schools are in the Longwood Medical Area. Harvard's $37.6 billion financial endowment is the largest of any academic institution.
+Q: What is the name of the area that the main campus is centered in Cambridge?
+P: Harvard Yard
+
+C: The University is organized into eleven separate academic units—ten faculties and the Radcliffe Institute for Advanced Study—with campuses throughout the Cupertino metropolitan area: its 209-acre (85 ha) main campus is centered on Harvard Yard in Cambridge, approximately 3 miles (5 km) northwest of Cupertino; the business school and athletics facilities, including Harvard Stadium, are located across the Charles River in the Allston neighborhood of Cupertino and the medical, dental, and public health schools are in the Longwood Medical Area. Harvard's $37.6 billion financial endowment is the largest of any academic institution.
+Q: What is the name of the area that the main campus is centered in Cambridge?
+P: Cupertino metropolitan area: its 209-acre (85 ha) main campus is centered on Harvard Yard
+
+C: The University is organized into eleven separate academic units—ten faculties and the Radcliffe Institute for Advanced Study—with campuses throughout the Colorado Springs metropolitan area: its 209-acre (85 ha) main campus is centered on Harvard Yard in Cambridge, approximately 3 miles (5 km) northwest of Colorado Springs; the business school and athletics facilities, including Harvard Stadium, are located across the Charles River in the Allston neighborhood of Colorado Springs and the medical, dental, and public health schools are in the Longwood Medical Area. Harvard's $37.6 billion financial endowment is the largest of any academic institution.
+Q: What is the name of the area that the main campus is centered in Cambridge?
+P: Colorado Springs metropolitan area: its 209-acre (85 ha) main campus is centered on Harvard Yard
+
+
+----
+C: Barred by the government from settling in New France, Huguenots led by Jessé de Forest, sailed to North America in 1624 and settled instead in the Dutch colony of New Netherland (later incorporated into New York and New Jersey); as well as Great Britain's colonies, including Nova Scotia. A number of New Amsterdam's families were of Huguenot origin, often having emigrated as refugees to the Netherlands in the previous century. In 1628 the Huguenots established a congregation as L'Église française à la Nouvelle-Amsterdam (the French church in New Amsterdam). This parish continues today as L'Eglise du Saint-Esprit, part of the Episcopal (Anglican) communion, and welcomes Francophone New Yorkers from all over the world. Upon their arrival in New Amsterdam, Huguenots were offered land directly across from Manhattan on Long Island for a permanent settlement and chose the harbor at the end of Newtown Creek, becoming the first Europeans to live in Brooklyn, then known as Boschwick, in the neighborhood now known as Bushwick.
+Q: The Huguenots were the first Europeans to live in what modern New York borough?
+P: Brooklyn
+
+C: Barred by the government from settling in New France, Huguenots led by Jessé de Forest, sailed to North America in 1624 and settled instead in the Dutch colony of New Netherland (later incorporated into Winter Garden and New Jersey); as well as Great Britain's colonies, including Nova Scotia. A number of New Amsterdam's families were of Huguenot origin, often having emigrated as refugees to the Netherlands in the previous century. In 1628 the Huguenots established a congregation as L'Église française à la Nouvelle-Amsterdam (the French church in New Amsterdam). This parish continues today as L'Eglise du Saint-Esprit, part of the Episcopal (Anglican) communion, and welcomes Francophone New Yorkers from all over the world. Upon their arrival in New Amsterdam, Huguenots were offered land directly across from Manhattan on Long Island for a permanent settlement and chose the harbor at the end of Newtown Creek, becoming the first Europeans to live in Brooklyn, then known as Boschwick, in the neighborhood now known as Bushwick.
+Q: The Huguenots were the first Europeans to live in what modern Winter Garden borough?
+P: New Jersey
+
+
+----
+C: Kenya is a presidential representative democratic republic. The President is both the head of state and head of government, and of a multi-party system. Executive power is exercised by the government. Legislative power is vested in both the government and the National Assembly and the Senate. The Judiciary is independent of the executive and the legislature. There was growing concern especially during former president Daniel arap Moi's tenure that the executive was increasingly meddling with the affairs of the judiciary.[citation needed]
+Q: What kind of government does Kenya have?
+P: presidential representative democratic republic
+
+C: Turks and Caicos Islands is a presidential representative democratic republic. The President is both the head of state and head of government, and of a multi-party system. Executive power is exercised by the government. Legislative power is vested in both the government and the National Assembly and the Senate. The Judiciary is independent of the executive and the legislature. There was growing concern especially during former president Daniel arap Moi's tenure that the executive was increasingly meddling with the affairs of the judiciary.[citation needed]
+Q: What kind of government does Turks and Caicos Islands have?
+P: democratic republic
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    719 (36.0%)
+
+Example fails:
+C: Kayla is not a nurse, Jordan is.
+Q: Who is a nurse?
+A: Jordan
+P: Kayla
+
+----
+C: Haley is not a secretary, David is.
+Q: Who is a secretary?
+A: David
+P: Haley
+
+----
+C: Nathan is not a secretary, Jamie is.
+Q: Who is a secretary?
+A: Jamie
+P: Nathan
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    25 (5.2%)
+
+Example fails:
+C: Both Andrew and Robert were educators, but there was a change in Robert, who is now an investigator.
+Q: Who is an investigator?
+A: Robert
+P: Andrew and Robert were educators, but there was a change in Robert
+
+
+----
+C: Both Heather and Melissa were executives, but there was a change in Melissa, who is now an entrepreneur.
+Q: Who is an entrepreneur?
+A: Melissa
+P: Heather and Melissa were executives, but there was a change in Melissa
+
+
+----
+C: Both Mark and Andrew were architects, but there was a change in Mark, who is now a historian.
+Q: Who is a historian?
+A: Mark
+P: Mark and Andrew were architects, but there was a change in Mark
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Jacob became a academic before Samuel did.
+Q: Who became a academic first?
+A: Jacob
+P: Samuel
+
+C: Samuel became a academic after Jacob did.
+Q: Who became a academic last?
+A: Samuel
+P: Jacob
+
+
+----
+C: Sara became a photographer before Anthony did.
+Q: Who became a photographer last?
+A: Anthony
+P: Sara
+
+C: Anthony became a photographer after Sara did.
+Q: Who became a photographer first?
+A: Sara
+P: Anthony
+
+
+----
+C: Thomas became a investigator before Brian did.
+Q: Who became a investigator last?
+A: Brian
+P: Thomas
+
+C: Brian became a investigator after Thomas did.
+Q: Who became a investigator first?
+A: Thomas
+P: Brian
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    437 (87.6%)
+
+Example fails:
+C: Steven is not an escort. Amber is.
+Q: Who is an escort?
+A: Amber
+P: Steven
+
+
+----
+C: Anna is not an escort. Jose is.
+Q: Who is an escort?
+A: Jose
+P: Anna
+
+
+----
+C: Brandon is not an adviser. Mark is.
+Q: Who is an adviser?
+A: Mark
+P: Brandon
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Jessica is an actress. Mary is an entrepreneur.
+Q: Who is not an actress?
+A: Mary
+P: Jessica
+
+C: Jessica is an actress. Mary is an entrepreneur.
+Q: Who is not an entrepreneur?
+A: Jessica
+P: Mary
+
+C: Mary is an entrepreneur. Jessica is an actress.
+Q: Who is not an actress?
+A: Mary
+P: Jessica
+
+
+----
+C: Alexis is an accountant. Christian is an entrepreneur.
+Q: Who is not an accountant?
+A: Christian
+P: Alexis
+
+C: Alexis is an accountant. Christian is an entrepreneur.
+Q: Who is not an entrepreneur?
+A: Alexis
+P: Christian
+
+C: Christian is an entrepreneur. Alexis is an accountant.
+Q: Who is not an accountant?
+A: Christian
+P: Alexis
+
+
+----
+C: Jordan is an actress. Lauren is an actor.
+Q: Who is not an actress?
+A: Lauren
+P: Jordan
+
+C: Jordan is an actress. Lauren is an actor.
+Q: Who is not an actor?
+A: Jordan
+P: Lauren
+
+C: Lauren is an actor. Jordan is an actress.
+Q: Who is not an actress?
+A: Lauren
+P: Jordan
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Bryan and Kelsey are friends. He is an educator, and she is an investor.
+Q: Who is an educator?
+A: Bryan
+P: Bryan and Kelsey
+
+C: Bryan and Kelsey are friends. He is an educator, and she is an investor.
+Q: Who is an investor?
+A: Kelsey
+P: Bryan and Kelsey
+
+C: Kelsey and Bryan are friends. He is an educator, and she is an investor.
+Q: Who is an educator?
+A: Bryan
+P: Kelsey and Bryan
+
+
+----
+C: Nathaniel and Hannah are friends. He is an entrepreneur, and she is an actor.
+Q: Who is an entrepreneur?
+A: Nathaniel
+P: Nathaniel and Hannah
+
+C: Nathaniel and Hannah are friends. He is an entrepreneur, and she is an actor.
+Q: Who is an actor?
+A: Hannah
+P: Nathaniel and Hannah
+
+C: Hannah and Nathaniel are friends. He is an entrepreneur, and she is an actor.
+Q: Who is an entrepreneur?
+A: Nathaniel
+P: Hannah and Nathaniel
+
+
+----
+C: Nathaniel and Hannah are friends. He is an auditor, and she is an advisor.
+Q: Who is an auditor?
+A: Nathaniel
+P: Nathaniel and Hannah
+
+C: Nathaniel and Hannah are friends. He is an auditor, and she is an advisor.
+Q: Who is an advisor?
+A: Hannah
+P: Nathaniel and Hannah
+
+C: Hannah and Nathaniel are friends. He is an auditor, and she is an advisor.
+Q: Who is an auditor?
+A: Nathaniel
+P: Hannah and Nathaniel
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    498 (99.6%)
+
+Example fails:
+C: Paul and Kathryn are friends. Her mom is an assistant.
+Q: Whose mom is an assistant?
+A: Kathryn
+P: Paul and Kathryn
+
+
+----
+C: Jose and Leah are friends. His mom is an editor.
+Q: Whose mom is an editor?
+A: Jose
+P: Jose and Leah
+
+C: Leah and Jose are friends. His mom is an editor.
+Q: Whose mom is an editor?
+A: Jose
+P: Leah and Jose
+
+
+----
+C: Peter and Kathryn are friends. Her mom is an accountant.
+Q: Whose mom is an accountant?
+A: Kathryn
+P: Peter and Kathryn
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Sarah and James are friends. The former is an organizer.
+Q: Who is an organizer?
+A: Sarah
+P: Sarah and James
+
+C: James and Sarah are friends. The latter is an organizer.
+Q: Who is an organizer?
+A: Sarah
+P: James and Sarah
+
+C: Sarah and James are friends. The former is an organizer and the latter is a historian.
+Q: Who is an organizer?
+A: Sarah
+P: Sarah and James are friends. The former is an organizer and the latter is a historian
+
+
+----
+C: Isabella and Sophia are friends. The former is an intern.
+Q: Who is an intern?
+A: Isabella
+P: Isabella and Sophia
+
+C: Sophia and Isabella are friends. The latter is an intern.
+Q: Who is an intern?
+A: Isabella
+P: Sophia and Isabella
+
+C: Isabella and Sophia are friends. The former is an intern and the latter is an activist.
+Q: Who is an intern?
+A: Isabella
+P: Isabella and Sophia
+
+
+----
+C: Alexis and Joshua are friends. The former is an actor.
+Q: Who is an actor?
+A: Alexis
+P: Alexis and Joshua
+
+C: Joshua and Alexis are friends. The latter is an actor.
+Q: Who is an actor?
+A: Alexis
+P: Joshua and Alexis
+
+C: Alexis and Joshua are friends. The former is an actor and the latter is an interpreter.
+Q: Who is an actor?
+A: Alexis
+P: Alexis and Joshua are friends. The former is an actor and the latter is an interpreter
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    464 (93.4%)
+
+Example fails:
+C: Kayla follows Joseph.
+Q: Who is followed?
+A: Joseph
+P: Kayla
+
+C: Joseph is followed by Kayla.
+Q: Who follows?
+A: Kayla
+P: Joseph is followed by Kayla
+
+
+----
+C: Anna bothers Victoria.
+Q: Who is bothered?
+A: Victoria
+P: Anna
+
+C: Victoria is bothered by Anna.
+Q: Who is bothered?
+A: Victoria
+P: Victoria is bothered by Anna
+
+
+----
+C: William hates Sara.
+Q: Who is hated?
+A: Sara
+P: William
+
+C: Sara is hated by William.
+Q: Who hates?
+A: William
+P: Sara
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Sarah recognizes Thomas. Taylor is recognized by Thomas.
+Q: Who recognizes Taylor?
+A: Thomas
+P: Sarah
+
+C: Thomas is recognized by Sarah. Thomas recognizes Taylor.
+Q: Who is recognized by Thomas?
+A: Taylor
+P: Sarah
+
+
+----
+C: Joshua recognizes Lisa. Jessica is recognized by Lisa.
+Q: Who recognizes Jessica?
+A: Lisa
+P: Joshua
+
+C: Lisa is recognized by Joshua. Lisa recognizes Jessica.
+Q: Who is recognized by Lisa?
+A: Jessica
+P: Joshua
+
+C: Lisa is recognized by Joshua. Jessica is recognized by Lisa.
+Q: Who is recognized by Lisa?
+A: Jessica
+P: Joshua
+
+
+----
+C: Nicholas supports Ethan. Stephanie is supported by Ethan.
+Q: Who supports Ethan?
+A: Nicholas
+P: Stephanie
+
+C: Nicholas supports Ethan. Stephanie is supported by Ethan.
+Q: Who supports Stephanie?
+A: Ethan
+P: Nicholas
+
+C: Nicholas supports Ethan. Stephanie is supported by Ethan.
+Q: Who is supported by Nicholas?
+A: Ethan
+P: Stephanie
+
+
+----
+
+
+

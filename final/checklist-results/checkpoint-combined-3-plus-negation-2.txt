@@ -1,0 +1,913 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    174 (35.2%)
+
+Example fails:
+C: Austin is nicer than Robert.
+Q: Who is less nice?
+A: Robert
+P: Austin is nicer than Robert
+
+
+----
+C: Kevin is higher than Kimberly.
+Q: Who is less high?
+A: Kimberly
+P: Kevin
+
+
+----
+C: Michelle is slower than Olivia.
+Q: Who is less slow?
+A: Olivia
+P: Michelle
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Austin is enthusiastic about the project. Robert is extremely enthusiastic about the project.
+Q: Who is least enthusiastic about the project?
+A: Austin
+P: Robert
+
+C: Austin is mildly enthusiastic about the project. Robert is enthusiastic about the project.
+Q: Who is most enthusiastic about the project?
+A: Robert
+P: Austin
+
+
+----
+C: Sean is pleased about the project. Victoria is very pleased about the project.
+Q: Who is least pleased about the project?
+A: Sean
+P: Victoria
+
+C: Victoria is pleased about the project. Sean is somewhat pleased about the project.
+Q: Who is most pleased about the project?
+A: Victoria
+P: Sean
+
+C: Sean is somewhat pleased about the project. Victoria is pleased about the project.
+Q: Who is most pleased about the project?
+A: Victoria
+P: Sean
+
+
+----
+C: Madison is very cautious about the project. Michael is cautious about the project.
+Q: Who is least cautious about the project?
+A: Michael
+P: Madison
+
+C: Michael is cautious about the project. Madison is very cautious about the project.
+Q: Who is most cautious about the project?
+A: Madison
+P: Michael
+
+C: Michael is cautious about the project. Madison is very cautious about the project.
+Q: Who is least cautious about the project?
+A: Michael
+P: Madison
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    469 (93.8%)
+
+Example fails:
+C: There is a painting in the room. The painting is old and orange.
+Q: What age is the painting?
+A: old
+P: old and orange
+
+
+----
+C: There is a toy in the room. The toy is triangular and orange.
+Q: What shape is the toy?
+A: triangular
+P: triangular and orange
+
+
+----
+C: There is a big red box in the room.
+Q: What size is the box?
+A: big
+P: big red
+
+C: There is a box in the room. The box is big and red.
+Q: What size is the box?
+A: big
+P: big and red
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    401 (80.2%)
+
+Example fails:
+C: Jeremy is a Brazilian academic.
+Q: What is Jeremy's job?
+A: academic
+P: Brazilian academic
+
+C: Jeremy is Brazilian and an academic.
+Q: What is Jeremy's job?
+A: academic
+P: Brazilian and an academic
+
+C: Jeremy is an academic and Brazilian.
+Q: What is Jeremy's job?
+A: academic
+P: academic and Brazilian
+
+
+----
+C: Timothy is an Indian analyst.
+Q: What is Timothy's job?
+A: analyst
+P: Indian analyst
+
+
+----
+C: Melissa is an Indian advisor.
+Q: What is Melissa's job?
+A: advisor
+P: Indian advisor
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    145 (29.0%)
+
+Example fails:
+C: Katherine has a bull and a tractor.
+Q: What vehicle does Katherine have?
+A: tractor
+P: bull and a tractor
+
+C: Katherine has a tractor and a bull.
+Q: What vehicle does Katherine have?
+A: tractor
+P: bull
+
+
+----
+C: Timothy has a firetruck and a serpent.
+Q: What vehicle does Timothy have?
+A: firetruck
+P: firetruck and a serpent
+
+
+----
+C: Alexander has a snake and a car.
+Q: What vehicle does Alexander have?
+A: car
+P: a snake
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    112 (22.6%)
+
+Example fails:
+C: Olivia bought a fish. Lisa bought a firetruck.
+Q: Who bought a vehicle?
+A: Lisa
+P: Olivia
+
+
+----
+C: Brandon bought a van. Adam bought a cow.
+Q: Who bought an animal?
+A: Adam
+P: Brandon
+
+
+----
+C: Alyssa bought a van. Erin bought a hamster.
+Q: Who bought an animal?
+A: Erin
+P: Alyssa
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    12 (2.7%)
+
+Example fails:
+C: Jose is very religious. Michelle is very joyful.
+Q: Who is spiritual?
+A: Jose
+P: Michelle
+
+
+----
+C: Christian is very spiritual. Emma is very humble.
+Q: Who is religious?
+A: Christian
+P: Emma
+
+
+----
+C: John is very vocal. Nicholas is very angry.
+Q: Who is outspoken?
+A: John
+P: Nicholas
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    474 (95.6%)
+
+Example fails:
+C: Melissa is bigger than Sean.
+Q: Who is bigger?
+A: Melissa
+P: Sean
+
+C: Sean is smaller than Melissa.
+Q: Who is bigger?
+A: Melissa
+P: Sean
+
+
+----
+C: Zachary is older than Alexis.
+Q: Who is younger?
+A: Alexis
+P: Zachary
+
+C: Alexis is younger than Zachary.
+Q: Who is younger?
+A: Alexis
+P: Alexis is younger than Zachary
+
+C: Alexis is younger than Zachary.
+Q: Who is older?
+A: Zachary
+P: Alexis is younger than Zachary
+
+
+----
+C: Kelly is bigger than Zachary.
+Q: Who is smaller?
+A: Zachary
+P: Kelly is bigger than Zachary
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Mark is more humble than Andrea.
+Q: Who is more proud?
+A: Andrea
+P: Mark
+
+C: Mark is more humble than Andrea.
+Q: Who is less proud?
+A: Mark
+P: Andrea
+
+C: Andrea is more proud than Mark.
+Q: Who is more humble?
+A: Mark
+P: Andrea
+
+
+----
+C: Anthony is more irresponsible than Patrick.
+Q: Who is less irresponsible?
+A: Patrick
+P: Anthony
+
+C: Anthony is more irresponsible than Patrick.
+Q: Who is more responsible?
+A: Patrick
+P: Anthony is more irresponsible than Patrick
+
+C: Anthony is more irresponsible than Patrick.
+Q: Who is less responsible?
+A: Anthony
+P: Anthony is more irresponsible than Patrick
+
+
+----
+C: Lauren is more courageous than Zachary.
+Q: Who is less courageous?
+A: Zachary
+P: Lauren
+
+C: Lauren is more courageous than Zachary.
+Q: Who is more fearful?
+A: Zachary
+P: Lauren is more courageous than Zachary
+
+C: Lauren is more courageous than Zachary.
+Q: Who is less fearful?
+A: Lauren
+P: Lauren is more courageous than Zachary
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    109 (21.8%)
+
+Example fails:
+C: The definition of imperialism has not been finalized for centuries and was confusedly seen to represent the policies of major powers, or simply, general-purpose aggressiveness. Further on, some writers[who?] used the term imperialism, in slightly more discriminating fashion, to mean all kinds of domination or control by a group of people over another. To clear out this confusion about the definition of imperialism one could speak of "formal" and "informal" imperialism, the first meaning physical control or "full-fledged colonial rule" while the second implied less direct rule though still containing perceivable kinds of dominance. Informal rule is generally less costly than taking over territories formally. This is because, with informal rule, the control is spread more subtly through technological superiority, enforcing land officials into large debts that cannot be repaid, ownership of private industries thus expanding the controlled area, or having countries agree to uneven trade agreements forcefully.
+Q: A forced trade agreement between two countries would be an example of what?
+P: uneven trade agreements
+
+C: The definition of imperialism has not been finalized for centuries and was confusedly seen to represent the policies of major powers, or simply, general-purpose aggressiveness. Further on, some writers[who?] used the term imperialism, in slightly more discriminating fashion, to mean all kinds of domination or control by a group of people over another. To clear out this confusion about the definition of imperialism one could speak of "formal" and "informal" imperialism, the first meaning physical control or "full-fledged colonial rule" while the second implied less direct rule though still containing perceivable kinds of dominance. Informal rule is generally less costly than taking over territories formally. This is because, with informal rule, the control is spread more subtly through technological superiority, enforcing land officials into large debts that cannot be repaid, ownership of private industries thus expanding the controlled area, or having countries agree to uneven trade agreements forcefully.
+Q: A forced trade agreement betweent wo countries would be an example of what?
+P: uneven trade agreements forcefully
+
+
+----
+C: On August 15, 1971, the United States unilaterally pulled out of the Bretton Woods Accord. The US abandoned the Gold Exchange Standard whereby the value of the dollar had been pegged to the price of gold and all other currencies were pegged to the dollar, whose value was left to "float" (rise and fall according to market demand). Shortly thereafter, Britain followed, floating the pound sterling. The other industrialized nations followed suit with their respective currencies. Anticipating that currency values would fluctuate unpredictably for a time, the industrialized nations increased their reserves (by expanding their money supplies) in amounts far greater than before. The result was a depreciation of the dollar and other industrialized nations' currencies. Because oil was priced in dollars, oil producers' real income decreased. In September 1971, OPEC issued a joint communiqué stating that, from then on, they would price oil in terms of a fixed amount of gold.
+Q: Why was there a depreciation of the industrialized nations dollars?
+P: expanding their money supplies
+
+C: On August 15, 1971, the United States unilaterally pulled out of the Bretton Woods Accord. The US abandoned the Gold Exchange Standard whereby the value of the dollar had been pegged to the price of gold and all other currencies were pegged to the dollar, whose value was left to "float" (rise and fall according to market demand). Shortly thereafter, Britain followed, floating the pound sterling. The other industrialized nations followed suit with their respective currencies. Anticipating that currency values would fluctuate unpredictably for a time, the industrialized nations increased their reserves (by expanding their money supplies) in amounts far greater than before. The result was a depreciation of the dollar and other industrialized nations' currencies. Because oil was priced in dollars, oil producers' real income decreased. In September 1971, OPEC issued a joint communiqué stating that, from then on, they would price oil in terms of a fixed amount of gold.
+Q: Why was there a depreciation of the industrialiezd nations dollars?
+P: oil was priced in dollars, oil producers' real income decreased
+
+
+----
+C: The availability of the Bible in vernacular languages was important to the spread of the Protestant movement and development of the Reformed church in France. The country had a long history of struggles with the papacy by the time the Protestant Reformation finally arrived. Around 1294, a French version of the Scriptures was prepared by the Roman Catholic priest, Guyard de Moulin. A two-volume illustrated folio paraphrase version based on his manuscript, by Jean de Rély, was printed in Paris in 1487.
+Q: An illustrated, paraphrased version of this appeared when?
+P: 1487
+
+C: The availability of the Bible in vernacular languages was important to the spread of the Protestant movement and development of the Reformed church in France. The country had a long history of struggles with the papacy by the time the Protestant Reformation finally arrived. Around 1294, a French version of the Scriptures was prepared by the Roman Catholic priest, Guyard de Moulin. A two-volume illustrated folio paraphrase version based on his manuscript, by Jean de Rély, was printed in Paris in 1487.
+Q: An illustrated, paraphrased version of this appeared wehn?
+P: Bible
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    54 (10.8%)
+
+Example fails:
+C: Larger drugs (>500 Da) can provoke a neutralizing immune response, particularly if the drugs are administered repeatedly, or in larger doses. This limits the effectiveness of drugs based on larger peptides and proteins (which are typically larger than 6000 Da). In some cases, the drug itself is not immunogenic, but may be co-administered with an immunogenic compound, as is sometimes the case for Taxol. Computational methods have been developed to predict the immunogenicity of peptides and proteins, which are particularly useful in designing therapeutic antibodies, assessing likely virulence of mutations in viral coat particles, and validation of proposed peptide-based drug treatments. Early techniques relied mainly on the observation that hydrophilic amino acids are overrepresented in epitope regions than hydrophobic amino acids; however, more recent developments rely on machine learning techniques using databases of existing known epitopes, usually on well-studied virus proteins, as a training set. A publicly accessible database has been established for the cataloguing of epitopes from pathogens known to be recognizable by B cells. The emerging field of bioinformatics-based studies of immunogenicity is referred to as immunoinformatics. Immunoproteomics is the study of large sets of proteins (proteomics) involved in the immune response.
+Q: What is the study of proteins involved in immune response known as?
+P: proteomics
+
+C: Larger drugs (>500 Da) can provoke a neutralizing immune response, particularly if the drugs are administered repeatedly, or in larger doses. This limits the effectiveness of drugs based on larger peptides and proteins (which are typically larger than 6000 Da). In some cases, the drug itself is not immunogenic, but may be co-administered with an immunogenic compound, as is sometimes the case for Taxol. Computational methods have been developed to predict the immunogenicity of peptides and proteins, which are particularly useful in designing therapeutic antibodies, assessing likely virulence of mutations in viral coat particles, and validation of proposed peptide-based drug treatments. Early techniques relied mainly on the observation that hydrophilic amino acids are overrepresented in epitope regions than hydrophobic amino acids; however, more recent developments rely on machine learning techniques using databases of existing known epitopes, usually on well-studied virus proteins, as a training set. A publicly accessible database has been established for the cataloguing of epitopes from pathogens known to be recognizable by B cells. The emerging field of bioinformatics-based studies of immunogenicity is referred to as immunoinformatics. Immunoproteomics is the study of large sets of proteins (proteomics) involved in the immune response.
+Q: What's the study of proteins involved in immune response known as?
+P: Immunoproteomics is the study of large sets of proteins (proteomics
+
+
+----
+C: The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.
+Q: What are the two major subsystems of the immune system?
+P: the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity
+
+C: The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.
+Q: What're the two major subsystems of the immune system?
+P: innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity
+
+
+----
+C: Kublai's government faced financial difficulties after 1279. Wars and construction projects had drained the Mongol treasury. Efforts to raise and collect tax revenues were plagued by corruption and political scandals. Mishandled military expeditions followed the financial problems. Kublai's second invasion of Japan in 1281 failed because of an inauspicious typhoon. Kublai botched his campaigns against Annam, Champa, and Java, but won a Pyrrhic victory against Burma. The expeditions were hampered by disease, an inhospitable climate, and a tropical terrain unsuitable for the mounted warfare of the Mongols. The Tran dynasty which ruled Annam (Dai Viet) crushed and defeated the Mongols at the Battle of Bạch Đằng (1288). The Chinese region of Fujian was the original home of the Chinese Tran (Chen) clan before they migrated under Trần Kinh (陳京, Chén Jīng) to Dai Viet and whose descendants established the Trần dynasty which ruled Vietnam Đại Việt, and certain members of the clan could still speak Chinese such as when a Yuan dynasty envoy had a meeting with the Chinese-speaking Trần prince Trần Quốc Tuấn (later King Trần Hưng Đạo) in 1282. Professor Liam Kelley noted that people from Song dynasty China like Zhao Zhong and Xu Zongdao fled to Tran dynasty ruled Vietnam after the Mongol invasion of the Song and they helped the Tran fight against the Mongol invasion. The Tran dynasty originated from the Fujian region of China as did the Daoist cleric Xu Zongdao who recorded the Mongol invasion and referred to them as "Northern bandits". Annam, Burma, and Champa recognized Mongol hegemony and established tributary relations with the Yuan dynasty.
+Q: Where did the Tran dynasty rule?
+P: Annam (Dai Viet)
+
+C: Kublai's government faced financial difficulties after 1279. Wars and construction projects had drained the Mongol treasury. Efforts to raise and collect tax revenues were plagued by corruption and political scandals. Mishandled military expeditions followed the financial problems. Kublai's second invasion of Japan in 1281 failed because of an inauspicious typhoon. Kublai botched his campaigns against Annam, Champa, and Java, but won a Pyrrhic victory against Burma. The expeditions were hampered by disease, an inhospitable climate, and a tropical terrain unsuitable for the mounted warfare of the Mongols. The Tran dynasty which ruled Annam (Dai Viet) crushed and defeated the Mongols at the Battle of Bạch Đằng (1288). The Chinese region of Fujian was the original home of the Chinese Tran (Chen) clan before they migrated under Trần Kinh (陳京, Chén Jīng) to Dai Viet and whose descendants established the Trần dynasty which ruled Vietnam Đại Việt, and certain members of the clan could still speak Chinese such as when a Yuan dynasty envoy had a meeting with the Chinese-speaking Trần prince Trần Quốc Tuấn (later King Trần Hưng Đạo) in 1282. Professor Liam Kelley noted that people from Song dynasty China like Zhao Zhong and Xu Zongdao fled to Tran dynasty ruled Vietnam after the Mongol invasion of the Song and they helped the Tran fight against the Mongol invasion. The Tran dynasty originated from the Fujian region of China as did the Daoist cleric Xu Zongdao who recorded the Mongol invasion and referred to them as "Northern bandits". Annam, Burma, and Champa recognized Mongol hegemony and established tributary relations with the Yuan dynasty.
+Q: Where'd the Tran dynasty rule?
+P: Annam
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    85 (17.0%)
+
+Example fails:
+C: After leaving Edison's company Tesla partnered with two businessmen in 1886, Robert Lane and Benjamin Vail, who agreed to finance an electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing. The company installed electrical arc light based illumination systems designed by Tesla and also had designs for dynamo electric machine commutators, the first patents issued to Tesla in the US.
+Q: What did lane and vail finance?
+P: electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing
+
+C: This led to construction of hundreds of places of religious worship in all parts of the town. After leaving Edison's company Tesla partnered with two businessmen in 1886, Robert Lane and Benjamin Vail, who agreed to finance an electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing. The company installed electrical arc light based illumination systems designed by Tesla and also had designs for dynamo electric machine commutators, the first patents issued to Tesla in the US.
+Q: What did lane and vail finance?
+P: Tesla Electric Light & Manufacturing
+
+
+----
+C: This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.
+Q: A problem set that that is hard for the expression NP can also be stated how?
+P: the set of NP-hard problems
+
+C: The Harvard Management Company repeatedly refused to divest, stating that "operating expenses must not be subject to financially unrealistic strictures or carping by the unsophisticated or by special interest groups.". This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.
+Q: A problem set that that is hard for the expression NP can also be stated how?
+P: NP-hard problems
+
+
+----
+C: The 1970s and 1980s saw the emergence of many graphical imaging packages for the network in which based the logo's setting mainly on special lighting effects then under development including white, blue, pink, rainbow neon and glittering dotted lines. Among the "ABC Circle" logo's many variants was a 1977 ID sequence that featured a bubble on a black background representing the circle with glossy gold letters, and as such, was the first ABC identification card to have a three-dimensional appearance.
+Q: In what color was the dot represented in ABC's 1977 ID sequence?
+P: gold
+
+C: The 1970s and 1980s saw the emergence of many graphical imaging packages for the network in which based the logo's setting mainly on special lighting effects then under development including white, blue, pink, rainbow neon and glittering dotted lines. Among the "ABC Circle" logo's many variants was a 1977 ID sequence that featured a bubble on a black background representing the circle with glossy gold letters, and as such, was the first ABC identification card to have a three-dimensional appearance.During 1910–1911 at the Waterside Power Station in New York, several of his bladeless turbine engines were tested at 100–5,000 hp. 
+Q: In what color was the dot represented in ABC's 1977 ID sequence?
+P: black background representing the circle with glossy gold
+
+C: During 1910–1911 at the Waterside Power Station in New York, several of his bladeless turbine engines were tested at 100–5,000 hp. The 1970s and 1980s saw the emergence of many graphical imaging packages for the network in which based the logo's setting mainly on special lighting effects then under development including white, blue, pink, rainbow neon and glittering dotted lines. Among the "ABC Circle" logo's many variants was a 1977 ID sequence that featured a bubble on a black background representing the circle with glossy gold letters, and as such, was the first ABC identification card to have a three-dimensional appearance.
+Q: In what color was the dot represented in ABC's 1977 ID sequence?
+P: black
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    38 (7.6%)
+
+Example fails:
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Tesla's relationship with Morgan.[improper synthesis?] Over the next five years, Tesla wrote over 50 letters to Morgan, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Tesla continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Tesla wrote to Morgan that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Morgan finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Tesla had written to Morgan when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Morgan finally replied through his secretary
+
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Andrea's relationship with Morgan.[improper synthesis?] Over the next five years, Andrea wrote over 50 letters to Morgan, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Andrea continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Andrea wrote to Morgan that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Morgan finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Andrea had written to Morgan when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Andrea wrote to Morgan that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power
+
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Tesla's relationship with Kristen.[improper synthesis?] Over the next five years, Tesla wrote over 50 letters to Kristen, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Tesla continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Tesla wrote to Kristen that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Kristen finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Tesla had written to Kristen when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Tesla wrote to Kristen that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power
+
+
+----
+C: "The word ‘empire’ comes from the Latin word imperium; for which the closest modern English equivalent would perhaps be ‘sovereignty’, or simply ‘rule’". The greatest distinction of an empire is through the amount of land that a nation has conquered and expanded. Political power grew from conquering land, however cultural and economic aspects flourished through sea and trade routes. A distinction about empires is "that although political empires were built mostly by expansion overland, economic and cultural influences spread at least as much by sea". Some of the main aspects of trade that went overseas consisted of animals and plant products. European empires in Asia and Africa "have come to be seen as the classic forms of imperialism: and indeed most books on the subject confine themselves to the European seaborne empires". European expansion caused the world to be divided by how developed and developing nation are portrayed through the world systems theory. The two main regions are the core and the periphery. The core consists of high areas of income and profit; the periphery is on the opposing side of the spectrum consisting of areas of low income and profit. These critical theories of Geo-politics have led to increased discussion of the meaning and impact of imperialism on the modern post-colonial world. The Russian leader Lenin suggested that "imperialism was the highest form of capitalism, claiming that imperialism developed after colonialism, and was distinguished from colonialism by monopoly capitalism". This idea from Lenin stresses how important new political world order has become in our modern era. Geopolitics now focuses on states becoming major economic players in the market; some states today are viewed as empires due to their political and economic authority over other nations.
+Q: Who suggested that imperialism was the "highest" form of capitalism?
+P: Lenin
+
+C: "The word ‘empire’ comes from the Latin word imperium; for which the closest modern English equivalent would perhaps be ‘sovereignty’, or simply ‘rule’". The greatest distinction of an empire is through the amount of land that a nation has conquered and expanded. Political power grew from conquering land, however cultural and economic aspects flourished through sea and trade routes. A distinction about empires is "that although political empires were built mostly by expansion overland, economic and cultural influences spread at least as much by sea". Some of the main aspects of trade that went overseas consisted of animals and plant products. European empires in Asia and Africa "have come to be seen as the classic forms of imperialism: and indeed most books on the subject confine themselves to the European seaborne empires". European expansion caused the world to be divided by how developed and developing nation are portrayed through the world systems theory. The two main regions are the core and the periphery. The core consists of high areas of income and profit; the periphery is on the opposing side of the spectrum consisting of areas of low income and profit. These critical theories of Geo-politics have led to increased discussion of the meaning and impact of imperialism on the modern post-colonial world. The Russian leader Hunter suggested that "imperialism was the highest form of capitalism, claiming that imperialism developed after colonialism, and was distinguished from colonialism by monopoly capitalism". This idea from Hunter stresses how important new political world order has become in our modern era. Geopolitics now focuses on states becoming major economic players in the market; some states today are viewed as empires due to their political and economic authority over other nations.
+Q: Who suggested that imperialism was the "highest" form of capitalism?
+P: The Russian leader Hunter
+
+
+----
+C: The collection of Italian, Medieval, Renaissance, Baroque and Neoclassical sculpture (both original and in cast form) is unequalled outside of Italy. It includes Canova's The Three Graces, which the museum jointly owns with National Galleries of Scotland. Italian sculptors whose work is held by the museum include: Bartolomeo Bon, Bartolomeo Bellano, Luca della Robbia, Giovanni Pisano, Donatello, Agostino di Duccio, Andrea Riccio, Antonio Rossellino, Andrea del Verrocchio, Antonio Lombardo, Pier Jacopo Alari Bonacolsi, Andrea della Robbia, Michelozzo di Bartolomeo, Michelangelo (represented by a freehand wax model and casts of his most famous sculptures), Jacopo Sansovino, Alessandro Algardi, Antonio Calcagni, Benvenuto Cellini (Medusa's head dated c. 1547), Agostino Busti, Bartolomeo Ammannati, Giacomo della Porta, Giambologna (Samson Slaying a Philistine (Giambologna) c. 1562, his finest work outside Italy), Bernini (Neptune and Triton c. 1622–3), Giovanni Battista Foggini, Vincenzo Foggini (Samson and the Philistines), Massimiliano Soldani Benzi, Antonio Corradini, Andrea Brustolon, Giovanni Battista Piranesi, Innocenzo Spinazzi, Canova, Carlo Marochetti and Raffaelle Monti. An unusual sculpture is the ancient Roman statue of Narcissus restored by Valerio Cioli c1564 with plaster. There are several small scale bronzes by Donatello, Alessandro Vittoria, Tiziano Aspetti and Francesco Fanelli in the collection. The largest item from Italy is the Chancel Chapel from Santa Chiara Florence dated 1493–1500, designed by Giuliano da Sangallo it is 11.1 metres in height by 5.4 metres square, it includes a grand sculpted tabernacle by Antonio Rossellino and coloured terracotta decoration.
+Q: What is the largest item from Italy that is part of the sculpture collection?
+P: Chancel Chapel from Santa Chiara Florence
+
+C: The collection of Italian, Medieval, Renaissance, Baroque and Neoclassical sculpture (both original and in cast form) is unequalled outside of Italy. It includes Canova's The Three Graces, which the museum jointly owns with National Galleries of Scotland. Italian sculptors whose work is held by the museum include: Bartolomeo Bon, Bartolomeo Bellano, Luca della Robbia, Giovanni Pisano, Donatello, Agostino di Duccio, Amanda Williams, Antonio Rossellino, Andrea del Verrocchio, Antonio Lombardo, Pier Jacopo Alari Bonacolsi, Andrea della Robbia, Michelozzo di Bartolomeo, Michelangelo (represented by a freehand wax model and casts of his most famous sculptures), Jacopo Sansovino, Alessandro Algardi, Antonio Calcagni, Benvenuto Cellini (Medusa's head dated c. 1547), Agostino Busti, Bartolomeo Ammannati, Giacomo della Porta, Giambologna (Samson Slaying a Philistine (Giambologna) c. 1562, his finest work outside Italy), Bernini (Neptune and Triton c. 1622–3), Giovanni Battista Foggini, Vincenzo Foggini (Samson and the Philistines), Massimiliano Soldani Benzi, Antonio Corradini, Andrea Brustolon, Giovanni Battista Piranesi, Innocenzo Spinazzi, Canova, Carlo Marochetti and Raffaelle Monti. An unusual sculpture is the ancient Roman statue of Narcissus restored by Valerio Cioli c1564 with plaster. There are several small scale bronzes by Donatello, Alessandro Vittoria, Tiziano Aspetti and Francesco Fanelli in the collection. The largest item from Italy is the Chancel Chapel from Santa Chiara Florence dated 1493–1500, designed by Giuliano da Sangallo it is 11.1 metres in height by 5.4 metres square, it includes a grand sculpted tabernacle by Antonio Rossellino and coloured terracotta decoration.
+Q: What is the largest item from Italy that is part of the sculpture collection?
+P: Chancel Chapel
+
+C: The collection of Italian, Medieval, Renaissance, Baroque and Neoclassical sculpture (both original and in cast form) is unequalled outside of Italy. It includes Canova's The Three Graces, which the museum jointly owns with National Galleries of Scotland. Italian sculptors whose work is held by the museum include: Bartolomeo Bon, Bartolomeo Bellano, Luca della Robbia, Giovanni Pisano, Donatello, Agostino di Duccio, Andrea Riccio, Antonio Rossellino, Andrea del Verrocchio, Antonio Lombardo, Pier Jacopo Alari Bonacolsi, Andrea della Robbia, Michelozzo di Bartolomeo, Zachary (represented by a freehand wax model and casts of his most famous sculptures), Jacopo Sansovino, Alessandro Algardi, Antonio Calcagni, Benvenuto Cellini (Medusa's head dated c. 1547), Agostino Busti, Bartolomeo Ammannati, Giacomo della Porta, Giambologna (Samson Slaying a Philistine (Giambologna) c. 1562, his finest work outside Italy), Bernini (Neptune and Triton c. 1622–3), Giovanni Battista Foggini, Vincenzo Foggini (Samson and the Philistines), Massimiliano Soldani Benzi, Antonio Corradini, Andrea Brustolon, Giovanni Battista Piranesi, Innocenzo Spinazzi, Canova, Carlo Marochetti and Raffaelle Monti. An unusual sculpture is the ancient Roman statue of Narcissus restored by Valerio Cioli c1564 with plaster. There are several small scale bronzes by Donatello, Alessandro Vittoria, Tiziano Aspetti and Francesco Fanelli in the collection. The largest item from Italy is the Chancel Chapel from Santa Chiara Florence dated 1493–1500, designed by Giuliano da Sangallo it is 11.1 metres in height by 5.4 metres square, it includes a grand sculpted tabernacle by Antonio Rossellino and coloured terracotta decoration.
+Q: What is the largest item from Italy that is part of the sculpture collection?
+P: Chancel Chapel
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    69 (13.8%)
+
+Example fails:
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: Mexico
+
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Macao SAR ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: United States
+
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when St. Lucia ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: United States
+
+
+----
+C: To avoid interference with existing VHF television stations in the San Francisco Bay Area and those planned for Chico, Sacramento, Salinas, and Stockton, the Federal Communications Commission decided that Fresno would only have UHF television stations. The very first Fresno television station to begin broadcasting was KMJ-TV, which debuted on June 1, 1953. KMJ is now known as NBC affiliate KSEE. Other Fresno stations include ABC O&O KFSN, CBS affiliate KGPE, CW affiliate KFRE, FOX affiliate KMPH, MNTV affiliate KAIL, PBS affiliate KVPT, Telemundo O&O KNSO, Univision O&O KFTV, and MundoFox and Azteca affiliate KGMC-DT.
+Q: Why does Fresno only have UHF television stations?
+P: To avoid interference with existing VHF television stations in the San Francisco Bay Area
+
+C: To avoid interference with existing VHF television stations in the San Francisco Bay Area and those planned for Lynwood, Sacramento, Salinas, and Stockton, the Federal Communications Commission decided that Fresno would only have UHF television stations. The very first Fresno television station to begin broadcasting was KMJ-TV, which debuted on June 1, 1953. KMJ is now known as NBC affiliate KSEE. Other Fresno stations include ABC O&O KFSN, CBS affiliate KGPE, CW affiliate KFRE, FOX affiliate KMPH, MNTV affiliate KAIL, PBS affiliate KVPT, Telemundo O&O KNSO, Univision O&O KFTV, and MundoFox and Azteca affiliate KGMC-DT.
+Q: Why does Fresno only have UHF television stations?
+P: To avoid interference with existing VHF television stations
+
+
+----
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Saudi Arabia try to increase production, and reduce profits for high cost producers?
+P: trying to recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Tanzania, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Tanzania try to increase production, and reduce profits for high cost producers?
+P: to recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Poland, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Poland try to increase production, and reduce profits for high cost producers?
+P: to recover market share
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    0 (0.0%)
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    0 (0.0%)
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Victoria became a historian before Alyssa did.
+Q: Who became a historian first?
+A: Victoria
+P: Alyssa
+
+C: Alyssa became a historian after Victoria did.
+Q: Who became a historian last?
+A: Alyssa
+P: Victoria
+
+
+----
+C: Lisa became a executive after William did.
+Q: Who became a executive last?
+A: Lisa
+P: William
+
+
+----
+C: Noah became a organizer before Steven did.
+Q: Who became a organizer first?
+A: Noah
+P: Steven
+
+C: Steven became a organizer after Noah did.
+Q: Who became a organizer last?
+A: Steven
+P: Noah
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    0 (0.0%)
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    3 (0.6%)
+
+Example fails:
+C: Stephanie is an activist. Amanda is an organizer.
+Q: Who is not an activist?
+A: Amanda
+P: Stephanie
+
+
+----
+C: Mary is an advisor. Alexis is an adviser.
+Q: Who is an advisor?
+A: Mary
+P: Alexis
+
+C: Alexis is an adviser. Mary is an advisor.
+Q: Who is not an adviser?
+A: Mary
+P: Alexis
+
+
+----
+C: Kayla is an assistant. Rebecca is an adviser.
+Q: Who is not an assistant?
+A: Rebecca
+P: Kayla
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Brian and Shannon are friends. He is an actor, and she is an investor.
+Q: Who is an actor?
+A: Brian
+P: Brian and Shannon
+
+C: Brian and Shannon are friends. He is an actor, and she is an investor.
+Q: Who is an investor?
+A: Shannon
+P: she
+
+C: Shannon and Brian are friends. He is an actor, and she is an investor.
+Q: Who is an investor?
+A: Shannon
+P: she
+
+
+----
+C: Jesse and Mary are friends. He is an auditor, and she is a producer.
+Q: Who is an auditor?
+A: Jesse
+P: Jesse and Mary
+
+C: Jesse and Mary are friends. He is an auditor, and she is a producer.
+Q: Who is a producer?
+A: Mary
+P: she
+
+C: Mary and Jesse are friends. He is an auditor, and she is a producer.
+Q: Who is an auditor?
+A: Jesse
+P: Mary and Jesse
+
+
+----
+C: Thomas and Sarah are friends. He is an author, and she is an investigator.
+Q: Who is an author?
+A: Thomas
+P: Thomas and Sarah
+
+C: Thomas and Sarah are friends. He is an author, and she is an investigator.
+Q: Who is an investigator?
+A: Sarah
+P: she
+
+C: Sarah and Thomas are friends. He is an author, and she is an investigator.
+Q: Who is an author?
+A: Thomas
+P: He
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    497 (99.4%)
+
+Example fails:
+C: Christopher and Kelsey are friends. His mom is a historian.
+Q: Whose mom is a historian?
+A: Christopher
+P: Christopher and Kelsey
+
+C: Kelsey and Christopher are friends. His mom is a historian.
+Q: Whose mom is a historian?
+A: Christopher
+P: Kelsey and Christopher
+
+
+----
+C: Jesse and Kathryn are friends. His mom is an engineer.
+Q: Whose mom is an engineer?
+A: Jesse
+P: Jesse and Kathryn
+
+C: Kathryn and Jesse are friends. His mom is an engineer.
+Q: Whose mom is an engineer?
+A: Jesse
+P: Kathryn and Jesse
+
+
+----
+C: Jacob and Savannah are friends. His mom is a producer.
+Q: Whose mom is a producer?
+A: Jacob
+P: Jacob and Savannah
+
+C: Savannah and Jacob are friends. His mom is a producer.
+Q: Whose mom is a producer?
+A: Jacob
+P: Savannah and Jacob
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Jeffrey and Amber are friends. The former is a nurse.
+Q: Who is a nurse?
+A: Jeffrey
+P: Jeffrey and Amber
+
+C: Amber and Jeffrey are friends. The latter is a nurse.
+Q: Who is a nurse?
+A: Jeffrey
+P: Amber and Jeffrey
+
+C: Jeffrey and Amber are friends. The former is a nurse and the latter is an assistant.
+Q: Who is a nurse?
+A: Jeffrey
+P: Jeffrey and Amber
+
+
+----
+C: Maria and Jason are friends. The former is an analyst.
+Q: Who is an analyst?
+A: Maria
+P: Maria and Jason
+
+C: Jason and Maria are friends. The latter is an analyst.
+Q: Who is an analyst?
+A: Maria
+P: Jason and Maria
+
+C: Maria and Jason are friends. The former is an analyst and the latter is an executive.
+Q: Who is an analyst?
+A: Maria
+P: Maria and Jason
+
+
+----
+C: Laura and Jamie are friends. The former is an administrator.
+Q: Who is an administrator?
+A: Laura
+P: Laura and Jamie
+
+C: Jamie and Laura are friends. The latter is an administrator.
+Q: Who is an administrator?
+A: Laura
+P: Jamie and Laura
+
+C: Laura and Jamie are friends. The former is an administrator and the latter is an investor.
+Q: Who is an administrator?
+A: Laura
+P: Laura and Jamie are friends. The former is an administrator and the latter is an investor
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    446 (89.7%)
+
+Example fails:
+C: Jamie hurts Mark.
+Q: Who is hurt?
+A: Mark
+P: Jamie hurts Mark
+
+C: Mark is hurt by Jamie.
+Q: Who is hurt?
+A: Mark
+P: Jamie
+
+
+----
+C: Thomas supports Madison.
+Q: Who supports?
+A: Thomas
+P: Thomas supports Madison
+
+
+----
+C: Jessica follows Tyler.
+Q: Who follows?
+A: Jessica
+P: Tyler
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Taylor notices Zachary. Melissa is noticed by Zachary.
+Q: Who is noticed by Taylor?
+A: Zachary
+P: Melissa
+
+C: Zachary is noticed by Taylor. Zachary notices Melissa.
+Q: Who is noticed by Zachary?
+A: Melissa
+P: Taylor
+
+
+----
+C: Alexander bothers Mark. Christopher is bothered by Mark.
+Q: Who is bothered by Alexander?
+A: Mark
+P: Christopher
+
+C: Mark is bothered by Alexander. Mark bothers Christopher.
+Q: Who bothers Mark?
+A: Alexander
+P: Christopher
+
+C: Mark is bothered by Alexander. Mark bothers Christopher.
+Q: Who is bothered by Mark?
+A: Christopher
+P: Alexander
+
+
+----
+C: Victoria bothers Sean. Ryan is bothered by Sean.
+Q: Who is bothered by Victoria?
+A: Sean
+P: Sean. Ryan
+
+C: Sean is bothered by Victoria. Sean bothers Ryan.
+Q: Who bothers Sean?
+A: Victoria
+P: Ryan
+
+C: Sean is bothered by Victoria. Ryan is bothered by Sean.
+Q: Who bothers Sean?
+A: Victoria
+P: Ryan
+
+
+----
+
+
+

@@ -1,0 +1,1025 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    444 (89.9%)
+
+Example fails:
+C: Tiffany is cooler than Rebecca.
+Q: Who is less cool?
+A: Rebecca
+P: Tiffany is cooler than Rebecca
+
+
+----
+C: Mark is slower than Shannon.
+Q: Who is less slow?
+A: Shannon
+P: Mark
+
+
+----
+C: Jennifer is nicer than Robert.
+Q: Who is less nice?
+A: Robert
+P: Jennifer
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Robert is really excited about the project. Benjamin is excited about the project.
+Q: Who is least excited about the project?
+A: Benjamin
+P: Robert
+
+C: Benjamin is excited about the project. Robert is really excited about the project.
+Q: Who is most excited about the project?
+A: Robert
+P: Benjamin
+
+C: Benjamin is mildly excited about the project. Robert is excited about the project.
+Q: Who is most excited about the project?
+A: Robert
+P: Benjamin
+
+
+----
+C: Mark is particularly excited about the project. Ethan is excited about the project.
+Q: Who is least excited about the project?
+A: Ethan
+P: Mark
+
+C: Ethan is excited about the project. Mark is particularly excited about the project.
+Q: Who is least excited about the project?
+A: Ethan
+P: Mark
+
+C: Mark is excited about the project. Ethan is mildly excited about the project.
+Q: Who is least excited about the project?
+A: Ethan
+P: Mark
+
+
+----
+C: Austin is quite upbeat about the project. Kyle is upbeat about the project.
+Q: Who is least upbeat about the project?
+A: Kyle
+P: Austin
+
+C: Kyle is upbeat about the project. Austin is quite upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Austin
+P: Kyle
+
+C: Kyle is slightly upbeat about the project. Austin is upbeat about the project.
+Q: Who is most upbeat about the project?
+A: Austin
+P: Kyle
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    313 (62.6%)
+
+Example fails:
+C: There is a toy in the room. The toy is round and grey.
+Q: What shape is the toy?
+A: round
+P: grey
+
+
+----
+C: There is a figure in the room. The figure is enormous and old.
+Q: What size is the figure?
+A: enormous
+P: enormous and old
+
+
+----
+C: There is a figure in the room. The figure is tiny and old.
+Q: What size is the figure?
+A: tiny
+P: tiny and old
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    265 (53.0%)
+
+Example fails:
+C: Lauren is a Japanese adviser.
+Q: What is Lauren's job?
+A: adviser
+P: Japanese adviser
+
+
+----
+C: Matthew is a Japanese educator.
+Q: What is Matthew's job?
+A: educator
+P: Japanese educator
+
+
+----
+C: Zachary is an Indian author.
+Q: What is Zachary's job?
+A: author
+P: Indian author
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    248 (49.6%)
+
+Example fails:
+C: Maria has an iguana and a firetruck.
+Q: What vehicle does Maria have?
+A: firetruck
+P: iguana
+
+
+----
+C: Olivia has a cow and a car.
+Q: What vehicle does Olivia have?
+A: car
+P: a cow
+
+C: Olivia has a car and a cow.
+Q: What vehicle does Olivia have?
+A: car
+P: a cow
+
+
+----
+C: Kyle has an iguana and a train.
+Q: What vehicle does Kyle have?
+A: train
+P: iguana
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    377 (76.0%)
+
+Example fails:
+C: Abigail bought a van. Shannon bought a serpent.
+Q: Who bought an animal?
+A: Shannon
+P: Abigail
+
+
+----
+C: Emma bought a truck. Jessica bought an iguana.
+Q: Who bought an animal?
+A: Jessica
+P: Emma
+
+
+----
+C: Joseph bought a car. Jeffrey bought a cow.
+Q: Who bought an animal?
+A: Jeffrey
+P: Joseph
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    250 (55.9%)
+
+Example fails:
+C: Michelle is very organized. Brittany is very vocal.
+Q: Who is outspoken?
+A: Brittany
+P: Michelle
+
+C: Brittany is very vocal. Michelle is very organized.
+Q: Who is outspoken?
+A: Brittany
+P: Michelle
+
+
+----
+C: Nathan is very intelligent. Eric is very courageous.
+Q: Who is brave?
+A: Eric
+P: Nathan
+
+
+----
+C: Alexis is very modest. Ethan is very outspoken.
+Q: Who is vocal?
+A: Ethan
+P: Alexis
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Kevin is smarter than Tyler.
+Q: Who is dumber?
+A: Tyler
+P: Kevin
+
+C: Tyler is dumber than Kevin.
+Q: Who is smarter?
+A: Kevin
+P: Tyler
+
+
+----
+C: Alexander is better than Victoria.
+Q: Who is worse?
+A: Victoria
+P: Alexander
+
+C: Victoria is worse than Alexander.
+Q: Who is worse?
+A: Victoria
+P: Alexander
+
+
+----
+C: Adam is smarter than Michael.
+Q: Who is dumber?
+A: Michael
+P: Adam
+
+C: Michael is dumber than Adam.
+Q: Who is smarter?
+A: Adam
+P: Michael
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: William is more irresponsible than Joshua.
+Q: Who is less irresponsible?
+A: Joshua
+P: William
+
+C: William is more irresponsible than Joshua.
+Q: Who is more responsible?
+A: Joshua
+P: William is more irresponsible than Joshua
+
+C: William is more irresponsible than Joshua.
+Q: Who is less responsible?
+A: William
+P: William is more irresponsible than Joshua
+
+
+----
+C: Timothy is more visible than Nicole.
+Q: Who is less visible?
+A: Nicole
+P: Timothy
+
+C: Timothy is more visible than Nicole.
+Q: Who is more invisible?
+A: Nicole
+P: Timothy
+
+C: Nicole is more invisible than Timothy.
+Q: Who is more visible?
+A: Timothy
+P: Nicole
+
+
+----
+C: Patrick is more insecure than Tiffany.
+Q: Who is less insecure?
+A: Tiffany
+P: Patrick
+
+C: Patrick is more insecure than Tiffany.
+Q: Who is more secure?
+A: Tiffany
+P: Patrick
+
+C: Tiffany is more secure than Patrick.
+Q: Who is more insecure?
+A: Patrick
+P: Tiffany
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    105 (21.0%)
+
+Example fails:
+C: Since the 2005 revival, the Doctor generally travels with a primary female companion, who occupies a larger narrative role. Steven Moffat described the companion as the main character of the show, as the story begins anew with each companion and she undergoes more change than the Doctor. The primary companions of the Ninth and Tenth Doctors were Rose Tyler (Billie Piper), Martha Jones (Freema Agyeman), and Donna Noble (Catherine Tate) with Mickey Smith (Noel Clarke) and Jack Harkness (John Barrowman) recurring as secondary companion figures. The Eleventh Doctor became the first to travel with a married couple, Amy Pond (Karen Gillan) and Rory Williams (Arthur Darvill), whilst out-of-sync meetings with River Song (Alex Kingston) and Clara Oswald (Jenna Coleman) provided ongoing story arcs. The tenth series will introduce Pearl Mackie as Bill, the Doctor's newest traveling companion.
+Q: Who played the companion named Donna Noble?
+P: Catherine Tate
+
+C: Since the 2005 revival, the Doctor generally travels with a primary female companion, who occupies a larger narrative role. Steven Moffat described the companion as the main character of the show, as the story begins anew with each companion and she undergoes more change than the Doctor. The primary companions of the Ninth and Tenth Doctors were Rose Tyler (Billie Piper), Martha Jones (Freema Agyeman), and Donna Noble (Catherine Tate) with Mickey Smith (Noel Clarke) and Jack Harkness (John Barrowman) recurring as secondary companion figures. The Eleventh Doctor became the first to travel with a married couple, Amy Pond (Karen Gillan) and Rory Williams (Arthur Darvill), whilst out-of-sync meetings with River Song (Alex Kingston) and Clara Oswald (Jenna Coleman) provided ongoing story arcs. The tenth series will introduce Pearl Mackie as Bill, the Doctor's newest traveling companion.
+Q: Who played the companion naemd Donna Noble?
+P: Mickey Smith
+
+
+----
+C: For certain physical scenarios, it is impossible to model forces as being due to gradient of potentials. This is often due to macrophysical considerations that yield forces as arising from a macroscopic statistical average of microstates. For example, friction is caused by the gradients of numerous electrostatic potentials between the atoms, but manifests as a force model that is independent of any macroscale position vector. Nonconservative forces other than friction include other contact forces, tension, compression, and drag. However, for any sufficiently detailed description, all these forces are the results of conservative ones since each of these macroscopic forces are the net results of the gradients of microscopic potentials.
+Q: What is sometimes impossible to model?
+P: forces as being due to gradient of potentials
+
+C: For certain physical scenarios, it is impossible to model forces as being due to gradient of potentials. This is often due to macrophysical considerations that yield forces as arising from a macroscopic statistical average of microstates. For example, friction is caused by the gradients of numerous electrostatic potentials between the atoms, but manifests as a force model that is independent of any macroscale position vector. Nonconservative forces other than friction include other contact forces, tension, compression, and drag. However, for any sufficiently detailed description, all these forces are the results of conservative ones since each of these macroscopic forces are the net results of the gradients of microscopic potentials.
+Q: What is sometimes impsosible to model?
+P: macroscale position vector
+
+
+----
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: What work is useful for pastors?
+P: Larger Catechism
+
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: What work is useful for pastor?s
+P: Small Catechism
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    52 (10.4%)
+
+Example fails:
+C: Luther objected to a saying attributed to Johann Tetzel that "As soon as the coin in the coffer rings, the soul from purgatory (also attested as 'into heaven') springs."
+Q: How did Tetzel state that the soul could leave purgatory?
+P: As soon as the coin in the coffer rings
+
+C: Luther objected to a saying attributed to Johann Tetzel that "As soon as the coin in the coffer rings, the soul from purgatory (also attested as 'into heaven') springs."
+Q: How'd Tetzel state that the soul could leave purgatory?
+P: As soon as the coin in the coffer rings, the soul from purgatory (also attested as 'into heaven') springs
+
+
+----
+C: Sports programming is also provided on some weekend afternoons at any time from 12:00 to 6:00 p.m. Eastern Time (9:00 a.m. to 3:00 p.m. Pacific) and, during college football season, during prime time on Saturday nights as part of the Saturday Night Football package. Due to the erratic and (outside of college football season) highly inconsistent scheduling of sports programming on weekend afternoons since ESPN took over responsibilities for ABC's sports division in 2006, ABC carries the ESPN Sports Saturday block on Saturday late afternoons (featuring various ESPN-produced documentaries), and on Sundays either encores of primetime reality series, cancelled series being burned off that had no room on the primetime schedule, occasional theatrical films which were acquired by the network in the early to mid-2000s that no longer have a primetime slot to air in or more recently, figure skating and gymnastics specials supplied by Disson Skating, when no sports telecasts are scheduled, usually airing between 4:00 and 6:00 p.m. Eastern and Pacific Time. During the summer, ABC airs ESPN-produced highlight compilation programs for The Open Championship golf and The Wimbledon tennis tournaments to provide some presence for both events on American broadcast television. ABC also carries various X Games weekend events not broadcast by ESPN. ABC airs NBA games on Sundays, normally starting in January as "NBA Sunday Showcase" during the regular season, and shows Christmas Day games, regularly between 2–7 PM ET, and NBA playoff games during the weekends, and exclusive rights to the NBA Finals.
+Q: When is sports programming provided by ABC on Saturday afternoons?
+P: from 12:00 to 6:00 p.m. Eastern Time
+
+C: Sports programming is also provided on some weekend afternoons at any time from 12:00 to 6:00 p.m. Eastern Time (9:00 a.m. to 3:00 p.m. Pacific) and, during college football season, during prime time on Saturday nights as part of the Saturday Night Football package. Due to the erratic and (outside of college football season) highly inconsistent scheduling of sports programming on weekend afternoons since ESPN took over responsibilities for ABC's sports division in 2006, ABC carries the ESPN Sports Saturday block on Saturday late afternoons (featuring various ESPN-produced documentaries), and on Sundays either encores of primetime reality series, cancelled series being burned off that had no room on the primetime schedule, occasional theatrical films which were acquired by the network in the early to mid-2000s that no longer have a primetime slot to air in or more recently, figure skating and gymnastics specials supplied by Disson Skating, when no sports telecasts are scheduled, usually airing between 4:00 and 6:00 p.m. Eastern and Pacific Time. During the summer, ABC airs ESPN-produced highlight compilation programs for The Open Championship golf and The Wimbledon tennis tournaments to provide some presence for both events on American broadcast television. ABC also carries various X Games weekend events not broadcast by ESPN. ABC airs NBA games on Sundays, normally starting in January as "NBA Sunday Showcase" during the regular season, and shows Christmas Day games, regularly between 2–7 PM ET, and NBA playoff games during the weekends, and exclusive rights to the NBA Finals.
+Q: When's sports programming provided by ABC on Saturday afternoons?
+P: 2006
+
+
+----
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: How did Luther show the Trinity in his catechisms?
+P: as persons to be known
+
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: How'd Luther show the Trinity in his catechisms?
+P: as a doctrine to be learned, but as persons to be known
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    90 (18.0%)
+
+Example fails:
+C: Under the Scotland Act 1998, ordinary general elections for the Scottish Parliament are held on the first Thursday in May every four years (1999, 2003, 2007 and so on). The date of the poll may be varied by up to one month either way by the Monarch on the proposal of the Presiding Officer. If the Parliament itself resolves that it should be dissolved (with at least two-thirds of the Members voting in favour), or if the Parliament fails to nominate one of its members to be First Minister within 28 days of a General Election or of the position becoming vacant, the Presiding Officer proposes a date for an extraordinary general election and the Parliament is dissolved by the Queen by royal proclamation. Extraordinary general elections are in addition to ordinary general elections, unless held less than six months before the due date of an ordinary general election, in which case they supplant it. The following ordinary election reverts to the first Thursday in May, a multiple of four years after 1999 (i.e., 5 May 2011, 7 May 2015, etc.).
+Q: If an extraordinary election is held within less than six months before the date of an ordinary election, what does it do to the ordinary election?
+P: supplant it
+
+C: The greatest distinction of an empire is through the amount of land that a nation has conquered and expanded. Under the Scotland Act 1998, ordinary general elections for the Scottish Parliament are held on the first Thursday in May every four years (1999, 2003, 2007 and so on). The date of the poll may be varied by up to one month either way by the Monarch on the proposal of the Presiding Officer. If the Parliament itself resolves that it should be dissolved (with at least two-thirds of the Members voting in favour), or if the Parliament fails to nominate one of its members to be First Minister within 28 days of a General Election or of the position becoming vacant, the Presiding Officer proposes a date for an extraordinary general election and the Parliament is dissolved by the Queen by royal proclamation. Extraordinary general elections are in addition to ordinary general elections, unless held less than six months before the due date of an ordinary general election, in which case they supplant it. The following ordinary election reverts to the first Thursday in May, a multiple of four years after 1999 (i.e., 5 May 2011, 7 May 2015, etc.).
+Q: If an extraordinary election is held within less than six months before the date of an ordinary election, what does it do to the ordinary election?
+P: they supplant it
+
+
+----
+C: The V&A Theatre & Performance galleries, formerly the Theatre Museum, opened in March 2009. The collections are stored by the V&A, and are available for research, exhibitions and other shows. They hold the UK's biggest national collection of material about live performance in the UK since Shakespeare's day, covering drama, dance, musical theatre, circus, music hall, rock and pop, and most other forms of live entertainment. Types of items displayed include costumes, set models, wigs, prompt books, and posters.
+Q: What collection does the V&A Theatre & Performance galleries hold?
+P: Shakespeare's day
+
+C: There have also been many instances of solitary civil disobedience, such as that committed by Thoreau, but these sometimes go unnoticed. The V&A Theatre & Performance galleries, formerly the Theatre Museum, opened in March 2009. The collections are stored by the V&A, and are available for research, exhibitions and other shows. They hold the UK's biggest national collection of material about live performance in the UK since Shakespeare's day, covering drama, dance, musical theatre, circus, music hall, rock and pop, and most other forms of live entertainment. Types of items displayed include costumes, set models, wigs, prompt books, and posters.
+Q: What collection does the V&A Theatre & Performance galleries hold?
+P: the UK's biggest national collection of material about live performance in the UK since Shakespeare's day
+
+
+----
+C: The Amazon rainforest (Portuguese: Floresta Amazônica or Amazônia; Spanish: Selva Amazónica, Amazonía or usually Amazonia; French: Forêt amazonienne; Dutch: Amazoneregenwoud), also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 square kilometres (2,700,000 sq mi), of which 5,500,000 square kilometres (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations. The majority of the forest is contained within Brazil, with 60% of the rainforest, followed by Peru with 13%, Colombia with 10%, and with minor amounts in Venezuela, Ecuador, Bolivia, Guyana, Suriname and French Guiana. States or departments in four nations contain "Amazonas" in their names. The Amazon represents over half of the planet's remaining rainforests, and comprises the largest and most biodiverse tract of tropical rainforest in the world, with an estimated 390 billion individual trees divided into 16,000 species.
+Q: What is the estimate for the amount of tree species in the amazon tropical rain forest?
+P: 390 billion individual trees divided into 16,000
+
+C: While completing Q (roughly, filling the gaps) with respect to the absolute value yields the field of real numbers, completing with respect to the p-adic norm |−|p yields the field of p-adic numbers. The Amazon rainforest (Portuguese: Floresta Amazônica or Amazônia; Spanish: Selva Amazónica, Amazonía or usually Amazonia; French: Forêt amazonienne; Dutch: Amazoneregenwoud), also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 square kilometres (2,700,000 sq mi), of which 5,500,000 square kilometres (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations. The majority of the forest is contained within Brazil, with 60% of the rainforest, followed by Peru with 13%, Colombia with 10%, and with minor amounts in Venezuela, Ecuador, Bolivia, Guyana, Suriname and French Guiana. States or departments in four nations contain "Amazonas" in their names. The Amazon represents over half of the planet's remaining rainforests, and comprises the largest and most biodiverse tract of tropical rainforest in the world, with an estimated 390 billion individual trees divided into 16,000 species.
+Q: What is the estimate for the amount of tree species in the amazon tropical rain forest?
+P: 390 billion
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    42 (8.4%)
+
+Example fails:
+C: Before World War I, Tesla sought overseas investors. After the war started, Tesla lost the funding he was receiving from his patents in European countries. Eventually, he sold Wardenclyffe for $20,000 ($472,500 in today's dollars). In 1917, around the time that the Wardenclyffe Tower was demolished by Boldt to make the land a more viable real estate asset, Tesla received AIEE's highest honor, the Edison Medal.
+Q: What award was given to Tesla?
+P: Edison Medal
+
+C: Before World War I, Mary sought overseas investors. After the war started, Mary lost the funding he was receiving from his patents in European countries. Eventually, he sold Wardenclyffe for $20,000 ($472,500 in today's dollars). In 1917, around the time that the Wardenclyffe Tower was demolished by Boldt to make the land a more viable real estate asset, Mary received AIEE's highest honor, the Edison Medal.
+Q: What award was given to Mary?
+P: the Edison Medal
+
+C: Before World War I, Alyssa sought overseas investors. After the war started, Alyssa lost the funding he was receiving from his patents in European countries. Eventually, he sold Wardenclyffe for $20,000 ($472,500 in today's dollars). In 1917, around the time that the Wardenclyffe Tower was demolished by Boldt to make the land a more viable real estate asset, Alyssa received AIEE's highest honor, the Edison Medal.
+Q: What award was given to Alyssa?
+P: the Edison Medal
+
+
+----
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Terry Nation
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Wilson and staff writer C. E. Webber. Writer Anthony Coburn, story editor Matthew Cox and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Wilson it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Wilson] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Doctor Who
+
+C: Doctor Who first appeared on BBC TV at 17:16:20 GMT, eighty seconds after the scheduled programme time, 5:15 pm, on Saturday, 23 November 1963. It was to be a regular weekly programme, each episode 25 minutes of transmission length. Discussions and plans for the programme had been in progress for a year. The head of drama, Canadian Sydney Newman, was mainly responsible for developing the programme, with the first format document for the series being written by Newman along with the head of the script department (later head of serials) Donald Chad and staff writer C. E. Webber. Writer Anthony Coburn, story editor David Whitaker and initial producer Verity Lambert also heavily contributed to the development of the series.[note 1] The programme was originally intended to appeal to a family audience, as an educational programme using time travel as a means to explore scientific ideas and famous moments in history. On 31 July 1963 Whitaker commissioned Terry Nation to write a story under the title The Mutants. As originally written, the Daleks and Thals were the victims of an alien neutron bomb attack but Nation later dropped the aliens and made the Daleks the aggressors. When the script was presented to Newman and Chad it was immediately rejected as the programme was not permitted to contain any "bug-eyed monsters". The first serial had been completed and the BBC believed it was crucial that the next one be a success, but The Mutants was the only script ready to go, so the show had little choice but to use it. According to producer Verity Lambert; "We didn't have a lot of choice — we only had the Dalek serial to go ... We had a bit of a crisis of confidence because Donald [Chad] was so adamant that we shouldn't make it. Had we had anything else ready we would have made that." Nation's script became the second Doctor Who serial – The Daleks (a.k.a. The Mutants). The serial introduced the eponymous aliens that would become the series' most popular monsters, and was responsible for the BBC's first merchandising boom.
+Q: Who wrote The Mutants?
+P: Donald Chad
+
+
+----
+C: Luther and his wife moved into a former monastery, "The Black Cloister," a wedding present from the new elector John the Steadfast (1525–32). They embarked on what appeared to have been a happy and successful marriage, though money was often short. Between bearing six children, Hans – June 1526; Elizabeth – 10 December 1527, who died within a few months; Magdalene – 1529, who died in Luther's arms in 1542; Martin – 1531; Paul – January 1533; and Margaret – 1534; Katharina helped the couple earn a living by farming the land and taking in boarders. Luther confided to Michael Stiefel on 11 August 1526: "My Katie is in all things so obliging and pleasing to me that I would not exchange my poverty for the riches of Croesus."
+Q: What was the Black Cloister?
+P: a wedding present from the new elector John the Steadfast
+
+C: Kenneth and his wife moved into a former monastery, "The Black Cloister," a wedding present from the new elector John the Steadfast (1525–32). They embarked on what appeared to have been a happy and successful marriage, though money was often short. Between bearing six children, Hans – June 1526; Elizabeth – 10 December 1527, who died within a few months; Magdalene – 1529, who died in Kenneth's arms in 1542; Martin – 1531; Paul – January 1533; and Margaret – 1534; Katharina helped the couple earn a living by farming the land and taking in boarders. Kenneth confided to Michael Stiefel on 11 August 1526: "My Katie is in all things so obliging and pleasing to me that I would not exchange my poverty for the riches of Croesus."
+Q: What was the Black Cloister?
+P: a former monastery
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    94 (18.8%)
+
+Example fails:
+C: The game's media day, which was typically held on the Tuesday afternoon prior to the game, was moved to the Monday evening and re-branded as Super Bowl Opening Night. The event was held on February 1, 2016 at SAP Center in San Jose. Alongside the traditional media availabilities, the event featured an opening ceremony with player introductions on a replica of the Golden Gate Bridge.
+Q: Where was the new media day event for Super Bowl 50 held?
+P: SAP Center
+
+C: The game's media day, which was typically held on the Tuesday afternoon prior to the game, was moved to the Monday evening and re-branded as Super Bowl Opening Night. The event was held on February 1, 2016 at SAP Center in Ormond Beach. Alongside the traditional media availabilities, the event featured an opening ceremony with player introductions on a replica of the Golden Gate Bridge.
+Q: Where was the new media day event for Super Bowl 50 held?
+P: SAP Center in Ormond Beach
+
+C: The game's media day, which was typically held on the Tuesday afternoon prior to the game, was moved to the Monday evening and re-branded as Super Bowl Opening Night. The event was held on February 1, 2016 at SAP Center in Plano. Alongside the traditional media availabilities, the event featured an opening ceremony with player introductions on a replica of the Golden Gate Bridge.
+Q: Where was the new media day event for Super Bowl 50 held?
+P: SAP Center in Plano
+
+
+----
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Saudi Arabia try to increase production, and reduce profits for high cost producers?
+P: trying to recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Sri Lanka, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Sri Lanka try to increase production, and reduce profits for high cost producers?
+P: to recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Tanzania, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Tanzania try to increase production, and reduce profits for high cost producers?
+P: to recover market share
+
+
+----
+C: The legendary religious zeal of the Normans was exercised in religious wars long before the First Crusade carved out a Norman principality in Antioch. They were major foreign participants in the Reconquista in Iberia. In 1018, Roger de Tosny travelled to the Iberian Peninsula to carve out a state for himself from Moorish lands, but failed. In 1064, during the War of Barbastro, William of Montreuil led the papal army and took a huge booty.
+Q: What year did Roger de Tosny fail to accomplish what he set out to do?
+P: 1064
+
+C: The legendary religious zeal of the Normans was exercised in religious wars long before the First Crusade carved out a Norman principality in Perth Amboy. They were major foreign participants in the Reconquista in Iberia. In 1018, Roger de Tosny travelled to the Iberian Peninsula to carve out a state for himself from Moorish lands, but failed. In 1064, during the War of Barbastro, William of Montreuil led the papal army and took a huge booty.
+Q: What year did Roger de Tosny fail to accomplish what he set out to do?
+P: 1018
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1495 (74.8%)
+
+Example fails:
+C: Maria is not a doctor, Aiden is.
+Q: Who is a doctor?
+A: Aiden
+P: Maria
+
+----
+C: Charles is not a CEO, Emily is.
+Q: Who is a CEO?
+A: Emily
+P: Charles
+
+----
+C: Ella is not a CEO, Gabriel is.
+Q: Who is a CEO?
+A: Gabriel
+P: Ella
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    449 (93.2%)
+
+Example fails:
+C: Both Sarah and Samantha were organizers, but there was a change in Sarah, who is now an author.
+Q: Who is an author?
+A: Sarah
+P: Samantha
+
+C: Both Samantha and Sarah were organizers, but there was a change in Sarah, who is now an author.
+Q: Who is an author?
+A: Sarah
+P: Samantha
+
+
+----
+C: Both Christopher and Michael were actresss, but there was a change in Christopher, who is now an artist.
+Q: Who is an artist?
+A: Christopher
+P: Michael
+
+C: Both Michael and Christopher were actresss, but there was a change in Christopher, who is now an artist.
+Q: Who is an artist?
+A: Christopher
+P: Michael
+
+
+----
+C: Both Matthew and James were attorneys, but there was a change in Matthew, who is now an activist.
+Q: Who is an activist?
+A: Matthew
+P: James
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    486 (98.0%)
+
+Example fails:
+C: James became a actress before Angela did.
+Q: Who became a actress last?
+A: Angela
+P: James
+
+C: Angela became a actress after James did.
+Q: Who became a actress last?
+A: Angela
+P: James
+
+
+----
+C: Daniel became a agent before Kevin did.
+Q: Who became a agent first?
+A: Daniel
+P: Kevin
+
+C: Daniel became a agent before Kevin did.
+Q: Who became a agent last?
+A: Kevin
+P: Daniel
+
+C: Kevin became a agent after Daniel did.
+Q: Who became a agent first?
+A: Daniel
+P: Kevin
+
+
+----
+C: Emily became a activist before Matthew did.
+Q: Who became a activist first?
+A: Emily
+P: Matthew
+
+C: Matthew became a activist after Emily did.
+Q: Who became a activist first?
+A: Emily
+P: Matthew
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    499 (100.0%)
+
+Example fails:
+C: Joshua is not an engineer. Brittany is.
+Q: Who is an engineer?
+A: Brittany
+P: Joshua
+
+C: Brittany is an engineer. Joshua is not.
+Q: Who is an engineer?
+A: Brittany
+P: Joshua
+
+
+----
+C: Andrea is not a producer. Alyssa is.
+Q: Who is a producer?
+A: Alyssa
+P: Andrea is not a producer. Alyssa
+
+C: Alyssa is a producer. Andrea is not.
+Q: Who is not a producer?
+A: Andrea
+P: Alyssa
+
+
+----
+C: Jeffrey is not an attorney. Tyler is.
+Q: Who is an attorney?
+A: Tyler
+P: Jeffrey
+
+C: Tyler is an attorney. Jeffrey is not.
+Q: Who is not an attorney?
+A: Jeffrey
+P: Tyler
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Sean is an actress. Christian is an auditor.
+Q: Who is not an actress?
+A: Christian
+P: Sean
+
+C: Sean is an actress. Christian is an auditor.
+Q: Who is an auditor?
+A: Christian
+P: Sean
+
+C: Christian is an auditor. Sean is an actress.
+Q: Who is an auditor?
+A: Christian
+P: Sean
+
+
+----
+C: Adam is a photographer. Jacob is an attorney.
+Q: Who is not a photographer?
+A: Jacob
+P: Adam
+
+C: Adam is a photographer. Jacob is an attorney.
+Q: Who is an attorney?
+A: Jacob
+P: Adam
+
+C: Jacob is an attorney. Adam is a photographer.
+Q: Who is not a photographer?
+A: Jacob
+P: Adam
+
+
+----
+C: Tyler is an engineer. Christian is an organizer.
+Q: Who is not an engineer?
+A: Christian
+P: Tyler
+
+C: Tyler is an engineer. Christian is an organizer.
+Q: Who is an organizer?
+A: Christian
+P: Tyler
+
+C: Christian is an organizer. Tyler is an engineer.
+Q: Who is not an engineer?
+A: Christian
+P: Tyler
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Logan and Mary are friends. He is an interpreter, and she is an artist.
+Q: Who is an artist?
+A: Mary
+P: Logan
+
+C: Mary and Logan are friends. He is an interpreter, and she is an artist.
+Q: Who is an artist?
+A: Mary
+P: Logan
+
+C: Logan and Mary are friends. She is an artist, and he is an interpreter.
+Q: Who is an artist?
+A: Mary
+P: Logan
+
+
+----
+C: Thomas and Sarah are friends. He is an author, and she is an investigator.
+Q: Who is an investigator?
+A: Sarah
+P: Thomas
+
+C: Sarah and Thomas are friends. He is an author, and she is an investigator.
+Q: Who is an investigator?
+A: Sarah
+P: Thomas
+
+C: Thomas and Sarah are friends. She is an investigator, and he is an author.
+Q: Who is an investigator?
+A: Sarah
+P: Thomas
+
+
+----
+C: Antonio and Isabella are friends. He is an engineer, and she is an activist.
+Q: Who is an engineer?
+A: Antonio
+P: Isabella
+
+C: Isabella and Antonio are friends. He is an engineer, and she is an activist.
+Q: Who is an engineer?
+A: Antonio
+P: Isabella
+
+C: Antonio and Isabella are friends. She is an activist, and he is an engineer.
+Q: Who is an engineer?
+A: Antonio
+P: Isabella
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    301 (60.2%)
+
+Example fails:
+C: Grace and Thomas are friends. His mom is an editor.
+Q: Whose mom is an editor?
+A: Thomas
+P: Grace
+
+
+----
+C: Antonio and Tracy are friends. His mom is a photographer.
+Q: Whose mom is a photographer?
+A: Antonio
+P: Antonio and Tracy
+
+C: Tracy and Antonio are friends. His mom is a photographer.
+Q: Whose mom is a photographer?
+A: Antonio
+P: Tracy
+
+
+----
+C: Leslie and Liam are friends. His mom is an engineer.
+Q: Whose mom is an engineer?
+A: Liam
+P: Leslie
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    271 (57.1%)
+
+Example fails:
+C: Dylan and William are friends. The latter is an editor.
+Q: Who is an editor?
+A: William
+P: Dylan
+
+C: William and Dylan are friends. The former is an editor and the latter is an agent.
+Q: Who is an editor?
+A: William
+P: William and Dylan
+
+C: Dylan and William are friends. The former is an agent and the latter is an editor.
+Q: Who is an editor?
+A: William
+P: Dylan
+
+
+----
+C: Richard and Aaron are friends. The former is a historian.
+Q: Who is a historian?
+A: Richard
+P: Aaron
+
+C: Aaron and Richard are friends. The latter is a historian.
+Q: Who is a historian?
+A: Richard
+P: Aaron
+
+C: Richard and Aaron are friends. The former is a historian and the latter is an assistant.
+Q: Who is a historian?
+A: Richard
+P: Aaron
+
+
+----
+C: Rebecca and Maria are friends. The former is an educator.
+Q: Who is an educator?
+A: Rebecca
+P: Maria
+
+C: Maria and Rebecca are friends. The latter is an educator.
+Q: Who is an educator?
+A: Rebecca
+P: Maria
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    467 (94.0%)
+
+Example fails:
+C: Justin attacks Christian.
+Q: Who is attacked?
+A: Christian
+P: Justin
+
+C: Christian is attacked by Justin.
+Q: Who attacks?
+A: Justin
+P: Christian
+
+
+----
+C: Nicholas supports Abigail.
+Q: Who is supported?
+A: Abigail
+P: Nicholas
+
+
+----
+C: Jennifer believes Steven.
+Q: Who is believed?
+A: Steven
+P: Jennifer
+
+C: Steven is believed by Jennifer.
+Q: Who is believed?
+A: Steven
+P: Jennifer
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Anna follows Jessica. Jessica follows Anthony.
+Q: Who follows Anthony?
+A: Jessica
+P: Anna
+
+C: Anna follows Jessica. Jessica follows Anthony.
+Q: Who is followed by Jessica?
+A: Anthony
+P: Anna
+
+C: Anna follows Jessica. Anthony is followed by Jessica.
+Q: Who follows Jessica?
+A: Anna
+P: Anthony
+
+
+----
+C: Jacob hurts Eric. Brian is hurt by Eric.
+Q: Who hurts Eric?
+A: Jacob
+P: Brian
+
+C: Jacob hurts Eric. Brian is hurt by Eric.
+Q: Who hurts Brian?
+A: Eric
+P: Jacob
+
+C: Eric is hurt by Jacob. Eric hurts Brian.
+Q: Who is hurt by Eric?
+A: Brian
+P: Jacob
+
+
+----
+C: Alexis bothers Joseph. Joseph bothers Hannah.
+Q: Who bothers Hannah?
+A: Joseph
+P: Alexis
+
+C: Alexis bothers Joseph. Joseph bothers Hannah.
+Q: Who is bothered by Joseph?
+A: Hannah
+P: Alexis
+
+C: Alexis bothers Joseph. Hannah is bothered by Joseph.
+Q: Who bothers Hannah?
+A: Joseph
+P: Alexis
+
+
+----
+
+
+

@@ -1,0 +1,5 @@
+transformers==4.23.0
+datasets==2.6.1
+tqdm
+torch
+checklist

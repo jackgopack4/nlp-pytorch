@@ -1,0 +1,1030 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    494 (100.0%)
+
+Example fails:
+C: Jonathan is younger than Maria.
+Q: Who is less young?
+A: Maria
+P: Jonathan
+
+
+----
+C: Christian is faster than Lisa.
+Q: Who is less fast?
+A: Lisa
+P: Christian
+
+
+----
+C: Kyle is cleaner than Michael.
+Q: Who is less clean?
+A: Michael
+P: Kyle
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    496 (99.8%)
+
+Example fails:
+C: Timothy is quite optimistic about the project. Emily is optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Emily
+P: Timothy
+
+C: Emily is optimistic about the project. Timothy is quite optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Emily
+P: Timothy
+
+C: Timothy is optimistic about the project. Emily is a little optimistic about the project.
+Q: Who is most optimistic about the project?
+A: Timothy
+P: Emily
+
+
+----
+C: Thomas is really concerned about the project. Scott is concerned about the project.
+Q: Who is least concerned about the project?
+A: Scott
+P: Thomas
+
+C: Scott is concerned about the project. Thomas is really concerned about the project.
+Q: Who is least concerned about the project?
+A: Scott
+P: Thomas
+
+C: Thomas is concerned about the project. Scott is slightly concerned about the project.
+Q: Who is most concerned about the project?
+A: Thomas
+P: Scott
+
+
+----
+C: Alexis is particularly passionate about the project. Jeremy is passionate about the project.
+Q: Who is least passionate about the project?
+A: Jeremy
+P: Alexis
+
+C: Jeremy is passionate about the project. Alexis is particularly passionate about the project.
+Q: Who is least passionate about the project?
+A: Jeremy
+P: Alexis
+
+C: Alexis is passionate about the project. Jeremy is mildly passionate about the project.
+Q: Who is least passionate about the project?
+A: Jeremy
+P: Alexis is passionate about the project. Jeremy
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    478 (95.6%)
+
+Example fails:
+C: There is a tiny blue toy in the room.
+Q: What size is the toy?
+A: tiny
+P: blue
+
+C: There is a toy in the room. The toy is tiny and blue.
+Q: What size is the toy?
+A: tiny
+P: tiny and blue
+
+
+----
+C: There is a round orange box in the room.
+Q: What shape is the box?
+A: round
+P: round orange
+
+C: There is a box in the room. The box is round and orange.
+Q: What shape is the box?
+A: round
+P: round and orange
+
+
+----
+C: There is a small red box in the room.
+Q: What size is the box?
+A: small
+P: small red box
+
+C: There is a box in the room. The box is small and red.
+Q: What size is the box?
+A: small
+P: small and red
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    225 (45.0%)
+
+Example fails:
+C: Jeffrey is a Russian intern.
+Q: What is Jeffrey's job?
+A: intern
+P: Russian intern
+
+C: Jeffrey is Russian and an intern.
+Q: What is Jeffrey's job?
+A: intern
+P: Russian and an intern
+
+
+----
+C: Mark is an Indian academic.
+Q: What is Mark's job?
+A: academic
+P: Indian academic
+
+C: Mark is an academic and Indian.
+Q: What is Mark's job?
+A: academic
+P: academic and Indian
+
+
+----
+C: Jessica is a Japanese activist.
+Q: What is Jessica's job?
+A: activist
+P: Japanese activist
+
+C: Jessica is Japanese and an activist.
+Q: What is Jessica's job?
+A: activist
+P: Japanese and an activist
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    409 (81.8%)
+
+Example fails:
+C: Michelle has a hamster and a car.
+Q: What vehicle does Michelle have?
+A: car
+P: a hamster
+
+
+----
+C: Jessica has a dog and a car.
+Q: What vehicle does Jessica have?
+A: car
+P: a dog and a car
+
+
+----
+C: Noah has a lizard and a train.
+Q: What vehicle does Noah have?
+A: train
+P: lizard
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    162 (32.7%)
+
+Example fails:
+C: Jacob bought a dog. Brandon bought a firetruck.
+Q: Who bought a vehicle?
+A: Brandon
+P: Jacob
+
+C: Brandon bought a firetruck. Jacob bought a dog.
+Q: Who bought a vehicle?
+A: Brandon
+P: Jacob
+
+
+----
+C: Katherine bought a fish. Amber bought a SUV.
+Q: Who bought an animal?
+A: Katherine
+P: Amber
+
+
+----
+C: Kyle bought a serpent. Abigail bought a firetruck.
+Q: Who bought a vehicle?
+A: Abigail
+P: Kyle
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    5 (1.1%)
+
+Example fails:
+C: Taylor is very vocal. Jose is very courageous.
+Q: Who is outspoken?
+A: Taylor
+P: Jose
+
+
+----
+C: Joshua is very modest. Kimberly is very brave.
+Q: Who is humble?
+A: Joshua
+P: Kimberly
+
+
+----
+C: Abigail is very happy. Andrew is very grateful.
+Q: Who is joyful?
+A: Abigail
+P: Andrew
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Jacob is louder than Amber.
+Q: Who is quieter?
+A: Amber
+P: Jacob
+
+C: Amber is quieter than Jacob.
+Q: Who is louder?
+A: Jacob
+P: Amber
+
+
+----
+C: William is bigger than Justin.
+Q: Who is smaller?
+A: Justin
+P: William
+
+C: Justin is smaller than William.
+Q: Who is bigger?
+A: William
+P: Justin
+
+
+----
+C: Heather is richer than Jonathan.
+Q: Who is poorer?
+A: Jonathan
+P: Heather
+
+C: Jonathan is poorer than Heather.
+Q: Who is richer?
+A: Heather
+P: Jonathan
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Natalie is more progressive than Timothy.
+Q: Who is less progressive?
+A: Timothy
+P: Natalie
+
+C: Natalie is more progressive than Timothy.
+Q: Who is more conservative?
+A: Timothy
+P: Natalie
+
+C: Timothy is more conservative than Natalie.
+Q: Who is more progressive?
+A: Natalie
+P: Timothy
+
+
+----
+C: Justin is more stupid than Samantha.
+Q: Who is less stupid?
+A: Samantha
+P: Justin
+
+C: Justin is more stupid than Samantha.
+Q: Who is more smart?
+A: Samantha
+P: Justin
+
+C: Samantha is more smart than Justin.
+Q: Who is more stupid?
+A: Justin
+P: Samantha
+
+
+----
+C: Sara is more insecure than Adam.
+Q: Who is less insecure?
+A: Adam
+P: Sara
+
+C: Sara is more insecure than Adam.
+Q: Who is more secure?
+A: Adam
+P: Sara
+
+C: Adam is more secure than Sara.
+Q: Who is more insecure?
+A: Sara
+P: Adam
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    108 (21.6%)
+
+Example fails:
+C: Many questions regarding prime numbers remain open, such as Goldbach's conjecture (that every even integer greater than 2 can be expressed as the sum of two primes), and the twin prime conjecture (that there are infinitely many pairs of primes whose difference is 2). Such questions spurred the development of various branches of number theory, focusing on analytic or algebraic aspects of numbers. Primes are used in several routines in information technology, such as public-key cryptography, which makes use of properties such as the difficulty of factoring large numbers into their prime factors. Prime numbers give rise to various generalizations in other mathematical domains, mainly algebra, such as prime elements and prime ideals.
+Q: Besides the analytic property of numbers, what other property of numbers does number theory focus on?
+P: algebraic aspects
+
+C: Many questions regarding prime numbers remain open, such as Goldbach's conjecture (that every even integer greater than 2 can be expressed as the sum of two primes), and the twin prime conjecture (that there are infinitely many pairs of primes whose difference is 2). Such questions spurred the development of various branches of number theory, focusing on analytic or algebraic aspects of numbers. Primes are used in several routines in information technology, such as public-key cryptography, which makes use of properties such as the difficulty of factoring large numbers into their prime factors. Prime numbers give rise to various generalizations in other mathematical domains, mainly algebra, such as prime elements and prime ideals.
+Q: Besides the analytic property of numbers, what other property of nmubers does number theory focus on?
+P: algebraic
+
+
+----
+C: A regulation of the Rhine was called for, with an upper canal near Diepoldsau and a lower canal at Fußach, in order to counteract the constant flooding and strong sedimentation in the western Rhine Delta. The Dornbirner Ach had to be diverted, too, and it now flows parallel to the canalized Rhine into the lake. Its water has a darker color than the Rhine; the latter's lighter suspended load comes from higher up the mountains. It is expected that the continuous input of sediment into the lake will silt up the lake. This has already happened to the former Lake Tuggenersee.
+Q: What will cause the lake near the Rhine to silt up?
+P: the continuous input of sediment
+
+C: A regulation of the Rhine was called for, with an upper canal near Diepoldsau and a lower canal at Fußach, in order to counteract the constant flooding and strong sedimentation in the western Rhine Delta. The Dornbirner Ach had to be diverted, too, and it now flows parallel to the canalized Rhine into the lake. Its water has a darker color than the Rhine; the latter's lighter suspended load comes from higher up the mountains. It is expected that the continuous input of sediment into the lake will silt up the lake. This has already happened to the former Lake Tuggenersee.
+Q: What will casue the lake near the Rhine to silt up?
+P: sediment
+
+
+----
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: What work is useful for pastors?
+P: Larger Catechism
+
+C: Luther's Small Catechism proved especially effective in helping parents teach their children; likewise the Larger Catechism was effective for pastors. Using the German vernacular, they expressed the Apostles' Creed in simpler, more personal, Trinitarian language. He rewrote each article of the Creed to express the character of the Father, the Son, or the Holy Spirit. Luther's goal was to enable the catechumens to see themselves as a personal object of the work of the three persons of the Trinity, each of which works in the catechumen's life. That is, Luther depicted the Trinity not as a doctrine to be learned, but as persons to be known. The Father creates, the Son redeems, and the Spirit sanctifies, a divine unity with separate personalities. Salvation originates with the Father and draws the believer to the Father. Luther's treatment of the Apostles' Creed must be understood in the context of the Decalogue (the Ten Commandments) and the Lord's Prayer, which are also part of the Lutheran catechical teaching.
+Q: What work is useful for pastor?s
+P: Small Catechism
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    47 (9.4%)
+
+Example fails:
+C: On 17 May 1899, Tesla moved to Colorado Springs, where he would have room for his high-voltage, high-frequency experiments; his lab was located near Foote Ave. and Kiowa St. He chose this location because the polyphase alternating current power distribution system had been introduced there and he had associates who were willing to give him all the power he needed without charging for it. Upon his arrival, he told reporters that he was conducting wireless telegraphy experiments, transmitting signals from Pikes Peak to Paris.[citation needed] The 1978 book Colorado Springs Notes, 1899–1900 contains descriptions of Tesla's experiments. On 15 June 1899, Tesla performed his first experiments at his Colorado Springs lab; he recorded his initial spark length at five inches long, but very thick and noisy.
+Q:  Where did he claim he would transport energy to?
+P: Pikes Peak to Paris
+
+C: On 17 May 1899, Tesla moved to Colorado Springs, where he would have room for his high-voltage, high-frequency experiments; his lab was located near Foote Ave. and Kiowa St. He chose this location because the polyphase alternating current power distribution system had been introduced there and he had associates who were willing to give him all the power he needed without charging for it. Upon his arrival, he told reporters that he was conducting wireless telegraphy experiments, transmitting signals from Pikes Peak to Paris.[citation needed] The 1978 book Colorado Springs Notes, 1899–1900 contains descriptions of Tesla's experiments. On 15 June 1899, Tesla performed his first experiments at his Colorado Springs lab; he recorded his initial spark length at five inches long, but very thick and noisy.
+Q:  Where'd he claim he would transport energy to?
+P: Paris
+
+
+----
+C: Proportionality is recognised one of the general principles of European Union law by the European Court of Justice since the 1950s. According to the general principle of proportionality the lawfulness of an action depends on whether it was appropriate and necessary to achieve the objectives legitimately pursued. When there is a choice between several appropriate measures the least onerous must be adopted, and any disadvantage caused must not be disproportionate to the aims pursued. The principle of proportionality is also recognised in Article 5 of the EC Treaty, stating that "any action by the Community shall not go beyond what is necessary to achieve the objectives of this Treaty".
+Q: Which measure must be adopted when there is a choice between several?
+P: the least onerous
+
+C: Proportionality is recognised one of the general principles of European Union law by the European Court of Justice since the 1950s. According to the general principle of proportionality the lawfulness of an action depends on whether it was appropriate and necessary to achieve the objectives legitimately pursued. When there is a choice between several appropriate measures the least onerous must be adopted, and any disadvantage caused must not be disproportionate to the aims pursued. The principle of proportionality is also recognised in Article 5 of the EC Treaty, stating that "any action by the Community shall not go beyond what is necessary to achieve the objectives of this Treaty".
+Q: Which measure must be adopted when there's a choice between several?
+P: least onerous
+
+
+----
+C: It is a common misconception to ascribe the stiffness and rigidity of solid matter to the repulsion of like charges under the influence of the electromagnetic force. However, these characteristics actually result from the Pauli exclusion principle.[citation needed] Since electrons are fermions, they cannot occupy the same quantum mechanical state as other electrons. When the electrons in a material are densely packed together, there are not enough lower energy quantum mechanical states for them all, so some of them must be in higher energy states. This means that it takes energy to pack them together. While this effect is manifested macroscopically as a structural force, it is technically only the result of the existence of a finite set of electron states.
+Q: How is the Pauli exclusion priciple manifested in the macro world?
+P: as a structural force
+
+C: It is a common misconception to ascribe the stiffness and rigidity of solid matter to the repulsion of like charges under the influence of the electromagnetic force. However, these characteristics actually result from the Pauli exclusion principle.[citation needed] Since electrons are fermions, they cannot occupy the same quantum mechanical state as other electrons. When the electrons in a material are densely packed together, there are not enough lower energy quantum mechanical states for them all, so some of them must be in higher energy states. This means that it takes energy to pack them together. While this effect is manifested macroscopically as a structural force, it is technically only the result of the existence of a finite set of electron states.
+Q: How's the Pauli exclusion priciple manifested in the macro world?
+P: a finite set of electron states
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    82 (16.4%)
+
+Example fails:
+C: For the salary year beginning April 2008, unpromoted teachers in Scotland earned from £20,427 for a Probationer, up to £32,583 after 6 years teaching, but could then go on to earn up to £39,942 as they complete the modules to earn Chartered Teacher Status (requiring at least 6 years at up to two modules per year.) Promotion to Principal Teacher positions attracts a salary of between £34,566 and £44,616; Deputy Head, and Head teachers earn from £40,290 to £78,642. Teachers in Scotland can be registered members of trade unions with the main ones being the Educational Institute of Scotland and the Scottish Secondary Teachers' Association.
+Q: What would a Probationer need to do to earn more money, after 6 years?
+P: teaching
+
+C: It has been argued that the term "civil disobedience" has always suffered from ambiguity and in modern times, become utterly debased. For the salary year beginning April 2008, unpromoted teachers in Scotland earned from £20,427 for a Probationer, up to £32,583 after 6 years teaching, but could then go on to earn up to £39,942 as they complete the modules to earn Chartered Teacher Status (requiring at least 6 years at up to two modules per year.) Promotion to Principal Teacher positions attracts a salary of between £34,566 and £44,616; Deputy Head, and Head teachers earn from £40,290 to £78,642. Teachers in Scotland can be registered members of trade unions with the main ones being the Educational Institute of Scotland and the Scottish Secondary Teachers' Association.
+Q: What would a Probationer need to do to earn more money, after 6 years?
+P: complete the modules
+
+
+----
+C: Temüjin began his ascent to power by offering himself as an ally (or, according to other sources, a vassal) to his father's anda (sworn brother or blood brother) Toghrul, who was Khan of the Keraites, and is better known by the Chinese title "Wang Khan", which the Jurchen Jin dynasty granted him in 1197. This relationship was first reinforced when Börte was captured by the Merkits. Temüjin turned to Toghrul for support, and in response, Toghrul offered his vassal 20,000 of his Keraite warriors and suggested that he also involve his childhood friend Jamukha, who had himself become Khan (ruler) of his own tribe, the Jadaran.
+Q: With whom was Temüjin's first important alliance?
+P: Toghrul
+
+C: Temüjin began his ascent to power by offering himself as an ally (or, according to other sources, a vassal) to his father's anda (sworn brother or blood brother) Toghrul, who was Khan of the Keraites, and is better known by the Chinese title "Wang Khan", which the Jurchen Jin dynasty granted him in 1197. This relationship was first reinforced when Börte was captured by the Merkits. Temüjin turned to Toghrul for support, and in response, Toghrul offered his vassal 20,000 of his Keraite warriors and suggested that he also involve his childhood friend Jamukha, who had himself become Khan (ruler) of his own tribe, the Jadaran.It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide. 
+Q: With whom was Temüjin's first important alliance?
+P: his father's anda (sworn brother or blood brother) Toghrul
+
+
+----
+C: Courts have distinguished between two types of civil disobedience: "Indirect civil disobedience involves violating a law which is not, itself, the object of protest, whereas direct civil disobedience involves protesting the existence of a particular law by breaking that law." During the Vietnam War, courts typically refused to excuse the perpetrators of illegal protests from punishment on the basis of their challenging the legality of the Vietnam War; the courts ruled it was a political question. The necessity defense has sometimes been used as a shadow defense by civil disobedients to deny guilt without denouncing their politically motivated acts, and to present their political beliefs in the courtroom. However, court cases such as U.S. v. Schoon have greatly curtailed the availability of the political necessity defense. Likewise, when Carter Wentworth was charged for his role in the Clamshell Alliance's 1977 illegal occupation of the Seabrook Station Nuclear Power Plant, the judge instructed the jury to disregard his competing harms defense, and he was found guilty. Fully Informed Jury Association activists have sometimes handed out educational leaflets inside courthouses despite admonitions not to; according to FIJA, many of them have escaped prosecution because "prosecutors have reasoned (correctly) that if they arrest fully informed jury leafleters, the leaflets will have to be given to the leafleter's own jury as evidence."
+Q: Why are people who distribute leaflets inside courthouses not been arrested?
+P: prosecutors have reasoned (correctly) that if they arrest fully informed jury leafleters
+
+C: The project must adhere to zoning and building code requirements. Courts have distinguished between two types of civil disobedience: "Indirect civil disobedience involves violating a law which is not, itself, the object of protest, whereas direct civil disobedience involves protesting the existence of a particular law by breaking that law." During the Vietnam War, courts typically refused to excuse the perpetrators of illegal protests from punishment on the basis of their challenging the legality of the Vietnam War; the courts ruled it was a political question. The necessity defense has sometimes been used as a shadow defense by civil disobedients to deny guilt without denouncing their politically motivated acts, and to present their political beliefs in the courtroom. However, court cases such as U.S. v. Schoon have greatly curtailed the availability of the political necessity defense. Likewise, when Carter Wentworth was charged for his role in the Clamshell Alliance's 1977 illegal occupation of the Seabrook Station Nuclear Power Plant, the judge instructed the jury to disregard his competing harms defense, and he was found guilty. Fully Informed Jury Association activists have sometimes handed out educational leaflets inside courthouses despite admonitions not to; according to FIJA, many of them have escaped prosecution because "prosecutors have reasoned (correctly) that if they arrest fully informed jury leafleters, the leaflets will have to be given to the leafleter's own jury as evidence."
+Q: Why are people who distribute leaflets inside courthouses not been arrested?
+P: "prosecutors have reasoned (correctly) that if they arrest fully informed jury leafleters
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    41 (8.2%)
+
+Example fails:
+C: In 1882, Tesla began working for the Continental Edison Company in France, designing and making improvements to electrical equipment. In June 1884, he relocated to New York City:57–60 where he was hired by Thomas Edison to work at his Edison Machine Works on Manhattan's lower east side. Tesla's work for Edison began with simple electrical engineering and quickly progressed to solving more difficult problems.
+Q: Where did Tesla begin a new job at in 1882?
+P: France
+
+C: In 1882, Brooke began working for the Continental Edison Company in France, designing and making improvements to electrical equipment. In June 1884, he relocated to New York City:57–60 where he was hired by Thomas Edison to work at his Edison Machine Works on Manhattan's lower east side. Brooke's work for Edison began with simple electrical engineering and quickly progressed to solving more difficult problems.
+Q: Where did Brooke begin a new job at in 1882?
+P: Continental Edison Company in France
+
+
+----
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Newton, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Newton did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Josh Norman gave the Broncos a new set of downs. Then Anderson scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: Who fumbled the ball on 3rd-and-9?
+P: Newton
+
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Newton, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Newton did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Joshua Barnes gave the Broncos a new set of downs. Then Anderson scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: Who fumbled the ball on 3rd-and-9?
+P: Carolina
+
+C: With 4:51 left in regulation, Carolina got the ball on their own 24-yard line with a chance to mount a game-winning drive, and soon faced 3rd-and-9. On the next play, Miller stripped the ball away from Newton, and after several players dove for it, it took a long bounce backwards and was recovered by Ward, who returned it five yards to the Panthers 4-yard line. Although several players dove into the pile to attempt to recover it, Newton did not and his lack of aggression later earned him heavy criticism. Meanwhile, Denver's offense was kept out of the end zone for three plays, but a holding penalty on cornerback Josh Norman gave the Broncos a new set of downs. Then Michael scored on a 2-yard touchdown run and Manning completed a pass to Bennie Fowler for a 2-point conversion, giving Denver a 24–10 lead with 3:08 left and essentially putting the game away. Carolina had two more drives, but failed to get a first down on each one.
+Q: Who fumbled the ball on 3rd-and-9?
+P: Carolina
+
+
+----
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Tesla's relationship with Morgan.[improper synthesis?] Over the next five years, Tesla wrote over 50 letters to Morgan, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Tesla continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Tesla wrote to Morgan that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Morgan finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Tesla had written to Morgan when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Marconi successfully transmitted the letter S from England to Newfoundland
+
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Tesla's relationship with Ava.[improper synthesis?] Over the next five years, Tesla wrote over 50 letters to Ava, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Tesla continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Tesla wrote to Ava that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Ava finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Tesla had written to Ava when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Marconi successfully transmitted the letter S from England to Newfoundland, terminating Tesla's relationship with Ava
+
+C: In December 1901, Marconi successfully transmitted the letter S from England to Newfoundland, terminating Destiny's relationship with Morgan.[improper synthesis?] Over the next five years, Destiny wrote over 50 letters to Morgan, pleading for and demanding additional funding to complete the construction of Wardenclyffe. Destiny continued the project for another nine months. The tower was erected to its full 187 feet (57 m). In July 1903, Destiny wrote to Morgan that in addition to wireless communication, Wardenclyffe would be capable of wireless transmission of electric power. On 14 October 1904, Morgan finally replied through his secretary, stating, "It will be impossible for [me] to do anything in the matter," after Destiny had written to Morgan when the financier was meeting with the Archbishop of Canterbury in an attempt to appeal to his Christian spirit.
+Q: What happened in 1901?
+P: Marconi successfully transmitted the letter S from England to Newfoundland, terminating Destiny's relationship with Morgan
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    70 (14.0%)
+
+Example fails:
+C: Braddock (with George Washington as one of his aides) led about 1,500 army troops and provincial militia on an expedition in June 1755 to take Fort Duquesne. The expedition was a disaster. It was attacked by French and Indian soldiers ambushing them from up in trees and behind logs. Braddock called for a retreat. He was killed. Approximately 1,000 British soldiers were killed or injured. The remaining 500 British troops, led by George Washington, retreated to Virginia. Two future opponents in the American Revolutionary War, Washington and Thomas Gage, played key roles in organizing the retreat.
+Q: How much success did this expedition with Braddock find?
+P: about 1,500
+
+C: Braddock (with George Yakima as one of his aides) led about 1,500 army troops and provincial militia on an expedition in June 1755 to take Fort Duquesne. The expedition was a disaster. It was attacked by French and Indian soldiers ambushing them from up in trees and behind logs. Braddock called for a retreat. He was killed. Approximately 1,000 British soldiers were killed or injured. The remaining 500 British troops, led by George Yakima, retreated to Virginia. Two future opponents in the American Revolutionary War, Yakima and Thomas Gage, played key roles in organizing the retreat.
+Q: How much success did this expedition with Braddock find?
+P: 1,500
+
+
+----
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Kenya and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Kenya, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Kenya has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Kenya?
+P: Christian
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in France and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in France, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, France has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in France?
+P: The Presbyterian Church of East Africa
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in St. Kitts and Nevis and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in St. Kitts and Nevis, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, St. Kitts and Nevis has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in St. Kitts and Nevis?
+P: Quakers
+
+
+----
+C: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.
+Q: Name one country that banned boating, driving and flying on Sundays.
+P: Norway
+
+C: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Turks and Caicos Islands banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.
+Q: Name one country that banned boating, driving and flying on Sundays.
+P: Germany
+
+C: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Cambodia, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.
+Q: Name one country that banned boating, driving and flying on Sundays.
+P: Cambodia, Italy, Switzerland and Norway
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    719 (36.0%)
+
+Example fails:
+C: Laura is not a doctor, Noah is.
+Q: Who is a doctor?
+A: Noah
+P: Laura
+
+----
+C: Abigail is not a nurse, Steven is.
+Q: Who is a nurse?
+A: Steven
+P: Abigail
+
+----
+C: Jeremiah is not a doctor, Mia is.
+Q: Who is a doctor?
+A: Mia
+P: Jeremiah
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    25 (5.2%)
+
+Example fails:
+C: Both Kelly and Hannah were agents, but there was a change in Hannah, who is now an auditor.
+Q: Who is an auditor?
+A: Hannah
+P: Kelly and Hannah were agents, but there was a change in Hannah
+
+
+----
+C: Both Tyler and Austin were organizers, but there was a change in Austin, who is now an actor.
+Q: Who is an actor?
+A: Austin
+P: Tyler and Austin were organizers, but there was a change in Austin
+
+
+----
+C: Both Jacob and Kyle were activists, but there was a change in Jacob, who is now an architect.
+Q: Who is an architect?
+A: Jacob
+P: Jacob and Kyle were activists, but there was a change in Jacob
+
+C: Both Kyle and Jacob were activists, but there was a change in Jacob, who is now an architect.
+Q: Who is an architect?
+A: Jacob
+P: Kyle and Jacob were activists, but there was a change in Jacob
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Richard became a entrepreneur before Megan did.
+Q: Who became a entrepreneur last?
+A: Megan
+P: Richard
+
+C: Megan became a entrepreneur after Richard did.
+Q: Who became a entrepreneur last?
+A: Megan
+P: Richard
+
+
+----
+C: Heather became a advisor before Anthony did.
+Q: Who became a advisor first?
+A: Heather
+P: Anthony
+
+C: Heather became a advisor before Anthony did.
+Q: Who became a advisor last?
+A: Anthony
+P: Heather
+
+
+----
+C: Kevin became a organizer before Angela did.
+Q: Who became a organizer last?
+A: Angela
+P: Kevin
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    437 (87.6%)
+
+Example fails:
+C: Amanda is not an editor. Christina is.
+Q: Who is an editor?
+A: Christina
+P: Amanda
+
+
+----
+C: Timothy is not an investigator. Samantha is.
+Q: Who is an investigator?
+A: Samantha
+P: Timothy
+
+
+----
+C: Nicholas is not an escort. Timothy is.
+Q: Who is an escort?
+A: Timothy
+P: Nicholas
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Alyssa is an activist. Scott is an executive.
+Q: Who is not an activist?
+A: Scott
+P: Alyssa
+
+C: Alyssa is an activist. Scott is an executive.
+Q: Who is not an executive?
+A: Alyssa
+P: Scott
+
+C: Scott is an executive. Alyssa is an activist.
+Q: Who is not an activist?
+A: Scott
+P: Alyssa
+
+
+----
+C: David is an artist. Jessica is an organizer.
+Q: Who is not an artist?
+A: Jessica
+P: David
+
+C: David is an artist. Jessica is an organizer.
+Q: Who is not an organizer?
+A: David
+P: Jessica
+
+C: Jessica is an organizer. David is an artist.
+Q: Who is not an artist?
+A: Jessica
+P: David
+
+
+----
+C: Alexander is an advisor. Erin is an accountant.
+Q: Who is not an advisor?
+A: Erin
+P: Alexander
+
+C: Alexander is an advisor. Erin is an accountant.
+Q: Who is not an accountant?
+A: Alexander
+P: Erin
+
+C: Erin is an accountant. Alexander is an advisor.
+Q: Who is not an advisor?
+A: Erin
+P: Alexander
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Thomas and Alyssa are friends. He is an investor, and she is a photographer.
+Q: Who is an investor?
+A: Thomas
+P: Thomas and Alyssa
+
+C: Thomas and Alyssa are friends. He is an investor, and she is a photographer.
+Q: Who is a photographer?
+A: Alyssa
+P: Thomas and Alyssa
+
+C: Alyssa and Thomas are friends. He is an investor, and she is a photographer.
+Q: Who is an investor?
+A: Thomas
+P: Alyssa and Thomas
+
+
+----
+C: James and Jacqueline are friends. He is an executive, and she is an administrator.
+Q: Who is an executive?
+A: James
+P: James and Jacqueline
+
+C: James and Jacqueline are friends. He is an executive, and she is an administrator.
+Q: Who is an administrator?
+A: Jacqueline
+P: James and Jacqueline
+
+C: Jacqueline and James are friends. He is an executive, and she is an administrator.
+Q: Who is an executive?
+A: James
+P: Jacqueline and James
+
+
+----
+C: Jackson and Karen are friends. He is an educator, and she is an investigator.
+Q: Who is an educator?
+A: Jackson
+P: Jackson and Karen
+
+C: Jackson and Karen are friends. He is an educator, and she is an investigator.
+Q: Who is an investigator?
+A: Karen
+P: Jackson and Karen
+
+C: Karen and Jackson are friends. He is an educator, and she is an investigator.
+Q: Who is an educator?
+A: Jackson
+P: Karen and Jackson
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    498 (99.6%)
+
+Example fails:
+C: Jayden and Patricia are friends. Her mom is an advisor.
+Q: Whose mom is an advisor?
+A: Patricia
+P: Jayden
+
+C: Patricia and Jayden are friends. Her mom is an advisor.
+Q: Whose mom is an advisor?
+A: Patricia
+P: Patricia and Jayden
+
+
+----
+C: Marcus and Patricia are friends. Her mom is an auditor.
+Q: Whose mom is an auditor?
+A: Patricia
+P: Marcus and Patricia
+
+C: Patricia and Marcus are friends. Her mom is an auditor.
+Q: Whose mom is an auditor?
+A: Patricia
+P: Patricia and Marcus
+
+
+----
+C: Richard and Julie are friends. His mom is an administrator.
+Q: Whose mom is an administrator?
+A: Richard
+P: Richard and Julie
+
+C: Julie and Richard are friends. His mom is an administrator.
+Q: Whose mom is an administrator?
+A: Richard
+P: Julie and Richard
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Mark and Laura are friends. The former is an architect.
+Q: Who is an architect?
+A: Mark
+P: Mark and Laura
+
+C: Laura and Mark are friends. The latter is an architect.
+Q: Who is an architect?
+A: Mark
+P: Laura and Mark
+
+C: Mark and Laura are friends. The former is an architect and the latter is an executive.
+Q: Who is an architect?
+A: Mark
+P: Mark and Laura
+
+
+----
+C: Amber and Amanda are friends. The former is an artist.
+Q: Who is an artist?
+A: Amber
+P: Amber and Amanda
+
+C: Amanda and Amber are friends. The latter is an artist.
+Q: Who is an artist?
+A: Amber
+P: Amanda and Amber
+
+C: Amber and Amanda are friends. The former is an artist and the latter is an executive.
+Q: Who is an artist?
+A: Amber
+P: Amber and Amanda
+
+
+----
+C: Steven and Maria are friends. The former is a historian.
+Q: Who is a historian?
+A: Steven
+P: Steven and Maria
+
+C: Maria and Steven are friends. The latter is a historian.
+Q: Who is a historian?
+A: Steven
+P: Maria and Steven
+
+C: Steven and Maria are friends. The former is a historian and the latter is an intern.
+Q: Who is a historian?
+A: Steven
+P: Steven and Maria
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    464 (93.4%)
+
+Example fails:
+C: Richard bothers Elizabeth.
+Q: Who is bothered?
+A: Elizabeth
+P: Richard
+
+
+----
+C: Robert hates Zachary.
+Q: Who is hated?
+A: Zachary
+P: Robert
+
+
+----
+C: Zachary hurts Michelle.
+Q: Who is hurt?
+A: Michelle
+P: Zachary
+
+C: Michelle is hurt by Zachary.
+Q: Who hurts?
+A: Zachary
+P: Michelle
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Benjamin remembers Joshua. Joshua remembers Ethan.
+Q: Who remembers Joshua?
+A: Benjamin
+P: Ethan
+
+C: Joshua is remembered by Benjamin. Joshua remembers Ethan.
+Q: Who remembers Joshua?
+A: Benjamin
+P: Ethan
+
+C: Joshua is remembered by Benjamin. Joshua remembers Ethan.
+Q: Who is remembered by Joshua?
+A: Ethan
+P: Benjamin
+
+
+----
+C: Erin deserves Nathan. Nathan deserves Mary.
+Q: Who is deserved by Nathan?
+A: Mary
+P: Erin
+
+C: Erin deserves Nathan. Mary is deserved by Nathan.
+Q: Who deserves Mary?
+A: Nathan
+P: Erin
+
+C: Erin deserves Nathan. Mary is deserved by Nathan.
+Q: Who is deserved by Erin?
+A: Nathan
+P: Mary
+
+
+----
+C: Jose hurts Lauren. Abigail is hurt by Lauren.
+Q: Who hurts Abigail?
+A: Lauren
+P: Jose
+
+C: Jose hurts Lauren. Abigail is hurt by Lauren.
+Q: Who is hurt by Jose?
+A: Lauren
+P: Abigail
+
+C: Lauren is hurt by Jose. Lauren hurts Abigail.
+Q: Who is hurt by Lauren?
+A: Abigail
+P: Jose
+
+
+----
+
+
+

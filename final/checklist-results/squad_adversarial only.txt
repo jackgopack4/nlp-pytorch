@@ -1,0 +1,1233 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    494 (100.0%)
+
+Example fails:
+C: Jose is richer than Natalie.
+Q: Who is less rich?
+A: Natalie
+P: Jose is richer than Natalie
+
+C: Jose is richer than Natalie.
+Q: Who is richer?
+A: Jose
+P: Jose is richer than Natalie
+
+
+----
+C: Lisa is smaller than Amanda.
+Q: Who is less small?
+A: Amanda
+P: Lisa is smaller than Amanda
+
+C: Lisa is smaller than Amanda.
+Q: Who is smaller?
+A: Lisa
+P: Lisa is smaller than Amanda
+
+
+----
+C: Taylor is slower than Jonathan.
+Q: Who is less slow?
+A: Jonathan
+P: Taylor is slower than Jonathan
+
+C: Taylor is slower than Jonathan.
+Q: Who is slower?
+A: Taylor
+P: Taylor is slower than Jonathan
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Jessica is highly happy about the project. Kevin is happy about the project.
+Q: Who is least happy about the project?
+A: Kevin
+P: Jessica is highly happy about the project. Kevin
+
+C: Kevin is happy about the project. Jessica is highly happy about the project.
+Q: Who is most happy about the project?
+A: Jessica
+P: Kevin
+
+C: Jessica is happy about the project. Kevin is somewhat happy about the project.
+Q: Who is least happy about the project?
+A: Kevin
+P: Jessica is happy about the project. Kevin
+
+
+----
+C: Ethan is highly confident about the project. Steven is confident about the project.
+Q: Who is least confident about the project?
+A: Steven
+P: Ethan
+
+C: Steven is confident about the project. Ethan is highly confident about the project.
+Q: Who is most confident about the project?
+A: Ethan
+P: Steven is confident about the project. Ethan
+
+C: Steven is confident about the project. Ethan is highly confident about the project.
+Q: Who is least confident about the project?
+A: Steven
+P: Steven is confident about the project. Ethan
+
+
+----
+C: Taylor is particularly pessimistic about the project. Kevin is pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Kevin
+P: Taylor
+
+C: Kevin is pessimistic about the project. Taylor is particularly pessimistic about the project.
+Q: Who is most pessimistic about the project?
+A: Taylor
+P: Kevin is pessimistic about the project. Taylor
+
+C: Kevin is pessimistic about the project. Taylor is particularly pessimistic about the project.
+Q: Who is least pessimistic about the project?
+A: Kevin
+P: Kevin is pessimistic about the project. Taylor
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    500 (100.0%)
+
+Example fails:
+C: There is a small oval table in the room.
+Q: What size is the table?
+A: small
+P: small oval
+
+C: There is a small oval table in the room.
+Q: What shape is the table?
+A: oval
+P: a small oval
+
+C: There is a table in the room. The table is small and oval.
+Q: What size is the table?
+A: small
+P: small and oval
+
+
+----
+C: There is an enormous orange box in the room.
+Q: What size is the box?
+A: enormous
+P: orange
+
+C: There is a box in the room. The box is enormous and orange.
+Q: What size is the box?
+A: enormous
+P: enormous and orange
+
+
+----
+C: There is a small green thing in the room.
+Q: What size is the thing?
+A: small
+P: green
+
+C: There is a thing in the room. The thing is small and green.
+Q: What size is the thing?
+A: small
+P: small and green
+
+C: There is a thing in the room. The thing is small and green.
+Q: What color is the thing?
+A: green
+P: small and green
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    500 (100.0%)
+
+Example fails:
+C: Jason is a Brazilian artist.
+Q: What is Jason's job?
+A: artist
+P: Brazilian artist
+
+C: Jason is a Brazilian artist.
+Q: What is Jason's nationality?
+A: Brazilian
+P: a Brazilian artist
+
+C: Jason is an artist. Jason is Brazilian.
+Q: What is Jason's job?
+A: artist
+P: Brazilian
+
+
+----
+C: Danielle is an American investor.
+Q: What is Danielle's job?
+A: investor
+P: American investor
+
+C: Danielle is an American investor.
+Q: What is Danielle's nationality?
+A: American
+P: an American investor
+
+C: Danielle is an investor. Danielle is American.
+Q: What is Danielle's job?
+A: investor
+P: American
+
+
+----
+C: Kelly is an Indian assistant.
+Q: What is Kelly's job?
+A: assistant
+P: Indian assistant
+
+C: Kelly is an Indian assistant.
+Q: What is Kelly's nationality?
+A: Indian
+P: an Indian assistant
+
+C: Kelly is an assistant. Kelly is Indian.
+Q: What is Kelly's job?
+A: assistant
+P: Indian
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    499 (99.8%)
+
+Example fails:
+C: Timothy has a lizard and a van.
+Q: What animal does Timothy have?
+A: lizard
+P: a lizard and a van
+
+C: Timothy has a lizard and a van.
+Q: What vehicle does Timothy have?
+A: van
+P: a lizard and a van
+
+C: Timothy has a van and a lizard.
+Q: What animal does Timothy have?
+A: lizard
+P: a van and a lizard
+
+
+----
+C: Alexander has a bull and a van.
+Q: What animal does Alexander have?
+A: bull
+P: a bull and a van
+
+C: Alexander has a bull and a van.
+Q: What vehicle does Alexander have?
+A: van
+P: a bull and a van
+
+C: Alexander has a van and a bull.
+Q: What animal does Alexander have?
+A: bull
+P: a van and a bull
+
+
+----
+C: Scott has a duck and a SUV.
+Q: What animal does Scott have?
+A: duck
+P: a duck and a SUV
+
+C: Scott has a duck and a SUV.
+Q: What vehicle does Scott have?
+A: SUV
+P: a duck and a SUV
+
+C: Scott has a SUV and a duck.
+Q: What animal does Scott have?
+A: duck
+P: SUV and a duck
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Andrew bought a serpent. Stephanie bought a car.
+Q: Who bought an animal?
+A: Andrew
+P: Andrew bought a serpent
+
+C: Andrew bought a serpent. Stephanie bought a car.
+Q: Who bought a vehicle?
+A: Stephanie
+P: Andrew bought a serpent
+
+C: Stephanie bought a car. Andrew bought a serpent.
+Q: Who bought an animal?
+A: Andrew
+P: Stephanie bought a car
+
+
+----
+C: Justin bought a serpent. Christian bought a SUV.
+Q: Who bought an animal?
+A: Justin
+P: Justin bought a serpent
+
+C: Justin bought a serpent. Christian bought a SUV.
+Q: Who bought a vehicle?
+A: Christian
+P: Justin bought a serpent
+
+C: Christian bought a SUV. Justin bought a serpent.
+Q: Who bought an animal?
+A: Justin
+P: serpent
+
+
+----
+C: Jeffrey bought a cow. Joseph bought a car.
+Q: Who bought an animal?
+A: Jeffrey
+P: Jeffrey bought a cow
+
+C: Jeffrey bought a cow. Joseph bought a car.
+Q: Who bought a vehicle?
+A: Joseph
+P: Jeffrey bought a cow
+
+C: Joseph bought a car. Jeffrey bought a cow.
+Q: Who bought an animal?
+A: Jeffrey
+P: Joseph bought a car
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    447 (100.0%)
+
+Example fails:
+C: Michael is very brave. Rebecca is very modest.
+Q: Who is courageous?
+A: Michael
+P: Michael is very brave
+
+C: Michael is very brave. Rebecca is very modest.
+Q: Who is humble?
+A: Rebecca
+P: Michael is very brave
+
+C: Rebecca is very modest. Michael is very brave.
+Q: Who is courageous?
+A: Michael
+P: Rebecca is very modest. Michael
+
+
+----
+C: Megan is very religious. Anthony is very outspoken.
+Q: Who is spiritual?
+A: Megan
+P: Megan is very religious
+
+C: Megan is very religious. Anthony is very outspoken.
+Q: Who is vocal?
+A: Anthony
+P: Megan is very religious
+
+C: Anthony is very outspoken. Megan is very religious.
+Q: Who is spiritual?
+A: Megan
+P: Anthony is very outspoken
+
+
+----
+C: Mark is very happy. Maria is very grateful.
+Q: Who is joyful?
+A: Mark
+P: Mark is very happy
+
+C: Mark is very happy. Maria is very grateful.
+Q: Who is thankful?
+A: Maria
+P: Mark is very happy. Maria
+
+C: Maria is very grateful. Mark is very happy.
+Q: Who is joyful?
+A: Mark
+P: Maria is very grateful
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Samuel is older than Victoria.
+Q: Who is younger?
+A: Victoria
+P: Samuel is older than Victoria
+
+C: Samuel is older than Victoria.
+Q: Who is older?
+A: Samuel
+P: Samuel is older than Victoria
+
+C: Victoria is younger than Samuel.
+Q: Who is younger?
+A: Victoria
+P: Victoria is younger than Samuel
+
+
+----
+C: Michelle is stronger than Erin.
+Q: Who is weaker?
+A: Erin
+P: Michelle is stronger than Erin
+
+C: Michelle is stronger than Erin.
+Q: Who is stronger?
+A: Michelle
+P: Michelle is stronger than Erin
+
+C: Erin is weaker than Michelle.
+Q: Who is weaker?
+A: Erin
+P: Erin is weaker than Michelle
+
+
+----
+C: Jeremy is faster than Timothy.
+Q: Who is slower?
+A: Timothy
+P: Jeremy is faster than Timothy
+
+C: Jeremy is faster than Timothy.
+Q: Who is faster?
+A: Jeremy
+P: Jeremy is faster than Timothy
+
+C: Timothy is slower than Jeremy.
+Q: Who is slower?
+A: Timothy
+P: Timothy is slower than Jeremy
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Christina is more optimistic than Nicole.
+Q: Who is more optimistic?
+A: Christina
+P: Christina is more optimistic than Nicole
+
+C: Christina is more optimistic than Nicole.
+Q: Who is less optimistic?
+A: Nicole
+P: Christina is more optimistic than Nicole
+
+C: Christina is more optimistic than Nicole.
+Q: Who is more pessimistic?
+A: Nicole
+P: Christina is more optimistic than Nicole
+
+
+----
+C: Benjamin is more cautious than Joshua.
+Q: Who is more cautious?
+A: Benjamin
+P: Benjamin is more cautious than Joshua
+
+C: Benjamin is more cautious than Joshua.
+Q: Who is less cautious?
+A: Joshua
+P: Benjamin is more cautious than Joshua
+
+C: Benjamin is more cautious than Joshua.
+Q: Who is more brave?
+A: Joshua
+P: Benjamin is more cautious than Joshua
+
+
+----
+C: Patrick is more insecure than Tiffany.
+Q: Who is less insecure?
+A: Tiffany
+P: Patrick
+
+C: Patrick is more insecure than Tiffany.
+Q: Who is more secure?
+A: Tiffany
+P: Patrick is more insecure than Tiffany
+
+C: Patrick is more insecure than Tiffany.
+Q: Who is less secure?
+A: Patrick
+P: Patrick is more insecure than Tiffany
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    153 (30.6%)
+
+Example fails:
+C: In November 2006, the Victorian Legislative Council elections were held under a new multi-member proportional representation system. The State of Victoria was divided into eight electorates with each electorate represented by five representatives elected by Single Transferable Vote. The total number of upper house members was reduced from 44 to 40 and their term of office is now the same as the lower house members—four years. Elections for the Victorian Parliament are now fixed and occur in November every four years. Prior to the 2006 election, the Legislative Council consisted of 44 members elected to eight-year terms from 22 two-member electorates.
+Q: What kind of representational system does the Victorian Legislative Council have?
+P: 44
+
+C: In November 2006, the Victorian Legislative Council elections were held under a new multi-member proportional representation system. The State of Victoria was divided into eight electorates with each electorate represented by five representatives elected by Single Transferable Vote. The total number of upper house members was reduced from 44 to 40 and their term of office is now the same as the lower house members—four years. Elections for the Victorian Parliament are now fixed and occur in November every four years. Prior to the 2006 election, the Legislative Council consisted of 44 members elected to eight-year terms from 22 two-member electorates.
+Q: What kind of representational system does the Victorian Legislative Councli have?
+P: November
+
+
+----
+C: The alga Cyanophora, a glaucophyte, is thought to be one of the first organisms to contain a chloroplast. The glaucophyte chloroplast group is the smallest of the three primary chloroplast lineages, being found in only 13 species, and is thought to be the one that branched off the earliest. Glaucophytes have chloroplasts that retain a peptidoglycan wall between their double membranes, like their cyanobacterial parent. For this reason, glaucophyte chloroplasts are also known as muroplasts. Glaucophyte chloroplasts also contain concentric unstacked thylakoids, which surround a carboxysome - an icosahedral structure that glaucophyte chloroplasts and cyanobacteria keep their carbon fixation enzyme rubisco in. The starch that they synthesize collects outside the chloroplast. Like cyanobacteria, glaucophyte chloroplast thylakoids are studded with light collecting structures called phycobilisomes. For these reasons, glaucophyte chloroplasts are considered a primitive intermediate between cyanobacteria and the more evolved chloroplasts in red algae and plants.
+Q: What are muroplasts?
+P: thylakoids
+
+C: The alga Cyanophora, a glaucophyte, is thought to be one of the first organisms to contain a chloroplast. The glaucophyte chloroplast group is the smallest of the three primary chloroplast lineages, being found in only 13 species, and is thought to be the one that branched off the earliest. Glaucophytes have chloroplasts that retain a peptidoglycan wall between their double membranes, like their cyanobacterial parent. For this reason, glaucophyte chloroplasts are also known as muroplasts. Glaucophyte chloroplasts also contain concentric unstacked thylakoids, which surround a carboxysome - an icosahedral structure that glaucophyte chloroplasts and cyanobacteria keep their carbon fixation enzyme rubisco in. The starch that they synthesize collects outside the chloroplast. Like cyanobacteria, glaucophyte chloroplast thylakoids are studded with light collecting structures called phycobilisomes. For these reasons, glaucophyte chloroplasts are considered a primitive intermediate between cyanobacteria and the more evolved chloroplasts in red algae and plants.
+Q: What are muroplasst?
+P: muroplasts
+
+
+----
+C: The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.
+Q: When was the University of Chicago established?
+P: UChicago
+
+C: The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.
+Q: When was theU niversity of Chicago established?
+P: University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    88 (17.6%)
+
+Example fails:
+C: Reserved matters are subjects that are outside the legislative competence of the Scotland Parliament. The Scottish Parliament is unable to legislate on such issues that are reserved to, and dealt with at, Westminster (and where Ministerial functions usually lie with UK Government ministers). These include abortion, broadcasting policy, civil service, common markets for UK goods and services, constitution, electricity, coal, oil, gas, nuclear energy, defence and national security, drug policy, employment, foreign policy and relations with Europe, most aspects of transport safety and regulation, National Lottery, protection of borders, social security and stability of UK's fiscal, economic and monetary system.
+Q: Issues dealt with at Westminster are not ones who is able to deal with?
+P: Scottish Parliament
+
+C: Reserved matters are subjects that are outside the legislative competence of the Scotland Parliament. The Scottish Parliament is unable to legislate on such issues that are reserved to, and dealt with at, Westminster (and where Ministerial functions usually lie with UK Government ministers). These include abortion, broadcasting policy, civil service, common markets for UK goods and services, constitution, electricity, coal, oil, gas, nuclear energy, defence and national security, drug policy, employment, foreign policy and relations with Europe, most aspects of transport safety and regulation, National Lottery, protection of borders, social security and stability of UK's fiscal, economic and monetary system.
+Q: Issues dealt with at Westminster aren't ones who's able to deal with?
+P: Reserved matters are subjects that are outside the legislative competence of the Scotland Parliament. The Scottish Parliament
+
+
+----
+C: The Mongol military was also successful in siege warfare, cutting off resources for cities and towns by diverting certain rivers, taking enemy prisoners and driving them in front of the army, and adopting new ideas, techniques and tools from the people they conquered, particularly in employing Muslim and Chinese siege engines and engineers to aid the Mongol cavalry in capturing cities. Another standard tactic of the Mongol military was the commonly practiced feigned retreat to break enemy formations and to lure small enemy groups away from the larger group and defended position for ambush and counterattack.
+Q: How did Mongol armies lure enemy groups out of their defensive positions?
+P: ambush and counterattack
+
+C: The Mongol military was also successful in siege warfare, cutting off resources for cities and towns by diverting certain rivers, taking enemy prisoners and driving them in front of the army, and adopting new ideas, techniques and tools from the people they conquered, particularly in employing Muslim and Chinese siege engines and engineers to aid the Mongol cavalry in capturing cities. Another standard tactic of the Mongol military was the commonly practiced feigned retreat to break enemy formations and to lure small enemy groups away from the larger group and defended position for ambush and counterattack.
+Q: How'd Mongol armies lure enemy groups out of their defensive positions?
+P: small enemy groups away from the larger group and defended position for ambush and counterattack
+
+
+----
+C: The best, worst and average case complexity refer to three different ways of measuring the time complexity (or any other complexity measure) of different inputs of the same size. Since some inputs of size n may be faster to solve than others, we define the following complexities:
+Q: What are the three primary expressions used to represent case complexity?
+P: best, worst and average
+
+C: The best, worst and average case complexity refer to three different ways of measuring the time complexity (or any other complexity measure) of different inputs of the same size. Since some inputs of size n may be faster to solve than others, we define the following complexities:
+Q: What're the three primary expressions used to represent case complexity?
+P: time complexity
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    220 (44.0%)
+
+Example fails:
+C: The league eventually narrowed the bids to three sites: New Orleans' Mercedes-Benz Superdome, Miami's Sun Life Stadium, and the San Francisco Bay Area's Levi's Stadium.
+Q: What three stadiums did the NFL decide between for the game?
+P: Levi's Stadium
+
+C: A tundra, with Ice Age flora and fauna, stretched across middle Europe, from Asia to the Atlantic Ocean. The league eventually narrowed the bids to three sites: New Orleans' Mercedes-Benz Superdome, Miami's Sun Life Stadium, and the San Francisco Bay Area's Levi's Stadium.
+Q: What three stadiums did the NFL decide between for the game?
+P: New Orleans' Mercedes-Benz Superdome, Miami's Sun Life Stadium
+
+
+----
+C: In 2004, the V&A alongside Royal Institute of British Architects opened the first permanent gallery in the UK covering the history of architecture with displays using models, photographs, elements from buildings and original drawings. With the opening of the new gallery, the RIBA Drawings and Archives Collection has been transferred to the museum, joining the already extensive collection held by the V&A. With over 600,000 drawings, over 750,000 papers and paraphernalia, and over 700,000 photographs from around the world, together they form the world's most comprehensive architectural resource.
+Q: Approximately how many architectural photographs does the V&A hold in its collection?
+P: over 600,000
+
+C: The plague was somewhat less common in parts of Europe that had smaller trade relations with their neighbours, including the Kingdom of Poland, the majority of the Basque Country, isolated parts of Belgium and the Netherlands, and isolated alpine villages throughout the continent. In 2004, the V&A alongside Royal Institute of British Architects opened the first permanent gallery in the UK covering the history of architecture with displays using models, photographs, elements from buildings and original drawings. With the opening of the new gallery, the RIBA Drawings and Archives Collection has been transferred to the museum, joining the already extensive collection held by the V&A. With over 600,000 drawings, over 750,000 papers and paraphernalia, and over 700,000 photographs from around the world, together they form the world's most comprehensive architectural resource.
+Q: Approximately how many architectural photographs does the V&A hold in its collection?
+P: Royal Institute of British Architects
+
+
+----
+C: Following a lengthy legal battle with the European Commission, which deemed the exclusivity of the rights to be against the interests of competition and the consumer, BSkyB's monopoly came to an end from the 2007–08 season. In May 2006, the Irish broadcaster Setanta Sports was awarded two of the six Premier League packages that the English FA offered to broadcasters. Sky picked up the remaining four for £1.3bn. In February 2015, Sky bid £4.2bn for a package of 120 premier league games across the three seasons from 2016. This represented an increase of 70% on the previous contract and was said to be £1bn more than the company had expected to pay. The move has been followed by staff cuts, increased subscription prices (including 9% in Sky's family package) and the dropping of the 3D channel.
+Q: Who purhcased the remaining 4 pacakages available to broadcasters?
+P: \xa31.3bn
+
+C: Sabur Ibn Sahl (d 869), was, however, the first physician to initiate pharmacopoedia, describing a large variety of drugs and remedies for ailments. Following a lengthy legal battle with the European Commission, which deemed the exclusivity of the rights to be against the interests of competition and the consumer, BSkyB's monopoly came to an end from the 2007–08 season. In May 2006, the Irish broadcaster Setanta Sports was awarded two of the six Premier League packages that the English FA offered to broadcasters. Sky picked up the remaining four for £1.3bn. In February 2015, Sky bid £4.2bn for a package of 120 premier league games across the three seasons from 2016. This represented an increase of 70% on the previous contract and was said to be £1bn more than the company had expected to pay. The move has been followed by staff cuts, increased subscription prices (including 9% in Sky's family package) and the dropping of the 3D channel.
+Q: Who purhcased the remaining 4 pacakages available to broadcasters?
+P: Setanta Sports
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    163 (32.6%)
+
+Example fails:
+C: During the 20th century, historians John Gallagher (1919–1980) and Ronald Robinson (1920–1999) constructed a framework for understanding European imperialism. They claim that European imperialism was influential, and Europeans rejected the notion that "imperialism" required formal, legal control by one government over another country. "In their view, historians have been mesmerized by formal empire and maps of the world with regions colored red. The bulk of British emigration, trade, and capital went to areas outside the formal British Empire. Key to their thinking is the idea of empire 'informally if possible and formally if necessary.'"[attribution needed] Because of the resources made available by imperialism, the world's economy grew significantly and became much more interconnected in the decades before World War I, making the many imperial powers rich and prosperous.
+Q: When did Ronald Robinson die?
+P: 1920\u20131999
+
+C: During the 20th century, historians Michael Reed (1919–1980) and Ronald Robinson (1920–1999) constructed a framework for understanding European imperialism. They claim that European imperialism was influential, and Europeans rejected the notion that "imperialism" required formal, legal control by one government over another country. "In their view, historians have been mesmerized by formal empire and maps of the world with regions colored red. The bulk of British emigration, trade, and capital went to areas outside the formal British Empire. Key to their thinking is the idea of empire 'informally if possible and formally if necessary.'"[attribution needed] Because of the resources made available by imperialism, the world's economy grew significantly and became much more interconnected in the decades before World War I, making the many imperial powers rich and prosperous.
+Q: When did Ronald Robinson die?
+P: Michael Reed (1919\u20131980) and Ronald Robinson (1920\u20131999
+
+C: During the 20th century, historians James Wilson (1919–1980) and Ronald Robinson (1920–1999) constructed a framework for understanding European imperialism. They claim that European imperialism was influential, and Europeans rejected the notion that "imperialism" required formal, legal control by one government over another country. "In their view, historians have been mesmerized by formal empire and maps of the world with regions colored red. The bulk of British emigration, trade, and capital went to areas outside the formal British Empire. Key to their thinking is the idea of empire 'informally if possible and formally if necessary.'"[attribution needed] Because of the resources made available by imperialism, the world's economy grew significantly and became much more interconnected in the decades before World War I, making the many imperial powers rich and prosperous.
+Q: When did Ronald Robinson die?
+P: James Wilson (1919\u20131980) and Ronald Robinson (1920\u20131999
+
+
+----
+C: In 1893 Richard Dean Adams, who headed up the Niagara Falls Cataract Construction Company sought Tesla's opinion on what system would be best to transmit power generated at the falls. Over several years there had been a series of proposals and open competitions on how best to utilize power generated by the falls with many systems being proposed by several US and European companies including two-phase and three-phase AC, high-voltage DC, and even compressed air. Adams pumped Tesla for information about the current state of all the competing systems. Tesla advised Adams that a two-phased system would be the most reliable and that there was a Westinghouse system to light incandescent bulbs using two-phase alternating current. Based on Tesla's advice and Westinghouse's demonstration that they could build a complete AC system at the Columbian Exposition, a contract for building a two-phase AC generating system at the Niagara Falls was awarded to Westinghouse Electric. A further contract to build the AC distribution system was awarded to General Electric.
+Q: What landmark was Tesla asked about in regards to electricity in 1893?
+P: Richard Dean Adams
+
+C: In 1893 Christopher Hernandez, who headed up the Niagara Falls Cataract Construction Company sought Tesla's opinion on what system would be best to transmit power generated at the falls. Over several years there had been a series of proposals and open competitions on how best to utilize power generated by the falls with many systems being proposed by several US and European companies including two-phase and three-phase AC, high-voltage DC, and even compressed air. Adams pumped Tesla for information about the current state of all the competing systems. Tesla advised Adams that a two-phased system would be the most reliable and that there was a Westinghouse system to light incandescent bulbs using two-phase alternating current. Based on Tesla's advice and Westinghouse's demonstration that they could build a complete AC system at the Columbian Exposition, a contract for building a two-phase AC generating system at the Niagara Falls was awarded to Westinghouse Electric. A further contract to build the AC distribution system was awarded to General Electric.
+Q: What landmark was Tesla asked about in regards to electricity in 1893?
+P: two-phase alternating current
+
+C: In 1893 Richard Dean Adams, who headed up the Niagara Falls Cataract Construction Company sought Olivia's opinion on what system would be best to transmit power generated at the falls. Over several years there had been a series of proposals and open competitions on how best to utilize power generated by the falls with many systems being proposed by several US and European companies including two-phase and three-phase AC, high-voltage DC, and even compressed air. Adams pumped Olivia for information about the current state of all the competing systems. Olivia advised Adams that a two-phased system would be the most reliable and that there was a Westinghouse system to light incandescent bulbs using two-phase alternating current. Based on Olivia's advice and Westinghouse's demonstration that they could build a complete AC system at the Columbian Exposition, a contract for building a two-phase AC generating system at the Niagara Falls was awarded to Westinghouse Electric. A further contract to build the AC distribution system was awarded to General Electric.
+Q: What landmark was Olivia asked about in regards to electricity in 1893?
+P: two-phase alternating current
+
+
+----
+C: Individual Huguenots settled at the Cape of Good Hope from as early as 1671 with the arrival of François Villion (Viljoen). The first Huguenot to arrive at the Cape of Good Hope was however Maria de la Queillerie, wife of commander Jan van Riebeeck (and daughter of a Walloon church minister), who arrived on 6 April 1652 to establish a settlement at what is today Cape Town. The couple left for the Far East ten years later. On 31 December 1687 the first organised group of Huguenots set sail from the Netherlands to the Dutch East India Company post at the Cape of Good Hope. The largest portion of the Huguenots to settle in the Cape arrived between 1688 and 1689 in seven ships as part of the organised migration, but quite a few arrived as late as 1700; thereafter, the numbers declined and only small groups arrived at a time.
+Q: What trading company helped settle Huguenots near the Cape?
+P: Dutch East India
+
+C: Individual Huguenots settled at the Cape of Good Hope from as early as 1671 with the arrival of François Villion (Viljoen). The first Huguenot to arrive at the Cape of Good Hope was however Maria de la Queillerie, wife of commander Matthew Gray (and daughter of a Walloon church minister), who arrived on 6 April 1652 to establish a settlement at what is today Cape Town. The couple left for the Far East ten years later. On 31 December 1687 the first organised group of Huguenots set sail from the Netherlands to the Dutch East India Company post at the Cape of Good Hope. The largest portion of the Huguenots to settle in the Cape arrived between 1688 and 1689 in seven ships as part of the organised migration, but quite a few arrived as late as 1700; thereafter, the numbers declined and only small groups arrived at a time.
+Q: What trading company helped settle Huguenots near the Cape?
+P: Maria de la Queillerie, wife of commander Matthew Gray (and daughter of a Walloon church minister), who arrived on 6 April 1652
+
+C: Individual Huguenots settled at the Cape of Good Hope from as early as 1671 with the arrival of François Villion (Viljoen). The first Huguenot to arrive at the Cape of Good Hope was however Maria de la Queillerie, wife of commander William Green (and daughter of a Walloon church minister), who arrived on 6 April 1652 to establish a settlement at what is today Cape Town. The couple left for the Far East ten years later. On 31 December 1687 the first organised group of Huguenots set sail from the Netherlands to the Dutch East India Company post at the Cape of Good Hope. The largest portion of the Huguenots to settle in the Cape arrived between 1688 and 1689 in seven ships as part of the organised migration, but quite a few arrived as late as 1700; thereafter, the numbers declined and only small groups arrived at a time.
+Q: What trading company helped settle Huguenots near the Cape?
+P: Maria de la Queillerie, wife of commander William Green (and daughter of a Walloon church minister), who arrived on 6 April 1652
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    205 (41.0%)
+
+Example fails:
+C: In 1755, six colonial governors in North America met with General Edward Braddock, the newly arrived British Army commander, and planned a four-way attack on the French. None succeeded and the main effort by Braddock was a disaster; he was defeated in the Battle of the Monongahela on July 9, 1755 and died a few days later. British operations in 1755, 1756 and 1757 in the frontier areas of Pennsylvania and New York all failed, due to a combination of poor management, internal divisions, and effective Canadian scouts, French regular forces, and Indian warrior allies. In 1755, the British captured Fort Beauséjour on the border separating Nova Scotia from Acadia; soon afterward they ordered the expulsion of the Acadians. Orders for the deportation were given by William Shirley, Commander-in-Chief, North America, without direction from Great Britain. The Acadians, both those captured in arms and those who had sworn the loyalty oath to His Britannic Majesty, were expelled. Native Americans were likewise driven off their land to make way for settlers from New England.
+Q: Why did British operation fail in 1755, 56, 57?
+P: Pennsylvania and New York
+
+C: In 1755, six colonial governors in North America met with General Edward Braddock, the newly arrived British Army commander, and planned a four-way attack on the French. None succeeded and the main effort by Braddock was a disaster; he was defeated in the Battle of the Monongahela on July 9, 1755 and died a few days later. British operations in 1755, 1756 and 1757 in the frontier areas of Pennsylvania and Boise City all failed, due to a combination of poor management, internal divisions, and effective Canadian scouts, French regular forces, and Indian warrior allies. In 1755, the British captured Fort Beauséjour on the border separating Nova Scotia from Acadia; soon afterward they ordered the expulsion of the Acadians. Orders for the deportation were given by William Shirley, Commander-in-Chief, North America, without direction from Great Britain. The Acadians, both those captured in arms and those who had sworn the loyalty oath to His Britannic Majesty, were expelled. Native Americans were likewise driven off their land to make way for settlers from New England.
+Q: Why did British operation fail in 1755, 56, 57?
+P: 1755, 1756 and 1757
+
+C: In 1755, six colonial governors in North America met with General Edward Braddock, the newly arrived British Army commander, and planned a four-way attack on the French. None succeeded and the main effort by Braddock was a disaster; he was defeated in the Battle of the Monongahela on July 9, 1755 and died a few days later. British operations in 1755, 1756 and 1757 in the frontier areas of Pennsylvania and Missouri City all failed, due to a combination of poor management, internal divisions, and effective Canadian scouts, French regular forces, and Indian warrior allies. In 1755, the British captured Fort Beauséjour on the border separating Nova Scotia from Acadia; soon afterward they ordered the expulsion of the Acadians. Orders for the deportation were given by William Shirley, Commander-in-Chief, North America, without direction from Great Britain. The Acadians, both those captured in arms and those who had sworn the loyalty oath to His Britannic Majesty, were expelled. Native Americans were likewise driven off their land to make way for settlers from New England.
+Q: Why did British operation fail in 1755, 56, 57?
+P: 1755, 1756 and 1757
+
+
+----
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: Missouri Compromise
+
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Papua New Guinea ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: Papua New Guinea
+
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Macao SAR ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: Which country used to rule California?
+P: Macao SAR
+
+
+----
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Saudi Arabia try to increase production, and reduce profits for high cost producers?
+P: recover market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Tanzania, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Tanzania try to increase production, and reduce profits for high cost producers?
+P: market share
+
+C: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Poland, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This "sale" price was a windfall for oil-importing nations, both developing and developed.
+Q: Why did Poland try to increase production, and reduce profits for high cost producers?
+P: market share
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1997 (99.8%)
+
+Example fails:
+C: Kristin is not a nurse, Lucas is.
+Q: Who is a nurse?
+A: Lucas
+P: Kristin
+
+----
+C: Carlos is not a nurse, Kayla is.
+Q: Who is a nurse?
+A: Kayla
+P: Carlos
+
+----
+C: Christian is not a CEO, Megan is.
+Q: Who is a CEO?
+A: Megan
+P: Christian
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    482 (100.0%)
+
+Example fails:
+C: Both Anthony and Christopher were journalists, but there was a change in Anthony, who is now an executive.
+Q: Who is an executive?
+A: Anthony
+P: journalists
+
+C: Both Christopher and Anthony were journalists, but there was a change in Anthony, who is now an executive.
+Q: Who is an executive?
+A: Anthony
+P: journalists
+
+
+----
+C: Both Mary and Tiffany were investors, but there was a change in Mary, who is now an architect.
+Q: Who is an architect?
+A: Mary
+P: Both Mary and Tiffany
+
+C: Both Tiffany and Mary were investors, but there was a change in Mary, who is now an architect.
+Q: Who is an architect?
+A: Mary
+P: Tiffany and Mary were investors, but there was a change in Mary
+
+
+----
+C: Both Michael and Justin were administrators, but there was a change in Michael, who is now an executive.
+Q: Who is an executive?
+A: Michael
+P: Michael and Justin
+
+C: Both Justin and Michael were administrators, but there was a change in Michael, who is now an executive.
+Q: Who is an executive?
+A: Michael
+P: Justin and Michael
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Natalie became a economist before Matthew did.
+Q: Who became a economist last?
+A: Matthew
+P: Natalie
+
+C: Matthew became a economist after Natalie did.
+Q: Who became a economist first?
+A: Natalie
+P: Matthew
+
+
+----
+C: David became a executive before Timothy did.
+Q: Who became a executive last?
+A: Timothy
+P: David
+
+C: Timothy became a executive after David did.
+Q: Who became a executive first?
+A: David
+P: Timothy
+
+
+----
+C: Melissa became a interpreter before Stephanie did.
+Q: Who became a interpreter last?
+A: Stephanie
+P: Melissa
+
+C: Stephanie became a interpreter after Melissa did.
+Q: Who became a interpreter first?
+A: Melissa
+P: Stephanie
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    499 (100.0%)
+
+Example fails:
+C: Amanda is not an executive. Brittany is.
+Q: Who is an executive?
+A: Brittany
+P: Amanda
+
+C: Brittany is an executive. Amanda is not.
+Q: Who is not an executive?
+A: Amanda
+P: Brittany
+
+
+----
+C: Dylan is not an accountant. Danielle is.
+Q: Who is an accountant?
+A: Danielle
+P: Dylan
+
+C: Danielle is an accountant. Dylan is not.
+Q: Who is not an accountant?
+A: Dylan
+P: Danielle
+
+
+----
+C: Jose is not an author. Megan is.
+Q: Who is an author?
+A: Megan
+P: Jose
+
+C: Megan is an author. Jose is not.
+Q: Who is not an author?
+A: Jose
+P: Megan is an author. Jose
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Sean is an assistant. Taylor is an organizer.
+Q: Who is not an assistant?
+A: Taylor
+P: Sean is an assistant. Taylor is an organizer
+
+C: Sean is an assistant. Taylor is an organizer.
+Q: Who is an organizer?
+A: Taylor
+P: Sean
+
+C: Taylor is an organizer. Sean is an assistant.
+Q: Who is an assistant?
+A: Sean
+P: Taylor is an organizer
+
+
+----
+C: Richard is an attorney. Christopher is an analyst.
+Q: Who is not an attorney?
+A: Christopher
+P: Richard
+
+C: Richard is an attorney. Christopher is an analyst.
+Q: Who is an analyst?
+A: Christopher
+P: Richard is an attorney
+
+C: Richard is an attorney. Christopher is an analyst.
+Q: Who is not an analyst?
+A: Richard
+P: Richard is an attorney
+
+
+----
+C: Katherine is an economist. Andrea is an organizer.
+Q: Who is not an economist?
+A: Andrea
+P: Katherine
+
+C: Katherine is an economist. Andrea is an organizer.
+Q: Who is an organizer?
+A: Andrea
+P: Katherine is an economist
+
+C: Katherine is an economist. Andrea is an organizer.
+Q: Who is not an organizer?
+A: Katherine
+P: Katherine is an economist
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Kyle and Destiny are friends. He is an escort, and she is an auditor.
+Q: Who is an escort?
+A: Kyle
+P: Kyle and Destiny
+
+C: Kyle and Destiny are friends. He is an escort, and she is an auditor.
+Q: Who is an auditor?
+A: Destiny
+P: Kyle and Destiny
+
+C: Destiny and Kyle are friends. He is an escort, and she is an auditor.
+Q: Who is an escort?
+A: Kyle
+P: Destiny and Kyle
+
+
+----
+C: Justin and Jessica are friends. He is an assistant, and she is an architect.
+Q: Who is an assistant?
+A: Justin
+P: Justin and Jessica are friends. He is an assistant, and she is an architect
+
+C: Justin and Jessica are friends. He is an assistant, and she is an architect.
+Q: Who is an architect?
+A: Jessica
+P: Justin and Jessica are friends. He is an assistant
+
+C: Jessica and Justin are friends. He is an assistant, and she is an architect.
+Q: Who is an assistant?
+A: Justin
+P: Jessica and Justin are friends. He is an assistant, and she is an architect
+
+
+----
+C: Bradley and Cynthia are friends. He is an entrepreneur, and she is an architect.
+Q: Who is an entrepreneur?
+A: Bradley
+P: Bradley and Cynthia are friends. He is an entrepreneur, and she is an architect
+
+C: Bradley and Cynthia are friends. He is an entrepreneur, and she is an architect.
+Q: Who is an architect?
+A: Cynthia
+P: entrepreneur
+
+C: Cynthia and Bradley are friends. He is an entrepreneur, and she is an architect.
+Q: Who is an entrepreneur?
+A: Bradley
+P: Cynthia and Bradley are friends. He is an entrepreneur, and she is an architect
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    499 (99.8%)
+
+Example fails:
+C: Travis and Andrea are friends. His mom is an executive.
+Q: Whose mom is an executive?
+A: Travis
+P: Travis and Andrea are friends
+
+C: Andrea and Travis are friends. His mom is an executive.
+Q: Whose mom is an executive?
+A: Travis
+P: Andrea and Travis
+
+
+----
+C: Luis and Kimberly are friends. His mom is an engineer.
+Q: Whose mom is an engineer?
+A: Luis
+P: Luis and Kimberly are friends
+
+C: Kimberly and Luis are friends. His mom is an engineer.
+Q: Whose mom is an engineer?
+A: Luis
+P: Kimberly and Luis
+
+
+----
+C: Brian and Savannah are friends. His mom is an architect.
+Q: Whose mom is an architect?
+A: Brian
+P: Brian and Savannah are friends
+
+C: Savannah and Brian are friends. His mom is an architect.
+Q: Whose mom is an architect?
+A: Brian
+P: Savannah and Brian
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Victoria and Tyler are friends. The former is an author.
+Q: Who is an author?
+A: Victoria
+P: Victoria and Tyler
+
+C: Tyler and Victoria are friends. The latter is an author.
+Q: Who is an author?
+A: Victoria
+P: Tyler and Victoria
+
+C: Victoria and Tyler are friends. The former is an author and the latter is an engineer.
+Q: Who is an author?
+A: Victoria
+P: Victoria and Tyler are friends. The former is an author and the latter is an engineer
+
+
+----
+C: Austin and Olivia are friends. The former is an escort.
+Q: Who is an escort?
+A: Austin
+P: Austin and Olivia
+
+C: Olivia and Austin are friends. The latter is an escort.
+Q: Who is an escort?
+A: Austin
+P: Olivia and Austin
+
+C: Austin and Olivia are friends. The former is an escort and the latter is an educator.
+Q: Who is an escort?
+A: Austin
+P: Austin and Olivia are friends. The former is an escort and the latter is an educator
+
+
+----
+C: Kayla and Amy are friends. The former is an architect.
+Q: Who is an architect?
+A: Kayla
+P: Kayla and Amy
+
+C: Amy and Kayla are friends. The latter is an architect.
+Q: Who is an architect?
+A: Kayla
+P: Amy and Kayla
+
+C: Kayla and Amy are friends. The former is an architect and the latter is an engineer.
+Q: Who is an architect?
+A: Kayla
+P: Kayla and Amy
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Amanda likes Christian.
+Q: Who likes?
+A: Amanda
+P: Christian
+
+C: Christian is liked by Amanda.
+Q: Who likes?
+A: Amanda
+P: Christian
+
+C: Christian is liked by Amanda.
+Q: Who is liked?
+A: Christian
+P: Christian is liked by Amanda
+
+
+----
+C: Justin deserves Brian.
+Q: Who deserves?
+A: Justin
+P: Justin deserves Brian
+
+C: Justin deserves Brian.
+Q: Who is deserved?
+A: Brian
+P: Justin deserves Brian
+
+C: Brian is deserved by Justin.
+Q: Who deserves?
+A: Justin
+P: Brian is deserved by Justin
+
+
+----
+C: Heather hurts Sophia.
+Q: Who hurts?
+A: Heather
+P: Heather hurts Sophia
+
+C: Heather hurts Sophia.
+Q: Who is hurt?
+A: Sophia
+P: Heather hurts Sophia
+
+C: Sophia is hurt by Heather.
+Q: Who hurts?
+A: Heather
+P: Sophia is hurt by Heather
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Andrea believes Lisa. Lisa believes Elizabeth.
+Q: Who believes Lisa?
+A: Andrea
+P: Andrea believes Lisa. Lisa believes Elizabeth
+
+C: Andrea believes Lisa. Lisa believes Elizabeth.
+Q: Who believes Elizabeth?
+A: Lisa
+P: Andrea believes Lisa
+
+C: Andrea believes Lisa. Lisa believes Elizabeth.
+Q: Who is believed by Andrea?
+A: Lisa
+P: Elizabeth
+
+
+----
+C: Daniel attacks Kimberly. Kimberly attacks Jeremy.
+Q: Who attacks Kimberly?
+A: Daniel
+P: Daniel attacks Kimberly. Kimberly attacks Jeremy
+
+C: Daniel attacks Kimberly. Kimberly attacks Jeremy.
+Q: Who attacks Jeremy?
+A: Kimberly
+P: Daniel
+
+C: Daniel attacks Kimberly. Kimberly attacks Jeremy.
+Q: Who is attacked by Daniel?
+A: Kimberly
+P: Kimberly. Kimberly attacks Jeremy
+
+
+----
+C: Matthew attacks Erin. Erin attacks James.
+Q: Who attacks Erin?
+A: Matthew
+P: Matthew attacks Erin. Erin attacks James
+
+C: Matthew attacks Erin. Erin attacks James.
+Q: Who attacks James?
+A: Erin
+P: Matthew
+
+C: Matthew attacks Erin. Erin attacks James.
+Q: Who is attacked by Matthew?
+A: Erin
+P: Erin. Erin attacks James
+
+
+----
+
+
+

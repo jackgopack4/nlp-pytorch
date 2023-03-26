@@ -1,0 +1,15 @@
+Peer Assessment by jlp5729 - CS388 Natural Language Processing Final Project
+
+Scope - Good
+This project had a full scope; they spent a large portion of their paper describing the testing phase, and it did not seem like as much was attempted to fix the problem as was spent testing. I appreciate that they did a solo project; doing a solo project myself helped me realize the scale and volume of work necessary.
+
+Implementation - Excellent
+The approach described made a lot of sense; the author did a great job explaining the challenges, their approach toward understanding them, and then fixing them. Even though they did not get the same results as the papers cited, it very much appears that they did everything correct to get the best results possible.
+
+Results / Analysis - Excellent
+The author did an excellent job of breaking down the NLI datasets, explaining examples therein, and evaluating the results given with multiple visualizations (something I was lacking in my own paper). Analysis was very compelling even though the author did not fully get the results they were expecting.
+
+Clarity/Writing - Excellent
+Despite a few places where grammar or professionally could have been improved, this paper is thoroughly and well written for a solo project. I expect minor concerns like this would be addressed with internal peer review/edits prior to being submitted. Very well structured format; I addressed above already that I would have liked to see slightly higher ratio of results/analysis to initial testing method, but that does not affect the quality or clarity of the writing.
+
+Excellent job. Individual project of this nature is overwhelming and difficult; you took an interesting concept and achieved solid results, and wrote up a great paper describing them.

@@ -1,0 +1,942 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    292 (59.1%)
+
+Example fails:
+C: Samantha is stranger than Nicole.
+Q: Who is less strange?
+A: Nicole
+P: Samantha is stranger than Nicole
+
+
+----
+C: Jessica is darker than Kayla.
+Q: Who is less dark?
+A: Kayla
+P: Jessica
+
+
+----
+C: Katherine is stronger than Stephanie.
+Q: Who is less strong?
+A: Stephanie
+P: Katherine
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Eric is really cautious about the project. Hannah is cautious about the project.
+Q: Who is least cautious about the project?
+A: Hannah
+P: Eric
+
+C: Hannah is cautious about the project. Eric is really cautious about the project.
+Q: Who is most cautious about the project?
+A: Eric
+P: Hannah is cautious about the project. Eric
+
+C: Hannah is cautious about the project. Eric is really cautious about the project.
+Q: Who is least cautious about the project?
+A: Hannah
+P: Eric
+
+
+----
+C: Kevin is quite open about the project. Erin is open about the project.
+Q: Who is least open about the project?
+A: Erin
+P: Kevin
+
+C: Erin is open about the project. Kevin is quite open about the project.
+Q: Who is least open about the project?
+A: Erin
+P: Kevin
+
+C: Erin is mildly open about the project. Kevin is open about the project.
+Q: Who is most open about the project?
+A: Kevin
+P: Erin
+
+
+----
+C: Melissa is extremely serious about the project. Isabella is serious about the project.
+Q: Who is least serious about the project?
+A: Isabella
+P: Melissa
+
+C: Isabella is serious about the project. Melissa is extremely serious about the project.
+Q: Who is most serious about the project?
+A: Melissa
+P: Isabella is serious about the project. Melissa
+
+C: Isabella is serious about the project. Melissa is extremely serious about the project.
+Q: Who is least serious about the project?
+A: Isabella
+P: Melissa
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    392 (78.4%)
+
+Example fails:
+C: There is a painting in the room. The painting is tiny and purple.
+Q: What size is the painting?
+A: tiny
+P: tiny and purple
+
+
+----
+C: There is a box in the room. The box is new and red.
+Q: What age is the box?
+A: new
+P: new and red
+
+
+----
+C: There is a table in the room. The table is round and blue.
+Q: What shape is the table?
+A: round
+P: round and blue
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    448 (89.6%)
+
+Example fails:
+C: Nicholas is a Pakistani agent.
+Q: What is Nicholas's job?
+A: agent
+P: Pakistani agent
+
+C: Nicholas is Pakistani and an agent.
+Q: What is Nicholas's job?
+A: agent
+P: Pakistani and an agent
+
+C: Nicholas is an agent and Pakistani.
+Q: What is Nicholas's job?
+A: agent
+P: agent and Pakistani
+
+
+----
+C: Tiffany is an American administrator.
+Q: What is Tiffany's job?
+A: administrator
+P: American administrator
+
+
+----
+C: Anthony is a Nigerian nurse.
+Q: What is Anthony's job?
+A: nurse
+P: Nigerian nurse
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    100 (20.0%)
+
+Example fails:
+C: Rebecca has a rabbit and a car.
+Q: What vehicle does Rebecca have?
+A: car
+P: a rabbit
+
+
+----
+C: James has a hamster and a firetruck.
+Q: What animal does James have?
+A: hamster
+P: firetruck
+
+C: James has a firetruck and a hamster.
+Q: What animal does James have?
+A: hamster
+P: firetruck
+
+
+----
+C: Olivia has a cow and a car.
+Q: What vehicle does Olivia have?
+A: car
+P: a cow
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    82 (16.5%)
+
+Example fails:
+C: Matthew bought a bull. Madison bought a firetruck.
+Q: Who bought a vehicle?
+A: Madison
+P: Matthew
+
+C: Madison bought a firetruck. Matthew bought a bull.
+Q: Who bought a vehicle?
+A: Madison
+P: Matthew
+
+
+----
+C: Kimberly bought a fish. Maria bought a firetruck.
+Q: Who bought an animal?
+A: Kimberly
+P: Kimberly bought a fish. Maria
+
+C: Kimberly bought a fish. Maria bought a firetruck.
+Q: Who bought a vehicle?
+A: Maria
+P: Kimberly
+
+
+----
+C: Robert bought a hamster. Elizabeth bought a SUV.
+Q: Who bought an animal?
+A: Robert
+P: Elizabeth
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    13 (2.9%)
+
+Example fails:
+C: Lisa is very religious. David is very brave.
+Q: Who is spiritual?
+A: Lisa
+P: David
+
+
+----
+C: Katherine is very religious. Andrea is very joyful.
+Q: Who is spiritual?
+A: Katherine
+P: Andrea
+
+
+----
+C: Alyssa is very vocal. Jason is very angry.
+Q: Who is outspoken?
+A: Alyssa
+P: Jason
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    455 (91.7%)
+
+Example fails:
+C: Kayla is older than Christopher.
+Q: Who is older?
+A: Kayla
+P: Christopher
+
+C: Christopher is younger than Kayla.
+Q: Who is older?
+A: Kayla
+P: Christopher
+
+
+----
+C: Jessica is richer than Sophia.
+Q: Who is poorer?
+A: Sophia
+P: Jessica
+
+C: Sophia is poorer than Jessica.
+Q: Who is richer?
+A: Jessica
+P: Sophia
+
+
+----
+C: Scott is richer than Austin.
+Q: Who is poorer?
+A: Austin
+P: Scott
+
+C: Austin is poorer than Scott.
+Q: Who is richer?
+A: Scott
+P: Austin
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Dylan is more humble than Brittany.
+Q: Who is less humble?
+A: Brittany
+P: Dylan
+
+C: Dylan is more humble than Brittany.
+Q: Who is more proud?
+A: Brittany
+P: Dylan
+
+C: Brittany is more proud than Dylan.
+Q: Who is more humble?
+A: Dylan
+P: Brittany
+
+
+----
+C: Sophia is more stupid than Jonathan.
+Q: Who is less stupid?
+A: Jonathan
+P: Sophia
+
+C: Sophia is more stupid than Jonathan.
+Q: Who is more smart?
+A: Jonathan
+P: Sophia
+
+C: Jonathan is more smart than Sophia.
+Q: Who is more stupid?
+A: Sophia
+P: Jonathan
+
+
+----
+C: Shannon is more stupid than Anthony.
+Q: Who is less stupid?
+A: Anthony
+P: Shannon
+
+C: Shannon is more stupid than Anthony.
+Q: Who is more smart?
+A: Anthony
+P: Shannon
+
+C: Anthony is more smart than Shannon.
+Q: Who is more stupid?
+A: Shannon
+P: Anthony
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    109 (21.8%)
+
+Example fails:
+C: There are conflicting views of Genghis Khan in the People's Republic of China with some viewing him positively in the Inner Mongolia region where there are a monument and buildings about him and where there is a considerable number of Mongols in the area with a population of around 5 million, almost twice the population of Mongolia. While Genghis Khan never conquered all of China, his grandson Kublai Khan completed that conquest and established the Yuan dynasty that is often credited with re-uniting China. There has been much artwork and literature praising Genghis as a great military leader and political genius. The years of the Mongol-established Yuan dynasty left an indelible imprint on Chinese political and social structures for subsequent generations with literature during the Jin dynasty relatively fewer. In general the legacy of Genghis Khan and his successors, who completed the conquest of China after 65 years of struggle, remains a mixed topic.[citation needed]
+Q: Which descendant of Genghis Khan is remembered as having reunified China?
+P: Kublai Khan
+
+C: There are conflicting views of Genghis Khan in the People's Republic of China with some viewing him positively in the Inner Mongolia region where there are a monument and buildings about him and where there is a considerable number of Mongols in the area with a population of around 5 million, almost twice the population of Mongolia. While Genghis Khan never conquered all of China, his grandson Kublai Khan completed that conquest and established the Yuan dynasty that is often credited with re-uniting China. There has been much artwork and literature praising Genghis as a great military leader and political genius. The years of the Mongol-established Yuan dynasty left an indelible imprint on Chinese political and social structures for subsequent generations with literature during the Jin dynasty relatively fewer. In general the legacy of Genghis Khan and his successors, who completed the conquest of China after 65 years of struggle, remains a mixed topic.[citation needed]
+Q: Which descendant of Genghis Khan is remembered as having reunifiedC hina?
+P: Kublai
+
+
+----
+C: Teaching in Canada requires a post-secondary degree Bachelor's Degree. In most provinces a second Bachelor's Degree such as a Bachelor of Education is required to become a qualified teacher. Salary ranges from $40,000/year to $90,000/yr. Teachers have the option to teach for a public school which is funded by the provincial government or teaching in a private school which is funded by the private sector, businesses and sponsors.
+Q: Where does a private school get funding to operate?
+P: private sector
+
+C: Teaching in Canada requires a post-secondary degree Bachelor's Degree. In most provinces a second Bachelor's Degree such as a Bachelor of Education is required to become a qualified teacher. Salary ranges from $40,000/year to $90,000/yr. Teachers have the option to teach for a public school which is funded by the provincial government or teaching in a private school which is funded by the private sector, businesses and sponsors.
+Q: Where does a private schoo lget funding to operate?
+P: the private sector
+
+
+----
+C: From the mid-2000s, the university began a number of multimillion-dollar expansion projects. In 2008, the University of Chicago announced plans to establish the Milton Friedman Institute which attracted both support and controversy from faculty members and students. The institute will cost around $200 million and occupy the buildings of the Chicago Theological Seminary. During the same year, investor David G. Booth donated $300 million to the university's Booth School of Business, which is the largest gift in the university's history and the largest gift ever to any business school. In 2009, planning or construction on several new buildings, half of which cost $100 million or more, was underway. Since 2011, major construction projects have included the Jules and Gwen Knapp Center for Biomedical Discovery, a ten-story medical research center, and further additions to the medical campus of the University of Chicago Medical Center. In 2014 the University launched the public phase of a $4.5 billion fundraising campaign. In September 2015, the University received $100 million from The Pearson Family Foundation to establish The Pearson Institute for the Study and Resolution of Global Conflicts and The Pearson Global Forum at the Harris School of Public Policy Studies.
+Q: When did the university decide to start multimillion-dollar expansion projects?
+P: mid-2000s
+
+C: From the mid-2000s, the university began a number of multimillion-dollar expansion projects. In 2008, the University of Chicago announced plans to establish the Milton Friedman Institute which attracted both support and controversy from faculty members and students. The institute will cost around $200 million and occupy the buildings of the Chicago Theological Seminary. During the same year, investor David G. Booth donated $300 million to the university's Booth School of Business, which is the largest gift in the university's history and the largest gift ever to any business school. In 2009, planning or construction on several new buildings, half of which cost $100 million or more, was underway. Since 2011, major construction projects have included the Jules and Gwen Knapp Center for Biomedical Discovery, a ten-story medical research center, and further additions to the medical campus of the University of Chicago Medical Center. In 2014 the University launched the public phase of a $4.5 billion fundraising campaign. In September 2015, the University received $100 million from The Pearson Family Foundation to establish The Pearson Institute for the Study and Resolution of Global Conflicts and The Pearson Global Forum at the Harris School of Public Policy Studies.
+Q: Whe ndid the university decide to start multimillion-dollar expansion projects?
+P: From the mid-2000s
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    48 (9.6%)
+
+Example fails:
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where did the genoese traders bring the plague?
+P: Kaffa
+
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where'd the genoese traders bring the plague?
+P: Sicily and the south of Europe
+
+
+----
+C: The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.
+Q: What are the two major subsystems of the immune system?
+P: the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity
+
+C: The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.
+Q: What're the two major subsystems of the immune system?
+P: innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity
+
+
+----
+C: Reserved matters are subjects that are outside the legislative competence of the Scotland Parliament. The Scottish Parliament is unable to legislate on such issues that are reserved to, and dealt with at, Westminster (and where Ministerial functions usually lie with UK Government ministers). These include abortion, broadcasting policy, civil service, common markets for UK goods and services, constitution, electricity, coal, oil, gas, nuclear energy, defence and national security, drug policy, employment, foreign policy and relations with Europe, most aspects of transport safety and regulation, National Lottery, protection of borders, social security and stability of UK's fiscal, economic and monetary system.
+Q: Issues dealt with at Westminster are not ones who is able to deal with?
+P: The Scottish Parliament
+
+C: Reserved matters are subjects that are outside the legislative competence of the Scotland Parliament. The Scottish Parliament is unable to legislate on such issues that are reserved to, and dealt with at, Westminster (and where Ministerial functions usually lie with UK Government ministers). These include abortion, broadcasting policy, civil service, common markets for UK goods and services, constitution, electricity, coal, oil, gas, nuclear energy, defence and national security, drug policy, employment, foreign policy and relations with Europe, most aspects of transport safety and regulation, National Lottery, protection of borders, social security and stability of UK's fiscal, economic and monetary system.
+Q: Issues dealt with at Westminster aren't ones who's able to deal with?
+P: Scottish Parliament
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    87 (17.4%)
+
+Example fails:
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: The legislation allowed California to be admitted to the Union as what kind of state?
+P: free state
+
+C: Today, this is known as the Miasma theory. Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: The legislation allowed California to be admitted to the Union as what kind of state?
+P: a free state
+
+
+----
+C: The Doctor rarely travels alone and often brings one or more companions to share these adventures. His companions are usually humans, as he has found a fascination with planet Earth. He often finds events that pique his curiosity as he tries to prevent evil forces from harming innocent people or changing history, using only his ingenuity and minimal resources, such as his versatile sonic screwdriver. As a Time Lord, the Doctor has the ability to regenerate when his body is mortally damaged, taking on a new appearance and personality. The Doctor has gained numerous reoccurring enemies during his travels, including the Daleks, the Cybermen, and the Master, another renegade Time Lord.
+Q: What type of Lord is Doctor Who?
+P: Time
+
+C: AppleTalk included features that allowed local area networks to be established ad hoc without the requirement for a centralized router or server. The Doctor rarely travels alone and often brings one or more companions to share these adventures. His companions are usually humans, as he has found a fascination with planet Earth. He often finds events that pique his curiosity as he tries to prevent evil forces from harming innocent people or changing history, using only his ingenuity and minimal resources, such as his versatile sonic screwdriver. As a Time Lord, the Doctor has the ability to regenerate when his body is mortally damaged, taking on a new appearance and personality. The Doctor has gained numerous reoccurring enemies during his travels, including the Daleks, the Cybermen, and the Master, another renegade Time Lord.
+Q: What type of Lord is Doctor Who?
+P: Time Lord
+
+
+----
+C: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.
+Q: What type of treaty was the Lisbon Treaty?
+P: constitutional treaty, but it was formally an amending treaty
+
+C: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.The Grand Chamber of the Court of Justice held the Commission had not proven that this had any object or effect of limiting practitioners from entering the market. 
+Q: What type of treaty was the Lisbon Treaty?
+P: Nice Treaty
+
+C: The Grand Chamber of the Court of Justice held the Commission had not proven that this had any object or effect of limiting practitioners from entering the market. Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.
+Q: What type of treaty was the Lisbon Treaty?
+P: amending treaty
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    34 (6.8%)
+
+Example fails:
+C: Daytime programming is also provided from 11:00 a.m. to 3:00 p.m. weekdays (with a one-hour break at 12:00 p.m. Eastern/Pacific for stations to air newscasts, other locally produced programming such as talk shows, or syndicated programs) featuring the talk/lifestyle shows The View and The Chew and the soap opera General Hospital. ABC News programming includes Good Morning America from 7:00 to 9:00 a.m. weekdays (along with one-hour weekend editions); nightly editions of ABC World News Tonight (whose weekend editions are occasionally subject to abbreviation or preemption due to sports telecasts overrunning into the program's timeslot), the Sunday political talk show This Week, early morning news programs World News Now and America This Morning and the late night newsmagazine Nightline. Late nights feature the weeknight talk show Jimmy Kimmel Live!.
+Q: Who hosts the weeknight talk show featured on ABC networks?
+P: Jimmy Kimmel
+
+C: Daytime programming is also provided from 11:00 a.m. to 3:00 p.m. weekdays (with a one-hour break at 12:00 p.m. Eastern/Pacific for stations to air newscasts, other locally produced programming such as talk shows, or syndicated programs) featuring the talk/lifestyle shows The View and The Chew and the soap opera General Hospital. ABC News programming includes Good Morning America from 7:00 to 9:00 a.m. weekdays (along with one-hour weekend editions); nightly editions of ABC World News Tonight (whose weekend editions are occasionally subject to abbreviation or preemption due to sports telecasts overrunning into the program's timeslot), the Sunday political talk show This Week, early morning news programs World News Now and America This Morning and the late night newsmagazine Nightline. Late nights feature the weeknight talk show Michael Brooks!.
+Q: Who hosts the weeknight talk show featured on ABC networks?
+P: Michael Brooks
+
+C: Daytime programming is also provided from 11:00 a.m. to 3:00 p.m. weekdays (with a one-hour break at 12:00 p.m. Eastern/Pacific for stations to air newscasts, other locally produced programming such as talk shows, or syndicated programs) featuring the talk/lifestyle shows The View and The Chew and the soap opera General Hospital. ABC News programming includes Good Morning America from 7:00 to 9:00 a.m. weekdays (along with one-hour weekend editions); nightly editions of ABC World News Tonight (whose weekend editions are occasionally subject to abbreviation or preemption due to sports telecasts overrunning into the program's timeslot), the Sunday political talk show This Week, early morning news programs World News Now and America This Morning and the late night newsmagazine Nightline. Late nights feature the weeknight talk show Christopher Clark!.
+Q: Who hosts the weeknight talk show featured on ABC networks?
+P: Christopher Clark
+
+
+----
+C: Tesla later approached Morgan to ask for more funds to build a more powerful transmitter. When asked where all the money had gone, Tesla responded by saying that he was affected by the Panic of 1901, which he (Morgan) had caused. Morgan was shocked by the reminder of his part in the stock market crash and by Tesla's breach of contract by asking for more funds. Tesla wrote another plea to Morgan, but it was also fruitless. Morgan still owed Tesla money on the original agreement, and Tesla had been facing foreclosure even before construction of the tower began.
+Q: How did Morgan react to the request?
+P: shocked
+
+C: Tesla later approached Destiny to ask for more funds to build a more powerful transmitter. When asked where all the money had gone, Tesla responded by saying that he was affected by the Panic of 1901, which he (Destiny) had caused. Destiny was shocked by the reminder of his part in the stock market crash and by Tesla's breach of contract by asking for more funds. Tesla wrote another plea to Destiny, but it was also fruitless. Destiny still owed Tesla money on the original agreement, and Tesla had been facing foreclosure even before construction of the tower began.
+Q: How did Destiny react to the request?
+P: Destiny was shocked
+
+
+----
+C: The views of Ali Shariati, ideologue of the Iranian Revolution, had resemblance with Mohammad Iqbal, ideological father of the State of Pakistan, but Khomeini's beliefs is perceived to be placed somewhere between beliefs of Sunni Islamic thinkers like Mawdudi and Qutb. He believed that complete imitation of the Prophet Mohammad and his successors such as Ali for restoration of Sharia law was essential to Islam, that many secular, Westernizing Muslims were actually agents of the West serving Western interests, and that the acts such as "plundering" of Muslim lands was part of a long-term conspiracy against Islam by the Western governments.
+Q: Who was it essential to Islam to imitate?
+P: Prophet Mohammad
+
+C: The views of Aaron Shariati, ideologue of the Iranian Revolution, had resemblance with Mohammad Iqbal, ideological father of the State of Pakistan, but Khomeini's beliefs is perceived to be placed somewhere between beliefs of Sunni Islamic thinkers like Mawdudi and Qutb. He believed that complete imitation of the Prophet Mohammad and his successors such as Aaron for restoration of Sharia law was essential to Islam, that many secular, Westernizing Muslims were actually agents of the West serving Western interests, and that the acts such as "plundering" of Muslim lands was part of a long-term conspiracy against Islam by the Western governments.
+Q: Who was it essential to Islam to imitate?
+P: Prophet Mohammad and his successors such as Aaron
+
+C: The views of Stephen Shariati, ideologue of the Iranian Revolution, had resemblance with Mohammad Iqbal, ideological father of the State of Pakistan, but Khomeini's beliefs is perceived to be placed somewhere between beliefs of Sunni Islamic thinkers like Mawdudi and Qutb. He believed that complete imitation of the Prophet Mohammad and his successors such as Stephen for restoration of Sharia law was essential to Islam, that many secular, Westernizing Muslims were actually agents of the West serving Western interests, and that the acts such as "plundering" of Muslim lands was part of a long-term conspiracy against Islam by the Western governments.
+Q: Who was it essential to Islam to imitate?
+P: Stephen
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    78 (15.6%)
+
+Example fails:
+C: Prior to European settlement, the area now constituting Victoria was inhabited by a large number of Aboriginal peoples, collectively known as the Koori. With Great Britain having claimed the entire Australian continent east of the 135th meridian east in 1788, Victoria was included in the wider colony of New South Wales. The first settlement in the area occurred in 1803 at Sullivan Bay, and much of what is now Victoria was included in the Port Phillip District in 1836, an administrative division of New South Wales. Victoria was officially created a separate colony in 1851, and achieved self-government in 1855. The Victorian gold rush in the 1850s and 1860s significantly increased both the population and wealth of the colony, and by the Federation of Australia in 1901, Melbourne had become the largest city and leading financial centre in Australasia. Melbourne also served as capital of Australia until the construction of Canberra in 1927, with the Federal Parliament meeting in Melbourne's Parliament House and all principal offices of the federal government being based in Melbourne.
+Q: When did Great Britain claim Australia? 
+P: 1788
+
+C: Prior to European settlement, the area now constituting Victoria was inhabited by a large number of Aboriginal peoples, collectively known as the Koori. With Great Britain having claimed the entire Australian continent east of the 135th meridian east in 1788, Victoria was included in the wider colony of New South Wales. The first settlement in the area occurred in 1803 at Sullivan Bay, and much of what is now Victoria was included in the Port Phillip District in 1836, an administrative division of New South Wales. Victoria was officially created a separate colony in 1851, and achieved self-government in 1855. The Victorian gold rush in the 1850s and 1860s significantly increased both the population and wealth of the colony, and by the Federation of Libya in 1901, Melbourne had become the largest city and leading financial centre in Australasia. Melbourne also served as capital of Libya until the construction of Canberra in 1927, with the Federal Parliament meeting in Melbourne's Parliament House and all principal offices of the federal government being based in Melbourne.
+Q: When did Great Britain claim Libya? 
+P: 1901
+
+C: Prior to European settlement, the area now constituting Victoria was inhabited by a large number of Aboriginal peoples, collectively known as the Koori. With Great Britain having claimed the entire Australian continent east of the 135th meridian east in 1788, Victoria was included in the wider colony of New South Wales. The first settlement in the area occurred in 1803 at Sullivan Bay, and much of what is now Victoria was included in the Port Phillip District in 1836, an administrative division of New South Wales. Victoria was officially created a separate colony in 1851, and achieved self-government in 1855. The Victorian gold rush in the 1850s and 1860s significantly increased both the population and wealth of the colony, and by the Federation of Turks and Caicos Islands in 1901, Melbourne had become the largest city and leading financial centre in Australasia. Melbourne also served as capital of Turks and Caicos Islands until the construction of Canberra in 1927, with the Federal Parliament meeting in Melbourne's Parliament House and all principal offices of the federal government being based in Melbourne.
+Q: When did Great Britain claim Turks and Caicos Islands? 
+P: 1901
+
+
+----
+C: Free movement of goods within the European Union is achieved by a customs union, and the principle of non-discrimination. The EU manages imports from non-member states, duties between member states are prohibited, and imports circulate freely. In addition under the Treaty on the Functioning of the European Union article 34, ‘Quantitative restrictions on imports and all measures having equivalent effect shall be prohibited between Member States’. In Procureur du Roi v Dassonville the Court of Justice held that this rule meant all "trading rules" that are "enacted by Member States" which could hinder trade "directly or indirectly, actually or potentially" would be caught by article 34. This meant that a Belgian law requiring Scotch whisky imports to have a certificate of origin was unlikely to be lawful. It discriminated against parallel importers like Mr Dassonville, who could not get certificates from authorities in France, where they bought the Scotch. This "wide test", to determine what could potentially be an unlawful restriction on trade, applies equally to actions by quasi-government bodies, such as the former "Buy Irish" company that had government appointees. It also means states can be responsible for private actors. For instance, in Commission v France French farmer vigilantes were continually sabotaging shipments of Spanish strawberries, and even Belgian tomato imports. France was liable for these hindrances to trade because the authorities ‘manifestly and persistently abstained' from preventing the sabotage. Generally speaking, if a member state has laws or practices that directly discriminate against imports (or exports under TFEU article 35) then it must be justified under article 36. The justifications include public morality, policy or security, "protection of health and life of humans, animals or plants", "national treasures" of "artistic, historic or archaeological value" and "industrial and commercial property." In addition, although not clearly listed, environmental protection can justify restrictions on trade as an overriding requirement derived from TFEU article 11. More generally, it has been increasingly acknowledged that fundamental human rights should take priority over all trade rules. So, in Schmidberger v Austria the Court of Justice held that Austria did not infringe article 34 by failing to ban a protest that blocked heavy traffic passing over the A13, Brenner Autobahn, en route to Italy. Although many companies, including Mr Schmidberger's German undertaking, were prevented from trading, the Court of Justice reasoned that freedom of association is one of the ‘fundamental pillars of a democratic society’, against which the free movement of goods had to be balanced, and was probably subordinate. If a member state does appeal to the article 36 justification, the measures it takes have to be applied proportionately. This means the rule must be pursue a legitimate aim and (1) be suitable to achieve the aim, (2) be necessary, so that a less restrictive measure could not achieve the same result, and (3) be reasonable in balancing the interests of free trade with interests in article 36.
+Q: In which case were French vigilantes sabotaging shipments of Spanish Strawberries?
+P: Commission v
+
+C: Free movement of goods within the European Union is achieved by a customs union, and the principle of non-discrimination. The EU manages imports from non-member states, duties between member states are prohibited, and imports circulate freely. In addition under the Treaty on the Functioning of the European Union article 34, ‘Quantitative restrictions on imports and all measures having equivalent effect shall be prohibited between Member States’. In Procureur du Roi v Dassonville the Court of Justice held that this rule meant all "trading rules" that are "enacted by Member States" which could hinder trade "directly or indirectly, actually or potentially" would be caught by article 34. This meant that a Belgian law requiring Scotch whisky imports to have a certificate of origin was unlikely to be lawful. It discriminated against parallel importers like Mr Dassonville, who could not get certificates from authorities in Afghanistan, where they bought the Scotch. This "wide test", to determine what could potentially be an unlawful restriction on trade, applies equally to actions by quasi-government bodies, such as the former "Buy Irish" company that had government appointees. It also means states can be responsible for private actors. For instance, in Commission v Afghanistan French farmer vigilantes were continually sabotaging shipments of Spanish strawberries, and even Belgian tomato imports. Afghanistan was liable for these hindrances to trade because the authorities ‘manifestly and persistently abstained' from preventing the sabotage. Generally speaking, if a member state has laws or practices that directly discriminate against imports (or exports under TFEU article 35) then it must be justified under article 36. The justifications include public morality, policy or security, "protection of health and life of humans, animals or plants", "national treasures" of "artistic, historic or archaeological value" and "industrial and commercial property." In addition, although not clearly listed, environmental protection can justify restrictions on trade as an overriding requirement derived from TFEU article 11. More generally, it has been increasingly acknowledged that fundamental human rights should take priority over all trade rules. So, in Schmidberger v Austria the Court of Justice held that Austria did not infringe article 34 by failing to ban a protest that blocked heavy traffic passing over the A13, Brenner Autobahn, en route to Italy. Although many companies, including Mr Schmidberger's German undertaking, were prevented from trading, the Court of Justice reasoned that freedom of association is one of the ‘fundamental pillars of a democratic society’, against which the free movement of goods had to be balanced, and was probably subordinate. If a member state does appeal to the article 36 justification, the measures it takes have to be applied proportionately. This means the rule must be pursue a legitimate aim and (1) be suitable to achieve the aim, (2) be necessary, so that a less restrictive measure could not achieve the same result, and (3) be reasonable in balancing the interests of free trade with interests in article 36.
+Q: In which case were French vigilantes sabotaging shipments of Spanish Strawberries?
+P: Commission v Afghanistan
+
+C: Free movement of goods within the European Union is achieved by a customs union, and the principle of non-discrimination. The EU manages imports from non-member states, duties between member states are prohibited, and imports circulate freely. In addition under the Treaty on the Functioning of the European Union article 34, ‘Quantitative restrictions on imports and all measures having equivalent effect shall be prohibited between Member States’. In Procureur du Roi v Dassonville the Court of Justice held that this rule meant all "trading rules" that are "enacted by Member States" which could hinder trade "directly or indirectly, actually or potentially" would be caught by article 34. This meant that a Belgian law requiring Scotch whisky imports to have a certificate of origin was unlikely to be lawful. It discriminated against parallel importers like Mr Dassonville, who could not get certificates from authorities in Tunisia, where they bought the Scotch. This "wide test", to determine what could potentially be an unlawful restriction on trade, applies equally to actions by quasi-government bodies, such as the former "Buy Irish" company that had government appointees. It also means states can be responsible for private actors. For instance, in Commission v Tunisia French farmer vigilantes were continually sabotaging shipments of Spanish strawberries, and even Belgian tomato imports. Tunisia was liable for these hindrances to trade because the authorities ‘manifestly and persistently abstained' from preventing the sabotage. Generally speaking, if a member state has laws or practices that directly discriminate against imports (or exports under TFEU article 35) then it must be justified under article 36. The justifications include public morality, policy or security, "protection of health and life of humans, animals or plants", "national treasures" of "artistic, historic or archaeological value" and "industrial and commercial property." In addition, although not clearly listed, environmental protection can justify restrictions on trade as an overriding requirement derived from TFEU article 11. More generally, it has been increasingly acknowledged that fundamental human rights should take priority over all trade rules. So, in Schmidberger v Austria the Court of Justice held that Austria did not infringe article 34 by failing to ban a protest that blocked heavy traffic passing over the A13, Brenner Autobahn, en route to Italy. Although many companies, including Mr Schmidberger's German undertaking, were prevented from trading, the Court of Justice reasoned that freedom of association is one of the ‘fundamental pillars of a democratic society’, against which the free movement of goods had to be balanced, and was probably subordinate. If a member state does appeal to the article 36 justification, the measures it takes have to be applied proportionately. This means the rule must be pursue a legitimate aim and (1) be suitable to achieve the aim, (2) be necessary, so that a less restrictive measure could not achieve the same result, and (3) be reasonable in balancing the interests of free trade with interests in article 36.
+Q: In which case were French vigilantes sabotaging shipments of Spanish Strawberries?
+P: Commission v Tunisia
+
+
+----
+C: For some decades prior to the First Palestine Intifada in 1987, the Muslim Brotherhood in Palestine took a "quiescent" stance towards Israel, focusing on preaching, education and social services, and benefiting from Israel's "indulgence" to build up a network of mosques and charitable organizations. As the First Intifada gathered momentum and Palestinian shopkeepers closed their shops in support of the uprising, the Brotherhood announced the formation of HAMAS ("zeal"), devoted to Jihad against Israel. Rather than being more moderate than the PLO, the 1988 Hamas charter took a more uncompromising stand, calling for the destruction of Israel and the establishment of an Islamic state in Palestine. It was soon competing with and then overtaking the PLO for control of the intifada. The Brotherhood's base of devout middle class found common cause with the impoverished youth of the intifada in their cultural conservatism and antipathy for activities of the secular middle class such as drinking alcohol and going about without hijab.
+Q: What did the Hamas charter uncompromisingly encourage?
+P: destruction of Israel and the establishment of an Islamic state in Palestine
+
+C: For some decades prior to the First Palestine Intifada in 1987, the Muslim Brotherhood in Palestine took a "quiescent" stance towards Kyrgyz Republic, focusing on preaching, education and social services, and benefiting from Kyrgyz Republic's "indulgence" to build up a network of mosques and charitable organizations. As the First Intifada gathered momentum and Palestinian shopkeepers closed their shops in support of the uprising, the Brotherhood announced the formation of HAMAS ("zeal"), devoted to Jihad against Kyrgyz Republic. Rather than being more moderate than the PLO, the 1988 Hamas charter took a more uncompromising stand, calling for the destruction of Kyrgyz Republic and the establishment of an Islamic state in Palestine. It was soon competing with and then overtaking the PLO for control of the intifada. The Brotherhood's base of devout middle class found common cause with the impoverished youth of the intifada in their cultural conservatism and antipathy for activities of the secular middle class such as drinking alcohol and going about without hijab.
+Q: What did the Hamas charter uncompromisingly encourage?
+P: destruction of Kyrgyz Republic
+
+C: For some decades prior to the First Palestine Intifada in 1987, the Muslim Brotherhood in Palestine took a "quiescent" stance towards Faroe Islands, focusing on preaching, education and social services, and benefiting from Faroe Islands's "indulgence" to build up a network of mosques and charitable organizations. As the First Intifada gathered momentum and Palestinian shopkeepers closed their shops in support of the uprising, the Brotherhood announced the formation of HAMAS ("zeal"), devoted to Jihad against Faroe Islands. Rather than being more moderate than the PLO, the 1988 Hamas charter took a more uncompromising stand, calling for the destruction of Faroe Islands and the establishment of an Islamic state in Palestine. It was soon competing with and then overtaking the PLO for control of the intifada. The Brotherhood's base of devout middle class found common cause with the impoverished youth of the intifada in their cultural conservatism and antipathy for activities of the secular middle class such as drinking alcohol and going about without hijab.
+Q: What did the Hamas charter uncompromisingly encourage?
+P: destruction of Faroe Islands
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    0 (0.0%)
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    0 (0.0%)
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Zachary became a interpreter before John did.
+Q: Who became a interpreter first?
+A: Zachary
+P: Zachary became a interpreter before John
+
+C: John became a interpreter after Zachary did.
+Q: Who became a interpreter first?
+A: Zachary
+P: John became a interpreter after Zachary
+
+C: John became a interpreter after Zachary did.
+Q: Who became a interpreter last?
+A: John
+P: Zachary
+
+
+----
+C: Victoria became a journalist after Timothy did.
+Q: Who became a journalist last?
+A: Victoria
+P: Timothy
+
+
+----
+C: Richard became a activist before Emma did.
+Q: Who became a activist first?
+A: Richard
+P: Richard became a activist before Emma
+
+C: Emma became a activist after Richard did.
+Q: Who became a activist first?
+A: Richard
+P: Emma became a activist after Richard
+
+C: Emma became a activist after Richard did.
+Q: Who became a activist last?
+A: Emma
+P: Richard
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    0 (0.0%)
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Hannah is an architect. Christopher is an editor.
+Q: Who is not an architect?
+A: Christopher
+P: Hannah
+
+C: Hannah is an architect. Christopher is an editor.
+Q: Who is not an editor?
+A: Hannah
+P: Christopher
+
+C: Christopher is an editor. Hannah is an architect.
+Q: Who is not an architect?
+A: Christopher
+P: Hannah
+
+
+----
+C: Samantha is a photographer. Zachary is a historian.
+Q: Who is not a photographer?
+A: Zachary
+P: Samantha
+
+C: Samantha is a photographer. Zachary is a historian.
+Q: Who is not a historian?
+A: Samantha
+P: Zachary
+
+C: Zachary is a historian. Samantha is a photographer.
+Q: Who is not a photographer?
+A: Zachary
+P: Samantha
+
+
+----
+C: Adam is an author. Christian is an investigator.
+Q: Who is not an author?
+A: Christian
+P: Adam
+
+C: Adam is an author. Christian is an investigator.
+Q: Who is not an investigator?
+A: Adam
+P: Christian
+
+C: Christian is an investigator. Adam is an author.
+Q: Who is not an author?
+A: Christian
+P: Adam
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Julian and Tara are friends. He is an activist, and she is a producer.
+Q: Who is an activist?
+A: Julian
+P: He is an activist, and she is a producer
+
+C: Julian and Tara are friends. He is an activist, and she is a producer.
+Q: Who is a producer?
+A: Tara
+P: she
+
+C: Tara and Julian are friends. He is an activist, and she is a producer.
+Q: Who is an activist?
+A: Julian
+P: He is an activist, and she is a producer
+
+
+----
+C: George and Brianna are friends. He is an adviser, and she is an activist.
+Q: Who is an adviser?
+A: George
+P: He
+
+C: George and Brianna are friends. He is an adviser, and she is an activist.
+Q: Who is an activist?
+A: Brianna
+P: she
+
+C: Brianna and George are friends. He is an adviser, and she is an activist.
+Q: Who is an adviser?
+A: George
+P: He
+
+
+----
+C: Robert and Diana are friends. He is an accountant, and she is a historian.
+Q: Who is an accountant?
+A: Robert
+P: historian
+
+C: Robert and Diana are friends. He is an accountant, and she is a historian.
+Q: Who is a historian?
+A: Diana
+P: she
+
+C: Diana and Robert are friends. He is an accountant, and she is a historian.
+Q: Who is an accountant?
+A: Robert
+P: historian
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    500 (100.0%)
+
+Example fails:
+C: Timothy and Olivia are friends. Her mom is a journalist.
+Q: Whose mom is a journalist?
+A: Olivia
+P: Her
+
+C: Olivia and Timothy are friends. Her mom is a journalist.
+Q: Whose mom is a journalist?
+A: Olivia
+P: Her
+
+
+----
+C: Jeremy and Taylor are friends. His mom is an entrepreneur.
+Q: Whose mom is an entrepreneur?
+A: Jeremy
+P: His
+
+C: Taylor and Jeremy are friends. His mom is an entrepreneur.
+Q: Whose mom is an entrepreneur?
+A: Jeremy
+P: His
+
+
+----
+C: Caleb and Sophia are friends. His mom is an escort.
+Q: Whose mom is an escort?
+A: Caleb
+P: His
+
+C: Sophia and Caleb are friends. His mom is an escort.
+Q: Whose mom is an escort?
+A: Caleb
+P: His
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Sara and Daniel are friends. The former is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Sara
+P: The former
+
+C: Daniel and Sara are friends. The latter is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Sara
+P: Daniel
+
+C: Sara and Daniel are friends. The former is an entrepreneur and the latter is a journalist.
+Q: Who is an entrepreneur?
+A: Sara
+P: journalist
+
+
+----
+C: Joseph and Kevin are friends. The former is a journalist.
+Q: Who is a journalist?
+A: Joseph
+P: The former
+
+C: Kevin and Joseph are friends. The latter is a journalist.
+Q: Who is a journalist?
+A: Joseph
+P: Kevin and Joseph
+
+C: Joseph and Kevin are friends. The former is a journalist and the latter is an attorney.
+Q: Who is a journalist?
+A: Joseph
+P: attorney
+
+
+----
+C: Daniel and Abigail are friends. The former is an analyst.
+Q: Who is an analyst?
+A: Daniel
+P: The former
+
+C: Daniel and Abigail are friends. The former is an analyst and the latter is an intern.
+Q: Who is an analyst?
+A: Daniel
+P: Daniel and Abigail are friends. The former is an analyst and the latter is an intern
+
+C: Abigail and Daniel are friends. The former is an intern and the latter is an analyst.
+Q: Who is an analyst?
+A: Daniel
+P: an intern
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    479 (96.4%)
+
+Example fails:
+C: Alexis is recognized by Jeremy.
+Q: Who is recognized?
+A: Alexis
+P: Jeremy
+
+
+----
+C: Jason understands Austin.
+Q: Who understands?
+A: Jason
+P: Jason understands Austin
+
+C: Austin is understood by Jason.
+Q: Who is understood?
+A: Austin
+P: Jason
+
+
+----
+C: Brandon accepts Justin.
+Q: Who accepts?
+A: Brandon
+P: Justin
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Taylor is blamed by Kayla. Taylor blames Katherine.
+Q: Who is blamed by Taylor?
+A: Katherine
+P: Kayla
+
+
+----
+C: Richard is disliked by Maria. Richard dislikes Natalie.
+Q: Who is disliked by Richard?
+A: Natalie
+P: Maria
+
+C: Richard is disliked by Maria. Natalie is disliked by Richard.
+Q: Who dislikes Richard?
+A: Maria
+P: Maria. Natalie
+
+
+----
+C: Kevin is recognized by Ryan. Kevin recognizes Madison.
+Q: Who is recognized by Kevin?
+A: Madison
+P: Ryan
+
+
+----
+
+
+

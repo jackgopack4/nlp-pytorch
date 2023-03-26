@@ -1,0 +1,35 @@
+# Results for squad-trained model:
+{'eval_exact_match': 78.01324503311258, 'eval_f1': 86.09164447174685}
+
+# Results for squad combined with AddOneSent trained model:
+{'eval_exact_match': 79.91485335856197, 'eval_f1': 87.27578558154276}
+
+# Results for squad with AddSent trained model:
+{'eval_exact_match': 80.23651844843897, 'eval_f1': 87.31952701446365}
+
+# combined plus adversarial dataset
+{'eval_exact_match': 69.92431409649953, 'eval_f1': 78.54105339971485}
+
+# squad plus adversarial dataset
+{'eval_exact_match': 69.2336802270577, 'eval_f1': 78.20658141400816}
+
+# triple dataset
+{'eval_exact_match': 80.49195837275307, 'eval_f1': 87.54094922682714}
+
+# triple dataset trained on custom former-latter dataset
+{'eval_exact_match': 79.60264900662251, 'eval_f1': 86.38583782036187}
+
+# triple dataset double-trained on custom former-latter dataset
+{'eval_exact_match': 79.45127719962157, 'eval_f1': 86.24196078975284}
+
+# squad-trained model with custom former-latter dataset
+{'eval_exact_match': 77.22800378429517, 'eval_f1': 84.69200902152039}
+
+# combined-triple dataset with negation experiment set
+{'eval_exact_match': 80.33112582781457, 'eval_f1': 87.42694235095531}
+
+# combined-triple dataset with negation-2 experiment set
+{'eval_exact_match': 80.0473036896878, 'eval_f1': 86.99738144846238}
+
+# combined triple with negation and former latter experiment set
+{'eval_exact_match': 79.46073793755913, 'eval_f1': 86.58063084794101}

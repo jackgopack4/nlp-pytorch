@@ -1,0 +1,990 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    377 (76.3%)
+
+Example fails:
+C: Charles is stronger than Richard.
+Q: Who is less strong?
+A: Richard
+P: Charles
+
+
+----
+C: Amber is cleaner than Abigail.
+Q: Who is cleaner?
+A: Amber
+P: Abigail
+
+
+----
+C: Laura is tougher than Rachel.
+Q: Who is less tough?
+A: Rachel
+P: Laura
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Robert is extremely enthusiastic about the project. Austin is enthusiastic about the project.
+Q: Who is least enthusiastic about the project?
+A: Austin
+P: Robert
+
+C: Austin is enthusiastic about the project. Robert is extremely enthusiastic about the project.
+Q: Who is most enthusiastic about the project?
+A: Robert
+P: Austin
+
+C: Austin is mildly enthusiastic about the project. Robert is enthusiastic about the project.
+Q: Who is most enthusiastic about the project?
+A: Robert
+P: Austin
+
+
+----
+C: Mary is very serious about the project. Christopher is serious about the project.
+Q: Who is least serious about the project?
+A: Christopher
+P: Mary
+
+C: Christopher is serious about the project. Mary is very serious about the project.
+Q: Who is most serious about the project?
+A: Mary
+P: Christopher
+
+C: Christopher is serious about the project. Mary is very serious about the project.
+Q: Who is least serious about the project?
+A: Christopher
+P: Mary
+
+
+----
+C: Ethan is pleased about the project. Jeremy is extremely pleased about the project.
+Q: Who is most pleased about the project?
+A: Jeremy
+P: Ethan
+
+C: Ethan is slightly pleased about the project. Jeremy is pleased about the project.
+Q: Who is most pleased about the project?
+A: Jeremy
+P: Ethan
+
+C: Ethan is slightly pleased about the project. Jeremy is extremely pleased about the project.
+Q: Who is most pleased about the project?
+A: Jeremy
+P: Ethan
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    288 (57.6%)
+
+Example fails:
+C: There is a clock in the room. The clock is enormous and white.
+Q: What size is the clock?
+A: enormous
+P: enormous and white
+
+
+----
+C: There is a table in the room. The table is tiny and white.
+Q: What size is the table?
+A: tiny
+P: tiny and white
+
+
+----
+C: There is an enormous round sculpture in the room.
+Q: What size is the sculpture?
+A: enormous
+P: round
+
+C: There is a sculpture in the room. The sculpture is enormous and round.
+Q: What size is the sculpture?
+A: enormous
+P: enormous and round
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    282 (56.4%)
+
+Example fails:
+C: Nicole is a Nigerian executive.
+Q: What is Nicole's job?
+A: executive
+P: Nigerian executive
+
+
+----
+C: Sophia is a Russian organizer.
+Q: What is Sophia's job?
+A: organizer
+P: Russian organizer
+
+
+----
+C: David is an Indian intern.
+Q: What is David's job?
+A: intern
+P: Indian intern
+
+C: David is Indian. David is an intern.
+Q: What is David's job?
+A: intern
+P: Indian
+
+C: David is Indian and an intern.
+Q: What is David's job?
+A: intern
+P: Indian
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    235 (47.0%)
+
+Example fails:
+C: Lisa has a fish and a car.
+Q: What vehicle does Lisa have?
+A: car
+P: fish
+
+C: Lisa has a car and a fish.
+Q: What vehicle does Lisa have?
+A: car
+P: fish
+
+
+----
+C: Daniel has a firetruck and a fish.
+Q: What animal does Daniel have?
+A: fish
+P: firetruck
+
+
+----
+C: Sophia has a rabbit and a truck.
+Q: What vehicle does Sophia have?
+A: truck
+P: a rabbit
+
+C: Sophia has a truck and a rabbit.
+Q: What vehicle does Sophia have?
+A: truck
+P: rabbit
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    393 (79.2%)
+
+Example fails:
+C: Amanda bought a guinea pig. David bought a tractor.
+Q: Who bought a vehicle?
+A: David
+P: Amanda
+
+
+----
+C: Rachel bought a train. Sean bought a snake.
+Q: Who bought an animal?
+A: Sean
+P: Rachel
+
+
+----
+C: Thomas bought a snake. Taylor bought a firetruck.
+Q: Who bought a vehicle?
+A: Taylor
+P: Thomas
+
+C: Taylor bought a firetruck. Thomas bought a snake.
+Q: Who bought a vehicle?
+A: Taylor
+P: Thomas
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    254 (56.8%)
+
+Example fails:
+C: Rachel is very joyful. Ethan is very religious.
+Q: Who is spiritual?
+A: Ethan
+P: Rachel
+
+C: Ethan is very religious. Rachel is very joyful.
+Q: Who is spiritual?
+A: Ethan
+P: Rachel
+
+
+----
+C: Natalie is very joyful. Anthony is very frightened.
+Q: Who is scared?
+A: Anthony
+P: Natalie
+
+
+----
+C: Alyssa is very vocal. Jason is very angry.
+Q: Who is furious?
+A: Jason
+P: Alyssa
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    493 (99.4%)
+
+Example fails:
+C: Jason is taller than Kyle.
+Q: Who is shorter?
+A: Kyle
+P: Jason is taller than Kyle
+
+C: Kyle is shorter than Jason.
+Q: Who is taller?
+A: Jason
+P: Kyle
+
+
+----
+C: Natalie is faster than Rebecca.
+Q: Who is slower?
+A: Rebecca
+P: Natalie
+
+C: Rebecca is slower than Natalie.
+Q: Who is faster?
+A: Natalie
+P: Rebecca
+
+
+----
+C: Amy is shorter than Steven.
+Q: Who is taller?
+A: Steven
+P: Amy
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Joseph is more courageous than Matthew.
+Q: Who is less courageous?
+A: Matthew
+P: Joseph
+
+C: Joseph is more courageous than Matthew.
+Q: Who is more fearful?
+A: Matthew
+P: Joseph
+
+C: Matthew is more fearful than Joseph.
+Q: Who is less courageous?
+A: Matthew
+P: Joseph
+
+
+----
+C: Jessica is more insecure than Nicole.
+Q: Who is less insecure?
+A: Nicole
+P: Jessica
+
+C: Jessica is more insecure than Nicole.
+Q: Who is more secure?
+A: Nicole
+P: Jessica
+
+C: Nicole is more secure than Jessica.
+Q: Who is more insecure?
+A: Jessica
+P: Nicole
+
+
+----
+C: Jacob is more cautious than Ryan.
+Q: Who is less cautious?
+A: Ryan
+P: Jacob
+
+C: Jacob is more cautious than Ryan.
+Q: Who is more brave?
+A: Ryan
+P: Jacob
+
+C: Ryan is more brave than Jacob.
+Q: Who is less cautious?
+A: Ryan
+P: Jacob
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    105 (21.0%)
+
+Example fails:
+C: From the mid-2000s, the university began a number of multimillion-dollar expansion projects. In 2008, the University of Chicago announced plans to establish the Milton Friedman Institute which attracted both support and controversy from faculty members and students. The institute will cost around $200 million and occupy the buildings of the Chicago Theological Seminary. During the same year, investor David G. Booth donated $300 million to the university's Booth School of Business, which is the largest gift in the university's history and the largest gift ever to any business school. In 2009, planning or construction on several new buildings, half of which cost $100 million or more, was underway. Since 2011, major construction projects have included the Jules and Gwen Knapp Center for Biomedical Discovery, a ten-story medical research center, and further additions to the medical campus of the University of Chicago Medical Center. In 2014 the University launched the public phase of a $4.5 billion fundraising campaign. In September 2015, the University received $100 million from The Pearson Family Foundation to establish The Pearson Institute for the Study and Resolution of Global Conflicts and The Pearson Global Forum at the Harris School of Public Policy Studies.
+Q: When did the university decide to start multimillion-dollar expansion projects?
+P: mid-2000s
+
+C: From the mid-2000s, the university began a number of multimillion-dollar expansion projects. In 2008, the University of Chicago announced plans to establish the Milton Friedman Institute which attracted both support and controversy from faculty members and students. The institute will cost around $200 million and occupy the buildings of the Chicago Theological Seminary. During the same year, investor David G. Booth donated $300 million to the university's Booth School of Business, which is the largest gift in the university's history and the largest gift ever to any business school. In 2009, planning or construction on several new buildings, half of which cost $100 million or more, was underway. Since 2011, major construction projects have included the Jules and Gwen Knapp Center for Biomedical Discovery, a ten-story medical research center, and further additions to the medical campus of the University of Chicago Medical Center. In 2014 the University launched the public phase of a $4.5 billion fundraising campaign. In September 2015, the University received $100 million from The Pearson Family Foundation to establish The Pearson Institute for the Study and Resolution of Global Conflicts and The Pearson Global Forum at the Harris School of Public Policy Studies.
+Q: Whe ndid the university decide to start multimillion-dollar expansion projects?
+P: Milton Friedman Institute
+
+
+----
+C: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.
+Q: What is the lowest ranking one of the counties could have in terms of most populous counties in the United States?
+P: top
+
+C: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.
+Q: What is the lowest ranking one of the counties could have in terms of most populous counties in the Untied States?
+P: top 15
+
+
+----
+C: The Super Bowl 50 Host Committee has vowed to be "the most giving Super Bowl ever", and will dedicate 25 percent of all money it raises for philanthropic causes in the Bay Area. The committee created the 50 fund as its philanthropic initiative and focuses on providing grants to aid with youth development, community investment and sustainable environments.
+Q: What is the name of the Host Committee's charitable initiative?
+P: the 50 fund
+
+C: The Super Bowl 50 Host Committee has vowed to be "the most giving Super Bowl ever", and will dedicate 25 percent of all money it raises for philanthropic causes in the Bay Area. The committee created the 50 fund as its philanthropic initiative and focuses on providing grants to aid with youth development, community investment and sustainable environments.
+Q: What is the name of the HostC ommittee's charitable initiative?
+P: 50 fund
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    55 (11.0%)
+
+Example fails:
+C: A deterministic Turing machine is the most basic Turing machine, which uses a fixed set of rules to determine its future actions. A probabilistic Turing machine is a deterministic Turing machine with an extra supply of random bits. The ability to make probabilistic decisions often helps algorithms solve problems more efficiently. Algorithms that use random bits are called randomized algorithms. A non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism, which allows a Turing machine to have multiple possible future actions from a given state. One way to view non-determinism is that the Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem. Clearly, this model is not meant to be a physically realizable model, it is just a theoretically interesting abstract machine that gives rise to particularly interesting complexity classes. For examples, see non-deterministic algorithm.
+Q: What is the term used to identify a deterministic Turing machine that has additional random bits?
+P: probabilistic Turing machine
+
+C: A deterministic Turing machine is the most basic Turing machine, which uses a fixed set of rules to determine its future actions. A probabilistic Turing machine is a deterministic Turing machine with an extra supply of random bits. The ability to make probabilistic decisions often helps algorithms solve problems more efficiently. Algorithms that use random bits are called randomized algorithms. A non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism, which allows a Turing machine to have multiple possible future actions from a given state. One way to view non-determinism is that the Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem. Clearly, this model is not meant to be a physically realizable model, it is just a theoretically interesting abstract machine that gives rise to particularly interesting complexity classes. For examples, see non-deterministic algorithm.
+Q: What's the term used to identify a deterministic Turing machine that has additional random bits?
+P: randomized algorithms
+
+
+----
+C: After a chloroplast polypeptide is synthesized on a ribosome in the cytosol, an enzyme specific to chloroplast proteins phosphorylates, or adds a phosphate group to many (but not all) of them in their transit sequences. Phosphorylation helps many proteins bind the polypeptide, keeping it from folding prematurely. This is important because it prevents chloroplast proteins from assuming their active form and carrying out their chloroplast functions in the wrong place—the cytosol. At the same time, they have to keep just enough shape so that they can be recognized by the chloroplast. These proteins also help the polypeptide get imported into the chloroplast.
+Q: What is the chloroplast polypeptide synthesized on?
+P: ribosome in the cytosol
+
+C: After a chloroplast polypeptide is synthesized on a ribosome in the cytosol, an enzyme specific to chloroplast proteins phosphorylates, or adds a phosphate group to many (but not all) of them in their transit sequences. Phosphorylation helps many proteins bind the polypeptide, keeping it from folding prematurely. This is important because it prevents chloroplast proteins from assuming their active form and carrying out their chloroplast functions in the wrong place—the cytosol. At the same time, they have to keep just enough shape so that they can be recognized by the chloroplast. These proteins also help the polypeptide get imported into the chloroplast.
+Q: What's the chloroplast polypeptide synthesized on?
+P: cytosol
+
+
+----
+C: For certain physical scenarios, it is impossible to model forces as being due to gradient of potentials. This is often due to macrophysical considerations that yield forces as arising from a macroscopic statistical average of microstates. For example, friction is caused by the gradients of numerous electrostatic potentials between the atoms, but manifests as a force model that is independent of any macroscale position vector. Nonconservative forces other than friction include other contact forces, tension, compression, and drag. However, for any sufficiently detailed description, all these forces are the results of conservative ones since each of these macroscopic forces are the net results of the gradients of microscopic potentials.
+Q: What is sometimes impossible to model?
+P: forces
+
+C: For certain physical scenarios, it is impossible to model forces as being due to gradient of potentials. This is often due to macrophysical considerations that yield forces as arising from a macroscopic statistical average of microstates. For example, friction is caused by the gradients of numerous electrostatic potentials between the atoms, but manifests as a force model that is independent of any macroscale position vector. Nonconservative forces other than friction include other contact forces, tension, compression, and drag. However, for any sufficiently detailed description, all these forces are the results of conservative ones since each of these macroscopic forces are the net results of the gradients of microscopic potentials.
+Q: What's sometimes impossible to model?
+P: forces as being due to gradient of potentials
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    85 (17.0%)
+
+Example fails:
+C: Despite waiving longtime running back DeAngelo Williams and losing top wide receiver Kelvin Benjamin to a torn ACL in the preseason, the Carolina Panthers had their best regular season in franchise history, becoming the seventh team to win at least 15 regular season games since the league expanded to a 16-game schedule in 1978. Carolina started the season 14–0, not only setting franchise records for the best start and the longest single-season winning streak, but also posting the best start to a season by an NFC team in NFL history, breaking the 13–0 record previously shared with the 2009 New Orleans Saints and the 2011 Green Bay Packers. With their NFC-best 15–1 regular season record, the Panthers clinched home-field advantage throughout the NFC playoffs for the first time in franchise history. Ten players were selected to the Pro Bowl (the most in franchise history) along with eight All-Pro selections.
+Q: What team had the best start ever in the NFL?
+P: Carolina Panthers
+
+C: According to Siad, orientalism allowed Europe to establish itself as the superior and the norm, which justified its dominance over the essentialized Orient. Despite waiving longtime running back DeAngelo Williams and losing top wide receiver Kelvin Benjamin to a torn ACL in the preseason, the Carolina Panthers had their best regular season in franchise history, becoming the seventh team to win at least 15 regular season games since the league expanded to a 16-game schedule in 1978. Carolina started the season 14–0, not only setting franchise records for the best start and the longest single-season winning streak, but also posting the best start to a season by an NFC team in NFL history, breaking the 13–0 record previously shared with the 2009 New Orleans Saints and the 2011 Green Bay Packers. With their NFC-best 15–1 regular season record, the Panthers clinched home-field advantage throughout the NFC playoffs for the first time in franchise history. Ten players were selected to the Pro Bowl (the most in franchise history) along with eight All-Pro selections.
+Q: What team had the best start ever in the NFL?
+P: New Orleans Saints
+
+
+----
+C: The inverted repeat regions are highly conserved among land plants, and accumulate few mutations. Similar inverted repeats exist in the genomes of cyanobacteria and the other two chloroplast lineages (glaucophyta and rhodophyceæ), suggesting that they predate the chloroplast, though some chloroplast DNAs have since lost or flipped the inverted repeats (making them direct repeats). It is possible that the inverted repeats help stabilize the rest of the chloroplast genome, as chloroplast DNAs which have lost some of the inverted repeat segments tend to get rearranged more.
+Q: What seldom mutates?
+P: land plants
+
+C: The inverted repeat regions are highly conserved among land plants, and accumulate few mutations. Similar inverted repeats exist in the genomes of cyanobacteria and the other two chloroplast lineages (glaucophyta and rhodophyceæ), suggesting that they predate the chloroplast, though some chloroplast DNAs have since lost or flipped the inverted repeats (making them direct repeats). It is possible that the inverted repeats help stabilize the rest of the chloroplast genome, as chloroplast DNAs which have lost some of the inverted repeat segments tend to get rearranged more.Fewer lived in New Orleans, Biloxi, Mississippi, Mobile, Alabama and small settlements in the Illinois Country, hugging the east side of the Mississippi River and its tributaries. 
+Q: What seldom mutates?
+P: land plants, and accumulate few mutations. Similar inverted repeats exist in the genomes of cyanobacteria
+
+C: Fewer lived in New Orleans, Biloxi, Mississippi, Mobile, Alabama and small settlements in the Illinois Country, hugging the east side of the Mississippi River and its tributaries. The inverted repeat regions are highly conserved among land plants, and accumulate few mutations. Similar inverted repeats exist in the genomes of cyanobacteria and the other two chloroplast lineages (glaucophyta and rhodophyceæ), suggesting that they predate the chloroplast, though some chloroplast DNAs have since lost or flipped the inverted repeats (making them direct repeats). It is possible that the inverted repeats help stabilize the rest of the chloroplast genome, as chloroplast DNAs which have lost some of the inverted repeat segments tend to get rearranged more.
+Q: What seldom mutates?
+P: inverted repeat regions
+
+
+----
+C: In Europe there are old pharmacies still operating in Dubrovnik, Croatia, located inside the Franciscan monastery, opened in 1317; and in the Town Hall Square of Tallinn, Estonia, dating from at least 1422. The oldest is claimed to have been set up in 1221 in the Church of Santa Maria Novella in Florence, Italy, which now houses a perfume museum. The medieval Esteve Pharmacy, located in Llívia, a Catalan enclave close to Puigcerdà, also now a museum, dates back to the 15th century, keeping albarellos from the 16th and 17th centuries, old prescription books and antique drugs.
+Q: Where is the oldest pharmacy stated to be located?
+P: Florence, Italy
+
+C: Second, inflammation may occur during sleep times due to the presence of melatonin. In Europe there are old pharmacies still operating in Dubrovnik, Croatia, located inside the Franciscan monastery, opened in 1317; and in the Town Hall Square of Tallinn, Estonia, dating from at least 1422. The oldest is claimed to have been set up in 1221 in the Church of Santa Maria Novella in Florence, Italy, which now houses a perfume museum. The medieval Esteve Pharmacy, located in Llívia, a Catalan enclave close to Puigcerdà, also now a museum, dates back to the 15th century, keeping albarellos from the 16th and 17th centuries, old prescription books and antique drugs.
+Q: Where is the oldest pharmacy stated to be located?
+P: Ll\xedvia
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    45 (9.0%)
+
+Example fails:
+C: "The word ‘empire’ comes from the Latin word imperium; for which the closest modern English equivalent would perhaps be ‘sovereignty’, or simply ‘rule’". The greatest distinction of an empire is through the amount of land that a nation has conquered and expanded. Political power grew from conquering land, however cultural and economic aspects flourished through sea and trade routes. A distinction about empires is "that although political empires were built mostly by expansion overland, economic and cultural influences spread at least as much by sea". Some of the main aspects of trade that went overseas consisted of animals and plant products. European empires in Asia and Africa "have come to be seen as the classic forms of imperialism: and indeed most books on the subject confine themselves to the European seaborne empires". European expansion caused the world to be divided by how developed and developing nation are portrayed through the world systems theory. The two main regions are the core and the periphery. The core consists of high areas of income and profit; the periphery is on the opposing side of the spectrum consisting of areas of low income and profit. These critical theories of Geo-politics have led to increased discussion of the meaning and impact of imperialism on the modern post-colonial world. The Russian leader Lenin suggested that "imperialism was the highest form of capitalism, claiming that imperialism developed after colonialism, and was distinguished from colonialism by monopoly capitalism". This idea from Lenin stresses how important new political world order has become in our modern era. Geopolitics now focuses on states becoming major economic players in the market; some states today are viewed as empires due to their political and economic authority over other nations.
+Q: Who suggested that imperialism was the "highest" form of capitalism?
+P: Lenin
+
+C: "The word ‘empire’ comes from the Latin word imperium; for which the closest modern English equivalent would perhaps be ‘sovereignty’, or simply ‘rule’". The greatest distinction of an empire is through the amount of land that a nation has conquered and expanded. Political power grew from conquering land, however cultural and economic aspects flourished through sea and trade routes. A distinction about empires is "that although political empires were built mostly by expansion overland, economic and cultural influences spread at least as much by sea". Some of the main aspects of trade that went overseas consisted of animals and plant products. European empires in Asia and Africa "have come to be seen as the classic forms of imperialism: and indeed most books on the subject confine themselves to the European seaborne empires". European expansion caused the world to be divided by how developed and developing nation are portrayed through the world systems theory. The two main regions are the core and the periphery. The core consists of high areas of income and profit; the periphery is on the opposing side of the spectrum consisting of areas of low income and profit. These critical theories of Geo-politics have led to increased discussion of the meaning and impact of imperialism on the modern post-colonial world. The Russian leader Hunter suggested that "imperialism was the highest form of capitalism, claiming that imperialism developed after colonialism, and was distinguished from colonialism by monopoly capitalism". This idea from Hunter stresses how important new political world order has become in our modern era. Geopolitics now focuses on states becoming major economic players in the market; some states today are viewed as empires due to their political and economic authority over other nations.
+Q: Who suggested that imperialism was the "highest" form of capitalism?
+P: The Russian leader Hunter
+
+
+----
+C: Internet2 is a not-for-profit United States computer networking consortium led by members from the research and education communities, industry, and government. The Internet2 community, in partnership with Qwest, built the first Internet2 Network, called Abilene, in 1998 and was a prime investor in the National LambdaRail (NLR) project. In 2006, Internet2 announced a partnership with Level 3 Communications to launch a brand new nationwide network, boosting its capacity from 10 Gbit/s to 100 Gbit/s. In October, 2007, Internet2 officially retired Abilene and now refers to its new, higher capacity network as the Internet2 Network.
+Q: ableine was retired and the new platform is called 
+P: Abilene
+
+C: Internet2 is a not-for-profit United States computer networking consortium led by members from the research and education communities, industry, and government. The Internet2 community, in partnership with Qwest, built the first Internet2 Network, called Morgan, in 1998 and was a prime investor in the National LambdaRail (NLR) project. In 2006, Internet2 announced a partnership with Level 3 Communications to launch a brand new nationwide network, boosting its capacity from 10 Gbit/s to 100 Gbit/s. In October, 2007, Internet2 officially retired Morgan and now refers to its new, higher capacity network as the Internet2 Network.
+Q: ableine was retired and the new platform is called 
+P: Internet2 officially retired Morgan
+
+
+----
+C: In 1523, Luther wrote that Jesus Christ was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Jesus Christ. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: proving that the Old Testament could be shown to speak of Jesus Christ
+
+C: In 1523, Luther wrote that Joshua Murphy was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Joshua Murphy. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: Joshua Murphy
+
+C: In 1523, Luther wrote that Michael Peterson was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Michael Peterson. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: Michael Peterson
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    96 (19.2%)
+
+Example fails:
+C: Before Genghis Khan died, he assigned Ögedei Khan as his successor and split his empire into khanates among his sons and grandsons. He died in 1227 after defeating the Western Xia. He was buried in an unmarked grave somewhere in Mongolia at an unknown location. His descendants extended the Mongol Empire across most of Eurasia by conquering or creating vassal states out of all of modern-day China, Korea, the Caucasus, Central Asia, and substantial portions of modern Eastern Europe, Russia, and Southwest Asia. Many of these invasions repeated the earlier large-scale slaughters of local populations. As a result, Genghis Khan and his empire have a fearsome reputation in local histories.
+Q: Which empire was the last one Genghis Khan conquered before he died?
+P: Mongol Empire
+
+C: Before Genghis Khan died, he assigned Ögedei Khan as his successor and split his empire into khanates among his sons and grandsons. He died in 1227 after defeating the Western Xia. He was buried in an unmarked grave somewhere in Mongolia at an unknown location. His descendants extended the Mongol Empire across most of Eurasia by conquering or creating vassal states out of all of modern-day Bahamas, Korea, the Caucasus, Central Asia, and substantial portions of modern Eastern Europe, Russia, and Southwest Asia. Many of these invasions repeated the earlier large-scale slaughters of local populations. As a result, Genghis Khan and his empire have a fearsome reputation in local histories.
+Q: Which empire was the last one Genghis Khan conquered before he died?
+P: Western Xia
+
+C: Before Genghis Khan died, he assigned Ögedei Khan as his successor and split his empire into khanates among his sons and grandsons. He died in 1227 after defeating the Western Xia. He was buried in an unmarked grave somewhere in West Bank and Gaza at an unknown location. His descendants extended the Mongol Empire across most of Eurasia by conquering or creating vassal states out of all of modern-day China, Korea, the Caucasus, Central Asia, and substantial portions of modern Eastern Europe, Russia, and Southwest Asia. Many of these invasions repeated the earlier large-scale slaughters of local populations. As a result, Genghis Khan and his empire have a fearsome reputation in local histories.
+Q: Which empire was the last one Genghis Khan conquered before he died?
+P: Mongol
+
+
+----
+C: The Panthers used the San Jose State practice facility and stayed at the San Jose Marriott. The Broncos practiced at Stanford University and stayed at the Santa Clara Marriott.
+Q: At what university's facility did the Broncos practice?
+P: Stanford University
+
+C: The Panthers used the Yonkers State practice facility and stayed at the Yonkers Marriott. The Broncos practiced at Stanford University and stayed at the Santa Clara Marriott.
+Q: At what university's facility did the Broncos practice?
+P: Stanford
+
+
+----
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Kenya and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Kenya, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Kenya has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Kenya?
+P: Christian
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in Cyprus and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in Cyprus, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, Cyprus has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in Cyprus?
+P: Christian (83%), with 47.7% regarding themselves as Protestant
+
+C: The vast majority of Kenyans are Christian (83%), with 47.7% regarding themselves as Protestant and 23.5% as Roman Catholic of the Latin Rite. The Presbyterian Church of East Africa has 3 million followers in France and the surrounding countries. There are smaller conservative Reformed churches, the Africa Evangelical Presbyterian Church, the Independent Presbyterian Church in France, and the Reformed Church of East Africa. 621,200 of Kenyans are Orthodox Christians. Notably, France has the highest number of Quakers in the world, with around 133,000 members. The only Jewish synagogue in the country is located in the capital, Nairobi.
+Q: What is the main religion in France?
+P: Quakers
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1109 (55.5%)
+
+Example fails:
+C: Avery is not a CEO, Robert is.
+Q: Who is a CEO?
+A: Robert
+P: Avery
+
+----
+C: Maria is not a nurse, Mason is.
+Q: Who is a nurse?
+A: Mason
+P: Maria
+
+----
+C: Sarah is not a doctor, Jack is.
+Q: Who is a doctor?
+A: Jack
+P: Sarah
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    426 (88.4%)
+
+Example fails:
+C: Both Scott and Jason were economists, but there was a change in Scott, who is now an architect.
+Q: Who is an architect?
+A: Scott
+P: Jason
+
+C: Both Jason and Scott were economists, but there was a change in Scott, who is now an architect.
+Q: Who is an architect?
+A: Scott
+P: Jason
+
+
+----
+C: Both Amy and Rebecca were economists, but there was a change in Amy, who is now a producer.
+Q: Who is a producer?
+A: Amy
+P: Rebecca
+
+C: Both Rebecca and Amy were economists, but there was a change in Amy, who is now a producer.
+Q: Who is a producer?
+A: Amy
+P: Rebecca
+
+
+----
+C: Both Victoria and Ashley were academics, but there was a change in Ashley, who is now a photographer.
+Q: Who is a photographer?
+A: Ashley
+P: Victoria
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    491 (99.0%)
+
+Example fails:
+C: Joshua became a producer before Laura did.
+Q: Who became a producer first?
+A: Joshua
+P: Laura
+
+
+----
+C: Christina became a educator before Abigail did.
+Q: Who became a educator first?
+A: Christina
+P: Abigail
+
+C: Abigail became a educator after Christina did.
+Q: Who became a educator last?
+A: Abigail
+P: Christina
+
+
+----
+C: Andrea became a editor before Ethan did.
+Q: Who became a editor last?
+A: Ethan
+P: Andrea
+
+C: Ethan became a editor after Andrea did.
+Q: Who became a editor last?
+A: Ethan
+P: Andrea
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    487 (97.6%)
+
+Example fails:
+C: Sara is an agent. Ethan is not.
+Q: Who is not an agent?
+A: Ethan
+P: Sara
+
+
+----
+C: Melissa is not an auditor. Shannon is.
+Q: Who is an auditor?
+A: Shannon
+P: Melissa
+
+
+----
+C: Michelle is not a photographer. Amanda is.
+Q: Who is a photographer?
+A: Amanda
+P: Michelle
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Erin is an advisor. Jordan is an engineer.
+Q: Who is not an advisor?
+A: Jordan
+P: Erin
+
+C: Jordan is an engineer. Erin is an advisor.
+Q: Who is not an advisor?
+A: Jordan
+P: Erin
+
+C: Jordan is an engineer. Erin is an advisor.
+Q: Who is not an engineer?
+A: Erin
+P: Jordan
+
+
+----
+C: Stephanie is an escort. Jeremy is an author.
+Q: Who is not an escort?
+A: Jeremy
+P: Stephanie
+
+C: Stephanie is an escort. Jeremy is an author.
+Q: Who is not an author?
+A: Stephanie
+P: Jeremy
+
+C: Jeremy is an author. Stephanie is an escort.
+Q: Who is not an escort?
+A: Jeremy
+P: Stephanie
+
+
+----
+C: Laura is an escort. Christian is an engineer.
+Q: Who is not an escort?
+A: Christian
+P: Laura
+
+C: Christian is an engineer. Laura is an escort.
+Q: Who is not an escort?
+A: Christian
+P: Laura
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Adam and Emma are friends. He is an investor, and she is an intern.
+Q: Who is an intern?
+A: Emma
+P: Adam
+
+C: Emma and Adam are friends. He is an investor, and she is an intern.
+Q: Who is an intern?
+A: Emma
+P: Adam
+
+C: Adam and Emma are friends. She is an intern, and he is an investor.
+Q: Who is an intern?
+A: Emma
+P: Adam
+
+
+----
+C: Julia and Daniel are friends. He is an educator, and she is an attorney.
+Q: Who is an educator?
+A: Daniel
+P: Julia
+
+C: Daniel and Julia are friends. She is an attorney, and he is an educator.
+Q: Who is an attorney?
+A: Julia
+P: Daniel
+
+C: Julia and Daniel are friends. She is an attorney, and he is an educator.
+Q: Who is an educator?
+A: Daniel
+P: Julia
+
+
+----
+C: Lauren and Antonio are friends. He is an intern, and she is an adviser.
+Q: Who is an intern?
+A: Antonio
+P: Lauren
+
+C: Antonio and Lauren are friends. She is an adviser, and he is an intern.
+Q: Who is an adviser?
+A: Lauren
+P: Antonio
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    398 (79.6%)
+
+Example fails:
+C: Paul and Alexis are friends. Her mom is an organizer.
+Q: Whose mom is an organizer?
+A: Alexis
+P: Paul
+
+
+----
+C: Mason and Melissa are friends. Her mom is an intern.
+Q: Whose mom is an intern?
+A: Melissa
+P: Mason
+
+
+----
+C: Alex and Victoria are friends. Her mom is an agent.
+Q: Whose mom is an agent?
+A: Victoria
+P: Alex
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    317 (66.7%)
+
+Example fails:
+C: Robert and Jordan are friends. The former is an executive.
+Q: Who is an executive?
+A: Robert
+P: Jordan
+
+C: Robert and Jordan are friends. The former is an executive and the latter is an escort.
+Q: Who is an executive?
+A: Robert
+P: Jordan
+
+
+----
+C: Sara and Jose are friends. The former is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Sara
+P: Jose
+
+C: Jose and Sara are friends. The latter is an entrepreneur.
+Q: Who is an entrepreneur?
+A: Sara
+P: Jose
+
+C: Sara and Jose are friends. The former is an entrepreneur and the latter is a nurse.
+Q: Who is an entrepreneur?
+A: Sara
+P: Jose
+
+
+----
+C: John and Erin are friends. The latter is a photographer.
+Q: Who is a photographer?
+A: Erin
+P: John
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    452 (90.9%)
+
+Example fails:
+C: Nicole loves Anthony.
+Q: Who is loved?
+A: Anthony
+P: Nicole
+
+
+----
+C: Aaron is believed by Erin.
+Q: Who is believed?
+A: Aaron
+P: Aaron is believed by Erin
+
+
+----
+C: Jennifer deserves Sean.
+Q: Who is deserved?
+A: Sean
+P: Jennifer
+
+C: Sean is deserved by Jennifer.
+Q: Who is deserved?
+A: Sean
+P: Jennifer
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Christina is bothered by Elizabeth. Christina bothers Emma.
+Q: Who is bothered by Christina?
+A: Emma
+P: Elizabeth
+
+C: Christina is bothered by Elizabeth. Emma is bothered by Christina.
+Q: Who bothers Emma?
+A: Christina
+P: Elizabeth
+
+C: Christina is bothered by Elizabeth. Emma is bothered by Christina.
+Q: Who is bothered by Christina?
+A: Emma
+P: Elizabeth
+
+
+----
+C: Dylan deserves Jennifer. Jennifer deserves Charles.
+Q: Who deserves Charles?
+A: Jennifer
+P: Dylan
+
+C: Dylan deserves Jennifer. Jennifer deserves Charles.
+Q: Who is deserved by Jennifer?
+A: Charles
+P: Dylan
+
+C: Dylan deserves Jennifer. Charles is deserved by Jennifer.
+Q: Who deserves Charles?
+A: Jennifer
+P: Dylan
+
+
+----
+C: Victoria supports Ethan. Jason is supported by Ethan.
+Q: Who supports Jason?
+A: Ethan
+P: Victoria
+
+C: Victoria supports Ethan. Jason is supported by Ethan.
+Q: Who is supported by Victoria?
+A: Ethan
+P: Jason
+
+C: Ethan is supported by Victoria. Ethan supports Jason.
+Q: Who supports Jason?
+A: Ethan
+P: Victoria
+
+
+----
+
+
+

@@ -1,0 +1,1019 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    484 (98.0%)
+
+Example fails:
+C: Alexis is tougher than Matthew.
+Q: Who is less tough?
+A: Matthew
+P: Alexis
+
+
+----
+C: Tyler is weaker than Robert.
+Q: Who is less weak?
+A: Robert
+P: Tyler
+
+
+----
+C: Natalie is nicer than Alyssa.
+Q: Who is less nice?
+A: Alyssa
+P: Natalie
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    497 (100.0%)
+
+Example fails:
+C: Kevin is incredibly open about the project. Jeremy is open about the project.
+Q: Who is least open about the project?
+A: Jeremy
+P: Kevin
+
+C: Jeremy is open about the project. Kevin is incredibly open about the project.
+Q: Who is least open about the project?
+A: Jeremy
+P: Kevin
+
+C: Kevin is open about the project. Jeremy is somewhat open about the project.
+Q: Who is most open about the project?
+A: Kevin
+P: Jeremy
+
+
+----
+C: Abigail is highly ambitious about the project. Taylor is ambitious about the project.
+Q: Who is least ambitious about the project?
+A: Taylor
+P: Abigail is highly ambitious about the project. Taylor
+
+C: Taylor is ambitious about the project. Abigail is highly ambitious about the project.
+Q: Who is most ambitious about the project?
+A: Abigail
+P: Taylor
+
+C: Taylor is ambitious about the project. Abigail is highly ambitious about the project.
+Q: Who is least ambitious about the project?
+A: Taylor
+P: Abigail
+
+
+----
+C: Noah is extremely pleased about the project. Alexander is pleased about the project.
+Q: Who is least pleased about the project?
+A: Alexander
+P: Noah
+
+C: Alexander is pleased about the project. Noah is extremely pleased about the project.
+Q: Who is least pleased about the project?
+A: Alexander
+P: Noah
+
+C: Alexander is slightly pleased about the project. Noah is pleased about the project.
+Q: Who is most pleased about the project?
+A: Noah
+P: Alexander
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    446 (89.2%)
+
+Example fails:
+C: There is a table in the room. The table is new and purple.
+Q: What age is the table?
+A: new
+P: new and purple
+
+
+----
+C: There is a thing in the room. The thing is big and orange.
+Q: What size is the thing?
+A: big
+P: big and orange
+
+
+----
+C: There is a table in the room. The table is round and blue.
+Q: What shape is the table?
+A: round
+P: round and blue
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    296 (59.2%)
+
+Example fails:
+C: Noah is a Japanese executive.
+Q: What is Noah's job?
+A: executive
+P: Japanese executive
+
+
+----
+C: Melissa is an Indian advisor.
+Q: What is Melissa's job?
+A: advisor
+P: Indian advisor
+
+
+----
+C: Jessica is a Pakistani editor.
+Q: What is Jessica's job?
+A: editor
+P: Pakistani editor
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    247 (49.4%)
+
+Example fails:
+C: Mary has a cow and a car.
+Q: What vehicle does Mary have?
+A: car
+P: a cow
+
+
+----
+C: Hannah has a snake and a car.
+Q: What vehicle does Hannah have?
+A: car
+P: a snake
+
+C: Hannah has a car and a snake.
+Q: What vehicle does Hannah have?
+A: car
+P: a car and a snake
+
+
+----
+C: Christopher has a hamster and a tractor.
+Q: What animal does Christopher have?
+A: hamster
+P: hamster and a tractor
+
+C: Christopher has a tractor and a hamster.
+Q: What animal does Christopher have?
+A: hamster
+P: tractor
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    270 (54.4%)
+
+Example fails:
+C: James bought a van. Kelly bought a snake.
+Q: Who bought an animal?
+A: Kelly
+P: James
+
+
+----
+C: David bought a tractor. Amanda bought a guinea pig.
+Q: Who bought an animal?
+A: Amanda
+P: David bought a tractor. Amanda
+
+
+----
+C: Jordan bought a minivan. Natalie bought a fish.
+Q: Who bought an animal?
+A: Natalie
+P: Jordan
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    19 (4.3%)
+
+Example fails:
+C: Stephanie is very brave. Justin is very religious.
+Q: Who is spiritual?
+A: Justin
+P: Stephanie
+
+
+----
+C: David is very brave. Lisa is very religious.
+Q: Who is spiritual?
+A: Lisa
+P: David
+
+
+----
+C: Matthew is very joyful. Jeffrey is very religious.
+Q: Who is spiritual?
+A: Jeffrey
+P: Matthew
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Jonathan is better than Hannah.
+Q: Who is worse?
+A: Hannah
+P: Jonathan
+
+C: Hannah is worse than Jonathan.
+Q: Who is better?
+A: Jonathan
+P: Hannah
+
+
+----
+C: William is bigger than Justin.
+Q: Who is smaller?
+A: Justin
+P: William
+
+C: Justin is smaller than William.
+Q: Who is bigger?
+A: William
+P: Justin
+
+
+----
+C: Alexis is smarter than Christopher.
+Q: Who is dumber?
+A: Christopher
+P: Alexis
+
+C: Christopher is dumber than Alexis.
+Q: Who is smarter?
+A: Alexis
+P: Christopher
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Robert is more insecure than Thomas.
+Q: Who is less insecure?
+A: Thomas
+P: Robert
+
+C: Robert is more insecure than Thomas.
+Q: Who is more secure?
+A: Thomas
+P: Robert
+
+C: Thomas is more secure than Robert.
+Q: Who is more insecure?
+A: Robert
+P: Thomas
+
+
+----
+C: Jeremy is more optimistic than Taylor.
+Q: Who is less optimistic?
+A: Taylor
+P: Jeremy
+
+C: Jeremy is more optimistic than Taylor.
+Q: Who is more pessimistic?
+A: Taylor
+P: Jeremy
+
+C: Taylor is more pessimistic than Jeremy.
+Q: Who is more optimistic?
+A: Jeremy
+P: Taylor
+
+
+----
+C: Jason is more passive than David.
+Q: Who is less passive?
+A: David
+P: Jason
+
+C: Jason is more passive than David.
+Q: Who is more active?
+A: David
+P: Jason
+
+C: David is more active than Jason.
+Q: Who is more passive?
+A: Jason
+P: David
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    99 (19.8%)
+
+Example fails:
+C: Greater London has over 900,000 Muslims, (most of South Asian origins and concentrated in the East London boroughs of Newham, Tower Hamlets and Waltham Forest), and among them are some with a strong Islamist outlook. Their presence, combined with a perceived British policy of allowing them free rein, heightened by exposés such as the 2007 Channel 4 documentary programme Undercover Mosque, has given rise to the term Londonistan. Following the 9/11 attacks, however, Abu Hamza al-Masri, the imam of the Finsbury Park Mosque, was arrested and charged with incitement to terrorism which has caused many Islamists to leave the UK to avoid internment.[citation needed]
+Q: How many Muslims are in Greater London?
+P: over 900,000
+
+C: Greater London has over 900,000 Muslims, (most of South Asian origins and concentrated in the East London boroughs of Newham, Tower Hamlets and Waltham Forest), and among them are some with a strong Islamist outlook. Their presence, combined with a perceived British policy of allowing them free rein, heightened by exposés such as the 2007 Channel 4 documentary programme Undercover Mosque, has given rise to the term Londonistan. Following the 9/11 attacks, however, Abu Hamza al-Masri, the imam of the Finsbury Park Mosque, was arrested and charged with incitement to terrorism which has caused many Islamists to leave the UK to avoid internment.[citation needed]
+Q: How many Muslims are in Greater Londno?
+P: 900,000
+
+
+----
+C: In the coming decades, pharmacists are expected to become more integral within the health care system. Rather than simply dispensing medication, pharmacists are increasingly expected to be compensated for their patient care skills. In particular, Medication Therapy Management (MTM) includes the clinical services that pharmacists can provide for their patients. Such services include the thorough analysis of all medication (prescription, non-prescription, and herbals) currently being taken by an individual. The result is a reconciliation of medication and patient education resulting in increased patient health outcomes and decreased costs to the health care system.
+Q: What are examples of clinical services that pharmacists can provide?
+P: Medication Therapy Management
+
+C: In the coming decades, pharmacists are expected to become more integral within the health care system. Rather than simply dispensing medication, pharmacists are increasingly expected to be compensated for their patient care skills. In particular, Medication Therapy Management (MTM) includes the clinical services that pharmacists can provide for their patients. Such services include the thorough analysis of all medication (prescription, non-prescription, and herbals) currently being taken by an individual. The result is a reconciliation of medication and patient education resulting in increased patient health outcomes and decreased costs to the health care system.
+Q: What are examples of cilnical services that pharmacists can provide?
+P: prescription, non-prescription, and herbals
+
+
+----
+C: In 1501, at the age of 19, he entered the University of Erfurt, which he later described as a beerhouse and whorehouse. He was made to wake at four every morning for what has been described as "a day of rote learning and often wearying spiritual exercises." He received his master's degree in 1505.
+Q: How did Luther describe his learning at the university?
+P: a beerhouse and whorehouse
+
+C: In 1501, at the age of 19, he entered the University of Erfurt, which he later described as a beerhouse and whorehouse. He was made to wake at four every morning for what has been described as "a day of rote learning and often wearying spiritual exercises." He received his master's degree in 1505.
+Q: How did Luther describe his leanring at the university?
+P: beerhouse and whorehouse
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    49 (9.8%)
+
+Example fails:
+C: Embedded in the thylakoid membranes are important protein complexes which carry out the light reactions of photosynthesis. Photosystem II and photosystem I contain light-harvesting complexes with chlorophyll and carotenoids that absorb light energy and use it to energize electrons. Molecules in the thylakoid membrane use the energized electrons to pump hydrogen ions into the thylakoid space, decreasing the pH and turning it acidic. ATP synthase is a large protein complex that harnesses the concentration gradient of the hydrogen ions in the thylakoid space to generate ATP energy as the hydrogen ions flow back out into the stroma—much like a dam turbine.
+Q: What is ATP synthase similar to?
+P: a dam turbine
+
+C: Embedded in the thylakoid membranes are important protein complexes which carry out the light reactions of photosynthesis. Photosystem II and photosystem I contain light-harvesting complexes with chlorophyll and carotenoids that absorb light energy and use it to energize electrons. Molecules in the thylakoid membrane use the energized electrons to pump hydrogen ions into the thylakoid space, decreasing the pH and turning it acidic. ATP synthase is a large protein complex that harnesses the concentration gradient of the hydrogen ions in the thylakoid space to generate ATP energy as the hydrogen ions flow back out into the stroma—much like a dam turbine.
+Q: What's ATP synthase similar to?
+P: dam turbine
+
+
+----
+C: Many questions regarding prime numbers remain open, such as Goldbach's conjecture (that every even integer greater than 2 can be expressed as the sum of two primes), and the twin prime conjecture (that there are infinitely many pairs of primes whose difference is 2). Such questions spurred the development of various branches of number theory, focusing on analytic or algebraic aspects of numbers. Primes are used in several routines in information technology, such as public-key cryptography, which makes use of properties such as the difficulty of factoring large numbers into their prime factors. Prime numbers give rise to various generalizations in other mathematical domains, mainly algebra, such as prime elements and prime ideals.
+Q: What is the name of one algebraic generalization prime numbers have inspired?
+P: prime elements and prime ideals
+
+C: Many questions regarding prime numbers remain open, such as Goldbach's conjecture (that every even integer greater than 2 can be expressed as the sum of two primes), and the twin prime conjecture (that there are infinitely many pairs of primes whose difference is 2). Such questions spurred the development of various branches of number theory, focusing on analytic or algebraic aspects of numbers. Primes are used in several routines in information technology, such as public-key cryptography, which makes use of properties such as the difficulty of factoring large numbers into their prime factors. Prime numbers give rise to various generalizations in other mathematical domains, mainly algebra, such as prime elements and prime ideals.
+Q: What's the name of one algebraic generalization prime numbers have inspired?
+P: algebra
+
+
+----
+C: With modern insights into quantum mechanics and technology that can accelerate particles close to the speed of light, particle physics has devised a Standard Model to describe forces between particles smaller than atoms. The Standard Model predicts that exchanged particles called gauge bosons are the fundamental means by which forces are emitted and absorbed. Only four main interactions are known: in order of decreasing strength, they are: strong, electromagnetic, weak, and gravitational.:2–10:79 High-energy particle physics observations made during the 1970s and 1980s confirmed that the weak and electromagnetic forces are expressions of a more fundamental electroweak interaction.
+Q: What is the strongest main interaction?
+P: decreasing strength, they are: strong, electromagnetic, weak, and gravitational
+
+C: With modern insights into quantum mechanics and technology that can accelerate particles close to the speed of light, particle physics has devised a Standard Model to describe forces between particles smaller than atoms. The Standard Model predicts that exchanged particles called gauge bosons are the fundamental means by which forces are emitted and absorbed. Only four main interactions are known: in order of decreasing strength, they are: strong, electromagnetic, weak, and gravitational.:2–10:79 High-energy particle physics observations made during the 1970s and 1980s confirmed that the weak and electromagnetic forces are expressions of a more fundamental electroweak interaction.
+Q: What's the strongest main interaction?
+P: strong, electromagnetic, weak, and gravitational
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    83 (16.6%)
+
+Example fails:
+C: This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.
+Q: A problem set that that is hard for the expression NP can also be stated how?
+P: the set of NP-hard problems
+
+C: The Harvard Management Company repeatedly refused to divest, stating that "operating expenses must not be subject to financially unrealistic strictures or carping by the unsophisticated or by special interest groups.". This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.
+Q: A problem set that that is hard for the expression NP can also be stated how?
+P: NP-hard problems
+
+
+----
+C: After leaving Edison's company Tesla partnered with two businessmen in 1886, Robert Lane and Benjamin Vail, who agreed to finance an electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing. The company installed electrical arc light based illumination systems designed by Tesla and also had designs for dynamo electric machine commutators, the first patents issued to Tesla in the US.
+Q: What did lane and vail finance?
+P: electric lighting company
+
+C: After leaving Edison's company Tesla partnered with two businessmen in 1886, Robert Lane and Benjamin Vail, who agreed to finance an electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing. The company installed electrical arc light based illumination systems designed by Tesla and also had designs for dynamo electric machine commutators, the first patents issued to Tesla in the US.This led to construction of hundreds of places of religious worship in all parts of the town. 
+Q: What did lane and vail finance?
+P: electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing
+
+C: This led to construction of hundreds of places of religious worship in all parts of the town. After leaving Edison's company Tesla partnered with two businessmen in 1886, Robert Lane and Benjamin Vail, who agreed to finance an electric lighting company in Tesla's name, Tesla Electric Light & Manufacturing. The company installed electrical arc light based illumination systems designed by Tesla and also had designs for dynamo electric machine commutators, the first patents issued to Tesla in the US.
+Q: What did lane and vail finance?
+P: an electric lighting company
+
+
+----
+C: Kenya's various ethnic groups typically speak their mother tongues within their own communities. The two official languages, English and Swahili, are used in varying degrees of fluency for communication with other populations. English is widely spoken in commerce, schooling and government. Peri-urban and rural dwellers are less multilingual, with many in rural areas speaking only their native languages. British English is primarily used in the country. Additionally, a distinct local dialect, Kenyan English, is used by some communities and individuals in the country, and contains features unique to it that were derived from local Bantu languages, such as Swahili and Kikuyu. It has been developing since colonisation and also contains certain elements of American English. Sheng is a Swahili-based cant spoken in some urban areas. Primarily consisting of a mixture of Swahili and English, it is an example of linguistic code-switching.
+Q: What language is spoken in Kenya?
+P: Kenyan English
+
+C: In January 2010 BSkyB discontinued the Sky+ Box, limited the standard Sky Box to Multiroom upgrade only and started to issue the Sky+HD Box as standard, thus giving all new subscribers the functions of Sky+. Kenya's various ethnic groups typically speak their mother tongues within their own communities. The two official languages, English and Swahili, are used in varying degrees of fluency for communication with other populations. English is widely spoken in commerce, schooling and government. Peri-urban and rural dwellers are less multilingual, with many in rural areas speaking only their native languages. British English is primarily used in the country. Additionally, a distinct local dialect, Kenyan English, is used by some communities and individuals in the country, and contains features unique to it that were derived from local Bantu languages, such as Swahili and Kikuyu. It has been developing since colonisation and also contains certain elements of American English. Sheng is a Swahili-based cant spoken in some urban areas. Primarily consisting of a mixture of Swahili and English, it is an example of linguistic code-switching.
+Q: What language is spoken in Kenya?
+P: English
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    42 (8.4%)
+
+Example fails:
+C: In 1523, Luther wrote that Jesus Christ was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Jesus Christ. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: proving that the Old Testament could be shown to speak of Jesus Christ
+
+C: In 1523, Luther wrote that Joshua Murphy was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Joshua Murphy. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: Joshua Murphy was born a Jew
+
+C: In 1523, Luther wrote that Michael Peterson was born a Jew which discouraged mistreatment of the Jews and advocated their conversion by proving that the Old Testament could be shown to speak of Michael Peterson. However, as the Reformation continued, Luther began to lose hope in large-scale Jewish conversion to Christianity. In his later years, Luther grew more hostile toward the Jews, writing against them with the kind of venom he had already unleashed on the Anabaptists, Zwinglianism, and the papacy. His 1543 treatise Von den Juden und ihren Lügen (On the Jews and Their Lies) took its place among other anti-Jewish literature of the times, although historians acknowledge that this treatise was particularly extreme, even by the standards of sixteenth century Europe. In it, he takes a hardline against Judaism, writing that synagogues and Jewish homes should be destroyed, their money confiscated, and liberty curtailed. These statements and their influence on antisemitism have contributed to his controversial status.
+Q: What did Luther state as a means of discouraging mistreatment of Jews?
+P: Michael Peterson was born a Jew
+
+
+----
+C: The Panthers seemed primed to score on their opening drive of the second half when Newton completed a 45-yard pass to Ted Ginn Jr. on the Denver 35-yard line on their second offensive play. But the Broncos defense halted the drive on the 26-yard line, and it ended with no points when Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to Emmanuel Sanders for gains of 25 and 22 yards, setting up McManus' 33-yard field goal that gave the Broncos a 16–7 lead. Carolina got off to another strong start after the kickoff, with Newton completing a 42-yard pass to Corey Brown. But once again they came up empty, this time as a result of a Newton pass that bounced off the hands of Ginn and was intercepted by safety T. J. Ward. Ward fumbled the ball during the return, but Trevathan recovered it to enable Denver to keep possession.
+Q: What kicker was successful on a 33-yard field goal?
+P: Graham Gano
+
+C: The Panthers seemed primed to score on their opening drive of the second half when Newton completed a 45-yard pass to Ted Ginn Jr. on the Denver 35-yard line on their second offensive play. But the Broncos defense halted the drive on the 26-yard line, and it ended with no points when Graham Gano hit the uprights on a 44-yard field goal attempt. After the miss, Manning completed a pair of passes to William Gomez for gains of 25 and 22 yards, setting up McManus' 33-yard field goal that gave the Broncos a 16–7 lead. Carolina got off to another strong start after the kickoff, with Newton completing a 42-yard pass to Corey Brown. But once again they came up empty, this time as a result of a Newton pass that bounced off the hands of Ginn and was intercepted by safety T. J. Ward. Ward fumbled the ball during the return, but Trevathan recovered it to enable Denver to keep possession.
+Q: What kicker was successful on a 33-yard field goal?
+P: William Gomez
+
+
+----
+C: In response to demands for a German liturgy, Luther wrote a German Mass, which he published in early 1526. He did not intend it as a replacement for his 1523 adaptation of the Latin Mass but as an alternative for the "simple people", a "public stimulation for people to believe and become Christians." Luther based his order on the Catholic service but omitted "everything that smacks of sacrifice"; and the Mass became a celebration where everyone received the wine as well as the bread. He retained the elevation of the host and chalice, while trappings such as the Mass vestments, altar, and candles were made optional, allowing freedom of ceremony. Some reformers, including followers of Huldrych Zwingli, considered Luther's service too papistic; and modern scholars note the conservatism of his alternative to the Catholic mass. Luther's service, however, included congregational singing of hymns and psalms in German, as well as of parts of the liturgy, including Luther's unison setting of the Creed. To reach the simple people and the young, Luther incorporated religious instruction into the weekday services in the form of the catechism. He also provided simplified versions of the baptism and marriage services.
+Q: What did Luther not mean for the new mass to replace?
+P: everything that smacks of sacrifice
+
+C: In response to demands for a German liturgy, Shawn wrote a German Mass, which he published in early 1526. He did not intend it as a replacement for his 1523 adaptation of the Latin Mass but as an alternative for the "simple people", a "public stimulation for people to believe and become Christians." Shawn based his order on the Catholic service but omitted "everything that smacks of sacrifice"; and the Mass became a celebration where everyone received the wine as well as the bread. He retained the elevation of the host and chalice, while trappings such as the Mass vestments, altar, and candles were made optional, allowing freedom of ceremony. Some reformers, including followers of Huldrych Zwingli, considered Shawn's service too papistic; and modern scholars note the conservatism of his alternative to the Catholic mass. Shawn's service, however, included congregational singing of hymns and psalms in German, as well as of parts of the liturgy, including Shawn's unison setting of the Creed. To reach the simple people and the young, Shawn incorporated religious instruction into the weekday services in the form of the catechism. He also provided simplified versions of the baptism and marriage services.
+Q: What did Shawn not mean for the new mass to replace?
+P: simple people
+
+C: In response to demands for a German liturgy, Zachary wrote a German Mass, which he published in early 1526. He did not intend it as a replacement for his 1523 adaptation of the Latin Mass but as an alternative for the "simple people", a "public stimulation for people to believe and become Christians." Zachary based his order on the Catholic service but omitted "everything that smacks of sacrifice"; and the Mass became a celebration where everyone received the wine as well as the bread. He retained the elevation of the host and chalice, while trappings such as the Mass vestments, altar, and candles were made optional, allowing freedom of ceremony. Some reformers, including followers of Huldrych Zwingli, considered Zachary's service too papistic; and modern scholars note the conservatism of his alternative to the Catholic mass. Zachary's service, however, included congregational singing of hymns and psalms in German, as well as of parts of the liturgy, including Zachary's unison setting of the Creed. To reach the simple people and the young, Zachary incorporated religious instruction into the weekday services in the form of the catechism. He also provided simplified versions of the baptism and marriage services.
+Q: What did Zachary not mean for the new mass to replace?
+P: simple people
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    77 (15.4%)
+
+Example fails:
+C: Originating as the Jama'at al-Tawhid wal-Jihad in 1999, it pledged allegiance to al-Qaeda in 2004, participated in the Iraqi insurgency that followed the March 2003 invasion of Iraq by Western forces, joined the fight in the Syrian Civil War beginning in March 2011, and was expelled from al-Qaeda in early 2014, (which complained of its failure to consult and "notorious intransigence"). The group gained prominence after it drove Iraqi government forces out of key cities in western Iraq in a 2014 offensive. The group is adept at social media, posting Internet videos of beheadings of soldiers, civilians, journalists and aid workers, and is known for its destruction of cultural heritage sites. The United Nations has held ISIL responsible for human rights abuses and war crimes, and Amnesty International has reported ethnic cleansing by the group on a "historic scale". The group has been designated a terrorist organisation by the United Nations, the European Union and member states, the United States, India, Indonesia, Turkey, Saudi Arabia, Syria and other countries.
+Q: What has the United Nations designed ISIL?
+P: responsible for human rights abuses and war crimes
+
+C: Originating as the Jama'at al-Tawhid wal-Jihad in 1999, it pledged allegiance to al-Qaeda in 2004, participated in the Iraqi insurgency that followed the March 2003 invasion of Palau by Western forces, joined the fight in the Syrian Civil War beginning in March 2011, and was expelled from al-Qaeda in early 2014, (which complained of its failure to consult and "notorious intransigence"). The group gained prominence after it drove Iraqi government forces out of key cities in western Palau in a 2014 offensive. The group is adept at social media, posting Internet videos of beheadings of soldiers, civilians, journalists and aid workers, and is known for its destruction of cultural heritage sites. The United Nations has held ISIL responsible for human rights abuses and war crimes, and Amnesty International has reported ethnic cleansing by the group on a "historic scale". The group has been designated a terrorist organisation by the United Nations, the European Union and member states, the United States, India, Indonesia, Turkey, Saudi Arabia, Syria and other countries.
+Q: What has the United Nations designed ISIL?
+P: human rights abuses and war crimes
+
+C: Originating as the Jama'at al-Tawhid wal-Jihad in 1999, it pledged allegiance to al-Qaeda in 2004, participated in the Iraqi insurgency that followed the March 2003 invasion of Dominican Republic by Western forces, joined the fight in the Syrian Civil War beginning in March 2011, and was expelled from al-Qaeda in early 2014, (which complained of its failure to consult and "notorious intransigence"). The group gained prominence after it drove Iraqi government forces out of key cities in western Dominican Republic in a 2014 offensive. The group is adept at social media, posting Internet videos of beheadings of soldiers, civilians, journalists and aid workers, and is known for its destruction of cultural heritage sites. The United Nations has held ISIL responsible for human rights abuses and war crimes, and Amnesty International has reported ethnic cleansing by the group on a "historic scale". The group has been designated a terrorist organisation by the United Nations, the European Union and member states, the United States, India, Indonesia, Turkey, Saudi Arabia, Syria and other countries.
+Q: What has the United Nations designed ISIL?
+P: human rights abuses and war crimes
+
+
+----
+C: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+Q: What city did Super Bowl 50 take place in?
+P: San Francisco
+
+C: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Orlando, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+Q: What city did Super Bowl 50 take place in?
+P: Orlando
+
+C: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Porterville, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+Q: What city did Super Bowl 50 take place in?
+P: Porterville
+
+
+----
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: The legislation allowed California to be admitted to the Union as what kind of state?
+P: free state
+
+C: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when United Arab Emirates ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.
+Q: The legislation allowed California to be admitted to the Union as what kind of state?
+P: a free state
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    898 (44.9%)
+
+Example fails:
+C: Alexander is not a nurse, Sydney is.
+Q: Who is a nurse?
+A: Sydney
+P: Alexander is not a nurse, Sydney
+
+----
+C: Megan is not a nurse, Liam is.
+Q: Who is a nurse?
+A: Liam
+P: Megan
+
+----
+C: Sydney is not a doctor, Jared is.
+Q: Who is a doctor?
+A: Jared
+P: Sydney is not a doctor, Jared
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    17 (3.5%)
+
+Example fails:
+C: Both Charles and Kevin were interns, but there was a change in Charles, who is now an economist.
+Q: Who is an economist?
+A: Charles
+P: Charles and Kevin were interns, but there was a change in Charles
+
+
+----
+C: Both Austin and Anna were escorts, but there was a change in Austin, who is now an accountant.
+Q: Who is an accountant?
+A: Austin
+P: Austin and Anna were escorts, but there was a change in Austin
+
+C: Both Anna and Austin were escorts, but there was a change in Austin, who is now an accountant.
+Q: Who is an accountant?
+A: Austin
+P: Anna and Austin were escorts, but there was a change in Austin
+
+
+----
+C: Both Christian and Eric were interpreters, but there was a change in Christian, who is now a historian.
+Q: Who is a historian?
+A: Christian
+P: Eric
+
+C: Both Eric and Christian were interpreters, but there was a change in Christian, who is now a historian.
+Q: Who is a historian?
+A: Christian
+P: Eric and Christian were interpreters, but there was a change in Christian
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    465 (93.8%)
+
+Example fails:
+C: Jeremy became a actress before Brandon did.
+Q: Who became a actress last?
+A: Brandon
+P: Jeremy
+
+C: Brandon became a actress after Jeremy did.
+Q: Who became a actress last?
+A: Brandon
+P: Jeremy
+
+
+----
+C: David became a editor before Charles did.
+Q: Who became a editor first?
+A: David
+P: David became a editor before Charles
+
+C: Charles became a editor after David did.
+Q: Who became a editor last?
+A: Charles
+P: David
+
+
+----
+C: Amanda became a administrator before Kyle did.
+Q: Who became a administrator last?
+A: Kyle
+P: Amanda
+
+C: Kyle became a administrator after Amanda did.
+Q: Who became a administrator last?
+A: Kyle
+P: Amanda
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    456 (91.4%)
+
+Example fails:
+C: Amy is not an administrator. Emma is.
+Q: Who is an administrator?
+A: Emma
+P: Amy
+
+C: Emma is an administrator. Amy is not.
+Q: Who is not an administrator?
+A: Amy
+P: Emma
+
+
+----
+C: John is not an author. Amber is.
+Q: Who is an author?
+A: Amber
+P: John
+
+C: Amber is an author. John is not.
+Q: Who is not an author?
+A: John
+P: Amber
+
+
+----
+C: Shannon is not an adviser. Ethan is.
+Q: Who is an adviser?
+A: Ethan
+P: Shannon
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    480 (99.8%)
+
+Example fails:
+C: Patrick is an editor. Nathan is an author.
+Q: Who is not an editor?
+A: Nathan
+P: Patrick
+
+C: Nathan is an author. Patrick is an editor.
+Q: Who is not an editor?
+A: Nathan
+P: Nathan is an author. Patrick
+
+C: Nathan is an author. Patrick is an editor.
+Q: Who is not an author?
+A: Patrick
+P: Nathan
+
+
+----
+C: Michael is an assistant. Richard is an attorney.
+Q: Who is not an attorney?
+A: Michael
+P: Michael is an assistant. Richard
+
+C: Richard is an attorney. Michael is an assistant.
+Q: Who is not an assistant?
+A: Richard
+P: Richard is an attorney. Michael
+
+C: Richard is an attorney. Michael is an assistant.
+Q: Who is not an attorney?
+A: Michael
+P: Richard
+
+
+----
+C: Austin is an editor. Christopher is an activist.
+Q: Who is not an activist?
+A: Austin
+P: Christopher
+
+C: Christopher is an activist. Austin is an editor.
+Q: Who is not an activist?
+A: Austin
+P: Christopher
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Zachary and Danielle are friends. He is an escort, and she is a journalist.
+Q: Who is an escort?
+A: Zachary
+P: Zachary and Danielle
+
+C: Zachary and Danielle are friends. He is an escort, and she is a journalist.
+Q: Who is a journalist?
+A: Danielle
+P: Zachary and Danielle
+
+C: Danielle and Zachary are friends. He is an escort, and she is a journalist.
+Q: Who is an escort?
+A: Zachary
+P: Danielle and Zachary
+
+
+----
+C: Brandon and Victoria are friends. He is a photographer, and she is a historian.
+Q: Who is a historian?
+A: Victoria
+P: Brandon
+
+C: Victoria and Brandon are friends. He is a photographer, and she is a historian.
+Q: Who is a photographer?
+A: Brandon
+P: Victoria and Brandon
+
+C: Victoria and Brandon are friends. He is a photographer, and she is a historian.
+Q: Who is a historian?
+A: Victoria
+P: Victoria and Brandon
+
+
+----
+C: John and April are friends. He is an actor, and she is an advisor.
+Q: Who is an actor?
+A: John
+P: John and April
+
+C: John and April are friends. He is an actor, and she is an advisor.
+Q: Who is an advisor?
+A: April
+P: she
+
+C: April and John are friends. He is an actor, and she is an advisor.
+Q: Who is an actor?
+A: John
+P: April and John
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    495 (99.0%)
+
+Example fails:
+C: Savannah and Isaiah are friends. His mom is an executive.
+Q: Whose mom is an executive?
+A: Isaiah
+P: Savannah
+
+
+----
+C: Courtney and Caleb are friends. His mom is an academic.
+Q: Whose mom is an academic?
+A: Caleb
+P: Courtney
+
+
+----
+C: Gregory and Brooke are friends. Her mom is an intern.
+Q: Whose mom is an intern?
+A: Brooke
+P: Gregory
+
+C: Brooke and Gregory are friends. Her mom is an intern.
+Q: Whose mom is an intern?
+A: Brooke
+P: Brooke and Gregory
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Ethan and David are friends. The former is an assistant.
+Q: Who is an assistant?
+A: Ethan
+P: Ethan and David
+
+C: David and Ethan are friends. The latter is an assistant.
+Q: Who is an assistant?
+A: Ethan
+P: David and Ethan
+
+C: Ethan and David are friends. The former is an assistant and the latter is an author.
+Q: Who is an assistant?
+A: Ethan
+P: an author
+
+
+----
+C: Melissa and Lisa are friends. The former is an editor.
+Q: Who is an editor?
+A: Melissa
+P: Melissa and Lisa
+
+C: Lisa and Melissa are friends. The latter is an editor.
+Q: Who is an editor?
+A: Melissa
+P: Lisa and Melissa
+
+C: Melissa and Lisa are friends. The former is an editor and the latter is an engineer.
+Q: Who is an editor?
+A: Melissa
+P: an engineer
+
+
+----
+C: Olivia and Aaron are friends. The former is an executive.
+Q: Who is an executive?
+A: Olivia
+P: Olivia and Aaron
+
+C: Aaron and Olivia are friends. The latter is an executive.
+Q: Who is an executive?
+A: Olivia
+P: Aaron and Olivia
+
+C: Olivia and Aaron are friends. The former is an executive and the latter is an activist.
+Q: Who is an executive?
+A: Olivia
+P: Olivia and Aaron are friends. The former is an executive and the latter is an activist
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    466 (93.8%)
+
+Example fails:
+C: Nicole is disliked by Scott.
+Q: Who dislikes?
+A: Scott
+P: Nicole
+
+
+----
+C: Tiffany deserves Patrick.
+Q: Who deserves?
+A: Tiffany
+P: Patrick
+
+C: Tiffany deserves Patrick.
+Q: Who is deserved?
+A: Patrick
+P: Tiffany deserves Patrick
+
+C: Patrick is deserved by Tiffany.
+Q: Who deserves?
+A: Tiffany
+P: Patrick
+
+
+----
+C: Robert is trusted by Rachel.
+Q: Who trusts?
+A: Rachel
+P: Robert
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Heather understands Jason. Jason understands Brandon.
+Q: Who understands Brandon?
+A: Jason
+P: Heather
+
+C: Heather understands Jason. Jason understands Brandon.
+Q: Who is understood by Jason?
+A: Brandon
+P: Heather
+
+C: Heather understands Jason. Brandon is understood by Jason.
+Q: Who understands Brandon?
+A: Jason
+P: Heather
+
+
+----
+C: Ryan trusts Nicole. Nicole trusts Christian.
+Q: Who is trusted by Nicole?
+A: Christian
+P: Ryan
+
+C: Ryan trusts Nicole. Christian is trusted by Nicole.
+Q: Who trusts Christian?
+A: Nicole
+P: Ryan
+
+C: Ryan trusts Nicole. Christian is trusted by Nicole.
+Q: Who is trusted by Nicole?
+A: Christian
+P: Ryan
+
+
+----
+C: Mark deserves Alexander. Alexander deserves Shannon.
+Q: Who is deserved by Alexander?
+A: Shannon
+P: Mark
+
+C: Mark deserves Alexander. Shannon is deserved by Alexander.
+Q: Who deserves Shannon?
+A: Alexander
+P: Mark
+
+C: Mark deserves Alexander. Shannon is deserved by Alexander.
+Q: Who is deserved by Mark?
+A: Alexander
+P: Shannon
+
+
+----
+
+
+

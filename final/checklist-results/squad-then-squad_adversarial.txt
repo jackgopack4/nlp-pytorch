@@ -1,0 +1,1026 @@
+Vocabulary
+
+A is COMP than B. Who is more / less COMP?
+Test cases:      494
+Fails (rate):    267 (54.0%)
+
+Example fails:
+C: Brittany is slower than Mark.
+Q: Who is less slow?
+A: Mark
+P: Brittany
+
+
+----
+C: Sara is higher than William.
+Q: Who is higher?
+A: Sara
+P: William
+
+
+----
+C: Adam is greater than Kevin.
+Q: Who is less great?
+A: Kevin
+P: Adam
+
+
+----
+
+
+Intensifiers (very, super, extremely) and reducers (somewhat, kinda, etc)?
+Test cases:      497
+Fails (rate):    496 (99.8%)
+
+Example fails:
+C: Lauren is super optimistic about the project. Sarah is optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Sarah
+P: Lauren
+
+C: Sarah is optimistic about the project. Lauren is super optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Sarah
+P: Lauren
+
+C: Sarah is slightly optimistic about the project. Lauren is optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Sarah
+P: Sarah is slightly optimistic about the project. Lauren
+
+
+----
+C: Nicholas is very vocal about the project. Scott is vocal about the project.
+Q: Who is least vocal about the project?
+A: Scott
+P: Nicholas
+
+C: Scott is vocal about the project. Nicholas is very vocal about the project.
+Q: Who is least vocal about the project?
+A: Scott
+P: Nicholas
+
+C: Scott is mildly vocal about the project. Nicholas is vocal about the project.
+Q: Who is least vocal about the project?
+A: Scott
+P: Nicholas
+
+
+----
+C: Jamie is incredibly optimistic about the project. Stephanie is optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Stephanie
+P: Jamie
+
+C: Stephanie is optimistic about the project. Jamie is incredibly optimistic about the project.
+Q: Who is least optimistic about the project?
+A: Stephanie
+P: Jamie
+
+C: Jamie is optimistic about the project. Stephanie is a little optimistic about the project.
+Q: Who is most optimistic about the project?
+A: Jamie
+P: Stephanie
+
+
+----
+
+
+
+
+Taxonomy
+
+size, shape, age, color
+Test cases:      500
+Fails (rate):    154 (30.8%)
+
+Example fails:
+C: There is a painting in the room. The painting is enormous and oval.
+Q: What size is the painting?
+A: enormous
+P: enormous and oval
+
+
+----
+C: There is a toy in the room. The toy is oval and white.
+Q: What shape is the toy?
+A: oval
+P: oval and white
+
+
+----
+C: There is a sculpture in the room. The sculpture is big and orange.
+Q: What size is the sculpture?
+A: big
+P: big and orange
+
+
+----
+
+
+Profession vs nationality
+Test cases:      500
+Fails (rate):    103 (20.6%)
+
+Example fails:
+C: Anna is a producer and Russian.
+Q: What is Anna's job?
+A: producer
+P: producer and Russian
+
+
+----
+C: Andrea is a Japanese intern.
+Q: What is Andrea's job?
+A: intern
+P: Japanese intern
+
+
+----
+C: Madison is an Indian attorney.
+Q: What is Madison's job?
+A: attorney
+P: Indian attorney
+
+
+----
+
+
+Animal vs Vehicle
+Test cases:      500
+Fails (rate):    160 (32.0%)
+
+Example fails:
+C: Alyssa has a bull and a bike.
+Q: What vehicle does Alyssa have?
+A: bike
+P: bull
+
+C: Alyssa has a bike and a bull.
+Q: What vehicle does Alyssa have?
+A: bike
+P: bull
+
+
+----
+C: Maria has a hamster and a firetruck.
+Q: What animal does Maria have?
+A: hamster
+P: hamster and a firetruck
+
+C: Maria has a hamster and a firetruck.
+Q: What vehicle does Maria have?
+A: firetruck
+P: hamster
+
+C: Maria has a firetruck and a hamster.
+Q: What vehicle does Maria have?
+A: firetruck
+P: hamster
+
+
+----
+C: Jonathan has a hamster and a car.
+Q: What vehicle does Jonathan have?
+A: car
+P: hamster
+
+C: Jonathan has a car and a hamster.
+Q: What vehicle does Jonathan have?
+A: car
+P: hamster
+
+
+----
+
+
+Animal vs Vehicle v2
+Test cases:      496
+Fails (rate):    311 (62.7%)
+
+Example fails:
+C: Tiffany bought a bike. Sophia bought a dog.
+Q: Who bought an animal?
+A: Sophia
+P: Tiffany
+
+
+----
+C: Benjamin bought a firetruck. Shannon bought a lizard.
+Q: Who bought an animal?
+A: Shannon
+P: Benjamin
+
+
+----
+C: Stephanie bought a rabbit. Katherine bought a car.
+Q: Who bought an animal?
+A: Stephanie
+P: Katherine
+
+C: Katherine bought a car. Stephanie bought a rabbit.
+Q: Who bought an animal?
+A: Stephanie
+P: Katherine
+
+
+----
+
+
+Synonyms
+Test cases:      447
+Fails (rate):    68 (15.2%)
+
+Example fails:
+C: Zachary is very frightened. Scott is very modest.
+Q: Who is scared?
+A: Zachary
+P: Zachary is very frightened. Scott
+
+
+----
+C: Victoria is very intelligent. Daniel is very humble.
+Q: Who is smart?
+A: Victoria
+P: Daniel
+
+
+----
+C: Christian is very humble. Maria is very scared.
+Q: Who is modest?
+A: Christian
+P: Christian is very humble. Maria
+
+
+----
+
+
+A is COMP than B. Who is antonym(COMP)? B
+Test cases:      496
+Fails (rate):    493 (99.4%)
+
+Example fails:
+C: Emily is stronger than Ethan.
+Q: Who is weaker?
+A: Ethan
+P: Emily is stronger than Ethan
+
+C: Emily is stronger than Ethan.
+Q: Who is stronger?
+A: Emily
+P: Emily is stronger than Ethan
+
+C: Ethan is weaker than Emily.
+Q: Who is stronger?
+A: Emily
+P: Ethan
+
+
+----
+C: Jason is faster than Mary.
+Q: Who is slower?
+A: Mary
+P: Jason
+
+C: Mary is slower than Jason.
+Q: Who is faster?
+A: Jason
+P: Mary
+
+
+----
+C: Heather is older than Kevin.
+Q: Who is younger?
+A: Kevin
+P: Heather
+
+C: Kevin is younger than Heather.
+Q: Who is older?
+A: Heather
+P: Kevin
+
+
+----
+
+
+A is more X than B. Who is more antonym(X)? B. Who is less X? B. Who is more X? A. Who is less antonym(X)? A.
+Test cases:      491
+Fails (rate):    491 (100.0%)
+
+Example fails:
+C: Jordan is more impatient than Christopher.
+Q: Who is less impatient?
+A: Christopher
+P: Jordan
+
+C: Jordan is more impatient than Christopher.
+Q: Who is more patient?
+A: Christopher
+P: Jordan
+
+C: Christopher is more patient than Jordan.
+Q: Who is more impatient?
+A: Jordan
+P: Christopher
+
+
+----
+C: Michelle is more negative than Mary.
+Q: Who is less negative?
+A: Mary
+P: Michelle
+
+C: Michelle is more negative than Mary.
+Q: Who is more positive?
+A: Mary
+P: Michelle
+
+C: Mary is more positive than Michelle.
+Q: Who is more negative?
+A: Michelle
+P: Mary
+
+
+----
+C: Danielle is more stupid than Joseph.
+Q: Who is less stupid?
+A: Joseph
+P: Danielle
+
+C: Danielle is more stupid than Joseph.
+Q: Who is more smart?
+A: Joseph
+P: Danielle
+
+C: Joseph is more smart than Danielle.
+Q: Who is more stupid?
+A: Danielle
+P: Joseph
+
+
+----
+
+
+
+
+Robustness
+
+Question typo
+Test cases:      500
+Fails (rate):    144 (28.8%)
+
+Example fails:
+C: For the complexity classes defined in this way, it is desirable to prove that relaxing the requirements on (say) computation time indeed defines a bigger set of problems. In particular, although DTIME(n) is contained in DTIME(n2), it would be interesting to know if the inclusion is strict. For time and space requirements, the answer to such questions is given by the time and space hierarchy theorems respectively. They are called hierarchy theorems because they induce a proper hierarchy on the classes defined by constraining the respective resources. Thus there are pairs of complexity classes such that one is properly included in the other. Having deduced such proper set inclusions, we can proceed to make quantitative statements about how much more additional time or space is needed in order to increase the number of problems that can be solved.
+Q: What theorems are responsible for determining questions of time and space requirements?
+P: time and space hierarchy theorems respectively. They are called hierarchy theorems
+
+C: For the complexity classes defined in this way, it is desirable to prove that relaxing the requirements on (say) computation time indeed defines a bigger set of problems. In particular, although DTIME(n) is contained in DTIME(n2), it would be interesting to know if the inclusion is strict. For time and space requirements, the answer to such questions is given by the time and space hierarchy theorems respectively. They are called hierarchy theorems because they induce a proper hierarchy on the classes defined by constraining the respective resources. Thus there are pairs of complexity classes such that one is properly included in the other. Having deduced such proper set inclusions, we can proceed to make quantitative statements about how much more additional time or space is needed in order to increase the number of problems that can be solved.
+Q: What theorems are responsible for dteermining questions of time and space requirements?
+P: hierarchy theorems
+
+
+----
+C: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.
+Q: What reform was attempted following the Nice Treaty?
+P: the constitutional law of the European Union
+
+C: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.
+Q: What rfeorm was attempted following the Nice Treaty?
+P: Lisbon Treaty
+
+
+----
+C: In the United States, the industry in 2014 has around $960 billion in annual revenue according to statistics tracked by the Census Bureau, of which $680 billion is private (split evenly between residential and nonresidential) and the remainder is government. As of 2005, there were about 667,000 firms employing 1 million contractors (200,000 general contractors, 38,000 heavy, and 432,000 specialty); the average contractor employed fewer than 10 employees. As a whole, the industry employed an estimated 5.8 million as of April 2013, with a 13.2% unemployment rate. In the United States, approximately 828,000 women were employed in the construction industry as of 2011.
+Q: How much revenue is private?
+P: $680 billion
+
+C: In the United States, the industry in 2014 has around $960 billion in annual revenue according to statistics tracked by the Census Bureau, of which $680 billion is private (split evenly between residential and nonresidential) and the remainder is government. As of 2005, there were about 667,000 firms employing 1 million contractors (200,000 general contractors, 38,000 heavy, and 432,000 specialty); the average contractor employed fewer than 10 employees. As a whole, the industry employed an estimated 5.8 million as of April 2013, with a 13.2% unemployment rate. In the United States, approximately 828,000 women were employed in the construction industry as of 2011.
+Q: How much revenue is priavte?
+P: annual
+
+
+----
+
+
+Question contractions
+Test cases:      500
+Fails (rate):    69 (13.8%)
+
+Example fails:
+C: The Panthers used the San Jose State practice facility and stayed at the San Jose Marriott. The Broncos practiced at Stanford University and stayed at the Santa Clara Marriott.
+Q: Where did the Broncos stay at for Super Bowl 50?
+P: Santa Clara Marriott
+
+C: The Panthers used the San Jose State practice facility and stayed at the San Jose Marriott. The Broncos practiced at Stanford University and stayed at the Santa Clara Marriott.
+Q: Where'd the Broncos stay at for Super Bowl 50?
+P: San Jose Marriott. The Broncos practiced at Stanford University and stayed at the Santa Clara Marriott
+
+
+----
+C: In education, teachers facilitate student learning, often in a school or academy or perhaps in another environment such as outdoors. A teacher who teaches on an individual basis may be described as a tutor.
+Q: Where is another indoor location for a teacher other than a school?
+P: outdoors
+
+C: In education, teachers facilitate student learning, often in a school or academy or perhaps in another environment such as outdoors. A teacher who teaches on an individual basis may be described as a tutor.
+Q: Where's another indoor location for a teacher other than a school?
+P: academy
+
+
+----
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where did the genoese traders bring the plague?
+P: Kaffa
+
+C: Plague was reportedly first introduced to Europe via Genoese traders at the port city of Kaffa in the Crimea in 1347. After a protracted siege, during which the Mongol army under Jani Beg was suffering from the disease, the army catapulted the infected corpses over the city walls of Kaffa to infect the inhabitants. The Genoese traders fled, taking the plague by ship into Sicily and the south of Europe, whence it spread north. Whether or not this hypothesis is accurate, it is clear that several existing conditions such as war, famine, and weather contributed to the severity of the Black Death.
+Q: Where'd the genoese traders bring the plague?
+P: Sicily and the south of Europe
+
+
+----
+
+
+Add random sentence to context
+Test cases:      500
+Fails (rate):    125 (25.0%)
+
+Example fails:
+C: The Doctor rarely travels alone and often brings one or more companions to share these adventures. His companions are usually humans, as he has found a fascination with planet Earth. He often finds events that pique his curiosity as he tries to prevent evil forces from harming innocent people or changing history, using only his ingenuity and minimal resources, such as his versatile sonic screwdriver. As a Time Lord, the Doctor has the ability to regenerate when his body is mortally damaged, taking on a new appearance and personality. The Doctor has gained numerous reoccurring enemies during his travels, including the Daleks, the Cybermen, and the Master, another renegade Time Lord.
+Q: What type of Lord is Doctor Who?
+P: Time
+
+C: AppleTalk included features that allowed local area networks to be established ad hoc without the requirement for a centralized router or server. The Doctor rarely travels alone and often brings one or more companions to share these adventures. His companions are usually humans, as he has found a fascination with planet Earth. He often finds events that pique his curiosity as he tries to prevent evil forces from harming innocent people or changing history, using only his ingenuity and minimal resources, such as his versatile sonic screwdriver. As a Time Lord, the Doctor has the ability to regenerate when his body is mortally damaged, taking on a new appearance and personality. The Doctor has gained numerous reoccurring enemies during his travels, including the Daleks, the Cybermen, and the Master, another renegade Time Lord.
+Q: What type of Lord is Doctor Who?
+P: renegade
+
+
+----
+C: Apollo 5 (AS-204) was the first unmanned test flight of LM in Earth orbit, launched from pad 37 on January 22, 1968, by the Saturn IB that would have been used for Apollo 1. The LM engines were successfully test-fired and restarted, despite a computer programming error which cut short the first descent stage firing. The ascent engine was fired in abort mode, known as a "fire-in-the-hole" test, where it was lit simultaneously with jettison of the descent stage. Although Grumman wanted a second unmanned test, George Low decided the next LM flight would be manned.
+Q: Which Apollo was the first testing of the LM, unmanned, in Earth's orbit?
+P: Apollo 5
+
+C: During the ordinary legislative procedure, the Council (which are ministers from member state governments) and the European Parliament (elected by citizens) can make amendments and must give their consent for laws to pass. Apollo 5 (AS-204) was the first unmanned test flight of LM in Earth orbit, launched from pad 37 on January 22, 1968, by the Saturn IB that would have been used for Apollo 1. The LM engines were successfully test-fired and restarted, despite a computer programming error which cut short the first descent stage firing. The ascent engine was fired in abort mode, known as a "fire-in-the-hole" test, where it was lit simultaneously with jettison of the descent stage. Although Grumman wanted a second unmanned test, George Low decided the next LM flight would be manned.
+Q: Which Apollo was the first testing of the LM, unmanned, in Earth's orbit?
+P: Apollo 1
+
+
+----
+C: Free oxygen gas was almost nonexistent in Earth's atmosphere before photosynthetic archaea and bacteria evolved, probably about 3.5 billion years ago. Free oxygen first appeared in significant quantities during the Paleoproterozoic eon (between 3.0 and 2.3 billion years ago). For the first billion years, any free oxygen produced by these organisms combined with dissolved iron in the oceans to form banded iron formations. When such oxygen sinks became saturated, free oxygen began to outgas from the oceans 3–2.7 billion years ago, reaching 10% of its present level around 1.7 billion years ago.
+Q: How long ago did oxygen reach 10% of its present level?
+P: around 1.7 billion years
+
+C: Free oxygen gas was almost nonexistent in Earth's atmosphere before photosynthetic archaea and bacteria evolved, probably about 3.5 billion years ago. Free oxygen first appeared in significant quantities during the Paleoproterozoic eon (between 3.0 and 2.3 billion years ago). For the first billion years, any free oxygen produced by these organisms combined with dissolved iron in the oceans to form banded iron formations. When such oxygen sinks became saturated, free oxygen began to outgas from the oceans 3–2.7 billion years ago, reaching 10% of its present level around 1.7 billion years ago.There were many religions practiced during the Yuan dynasty, such as Buddhism, Islam, and Christianity. 
+Q: How long ago did oxygen reach 10% of its present level?
+P: 3\u20132.7 billion years ago
+
+C: There were many religions practiced during the Yuan dynasty, such as Buddhism, Islam, and Christianity. Free oxygen gas was almost nonexistent in Earth's atmosphere before photosynthetic archaea and bacteria evolved, probably about 3.5 billion years ago. Free oxygen first appeared in significant quantities during the Paleoproterozoic eon (between 3.0 and 2.3 billion years ago). For the first billion years, any free oxygen produced by these organisms combined with dissolved iron in the oceans to form banded iron formations. When such oxygen sinks became saturated, free oxygen began to outgas from the oceans 3–2.7 billion years ago, reaching 10% of its present level around 1.7 billion years ago.
+Q: How long ago did oxygen reach 10% of its present level?
+P: 3\u20132.7 billion years ago
+
+
+----
+
+
+
+
+NER
+
+Change name everywhere
+Test cases:      500
+Fails (rate):    68 (13.6%)
+
+Example fails:
+C: The 1970s were highlighted by several successful comedy, fantasy, action and superhero-themed series for the network including Kung Fu, The Six Million Dollar Man, Wonder Woman, Starsky & Hutch, Charlie's Angels, The Bionic Woman, Fantasy Island and Battlestar Galactica. Many of these series were greenlit by Silverman, who left ABC in 1978 to become president of NBC's entertainment division. The rousing success of Happy Days also led to a successful spin-off series, Laverne & Shirley, which debuted in 1976. Charlie's Angels and Three's Company (which debuted in 1977) were two prime examples of a trend among the major networks during the 1970s known as "jiggle TV", featuring attractive, often buxom, women in main and guest roles.
+Q: What television trend are Charlies Angels and Three's Company an example of?
+P: jiggle TV
+
+C: The 1970s were highlighted by several successful comedy, fantasy, action and superhero-themed series for the network including Kung Fu, The Six Million Dollar Man, Wonder Woman, Starsky & Hutch, Jayden's Angels, The Bionic Woman, Fantasy Island and Battlestar Galactica. Many of these series were greenlit by Silverman, who left ABC in 1978 to become president of NBC's entertainment division. The rousing success of Happy Days also led to a successful spin-off series, Laverne & Shirley, which debuted in 1976. Jayden's Angels and Three's Company (which debuted in 1977) were two prime examples of a trend among the major networks during the 1970s known as "jiggle TV", featuring attractive, often buxom, women in main and guest roles.
+Q: What television trend are Charlies Angels and Three's Company an example of?
+P: jiggle
+
+
+----
+C: In 2014, work was completed on the stations historic entrance. Glazing was placed over the historic arches and the Victorian architecture was enhanced; transforming the 19th century public portico. The station is one of only six Grade One listed railway stations in the UK. Opened in 1850 by Queen Victoria, it was the first covered railway station in the world and was much copied across the UK. It has a neoclassical façade, originally designed by the architect John Dobson, and was constructed in collaboration with Robert Stephenson. The station sightlines towards the Castle Keep, whilst showcasing the curvature of the station’s arched roof. The first services were operated by the North Eastern Railway company. The city's other mainline station, Manors, is to the east of the city centre.
+Q: What Queen opened the first covered railway station in the world?
+P: Victoria
+
+C: In 2014, work was completed on the stations historic entrance. Glazing was placed over the historic arches and the Victorian architecture was enhanced; transforming the 19th century public portico. The station is one of only six Grade One listed railway stations in the UK. Opened in 1850 by Amanda Rivera, it was the first covered railway station in the world and was much copied across the UK. It has a neoclassical façade, originally designed by the architect John Dobson, and was constructed in collaboration with Robert Stephenson. The station sightlines towards the Castle Keep, whilst showcasing the curvature of the station’s arched roof. The first services were operated by the North Eastern Railway company. The city's other mainline station, Manors, is to the east of the city centre.
+Q: What Queen opened the first covered railway station in the world?
+P: Amanda Rivera
+
+C: In 2014, work was completed on the stations historic entrance. Glazing was placed over the historic arches and the Victorian architecture was enhanced; transforming the 19th century public portico. The station is one of only six Grade One listed railway stations in the UK. Opened in 1850 by Nicole Young, it was the first covered railway station in the world and was much copied across the UK. It has a neoclassical façade, originally designed by the architect John Dobson, and was constructed in collaboration with Robert Stephenson. The station sightlines towards the Castle Keep, whilst showcasing the curvature of the station’s arched roof. The first services were operated by the North Eastern Railway company. The city's other mainline station, Manors, is to the east of the city centre.
+Q: What Queen opened the first covered railway station in the world?
+P: Nicole Young
+
+
+----
+C: Westwood One will carry the game throughout North America, with Kevin Harlan as play-by-play announcer, Boomer Esiason and Dan Fouts as color analysts, and James Lofton and Mark Malone as sideline reporters. Jim Gray will anchor the pre-game and halftime coverage.
+Q: Who were the Westwood One sideline announcers?
+P: Kevin Harlan as play-by-play announcer, Boomer Esiason and Dan Fouts as color analysts, and James Lofton and Mark Malone
+
+C: Westwood One will carry the game throughout North America, with William Perez as play-by-play announcer, Boomer Esiason and Dan Fouts as color analysts, and James Lofton and Mark Malone as sideline reporters. Jim Gray will anchor the pre-game and halftime coverage.
+Q: Who were the Westwood One sideline announcers?
+P: James Lofton and Mark Malone
+
+
+----
+
+
+Change location everywhere
+Test cases:      500
+Fails (rate):    129 (25.8%)
+
+Example fails:
+C: Iqbal expressed fears that not only would secularism and secular nationalism weaken the spiritual foundations of Islam and Muslim society, but that India's Hindu-majority population would crowd out Muslim heritage, culture and political influence. In his travels to Egypt, Afghanistan, Palestine and Syria, he promoted ideas of greater Islamic political co-operation and unity, calling for the shedding of nationalist differences. Sir Muhammad Iqbal was elected president of the Muslim League in 1930 at its session in Allahabad as well as for the session in Lahore in 1932. In his Allahabad Address on 29 December 1930, Iqbal outlined a vision of an independent state for Muslim-majority provinces in northwestern India. This address later inspired the Pakistan movement.
+Q: What did Iqbal's Allahabad address inspire?
+P: the Pakistan movement
+
+C: Iqbal expressed fears that not only would secularism and secular nationalism weaken the spiritual foundations of Islam and Muslim society, but that India's Hindu-majority population would crowd out Muslim heritage, culture and political influence. In his travels to Egypt, Afghanistan, Palestine and Syria, he promoted ideas of greater Islamic political co-operation and unity, calling for the shedding of nationalist differences. Sir Muhammad Iqbal was elected president of the Muslim League in 1930 at its session in Allahabad as well as for the session in Lahore in 1932. In his Allahabad Address on 29 December 1930, Iqbal outlined a vision of an independent state for Muslim-majority provinces in northwestern India. This address later inspired the Côte d'Ivoire movement.
+Q: What did Iqbal's Allahabad address inspire?
+P: C\xf4te d'Ivoire movement
+
+
+----
+C: Following the treaty, King George III issued the Royal Proclamation of 1763 on October 7, 1763, which outlined the division and administration of the newly conquered territory, and to some extent continues to govern relations between the government of modern Canada and the First Nations. Included in its provisions was the reservation of lands west of the Appalachian Mountains to its Indian population, a demarcation that was at best a temporary impediment to a rising tide of westward-bound settlers. The proclamation also contained provisions that prevented civic participation by the Roman Catholic Canadians. When accommodations were made in the Quebec Act in 1774 to address this and other issues, religious concerns were raised in the largely Protestant Thirteen Colonies over the advance of "popery"; the Act maintained French Civil law, including the seigneurial system, a medieval code soon to be removed from France within a generation by the French Revolution.
+Q: What was the objective of Royal Proclamation of 1763?
+P: division and administration of the newly conquered territory, and to some extent continues to govern relations between the government of modern Canada and the First Nations
+
+C: Following the treaty, King George III issued the Royal Proclamation of 1763 on October 7, 1763, which outlined the division and administration of the newly conquered territory, and to some extent continues to govern relations between the government of modern São Tomé and Principe and the First Nations. Included in its provisions was the reservation of lands west of the Appalachian Mountains to its Indian population, a demarcation that was at best a temporary impediment to a rising tide of westward-bound settlers. The proclamation also contained provisions that prevented civic participation by the Roman Catholic Canadians. When accommodations were made in the Quebec Act in 1774 to address this and other issues, religious concerns were raised in the largely Protestant Thirteen Colonies over the advance of "popery"; the Act maintained French Civil law, including the seigneurial system, a medieval code soon to be removed from France within a generation by the French Revolution.
+Q: What was the objective of Royal Proclamation of 1763?
+P: division and administration of the newly conquered territory
+
+
+----
+C: The Broncos took an early lead in Super Bowl 50 and never trailed. Newton was limited by Denver's defense, which sacked him seven times and forced him into three turnovers, including a fumble which they recovered for a touchdown. Denver linebacker Von Miller was named Super Bowl MVP, recording five solo tackles, 2½ sacks, and two forced fumbles.
+Q: Who won the MVP for the Super Bowl?
+P: The Broncos
+
+C: The Broncos took an early lead in Super Bowl 50 and never trailed. Newton was limited by Weymouth Town's defense, which sacked him seven times and forced him into three turnovers, including a fumble which they recovered for a touchdown. Weymouth Town linebacker Von Miller was named Super Bowl MVP, recording five solo tackles, 2½ sacks, and two forced fumbles.
+Q: Who won the MVP for the Super Bowl?
+P: Weymouth Town
+
+C: The Broncos took an early lead in Super Bowl 50 and never trailed. Newton was limited by Carson City's defense, which sacked him seven times and forced him into three turnovers, including a fumble which they recovered for a touchdown. Carson City linebacker Von Miller was named Super Bowl MVP, recording five solo tackles, 2½ sacks, and two forced fumbles.
+Q: Who won the MVP for the Super Bowl?
+P: Broncos
+
+
+----
+
+
+
+
+Fairness
+
+M/F failure rates should be similar for different professions
+Test cases:      2000
+Fails (rate):    1908 (95.4%)
+
+Example fails:
+C: Mary is not a secretary, Jacob is.
+Q: Who is a secretary?
+A: Jacob
+P: Mary
+
+----
+C: Leah is not a doctor, Liam is.
+Q: Who is a doctor?
+A: Liam
+P: Leah
+
+----
+C: Allison is not a CEO, Antonio is.
+Q: Who is a CEO?
+A: Antonio
+P: Allison
+
+----
+
+
+
+
+Temporal
+
+There was a change in profession
+Test cases:      482
+Fails (rate):    6 (1.2%)
+
+Example fails:
+C: Both Jordan and Michael were journalists, but there was a change in Jordan, who is now an artist.
+Q: Who is an artist?
+A: Jordan
+P: Jordan and Michael
+
+C: Both Michael and Jordan were journalists, but there was a change in Jordan, who is now an artist.
+Q: Who is an artist?
+A: Jordan
+P: Michael and Jordan
+
+
+----
+C: Both Brittany and Christian were interns, but there was a change in Brittany, who is now an academic.
+Q: Who is an academic?
+A: Brittany
+P: Brittany and Christian
+
+C: Both Christian and Brittany were interns, but there was a change in Brittany, who is now an academic.
+Q: Who is an academic?
+A: Brittany
+P: Both Christian and Brittany
+
+
+----
+C: Both Brittany and Hannah were engineers, but there was a change in Brittany, who is now an escort.
+Q: Who is an escort?
+A: Brittany
+P: Brittany and Hannah
+
+
+----
+
+
+Understanding before / after -> first / last.
+Test cases:      496
+Fails (rate):    496 (100.0%)
+
+Example fails:
+C: Emma became a artist after Christopher did.
+Q: Who became a artist first?
+A: Christopher
+P: Emma
+
+C: Emma became a artist after Christopher did.
+Q: Who became a artist last?
+A: Emma
+P: Christopher
+
+
+----
+C: Abigail became a agent before Sean did.
+Q: Who became a agent first?
+A: Abigail
+P: Sean
+
+C: Sean became a agent after Abigail did.
+Q: Who became a agent first?
+A: Abigail
+P: Sean
+
+
+----
+C: Nicole became a auditor before Matthew did.
+Q: Who became a auditor first?
+A: Nicole
+P: Matthew
+
+C: Matthew became a auditor after Nicole did.
+Q: Who became a auditor first?
+A: Nicole
+P: Matthew
+
+C: Matthew became a auditor after Nicole did.
+Q: Who became a auditor last?
+A: Matthew
+P: Nicole
+
+
+----
+
+
+
+
+Negation
+
+Negation in context, may or may not be in question
+Test cases:      499
+Fails (rate):    491 (98.4%)
+
+Example fails:
+C: Patrick is not an artist. Abigail is.
+Q: Who is an artist?
+A: Abigail
+P: Patrick
+
+
+----
+C: Victoria is not a producer. Michael is.
+Q: Who is a producer?
+A: Michael
+P: Victoria
+
+C: Michael is a producer. Victoria is not.
+Q: Who is not a producer?
+A: Victoria
+P: Michael
+
+
+----
+C: Anna is not an author. John is.
+Q: Who is an author?
+A: John
+P: Anna
+
+C: John is an author. Anna is not.
+Q: Who is not an author?
+A: Anna
+P: John
+
+
+----
+
+
+Negation in question only.
+Test cases:      481
+Fails (rate):    481 (100.0%)
+
+Example fails:
+C: Brittany is an author. Tyler is an investor.
+Q: Who is not an author?
+A: Tyler
+P: Brittany
+
+C: Brittany is an author. Tyler is an investor.
+Q: Who is not an investor?
+A: Brittany
+P: Tyler
+
+C: Tyler is an investor. Brittany is an author.
+Q: Who is not an investor?
+A: Brittany
+P: Tyler
+
+
+----
+C: Erin is an attorney. Jessica is an administrator.
+Q: Who is not an attorney?
+A: Jessica
+P: Erin
+
+C: Jessica is an administrator. Erin is an attorney.
+Q: Who is not an administrator?
+A: Erin
+P: Jessica
+
+
+----
+C: Adam is an organizer. Noah is an escort.
+Q: Who is not an organizer?
+A: Noah
+P: Adam
+
+
+----
+
+
+
+
+Coref
+
+Basic coref, he / she
+Test cases:      477
+Fails (rate):    477 (100.0%)
+
+Example fails:
+C: Kenneth and Michelle are friends. He is an architect, and she is an executive.
+Q: Who is an architect?
+A: Kenneth
+P: Kenneth and Michelle
+
+C: Kenneth and Michelle are friends. He is an architect, and she is an executive.
+Q: Who is an executive?
+A: Michelle
+P: Kenneth and Michelle
+
+C: Michelle and Kenneth are friends. He is an architect, and she is an executive.
+Q: Who is an architect?
+A: Kenneth
+P: Michelle and Kenneth
+
+
+----
+C: Scott and Brianna are friends. He is an academic, and she is an accountant.
+Q: Who is an academic?
+A: Scott
+P: Scott and Brianna
+
+C: Scott and Brianna are friends. He is an academic, and she is an accountant.
+Q: Who is an accountant?
+A: Brianna
+P: Scott and Brianna
+
+C: Brianna and Scott are friends. He is an academic, and she is an accountant.
+Q: Who is an academic?
+A: Scott
+P: Brianna and Scott
+
+
+----
+C: Jesus and Courtney are friends. He is a historian, and she is an executive.
+Q: Who is a historian?
+A: Jesus
+P: Jesus and Courtney
+
+C: Jesus and Courtney are friends. He is a historian, and she is an executive.
+Q: Who is an executive?
+A: Courtney
+P: Jesus and Courtney
+
+C: Courtney and Jesus are friends. He is a historian, and she is an executive.
+Q: Who is a historian?
+A: Jesus
+P: Courtney and Jesus
+
+
+----
+
+
+Basic coref, his / her
+Test cases:      500
+Fails (rate):    259 (51.8%)
+
+Example fails:
+C: Jeremy and Rachel are friends. His mom is an escort.
+Q: Whose mom is an escort?
+A: Jeremy
+P: Rachel
+
+C: Rachel and Jeremy are friends. His mom is an escort.
+Q: Whose mom is an escort?
+A: Jeremy
+P: Rachel
+
+
+----
+C: Robert and Riley are friends. His mom is a historian.
+Q: Whose mom is a historian?
+A: Robert
+P: Robert and Riley
+
+C: Riley and Robert are friends. His mom is a historian.
+Q: Whose mom is a historian?
+A: Robert
+P: Riley
+
+
+----
+C: Jeffrey and Hailey are friends. His mom is an executive.
+Q: Whose mom is an executive?
+A: Jeffrey
+P: Hailey
+
+C: Hailey and Jeffrey are friends. His mom is an executive.
+Q: Whose mom is an executive?
+A: Jeffrey
+P: Hailey
+
+
+----
+
+
+Former / Latter
+Test cases:      475
+Fails (rate):    475 (100.0%)
+
+Example fails:
+C: Michael and Steven are friends. The former is an attorney.
+Q: Who is an attorney?
+A: Michael
+P: Michael and Steven
+
+C: Steven and Michael are friends. The latter is an attorney.
+Q: Who is an attorney?
+A: Michael
+P: Steven and Michael
+
+C: Michael and Steven are friends. The former is an attorney and the latter is a photographer.
+Q: Who is an attorney?
+A: Michael
+P: Michael and Steven are friends. The former is an attorney and the latter is a photographer
+
+
+----
+C: Joshua and Christina are friends. The former is an activist.
+Q: Who is an activist?
+A: Joshua
+P: Joshua and Christina
+
+C: Christina and Joshua are friends. The latter is an activist.
+Q: Who is an activist?
+A: Joshua
+P: Christina and Joshua
+
+C: Joshua and Christina are friends. The former is an activist and the latter is an architect.
+Q: Who is an activist?
+A: Joshua
+P: Joshua and Christina
+
+
+----
+C: Nicholas and Katherine are friends. The former is an escort.
+Q: Who is an escort?
+A: Nicholas
+P: Nicholas and Katherine
+
+C: Katherine and Nicholas are friends. The latter is an escort.
+Q: Who is an escort?
+A: Nicholas
+P: Katherine and Nicholas
+
+C: Nicholas and Katherine are friends. The former is an escort and the latter is an organizer.
+Q: Who is an escort?
+A: Nicholas
+P: Nicholas and Katherine
+
+
+----
+
+
+
+
+SRL
+
+Agent / object distinction
+Test cases:      497
+Fails (rate):    440 (88.5%)
+
+Example fails:
+C: Emily dislikes Christina.
+Q: Who is disliked?
+A: Christina
+P: Emily
+
+
+----
+C: Nicole loves Anthony.
+Q: Who is loved?
+A: Anthony
+P: Nicole loves Anthony
+
+
+----
+C: William is recognized by Kimberly.
+Q: Who is recognized?
+A: William
+P: William is recognized by Kimberly
+
+
+----
+
+
+Agent / object distinction with 3 agents
+Test cases:      483
+Fails (rate):    483 (100.0%)
+
+Example fails:
+C: Jonathan likes Jessica. Jessica likes Alyssa.
+Q: Who likes Alyssa?
+A: Jessica
+P: Jonathan
+
+C: Jonathan likes Jessica. Jessica likes Alyssa.
+Q: Who is liked by Jonathan?
+A: Jessica
+P: Jessica. Jessica likes Alyssa
+
+C: Jonathan likes Jessica. Alyssa is liked by Jessica.
+Q: Who likes Alyssa?
+A: Jessica
+P: Jonathan likes Jessica. Alyssa is liked by Jessica
+
+
+----
+C: Lisa supports Eric. Eric supports Jacob.
+Q: Who supports Jacob?
+A: Eric
+P: Lisa
+
+C: Lisa supports Eric. Jacob is supported by Eric.
+Q: Who is supported by Lisa?
+A: Eric
+P: Eric. Jacob
+
+C: Eric is supported by Lisa. Jacob is supported by Eric.
+Q: Who supports Eric?
+A: Lisa
+P: Jacob
+
+
+----
+C: Tyler blames Zachary. Zachary blames Joshua.
+Q: Who blames Joshua?
+A: Zachary
+P: Tyler
+
+C: Tyler blames Zachary. Zachary blames Joshua.
+Q: Who is blamed by Tyler?
+A: Zachary
+P: Zachary. Zachary blames Joshua
+
+C: Tyler blames Zachary. Zachary blames Joshua.
+Q: Who is blamed by Zachary?
+A: Joshua
+P: Tyler
+
+
+----
+
+
+
